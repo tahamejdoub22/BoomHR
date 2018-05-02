@@ -11,20 +11,6 @@ body {
         text-decoration: none;
     }
     
-    .ui-icon {
-        height: $iconHeight;
-        width: $iconWidth;
-        font-size: $iconFontSize;
-        display: inline-block;
-        vertical-align: baseline;
-        margin: 0;
-        margin-top: 0;
-        position: static;
-        text-indent: 0;
-        overflow: visible;
-        background-repeat: no-repeat;
-    }
-
     .ui-corner-all {
         @include border-radius($borderRadius);
     }

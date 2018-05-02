@@ -1,10 +1,5 @@
 @import '../_variables';
 
-//icons
-$iconWidth:$fontSize + 2;
-$iconHeight:$fontSize + 2;
-$iconFontSize:$fontSize + 2;
-
 //anchor
 $linkColor:$primaryColor;
 $linkHoverColor:$primaryDarkColor;
@@ -15,15 +10,15 @@ $highlightBgColor:$secondaryColor;
 $highlightColorText:$secondaryColorText;
 
 //input field
-$inputPadding:6px;
-$inputBgColor:#ffffff;
-$inputBorder:1px solid #a6a6a6;
-$inputHoverBorderColor:#212121;
-$inputFocusBorderColor:$primaryColor;
-$inputErrorBorderColor:#a80000;
-$inputPlaceholderTextColor:#666666;
-$inputFocusShadow:none;
-$inputTransition:border-color $transitionDuration;
+$inputPadding:0.429em; //OK
+$inputBgColor:#ffffff; //OK
+$inputBorder:1px solid #a6a6a6; //OK
+$inputHoverBorderColor:#212121; //OK
+$inputFocusBorderColor:$primaryColor; //OK
+$inputErrorBorderColor:#a80000; //OK
+$inputPlaceholderTextColor:#666666; //OK
+$inputFocusShadow:none; //OK
+$inputTransition:border-color $transitionDuration; //OK
 
 //groups
 $inputGroupBorderColor:#a6a6a6;
@@ -74,34 +69,34 @@ $inputDropdownIconColor:$textColor;
 $inputButtonWidth:30px;
 
 //button
-$buttonTextOnlyPadding:6px 14px;
-$buttonWithLeftIconPadding:6px 14px 6px 28px;
-$buttonWithRightIconPadding:6px 28px 6px 14px;
-$buttonIconOnlyPadding:6px;
-$buttonIconOnlyWidth:30px;
-$buttonBgColor:$primaryColor;
-$buttonBorder:1px solid $primaryColor;
-$buttonTextColor:$primaryColorText;
-$buttonHoverBgColor:$primaryDarkAltColor;
-$buttonHoverTextColor:$primaryDarkAltColorText;
-$buttonHoverBorderColor:$primaryDarkAltColor;
-$buttonActiveBgColor:$primaryDarkColor;
-$buttonActiveTextColor:$primaryDarkColorText;
-$buttonActiveBorderColor:$primaryDarkColor;
-$buttonFocusOutline:1px solid #000000;
-$buttonFocusOutlineOffset:1px;
-$buttonTransition:background-color $transitionDuration;
-$secondaryButtonBgColor:#f4f4f4;
-$secondaryButtonBorder:1px solid #f4f4f4;
-$secondaryButtonTextColor:#333333;
-$secondaryButtonHoverBgColor:#c8c8c8;
-$secondaryButtonHoverTextColor:#212121;
-$secondaryButtonHoverBorderColor:#c8c8c8;
-$secondaryButtonActiveBgColor:$secondaryColor;
-$secondaryButtonActiveTextColor:$secondaryColorText;
-$secondaryButtonActiveBorderColor:$secondaryColor;
-$raisedButtonShadow:0 2px 3px 0 rgba(0, 0, 0, 0.15);
-$roundedButtonBorderRadius:15px;
+$buttonTextOnlyPadding:0.429em 1em; //OK
+$buttonWithLeftIconPadding:0.429em 1em 0.429em 2em; //OK
+$buttonWithRightIconPadding:0.429em 2em 0.429em 1em; //OK
+$buttonIconOnlyPadding:0.429em; //OK
+$buttonIconOnlyWidth:2.143em; //OK
+$buttonBgColor:$primaryColor; //OK
+$buttonBorder:1px solid $primaryColor; //OK
+$buttonTextColor:$primaryColorText; //OK
+$buttonHoverBgColor:$primaryDarkAltColor; //OK
+$buttonHoverTextColor:$primaryDarkAltColorText; //OK
+$buttonHoverBorderColor:$primaryDarkAltColor; //OK
+$buttonActiveBgColor:$primaryDarkColor; //OK
+$buttonActiveTextColor:$primaryDarkColorText; //OK
+$buttonActiveBorderColor:$primaryDarkColor; //OK
+$buttonFocusOutline:1px solid #000000; //OK
+$buttonFocusOutlineOffset:1px; //OK
+$buttonTransition:background-color $transitionDuration; //OK
+$secondaryButtonBgColor:#f4f4f4; //OK
+$secondaryButtonBorder:1px solid #f4f4f4; //OK
+$secondaryButtonTextColor:#333333; //OK
+$secondaryButtonHoverBgColor:#c8c8c8; //OK
+$secondaryButtonHoverTextColor:#212121; //OK
+$secondaryButtonHoverBorderColor:#c8c8c8; //OK
+$secondaryButtonActiveBgColor:$secondaryColor; //OK
+$secondaryButtonActiveTextColor:$secondaryColorText; //OK
+$secondaryButtonActiveBorderColor:$secondaryColor; //OK
+$raisedButtonShadow:0 2px 3px 0 rgba(0, 0, 0, 0.15); //OK
+$roundedButtonBorderRadius:15px; //OK
 
 //checkbox
 $checkboxWidth:20px;

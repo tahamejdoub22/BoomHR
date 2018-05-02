@@ -1,0 +1,84 @@
+body {
+    .ui-button {
+        color: $buttonTextColor;
+        background-color: $buttonBgColor;
+        border: $buttonBorder;
+        font-size: $fontSize;
+        @include transition($buttonTransition);
+
+        &:enabled:hover {
+            background-color: $buttonHoverBgColor;
+            color: $buttonHoverTextColor;
+            border-color: $buttonHoverBorderColor;
+        }
+
+        &:enabled:focus {
+            outline: $buttonFocusOutline;
+            outline-offset: $buttonFocusOutlineOffset;
+        }
+
+        &:enabled:active  {
+            background-color: $buttonActiveBgColor;
+            color: $buttonActiveTextColor;
+            border-color: $buttonActiveBorderColor;
+        }
+
+        &.ui-button-text-only {
+            .ui-button-text {
+                padding: $buttonTextOnlyPadding;
+            }
+        }
+
+        &.ui-button-text-icon-left {
+            .ui-button-text {
+                padding: $buttonWithLeftIconPadding;
+            }
+        }
+
+        &.ui-button-text-icon-right {
+            .ui-button-text {
+                padding: $buttonWithRightIconPadding;
+            }
+        }
+
+        &.ui-button-icon-only {
+            width: $buttonIconOnlyWidth;
+
+            .ui-button-text {
+                padding: $buttonIconOnlyPadding;
+            }
+        }
+
+        &.raised-btn {
+            @include shadow($raisedButtonShadow);
+        }
+
+        &.rounded-btn {
+            @include border-radius($roundedButtonBorderRadius);
+        }
+
+        &.ui-button-secondary {
+            color: $secondaryButtonTextColor;
+            background-color: $secondaryButtonBgColor;
+            border: $secondaryButtonBorder;
+
+            &:enabled:hover {
+                background-color: $secondaryButtonHoverBgColor;
+                color: $secondaryButtonHoverTextColor;
+                border-color: $secondaryButtonHoverBorderColor;
+            }
+    
+            &:enabled:active  {
+                background-color: $secondaryButtonActiveBgColor;
+                color: $secondaryButtonActiveTextColor;
+                border-color: $secondaryButtonActiveBorderColor;
+            }
+        }
+    }
+
+    .ui-fluid {
+        .ui-button-icon-only {
+            width: auto;
+        }
+    }
+}

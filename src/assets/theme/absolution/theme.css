@@ -7,18 +7,6 @@ body .ui-widget,
 body .ui-widget .ui-widget {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
   text-decoration: none; }
-body .ui-icon {
-  height: 16px;
-  width: 16px;
-  font-size: 16px;
-  display: inline-block;
-  vertical-align: baseline;
-  margin: 0;
-  margin-top: 0;
-  position: static;
-  text-indent: 0;
-  overflow: visible;
-  background-repeat: no-repeat; }
 body .ui-corner-all {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
@@ -67,192 +55,6 @@ body .ui-state-disabled {
 
 body {
   /*
-      .ui-button {
-          color: $primaryTextColor;
-          background-color: $primaryColor;
-          border: 1px solid transparent;
-          font-size: $fontSize;
-          @include transition(background-color $transitionDuration);
-  
-          &:enabled:hover {
-              background-color: darken($primaryColor,5%);
-          }
-  
-          &:enabled:focus {
-              outline: 0 none;
-              background-color: darken($primaryColor,5%);
-          }
-  
-          &:enabled:active  {
-              background-color: darken($primaryColor,10%);
-          }
-  
-          &.ui-button-text-only {
-              .ui-button-text {
-                  padding: .385em .6em;
-              }
-          }
-  
-          &.ui-button-text-icon-left {
-              .ui-button-text {
-                  padding: .385em .6em .385em 2em;
-              }
-  
-              .fa {
-                  margin-top: -.5em;
-              }
-          }
-  
-          &.ui-button-text-icon-right {
-              .ui-button-text {
-                  padding: .385em 2em .385em .6em;
-              }
-  
-              .fa {
-                  margin-top: -.5em;
-              }
-          }
-  
-          &.ui-button-icon-only {
-              .fa {
-                  margin-left: -.6em;
-              }
-  
-              .ui-button-text {
-                  padding: .385em;
-              }
-          }
-  
-          &.blue-btn {
-              background-color: $blue;
-  
-              &:hover {
-                  background-color: darken($blue,5%);
-              }
-  
-              &:focus {
-                  background-color: darken($blue,5%);
-              }
-  
-              &:active {
-                  background-color: darken($blue,10%);
-              }
-          }
-  
-          &.purple-btn {
-              background-color: $purple;
-  
-              &:hover {
-                  background-color: darken($purple,5%);
-              }
-  
-              &:focus {
-                  background-color: darken($purple,5%);
-              }
-  
-              &:active {
-                  background-color: darken($purple,10%);
-              }
-          }
-  
-          &.orange-btn {
-              background-color: $orange;
-  
-              &:hover {
-                  background-color: darken($orange,5%);
-              }
-  
-              &:focus {
-                  background-color: darken($orange,5%);
-              }
-  
-              &:active {
-                  background-color: darken($orange,10%);
-              }
-          }
-  
-          &.pink-btn {
-              background-color: $pink;
-  
-              &:hover {
-                  background-color: darken($pink,5%);
-              }
-  
-              &:focus {
-                  background-color: darken($pink,5%);
-              }
-  
-              &:active {
-                  background-color: darken($pink,10%);
-              }
-          }
-  
-          &.green-btn {
-              background-color: $green;
-  
-              &:hover {
-                  background-color: darken($green,5%);
-              }
-  
-              &:focus {
-                  background-color: darken($green,5%);
-              }
-  
-              &:active {
-                  background-color: darken($green,10%);
-              }
-          }
-  
-          &.red-btn {
-              background-color: $red;
-  
-              &:hover {
-                  background-color: darken($red,5%);
-              }
-  
-              &:focus {
-                  background-color: darken($red,5%);
-              }
-  
-              &:active {
-                  background-color: darken($red,10%);
-              }
-          }
-  
-          &.yellow-btn {
-              background-color: $yellow;
-              color: $purple;
-  
-              &:hover {
-                  background-color: darken($yellow,5%);
-              }
-  
-              &:focus {
-                  background-color: darken($yellow,5%);
-              }
-  
-              &:active {
-                  background-color: darken($yellow,10%);
-              }
-          }
-  
-          &.raised-btn {
-              -moz-box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.26), 0 1px 5px 0 rgba(0, 0, 0, 0.16);
-              -webkit-box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.26), 0 1px 5px 0 rgba(0, 0, 0, 0.16);
-              box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.26), 0 1px 5px 0 rgba(0, 0, 0, 0.16);
-          }
-  
-          &.rounded-btn {
-              @include border-radius(15px);
-          }
-      }
-  
-      .ui-fluid {
-          .ui-button-icon-only {
-              width: auto;
-          }
-      }
-  
       .ui-chkbox {
           display: inline-block;
           vertical-align: middle;
@@ -1215,7 +1017,7 @@ body {
     font-size: 14px;
     color: #333333;
     background: #ffffff;
-    padding: 6px;
+    padding: 0.429em;
     border: 1px solid #a6a6a6;
     -moz-transition: border-color 0.3s;
     -o-transition: border-color 0.3s;
@@ -1246,6 +1048,59 @@ body {
           box-shadow: none; }
         body .ui-inputtext.ng-dirty.ng-invalid:active {
           border-color: #a80000; }
+
+body .ui-button {
+  color: #ffffff;
+  background-color: #628292;
+  border: 1px solid #628292;
+  font-size: 14px;
+  -moz-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s; }
+  body .ui-button:enabled:hover {
+    background-color: #456778;
+    color: #ffffff;
+    border-color: #456778; }
+  body .ui-button:enabled:focus {
+    outline: 1px solid #000000;
+    outline-offset: 1px; }
+  body .ui-button:enabled:active {
+    background-color: #2d5265;
+    color: #ffffff;
+    border-color: #2d5265; }
+  body .ui-button.ui-button-text-only .ui-button-text {
+    padding: 0.429em 1em; }
+  body .ui-button.ui-button-text-icon-left .ui-button-text {
+    padding: 0.429em 1em 0.429em 2em; }
+  body .ui-button.ui-button-text-icon-right .ui-button-text {
+    padding: 0.429em 2em 0.429em 1em; }
+  body .ui-button.ui-button-icon-only {
+    width: 2.143em; }
+    body .ui-button.ui-button-icon-only .ui-button-text {
+      padding: 0.429em; }
+  body .ui-button.raised-btn {
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.15); }
+  body .ui-button.rounded-btn {
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px; }
+  body .ui-button.ui-button-secondary {
+    color: #333333;
+    background-color: #f4f4f4;
+    border: 1px solid #f4f4f4; }
+    body .ui-button.ui-button-secondary:enabled:hover {
+      background-color: #c8c8c8;
+      color: #212121;
+      border-color: #c8c8c8; }
+    body .ui-button.ui-button-secondary:enabled:active {
+      background-color: #f4a779;
+      color: #333333;
+      border-color: #f4a779; }
+body .ui-fluid .ui-button-icon-only {
+  width: auto; }
 
 /*body {
     .ui-panel {
