@@ -51,7 +51,7 @@ body {
         line-height: normal;
     }
 
-    .ui-state-disabled {
+    .ui-state-disabled, .ui-widget:disabled {
         @include opacity($disabledOpacity);
     }
 }
