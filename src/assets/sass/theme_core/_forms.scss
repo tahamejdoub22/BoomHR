@@ -994,9 +994,9 @@ body {
             }
         }
     }
-
-    ::-webkit-input-placeholder {color:$textSecondaryColor}
-    :-moz-placeholder           {color:$textSecondaryColor}
-    ::-moz-placeholder          {color:$textSecondaryColor}
-    :-ms-input-placeholder      {color:$textSecondaryColor}*/
+*/
+    ::-webkit-input-placeholder {color:$inputPlaceholderTextColor}
+    :-moz-placeholder           {color:$inputPlaceholderTextColor}
+    ::-moz-placeholder          {color:$inputPlaceholderTextColor}
+    :-ms-input-placeholder      {color:$inputPlaceholderTextColor}
 }

@@ -1,9 +1,9 @@
 @import '../_variables';
 
 //anchor
-$linkColor:$primaryColor;
-$linkHoverColor:$primaryDarkColor;
-$linkActiveColor:$primaryDarkerColor;
+$linkColor:$primaryColor; //OK
+$linkHoverColor:$primaryDarkColor; //OK
+$linkActiveColor:$primaryDarkerColor; //OK
 
 //highlight
 $highlightBgColor:$secondaryColor;
@@ -15,9 +15,9 @@ $inputBgColor:#ffffff; //OK
 $inputBorder:1px solid #a6a6a6; //OK
 $inputHoverBorderColor:#212121; //OK
 $inputFocusBorderColor:$primaryColor; //OK
+$inputFocusShadow:none; //OK
 $inputErrorBorderColor:#a80000; //OK
 $inputPlaceholderTextColor:#666666; //OK
-$inputFocusShadow:none; //OK
 $inputTransition:border-color $transitionDuration; //OK
 
 //groups
