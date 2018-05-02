@@ -86,6 +86,8 @@ $buttonActiveBorderColor:$primaryDarkColor; //OK
 $buttonFocusOutline:1px solid #000000; //OK
 $buttonFocusOutlineOffset:1px; //OK
 $buttonTransition:background-color $transitionDuration; //OK
+$raisedButtonShadow:0 2px 3px 0 rgba(0, 0, 0, 0.15); //OK
+$roundedButtonBorderRadius:15px; //OK
 $secondaryButtonBgColor:#f4f4f4; //OK
 $secondaryButtonBorder:1px solid #f4f4f4; //OK
 $secondaryButtonTextColor:#333333; //OK
@@ -95,8 +97,43 @@ $secondaryButtonHoverBorderColor:#c8c8c8; //OK
 $secondaryButtonActiveBgColor:$secondaryColor; //OK
 $secondaryButtonActiveTextColor:$secondaryColorText; //OK
 $secondaryButtonActiveBorderColor:$secondaryColor; //OK
-$raisedButtonShadow:0 2px 3px 0 rgba(0, 0, 0, 0.15); //OK
-$roundedButtonBorderRadius:15px; //OK
+$infoButtonBgColor:#007ad9; //OK
+$infoButtonBorder:1px solid #007ad9; //OK
+$infoButtonTextColor:#ffffff; //OK
+$infoButtonHoverBgColor:#116fbf; //OK
+$infoButtonHoverTextColor:#ffffff; //OK
+$infoButtonHoverBorderColor:#116fbf; //OK
+$infoButtonActiveBgColor:#005b9f; //OK
+$infoButtonActiveTextColor:#ffffff; //OK
+$infoButtonActiveBorderColor:#005b9f; //OK
+$successButtonBgColor:#34A835; //OK
+$successButtonBorder:1px solid #34A835; //OK
+$successButtonTextColor:#ffffff; //OK
+$successButtonHoverBgColor:#107D11; //OK
+$successButtonHoverTextColor:#ffffff; //OK
+$successButtonHoverBorderColor:#107D11; //OK
+$successButtonActiveBgColor:#0C6B0D; //OK
+$successButtonActiveTextColor:#ffffff; //OK
+$successButtonActiveBorderColor:#0C6B0D; //OK
+$warningButtonBgColor:#ffba01; //OK
+$warningButtonBorder:1px solid #ffba01; //OK
+$warningButtonTextColor:#333333; //OK
+$warningButtonHoverBgColor:#ED990B; //OK
+$warningButtonHoverTextColor:#333333; //OK
+$warningButtonHoverBorderColor:#ED990B; //OK
+$warningButtonActiveBgColor:#D38B10; //OK
+$warningButtonActiveTextColor:#333333; //OK
+$warningButtonActiveBorderColor:#D38B10; //OK
+$dangerButtonBgColor:#e91224; //OK
+$dangerButtonBorder:1px solid #e91224; //OK
+$dangerButtonTextColor:#ffffff; //OK
+$dangerButtonHoverBgColor:#c01120; //OK
+$dangerButtonHoverTextColor:#ffffff; //OK
+$dangerButtonHoverBorderColor:#c01120; //OK
+$dangerButtonActiveBgColor:#a90000; //OK
+$dangerButtonActiveTextColor:#ffffff; //OK
+$dangerButtonActiveBorderColor:#a90000; //OK
+
 
 //checkbox
 $checkboxWidth:20px;

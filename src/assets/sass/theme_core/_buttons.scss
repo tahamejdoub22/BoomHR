@@ -49,29 +49,103 @@ body {
             }
         }
 
-        &.raised-btn {
+        &.ui-button-raised {
             @include shadow($raisedButtonShadow);
         }
 
-        &.rounded-btn {
+        &.ui-button-rounded {
             @include border-radius($roundedButtonBorderRadius);
         }
 
-        &.ui-button-secondary {
-            color: $secondaryButtonTextColor;
-            background-color: $secondaryButtonBgColor;
-            border: $secondaryButtonBorder;
-
-            &:enabled:hover {
-                background-color: $secondaryButtonHoverBgColor;
-                color: $secondaryButtonHoverTextColor;
-                border-color: $secondaryButtonHoverBorderColor;
+        &.ui-state-default {
+            &.ui-button-secondary {
+                color: $secondaryButtonTextColor;
+                background-color: $secondaryButtonBgColor;
+                border: $secondaryButtonBorder;
+    
+                &:enabled:hover {
+                    background-color: $secondaryButtonHoverBgColor;
+                    color: $secondaryButtonHoverTextColor;
+                    border-color: $secondaryButtonHoverBorderColor;
+                }
+        
+                &:enabled:active  {
+                    background-color: $secondaryButtonActiveBgColor;
+                    color: $secondaryButtonActiveTextColor;
+                    border-color: $secondaryButtonActiveBorderColor;
+                }
             }
     
-            &:enabled:active  {
-                background-color: $secondaryButtonActiveBgColor;
-                color: $secondaryButtonActiveTextColor;
-                border-color: $secondaryButtonActiveBorderColor;
+            &.ui-button-info {
+                color: $infoButtonTextColor;
+                background-color: $infoButtonBgColor;
+                border: $infoButtonBorder;
+    
+                &:enabled:hover {
+                    background-color: $infoButtonHoverBgColor;
+                    color: $infoButtonHoverTextColor;
+                    border-color: $infoButtonHoverBorderColor;
+                }
+        
+                &:enabled:active  {
+                    background-color: $infoButtonActiveBgColor;
+                    color: $infoButtonActiveTextColor;
+                    border-color: $infoButtonActiveBorderColor;
+                }
+            }
+    
+            &.ui-button-success {
+                color: $successButtonTextColor;
+                background-color: $successButtonBgColor;
+                border: $successButtonBorder;
+    
+                &:enabled:hover {
+                    background-color: $successButtonHoverBgColor;
+                    color: $successButtonHoverTextColor;
+                    border-color: $successButtonHoverBorderColor;
+                }
+        
+                &:enabled:active  {
+                    background-color: $successButtonActiveBgColor;
+                    color: $successButtonActiveTextColor;
+                    border-color: $successButtonActiveBorderColor;
+                }
+            }
+    
+            &.ui-button-warning {
+                color: $warningButtonTextColor;
+                background-color: $warningButtonBgColor;
+                border: $warningButtonBorder;
+    
+                &:enabled:hover {
+                    background-color: $warningButtonHoverBgColor;
+                    color: $warningButtonHoverTextColor;
+                    border-color: $warningButtonHoverBorderColor;
+                }
+        
+                &:enabled:active  {
+                    background-color: $warningButtonActiveBgColor;
+                    color: $warningButtonActiveTextColor;
+                    border-color: $warningButtonActiveBorderColor;
+                }
+            }
+    
+            &.ui-button-danger {
+                color: $dangerButtonTextColor;
+                background-color: $dangerButtonBgColor;
+                border: $dangerButtonBorder;
+    
+                &:enabled:hover {
+                    background-color: $dangerButtonHoverBgColor;
+                    color: $dangerButtonHoverTextColor;
+                    border-color: $dangerButtonHoverBorderColor;
+                }
+        
+                &:enabled:active  {
+                    background-color: $dangerButtonActiveBgColor;
+                    color: $dangerButtonActiveTextColor;
+                    border-color: $dangerButtonActiveBorderColor;
+                }
             }
         }
     }
