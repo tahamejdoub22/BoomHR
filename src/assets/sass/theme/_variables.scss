@@ -134,32 +134,39 @@ $dangerButtonActiveBgColor:#a90000; //OK
 $dangerButtonActiveTextColor:#ffffff; //OK
 $dangerButtonActiveBorderColor:#a90000; //OK
 
-
 //checkbox
-$checkboxWidth:20px;
-$checkboxHeight:20px;
-$checkboxActiveBorderColor:$primaryColor;
-$checkboxActiveBgColor:$primaryColor;
-$checkboxActiveHoverBgColor:$primaryDarkColor;
-$checkboxActiveTextColor:$primaryColorText;
-$checkboxFocusBgColor:$inputBgColor;
-$checkboxFocusTextColor:$primaryColor;
-$checkboxFocusBorderColor:$primaryColor;
-$checkboxFocusShadow:none;
-$checkboxTransition:background-color $transitionDuration, border-color $transitionDuration;
+$checkboxWidth:20px; //OK
+$checkboxHeight:20px; //OK
+$checkboxActiveBorderColor:$primaryColor; //OK
+$checkboxActiveBgColor:$primaryColor; //OK
+$checkboxActiveTextColor:$primaryColorText; //OK
+$checkboxActiveHoverBgColor:$primaryDarkerColor; //OK
+$checkboxActiveHoverTextColor:$primaryColorText; //OK
+$checkboxActiveHoverBorderColor:$primaryDarkerColor; //OK
+$checkboxActiveFocusBgColor:$primaryDarkerColor; //OK
+$checkboxActiveFocusTextColor:$primaryColorText; //OK
+$checkboxActiveFocusBorderColor:$primaryDarkerColor; //OK
+$checkboxFocusBgColor:$inputBgColor; //OK
+$checkboxFocusTextColor:$primaryColor; //OK
+$checkboxFocusBorderColor:$primaryColor; //OK
+$checkboxTransition:background-color $transitionDuration, border-color $transitionDuration; //OK
 
 //radiobutton
-$radioButtonWidth:20px;
-$radioButtonHeight:20px;
-$radioButtonActiveBorderColor:$primaryColor;
-$radioButtonActiveBgColor:$primaryColor;
-$radioButtonActiveHoverBgColor:$primaryDarkColor;
-$radioButtonActiveTextColor:$primaryColorText;
-$radioButtonFocusBgColor:$inputBgColor;
-$radioButtonFocusTextColor:$primaryColor;
-$radioButtonFocusBorderColor:$primaryColor;
-$radioButtonFocusShadow:none;
-$radioButtonTransition:background-color $transitionDuration, border-color $transitionDuration;
+$radiobuttonWidth:20px; //OK
+$radiobuttonHeight:20px; //OK
+$radiobuttonActiveBorderColor:$primaryColor; //OK
+$radiobuttonActiveBgColor:$primaryColor; //OK
+$radiobuttonActiveTextColor:$primaryColorText; //OK
+$radiobuttonActiveHoverBgColor:$primaryDarkerColor; //OK
+$radiobuttonActiveHoverTextColor:$primaryColorText; //OK
+$radiobuttonActiveHoverBorderColor:$primaryDarkerColor; //OK
+$radiobuttonActiveFocusBgColor:$primaryDarkerColor; //OK
+$radiobuttonActiveFocusTextColor:$primaryColorText; //OK
+$radiobuttonActiveFocusBorderColor:$primaryDarkerColor; //OK
+$radiobuttonFocusBgColor:$inputBgColor; //OK
+$radiobuttonFocusTextColor:$primaryColor; //OK
+$radiobuttonFocusBorderColor:$primaryColor; //OK
+$radiobuttonTransition:background-color $transitionDuration, border-color $transitionDuration; //OK
 
 //togglebutton
 $toggleButtonBgColor:#dadada;

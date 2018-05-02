@@ -39,94 +39,123 @@ body {
         }
     }
 
-    
-/*
     .ui-chkbox {
         display: inline-block;
         vertical-align: middle;
         margin: 0;
-        width: auto;
-        height: auto;
+        width: $checkboxWidth;
+        height: $checkboxHeight;
 
         .ui-chkbox-box {
-            border: 1px solid $inputBorderColor;
+            border: $inputBorder;
             background-color: $inputBgColor;
-            width: 20px;
-            height: 20px;
+            width: $checkboxWidth;
+            height: $checkboxHeight;
             text-align: center;
-            @include transition(background-color $transitionDuration, border-color $transitionDuration, box-shadow $transitionDuration);
+            @include border-radius($borderRadius);
+            @include transition($checkboxTransition);
 
-            &:not(.ui-state-disabled):not(.ui-state-active):hover {
-                border: 1px solid $inputHoverBorderColor;
-            }
-
-            &.ui-state-active {
-                border: 1px solid $primaryColor;
-                background-color: $primaryColor;
-                color: $primaryTextColor;
+            &:not(.ui-state-disabled):hover {
+                border-color: $inputHoverBorderColor;
             }
 
             &.ui-state-focus {
-                border: 1px solid $primaryColor;
-                @include border-shadow();
+                border-color: $checkboxFocusBorderColor;
+                background-color: $checkboxFocusBgColor;
+                color: $checkboxFocusTextColor;
+            }
+
+            &.ui-state-active {
+                border-color: $checkboxActiveBorderColor;
+                background-color: $checkboxActiveBgColor;
+                color: $checkboxActiveTextColor;
+
+                &:not(.ui-state-disabled):hover {
+                    border-color: $checkboxActiveHoverBorderColor;
+                    background-color: $checkboxActiveHoverBgColor;
+                    color: $checkboxActiveHoverTextColor;
+                }
+
+                &.ui-state-focus {
+                    border-color: $checkboxActiveFocusBorderColor;
+                    background-color: $checkboxActiveFocusBgColor;
+                    color: $checkboxActiveFocusTextColor;
+                }
             }
 
             .ui-chkbox-icon {
                 overflow: hidden;
                 position: relative;
-                font-size: $fontSize + 3;
+                font-size: $fontSize + 2;
             }
         }
     }
 
     .ui-chkbox-label {
-        margin: 0 0 0 .5em;
+        margin: 0 0 0 $inlineSpacing;
     }
 
     .ui-radiobutton {
         display: inline-block;
         vertical-align: middle;
         margin: 0;
-        width: auto;
-        height: auto;
+        width: $radiobuttonWidth;
+        height: $radiobuttonHeight;
 
         .ui-radiobutton-box {
-            border: 1px solid $inputBorderColor;
+            border: $inputBorder;
             background-color: $inputBgColor;
-            width: 18px;
-            height: 18px;
+            width: $radiobuttonWidth;
+            height: $radiobuttonHeight;
             text-align: center;
-            @include transition(border-color $transitionDuration,box-shadow $transitionDuration);
+            position: relative;
+            @include transition($radiobuttonTransition);
             @include border-radius(50%);
 
             &:not(.ui-state-disabled):not(.ui-state-active):hover {
-                border: 1px solid $inputHoverBorderColor;
-            }
-
-            &.ui-state-active {
-                border: 1px solid $primaryColor;
-                background-color: #ffffff;
-                color: #ffffff;
-
-                .ui-radiobutton-icon {
-                    background-color: $primaryColor;
-                    margin-top: 0.23em;
-                }
+                border-color: $inputHoverBorderColor;
             }
 
             &.ui-state-focus {
-                border: 1px solid $primaryColor;
-                @include border-shadow();
+                border-color: $radiobuttonFocusBorderColor;
+                background-color: $radiobuttonFocusBgColor;
+                color: $radiobuttonFocusTextColor;
+            }
+
+            &.ui-state-active {
+                border-color: $radiobuttonActiveBorderColor;
+                background-color: $radiobuttonActiveBgColor;
+                color: $radiobuttonActiveTextColor;
+
+                .ui-radiobutton-icon {
+                    background-color: $radiobuttonActiveTextColor;
+                }
+
+                &:not(.ui-state-disabled):hover {
+                    border-color: $radiobuttonActiveHoverBorderColor;
+                    background-color: $radiobuttonActiveHoverBgColor;
+                    color: $radiobuttonActiveHoverTextColor;
+                }
+
+                &.ui-state-focus {
+                    border-color: $radiobuttonActiveFocusBorderColor;
+                    background-color: $radiobuttonActiveFocusBgColor;
+                    color: $radiobuttonActiveFocusTextColor;
+                }
             }
 
             .ui-radiobutton-icon {
-                @include transition(background-color .3s);
-                @include border-radius(50%);
                 background: transparent;
-                width: 10px;
-                height: 10px;
+                width: $radiobuttonWidth / 2;
+                height: $radiobuttonHeight / 2;
                 display: inline-block;
-                font-size: 13px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin-left: -1 * $radiobuttonWidth / 4;
+                margin-top: -1 * $radiobuttonWidth / 4;
+                @include transition(background-color $transitionDuration);
+                @include border-radius(50%);
 
                 &:before {
                     display: none;
@@ -138,6 +167,10 @@ body {
     .ui-radiobutton-label {
         margin: 0 0 0 .5em;
     }
+/*
+
+
+
 
     .ui-inputswitch {
         height: 2em;
