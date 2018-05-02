@@ -1,0 +1,47 @@
+<div class="route-bar">
+    <div class="route-bar-breadcrumb">
+        <a routerLink="">
+            <i class="fa fa-home"></i>
+        </a>
+        <ng-template ngFor let-item let-last="last" [ngForOf]="items">
+            <li>
+                <a [routerLink]="item.routerLink" *ngIf="item.routerLink">{{item.label}}</a>
+                <ng-container *ngIf="!item.routerLink">{{item.label}}</ng-container>
+            </li>
+            <li *ngIf="!last">/</li>
+        </ng-template>
+    </div>
+
+    <ul class="route-bar-menu">
+        <li>
+            <a href="#">
+                <i class="fa fa-asterisk"></i>
+                <span>Overview</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-paper-plane"></i>
+                <span>Demos</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-file-code-o"></i>
+                <span>Documentation</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-life-saver"></i>
+                <span>Support</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </li>
+    </ul>
+</div>

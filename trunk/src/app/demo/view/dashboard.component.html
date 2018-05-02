@@ -1,0 +1,597 @@
+<div class="ui-g layout-dashboard">
+    <div class="ui-g-6 intro-text">
+        <img src="assets/layout/images/dashboard/shape.svg" alt="harmony-layout" />
+        <span>Daily Summary</span>
+    </div>
+    <div class="ui-g-6 intro-calendar">
+        <p-calendar placeholder="Date" [showIcon]="true"></p-calendar>
+    </div>
+
+    <div class="ui-g-12 ui-md-6 ui-lg-3">
+        <div class="stats-box sales">
+            <span class="statistics-header">SALES</span>
+            <i class="fa fa-angle-right"></i>
+            <img src="assets/layout/images/dashboard/icon-sales.svg" alt="harmony-layout" />
+            <span class="statistics">$ 74,690</span>
+            <div class="statistics-info-bg">
+                <span class="statistics-info">16% more than previous month</span>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-3">
+        <div class="stats-box views">
+            <span class="statistics-header">VIEWS</span>
+            <i class="fa fa-angle-right"></i>
+            <img src="assets/layout/images/dashboard/icon-views.svg" alt="harmony-layout" />
+            <span class="statistics">6215/Day</span>
+            <div class="statistics-info-bg">
+                <span class="statistics-info">2% less than previous month</span>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-3">
+        <div class="stats-box users">
+            <span class="statistics-header">USERS</span>
+            <i class="fa fa-angle-right"></i>
+            <img src="assets/layout/images/dashboard/icon-users.svg" alt="harmony-layout" />
+            <span class="statistics">52812</span>
+            <div class="statistics-info-bg">
+                <span class="statistics-info">19% more than previous month</span>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-3">
+        <div class="stats-box checkins">
+            <span class="statistics-header">CHECK-INS</span>
+            <i class="fa fa-angle-right"></i>
+            <img src="assets/layout/images/dashboard/icon-checkins.svg" alt="harmony-layout" />
+            <span class="statistics">77050</span>
+            <div class="statistics-info-bg">
+                <span class="statistics-info">43% more than previous month</span>
+            </div>
+        </div>
+    </div>
+    <div class="ui-g-12 ui-xl-6">
+        <p-panel styleClass="knobs" header="Activity">
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-4 knob-container">
+                    <div class="knob issue">
+                        <span class="knob-number">77</span>
+                    </div>
+                    <div class="knob-label" style="color:#00b395">
+                        <span>ISSUES</span>
+                        <i class="fa fa-bug issue"></i>
+                        <div class="seperator"></div>
+                        <span class="change">Last change: <strong>26 mins ago</strong></span>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-4 knob-container">
+                    <div class="knob commit">
+                        <span class="knob-number">39</span>
+                    </div>
+                    <div class="knob-label" style="color:#ffba01">
+                        <span>COMMITS</span>
+                        <i class="fa fa-paper-plane commit"></i>
+                        <div class="seperator"></div>
+                        <span class="change">Last change: <strong>26 mins ago</strong></span>
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-4 knob-container">
+                    <div class="knob comment">
+                        <span class="knob-number">128</span>
+                    </div>
+                    <div class="knob-label" style="color:#e4018d">
+                        <span>COMMENTS</span>
+                        <i class="fa fa-comment comment"></i>
+                        <div class="seperator"></div>
+                        <span class="change">Last change: <strong>26 mins ago</strong></span>
+                    </div>
+                </div>
+            </div>
+        </p-panel>
+    </div>
+    <div class="ui-g-12 ui-xl-6">
+        <p-panel header="Weekly Progress" styleClass="weekly-progress">
+            <ul>
+                <li>
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4">
+                            <img src="assets/layout/images/dashboard/avatar-brenda.png" alt="harmony-layout" class="member-avatar" />
+                            <div class="team-member">
+                                <span class="member-name">Brenda Soto</span>
+                                <span class="member-role">DEVELOPMENT</span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-8">
+                            <div class="progressbar">
+                                <div class="progress-status issue" style="width:32%">32%</div>
+                                <div class="progress-status commit" style="width:24%">24%</div>
+                                <div class="progress-status comment" style="width:44%">44%</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4">
+                            <img src="assets/layout/images/dashboard/avatar-john.png" alt="harmony-layout" class="member-avatar" />
+                            <div class="team-member">
+                                <span class="member-name">John Swisher</span>
+                                <span class="member-role">DESIGN</span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-8">
+                            <div class="progressbar">
+                                <div class="progress-status issue" style="width:26%">26%</div>
+                                <div class="progress-status commit" style="width:40%">40%</div>
+                                <div class="progress-status comment" style="width:34%">34%</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4">
+                            <img src="assets/layout/images/dashboard/avatar-arlene.png" alt="harmony-layout" class="member-avatar" />
+                            <div class="team-member">
+                                <span class="member-name">Arlene Welch</span>
+                                <span class="member-role">BUSINESS</span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-8">
+                            <div class="progressbar">
+                                <div class="progress-status issue" style="width:16%">16%</div>
+                                <div class="progress-status commit" style="width:23%">23%</div>
+                                <div class="progress-status comment" style="width:61%">61%</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-4">
+                            <img src="assets/layout/images/dashboard/avatar-warren.png" alt="harmony-layout" class="member-avatar" />
+                            <div class="team-member">
+                                <span class="member-name">Warren Shaw</span>
+                                <span class="member-role">DEVELOPMENT</span>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-8">
+                            <div class="progressbar">
+                                <div class="progress-status issue" style="width:20%">20%</div>
+                                <div class="progress-status commit" style="width:54%">54%</div>
+                                <div class="progress-status comment" style="width:26%">26%</div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </p-panel>
+    </div>
+    <div class="ui-g-12 ui-lg-4">
+        <p-panel header="Tasks" styleClass="tasks">
+            <ul>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span>Sales Reports</span>
+                    <i class="fa fa-shopping-cart"></i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span>Pay Invoices</span>
+                    <i class="fa fa-file"></i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span>Kate's Birthday</span>
+                    <i class="fa fa-birthday-cake"></i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span>Client Meeting</span>
+                    <i class="fa fa-users"></i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span>New Themes</span>
+                    <i class="fa fa-photo"></i>
+                </li>
+                <li>
+                    <p-checkbox binary="true"></p-checkbox>
+                    <span>Flight Ticket</span>
+                    <i class="fa fa-plane" ></i>
+                </li>
+            </ul>
+        </p-panel>
+    </div>
+    <div class="ui-g-12 ui-lg-4">
+        <p-panel header="Resolution Center" styleClass="resolution-center">
+            <div class="ui-g-12">
+                <label>Enter Username</label>
+            </div>
+            <div class="ui-g-12">
+                <input type="text" pInputText placeholder="Username"/>
+            </div>
+
+            <div class="ui-g-12">
+                <label>Enter E-mail</label>
+            </div>
+
+            <div class="ui-g-12">
+                <input type="text" pInputText placeholder="Email"/>
+            </div>
+
+            <div class="ui-g-12">
+                <label>Enter Message</label>
+            </div>
+
+            <div class="ui-g-12">
+                <textarea pInputTextarea placeholder="Your Message" [rows]="2" [autoResize]="false"></textarea>
+            </div>
+
+            <div class="ui-g-12 button-container ui-fluid">
+                <div class="ui-g-6">
+                    <button pButton type="button" value="Send"></button>
+                </div>
+                <div class="ui-g-6">
+                    <button pButton type="button" value="Send" styleClass="secondary-button"></button>
+                </div>
+            </div>
+        </p-panel>
+    </div>
+    <div class="ui-g-12 ui-lg-4">
+        <p-panel header="My Contacts" styleClass="my-contacts">
+            <ul>
+                <li>
+                    <img src="assets/layout/images/dashboard/avatar-john.png" alt="harmony-layout" />
+                    <div class="team-box">
+                        <span class="team-member">John Swisher</span>
+                        <span class="team-member-role">DESIGN</span>
+                    </div>
+                    <div style="float:right">
+                        <a href="#" class="google">
+                            <i class="fa fa-google google"></i>
+                        </a>
+                        <a href="#" class="twitter">
+                            <i class="fa fa-twitter twitter"></i>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/layout/images/dashboard/avatar-warren.png" alt="harmony-layout" />
+                    <div class="team-box">
+                        <span class="team-member">Warren Shaw</span>
+                        <span class="team-member-role">DEVELOPMENT</span>
+                    </div>
+                    <div style="float:right">
+                        <a href="#" class="google">
+                            <i class="fa fa-google google"></i>
+                        </a>
+                        <a href="#" class="twitter">
+                            <i class="fa fa-twitter twitter"></i>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/layout/images/dashboard/avatar-brenda.png" alt="harmony-layout" />
+                    <div class="team-box">
+                        <span class="team-member">Brenda Soto</span>
+                        <span class="team-member-role">DEVELOPMENT</span>
+                    </div>
+                    <div style="float:right">
+                        <a href="#" class="google">
+                            <i class="fa fa-google google"></i>
+                        </a>
+                        <a href="#" class="twitter">
+                            <i class="fa fa-twitter twitter"></i>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <img src="assets/layout/images/dashboard/avatar-arlene.png" alt="harmony-layout" />
+                    <div class="team-box">
+                        <span class="team-member">Arlene Welch</span>
+                        <span class="team-member-role">BUSINESS</span>
+                    </div>
+                    <div style="float:right">
+                        <a href="#" class="google">
+                            <i class="fa fa-google google"></i>
+                        </a>
+                        <a href="#" class="twitter">
+                            <i class="fa fa-twitter twitter"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </p-panel>
+    </div>
+
+    <div class="ui-g-12 ui-lg-6">
+        <p-panel header="Global Sales" styleClass="global-sales">
+            <table>
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>TOTAL</th>
+                    <th>CHANGE</th>
+                    <th>STATUS</th>
+                    <th>VIEW</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <img src="assets/layout/images/dashboard/flag-france.png" alt="harmony-layout" />
+                        <span>France</span>
+                    </td>
+                    <td>85681</td>
+                    <td>24%</td>
+                    <td>
+                        <i class="fa fa-angle-up"></i>
+                    </td>
+                    <td>
+                        <button pButton type="button" icon="fa-search" ></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="assets/layout/images/dashboard/flag-uk.png" alt="harmony-layout" />
+                        <span>UK</span>
+                    </td>
+                    <td>56123</td>
+                    <td>21%</td>
+                    <td>
+                        <i class="fa fa-angle-up"></i>
+                    </td>
+                    <td>
+                        <button pButton type="button" icon="fa-search" ></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="assets/layout/images/dashboard/flag-brazil.png" alt="harmony-layout" />
+                        <span>Brazil</span>
+                    </td>
+                    <td>1252</td>
+                    <td>2%</td>
+                    <td>
+                        <i class="fa fa-angle-down"></i>
+                    </td>
+                    <td>
+                        <button pButton type="button" icon="fa-search" ></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="assets/layout/images/dashboard/flag-usa.png" alt="harmony-layout" />
+                        <span>USA</span>
+                    </td>
+                    <td>236</td>
+                    <td>79%</td>
+                    <td>
+                        <i class="fa fa-angle-up"></i>
+                    </td>
+                    <td>
+                        <button pButton type="button" icon="fa-search" ></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="assets/layout/images/dashboard/flag-japan.png" alt="harmony-layout" />
+                        <span>Japan</span>
+                    </td>
+                    <td>73</td>
+                    <td>90%</td>
+                    <td>
+                        <i class="fa fa-angle-down"></i>
+                    </td>
+                    <td>
+                        <button pButton type="button" icon="fa-search" ></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="country-info">
+                <span>24 more countries have total of 33412</span>
+                <a href="#">View All</a>
+            </div>
+        </p-panel>
+    </div>
+
+    <div class="ui-g-12 ui-lg-6">
+        <p-panel header="Live Map" styleClass="live-map">
+            <div class="weather">
+                <img src="assets/layout/images/dashboard/icon-rain.svg" alt="harmony-layout" class="indicator" />
+                <a href="#" class="change">Change Location</a>
+                <div class="degree"><span>51˚</span> Rain</div>
+                <div class="degree-detail">Feels Like: <span>51˚</span> Low: <span>51˚</span> High: <span>58˚</span> </div>
+            </div>
+        </p-panel>
+    </div>
+
+    <div class="ui-g-12 ui-lg-8">
+        <p-panel header="Chat" styleClass="chat">
+            <span class="day-indicator">Today</span>
+            <ul>
+                <li class="messages">
+                    <div class="message-meta available">
+                        <img src="assets/layout/images/dashboard/avatar-jill.png" alt="harmony-layout"/>
+                    </div>
+                    <div class="message">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo ex non mauris interdum, vel malesuada tortor varius. Duis cursus ac arcu ac cursus. Praesent vestibulum fringilla elementum. Nam ultrices justo quis erat pharetra consectetur. </span>
+                        <div class="time">
+                            11:59
+                            <i class="fa fa-check status"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="messages">
+                    <div class="message-meta away">
+                        <img src="assets/layout/images/dashboard/avatar-warren.png" alt="harmony-layout"/>
+                    </div>
+                    <div class="message">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                        <div class="time">
+                            11:59
+                            <i class="fa fa-check status"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="messages">
+                    <div class="message-meta busy">
+                        <img src="assets/layout/images/dashboard/avatar-bob.png" alt="harmony-layout"/>
+                    </div>
+                    <div class="message">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo ex non mauris interdum, vel malesuada tortor varius. </span>
+                        <div class="time">
+                            11:59
+                            <i class="fa fa-check status"></i>
+                        </div>
+                    </div>
+                </li>
+                <li class="messages">
+                    <div class="message-meta available">
+                        <img src="assets/layout/images/dashboard/avatar-chen.png" alt="harmony-layout"/>
+                    </div>
+                    <div class="message">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                        <div class="time">
+                            11:59
+                            <i class="fa fa-check status"></i>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="reply-box">
+                <img src="assets/layout/images/dashboard/avatar-kate.png" alt="harmony-layout"/>
+                <input type="text" pInputText placeholder="Write a message..."/>
+                <button type="button" pButton icon="fa-smile-o"></button>
+                <button type="button" pButton icon="fa fa-paperclip"></button>
+            </div>
+        </p-panel>
+    </div>
+
+    <div class="ui-g-12 ui-lg-4">
+        <p-panel class="profile">
+            <div class="cover">
+                <img src="assets/layout/images/dashboard/avatar-kate.png" alt="harmony-layout" class="profile-avatar"/>
+                <span class="profile-name">Kate Winston</span>
+            </div>
+            <div class="profile-info">
+                Business Analyst
+            </div>
+            <ul>
+                <li>
+                    <i class="fa fa-clock-o menu-item-icon" style="color:#ffba01"></i>
+                    <span>Action History</span>
+                    <i class="fa fa-arrow-right menu-arrow"></i>
+                </li>
+                <li>
+                    <i class="fa fa-comment menu-item-icon" style="color:#00b395"></i>
+                    <span>Messages</span>
+                    <i class="fa fa-arrow-right menu-arrow"></i>
+                </li>
+                <li>
+                    <i class="fa fa-list-ul menu-item-icon" style="color:#00b395"></i>
+                    <span>Assignments</span>
+                    <i class="fa fa-arrow-right menu-arrow"></i>
+                </li>
+                <li>
+                    <i class="fa fa-user menu-item-icon" style="color:#e4018d"></i>
+                    <span>Related Persons</span>
+                    <i class="fa fa-arrow-right menu-arrow"></i>
+                </li>
+            </ul>
+        </p-panel>
+    </div>
+
+    <div class="ui-g-12 ui-lg-8">
+        <p-panel styleClass="inventory">
+            <p-table [columns]="cols" [value]="cars" selectionMode="single" dataKey="vin" paginatorPosition="both" [(selection)]="selectedCar" [responsive]="true" [paginator]="true" [rows]="10">
+                <ng-template pTemplate="caption">
+                    Inventory
+                </ng-template>
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr [pSelectableRow]="rowData">
+                        <td *ngFor="let col of columns">
+                            {{rowData[col.field]}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-panel>
+    </div>
+
+    <div class="ui-g-12 ui-lg-4">
+        <p-panel header="Latest Activities" styleClass="latest-activities">
+            <ul>
+                <li>
+                    <div class="activity-link runway-link"></div>
+                    <a class="activity-logo runway">
+                        <i class="fa fa-plane runway"></i>
+                    </a>
+                    <div class="activity-detail">
+                        <span>U39310</span> has arrived to
+                        <span>LTAC</span>
+                        <span class="time">15.52</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="activity-link management-link"></div>
+                    <a class="activity-logo management">
+                        <i class="fa fa-sitemap management"></i>
+                    </a>
+                    <div class="activity-detail">
+                        <span>Gate 139</span> is ready for departure
+                        <span class="time">15.55</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="activity-link management-link"></div>
+                    <a class="activity-logo management">
+                        <i class="fa fa-sitemap management"></i>
+                    </a>
+                    <div class="activity-detail">Personal Change on
+                        <span>TW312</span>
+                        <span class="time">16.21</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="activity-link runway-link"></div>
+                    <a class="activity-logo runway">
+                        <i class="fa fa-plane runway"></i>
+                    </a>
+                    <div class="activity-detail">
+                        <span>LH764</span> has arrived to
+                        <span>BOM/VABB</span>
+                        <span class="time">16.49</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="activity-link announcement-link"></div>
+                    <a class="activity-logo announcement">
+                        <i class="fa fa-globe announcement"></i>
+                    </a>
+                    <div class="activity-detail">Heavy rain approaching
+                        <span>Runway 4</span>
+                        <span class="time">16.51</span>
+                    </div>
+                </li>
+            </ul>
+        </p-panel>
+    </div>
+
+    <div class="ui-g-12">
+        <p-panel header="Upcoming Events" [style]="{'height':'100%'}">
+          <p-schedule [events]="events" defaultDate="2016-01-12"></p-schedule>
+        </p-panel>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="layout-wrapper" (click)="onLayoutClick()"
+     [ngClass]="{'layout-menu-horizontal': isHorizontal(),
+                 'layout-menu-overlay': isOverlay(),
+                 'layout-menu-static': isStatic(),
+                 'layout-menu-slim':isSlim(),
+                 'layout-menu-static-inactive': staticMenuDesktopInactive,
+                 'layout-menu-mobile-active': staticMenuMobileActive,
+                 'layout-menu-overlay-active':overlayMenuActive}">
+
+    <app-topbar></app-topbar>
+
+    <app-rightpanel></app-rightpanel>
+
+    <div class="layout-sidebar" (click)="onMenuClick($event)">
+        <p-scrollPanel #layoutMenuScroller [style]="{height: '100%'}">
+            <div class="layout-menu menu-scroll-content">
+                <app-menu [reset]="resetMenu"></app-menu>
+            </div>
+        </p-scrollPanel>
+    </div>
+
+    <div class="layout-main">
+
+        <app-breadcrumb></app-breadcrumb>
+
+        <div class="layout-content">
+            <router-outlet></router-outlet>
+        </div>
+
+        <app-footer></app-footer>
+        <div class="layout-mask" *ngIf="staticMenuMobileActive"></div>
+    </div>
+</div>
