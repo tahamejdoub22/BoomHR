@@ -413,6 +413,7 @@ body {
             border-bottom: $inputListHeaderBorder;
             color: $inputListHeaderTextColor;
             background-color: $inputListHeaderBgColor;
+            margin: $inputListHeaderMargin;
 
             .ui-dropdown-filter {
                 width: 100%;
@@ -494,6 +495,7 @@ body {
             border-bottom: $inputListHeaderBorder;
             color: $inputListHeaderTextColor;
             background-color: $inputListHeaderBgColor;
+            margin: $inputListHeaderMargin;
 
             .ui-multiselect-filter-container {
                 float: none;
@@ -591,6 +593,7 @@ body {
             border-bottom: $inputListHeaderBorder;
             color: $inputListHeaderTextColor;
             background-color: $inputListHeaderBgColor;
+            margin: $inputListHeaderMargin;
 
             .ui-listbox-filter-container {
                 width: calc(100% - (#{$inputListHeaderPaddingLeft} + #{$inputListHeaderPaddingLeft} + #{$inlineSpacing}));
@@ -812,41 +815,65 @@ body {
             }
         }
     }
-/*
 
-
-
-
-
-    
-
-
-
-
-
-    .ui-togglebutton {
+    .ui-togglebutton.ui-button {
         background-color: $toggleButtonBgColor;
-        color: $textColor;
-        @include transition(border-color $transitionDuration, background-color $transitionDuration);
+        border: $toggleButtonBorder;
+        color: $toggleButtonTextColor;
+        @include transition($buttonTransition);
+
+        .ui-button-icon-left {
+            color: $toggleButtonIconColor;
+        }
 
         &:not(.ui-state-disabled):not(.ui-state-active):hover {
-            background-color: darken($toggleButtonBgColor,10%);
+            background-color: $toggleButtonHoverBgColor;
+            border-color: $toggleButtonHoverBorderColor;
+            color: $toggleButtonHoverTextColor;
+
+            .ui-button-icon-left {
+                color: $toggleButtonHoverIconColor;
+            }
         }
 
         &:not(.ui-state-disabled):not(.ui-state-active).ui-state-focus {
-            @include border-shadow();
-            background-color: darken($toggleButtonBgColor,10%);
-            color: $textColor;
+            background-color: $toggleButtonFocusBgColor;
+            border-color: $toggleButtonFocusBorderColor;
+            color: $toggleButtonFocusTextColor;
+            outline: $toggleButtonFocusOutline;
+
+            .ui-button-icon-left {
+                color: $toggleButtonFocusIconColor;
+            }
         }
 
         &.ui-state-active {
-            background-color: $highlightBgColor;
-            color: $primaryTextColor;
+            background-color: $toggleButtonActiveBgColor;
+            border-color: $toggleButtonActiveBorderColor;
+            color: $toggleButtonActiveTextColor;
+
+            .ui-button-icon-left {
+                color: $toggleButtonActiveIconColor;
+            }
+
+            &:hover {
+                background-color: $toggleButtonActiveHoverBgColor;
+                border-color: $toggleButtonActiveHoverBorderColor;
+                color: $toggleButtonActiveHoverTextColor;
+
+                .ui-button-icon-left {
+                    color: $toggleButtonActiveHoverIconColor;
+                }
+            }
 
             &.ui-state-focus {
-                background-color: darken($highlightBgColor,5%);
-                color: $primaryTextColor;
-                @include border-shadow();
+                background-color: $toggleButtonActiveFocusBgColor;
+                border-color: $toggleButtonActiveFocusBorderColor;
+                color: $toggleButtonActiveFocusTextColor;
+    
+                .ui-button-icon-left {
+                    color: $toggleButtonActiveFocusIconColor;
+                }
             }
         }
     }
@@ -854,28 +881,62 @@ body {
     .ui-selectbutton {
         .ui-button {
             background-color: $toggleButtonBgColor;
-            color: $textColor;
-            border: 1px solid transparent;
-            @include border-radius(0px);
-
+            border: $toggleButtonBorder;
+            color: $toggleButtonTextColor;
+            @include transition($buttonTransition);
+    
+            .ui-button-icon-left {
+                color: $toggleButtonIconColor;
+            }
+    
             &:not(.ui-state-disabled):not(.ui-state-active):hover {
-                background-color: darken($toggleButtonBgColor,10%);
+                background-color: $toggleButtonHoverBgColor;
+                border-color: $toggleButtonHoverBorderColor;
+                color: $toggleButtonHoverTextColor;
+    
+                .ui-button-icon-left {
+                    color: $toggleButtonHoverIconColor;
+                }
             }
-
+    
             &:not(.ui-state-disabled):not(.ui-state-active).ui-state-focus {
-                @include border-shadow();
-                background-color: darken($toggleButtonBgColor,10%);
+                background-color: $toggleButtonFocusBgColor;
+                border-color: $toggleButtonFocusBorderColor;
+                color: $toggleButtonFocusTextColor;
+                outline: $toggleButtonFocusOutline;
+    
+                .ui-button-icon-left {
+                    color: $toggleButtonFocusIconColor;
+                }
             }
-
+    
             &.ui-state-active {
-                background-color: $highlightBgColor;
-                color: $primaryTextColor;
-                border-right-color: $highlightBgColor;
+                background-color: $toggleButtonActiveBgColor;
+                border-color: $toggleButtonActiveBorderColor;
+                color: $toggleButtonActiveTextColor;
+    
+                .ui-button-icon-left {
+                    color: $toggleButtonActiveIconColor;
+                }
 
+                &:hover {
+                    background-color: $toggleButtonActiveHoverBgColor;
+                    border-color: $toggleButtonActiveHoverBorderColor;
+                    color: $toggleButtonActiveHoverTextColor;
+    
+                    .ui-button-icon-left {
+                        color: $toggleButtonActiveHoverIconColor;
+                    }
+                }
+    
                 &.ui-state-focus {
-                    background-color: darken($highlightBgColor,5%);
-                    color: $primaryTextColor;
-                    @include border-shadow();
+                    background-color: $toggleButtonActiveFocusBgColor;
+                    border-color: $toggleButtonActiveFocusBorderColor;
+                    color: $toggleButtonActiveFocusTextColor;
+        
+                    .ui-button-icon-left {
+                        color: $toggleButtonActiveFocusIconColor;
+                    }
                 }
             }
 
@@ -888,6 +949,21 @@ body {
             }
         }
     }
+/*
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
 
     @media (max-width: 640px) {
         .ui-buttonset {

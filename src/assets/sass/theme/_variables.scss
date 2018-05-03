@@ -45,6 +45,7 @@ $inputListHeaderPaddingTop:0.429em;
 $inputListHeaderPaddingLeft:0.857em;
 $inputListHeaderPaddingRight:0.857em;
 $inputListHeaderPaddingBottom:0.429em;
+$inputListHeaderMargin:0;
 $inputListHeaderBgColor:#ffffff;
 $inputListHeaderTextColor:$textColor;
 $inputListHeaderBorder:1px solid #eaeaea;
@@ -53,7 +54,7 @@ $inputListHeaderCloseIconColor:$textColor;
 $inputListHeaderCloseIconHoverColor:$primaryColor;
 $inputListHeaderCloseIconTransition:color $transitionDuration;
 
-//inputs with panels (password, keyboard)
+//inputs with panels (e.g. password)
 $inputContentPanelPadding:12px;
 $inputContentPanelBgColor:#ffffff;
 $inputContentPanelTextColor:$textColor;
@@ -166,27 +167,31 @@ $radiobuttonFocusBorderColor:$primaryColor; //OK
 $radiobuttonTransition:background-color $transitionDuration, border-color $transitionDuration; //OK
 
 //togglebutton
-$toggleButtonBgColor:#dadada;
-$toggleButtonBorder:1px solid #dadada;
-$toggleButtonTextColor:#333333;
-$toggleButtonIconColor:#666666;
-$toggleButtonHoverBgColor:#c8c8c8;
-$toggleButtonHoverBorderColor:#c8c8c8;
-$toggleButtonHoverTextColor:#333333;
-$toggleButtonHoverIconColor:#212121;
-$toggleButtonActiveBgColor:$secondaryColor;
-$toggleButtonActiveBorderColor:$secondaryColor;
-$toggleButtonActiveTextColor:$secondaryColorText;
-$toggleButtonActiveIconColor:$secondaryColorText;
-$toggleButtonActiveHoverBgColor:$secondaryDarkColor;
-$toggleButtonActiveHoverBorderColor:$secondaryDarkColor;
-$toggleButtonActiveHoverTextColor:$secondaryDarkColorText;
-$toggleButtonActiveHoverIconColor:$secondaryDarkColorText;
-$toggleButtonFocusOutline:0 none;
-$toggleButtonFocusBgColor:#c8c8c8;
-$toggleButtonFocusBorderColor:#666666;
-$toggleButtonFocusTextColor:#333333;
-$toggleButtonFocusIconColor:#212121;
+$toggleButtonBgColor:#dadada; //OK
+$toggleButtonBorder:1px solid #dadada; //OK
+$toggleButtonTextColor:#333333; //OK
+$toggleButtonIconColor:#666666; //OK
+$toggleButtonHoverBgColor:#c8c8c8; //OK
+$toggleButtonHoverBorderColor:#c8c8c8; //OK
+$toggleButtonHoverTextColor:#333333; //OK
+$toggleButtonHoverIconColor:#212121; //OK
+$toggleButtonActiveBgColor:$secondaryColor; //OK
+$toggleButtonActiveBorderColor:$secondaryColor; //OK
+$toggleButtonActiveTextColor:$secondaryColorText; //OK
+$toggleButtonActiveIconColor:$secondaryColorText; //OK
+$toggleButtonActiveHoverBgColor:$secondaryDarkColor; //OK
+$toggleButtonActiveHoverBorderColor:$secondaryDarkColor; //OK
+$toggleButtonActiveHoverTextColor:$secondaryDarkColorText; //OK
+$toggleButtonActiveHoverIconColor:$secondaryDarkColorText; //OK
+$toggleButtonFocusOutline:0 none; //OK
+$toggleButtonFocusBgColor:#c8c8c8; //OK
+$toggleButtonFocusBorderColor:#666666; //OK
+$toggleButtonFocusTextColor:#333333; //OK
+$toggleButtonFocusIconColor:#212121; //OK
+$toggleButtonActiveFocusBgColor:$secondaryDarkColor; //OK
+$toggleButtonActiveFocusBorderColor:darken($secondaryDarkColor, 15%); //OK
+$toggleButtonActiveFocusTextColor:$secondaryDarkColorText; //OK
+$toggleButtonActiveFocusIconColor:$secondaryDarkColorText; //OK
 
 //inplace
 $inplacePadding:6px;
