@@ -966,17 +966,23 @@ body {
             @include border-radius-left(0);
         }
     }
-/*
+
     .ui-inplace {
+        min-height: 2.143em;
+
         .ui-inplace-display {
-            padding: $inputPadding;
+            padding: $inplacePadding;
             @include border-radius($borderRadius);
+            @include transition($inplaceTransition);
 
             &:not(.ui-state-disabled):hover {
-                @include list-item-hover();
+                background-color: $inplaceHoverBgColor;
+                color: $inplaceHoverTextColor;
             }
         }
     }
+/*
+
 
     .ui-fileupload {
         .ui-fileupload-buttonbar {
