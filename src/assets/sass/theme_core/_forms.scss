@@ -746,26 +746,69 @@ body {
 
     .ui-spinner {
         .ui-spinner-input {
-            padding-right: 2.429em;
+            padding-right: $spinnerButtonWidth + $inputPadding;
         }
 
         .ui-spinner-button {
-            width: 2em;
+            width: $spinnerButtonWidth;
         }
     }
 
     .ui-fluid {
         .ui-spinner {
             .ui-spinner-input {
-                padding-right: 2.429em;
+                padding-right: $spinnerButtonWidth + $inputPadding;
             }
-            
+
             .ui-spinner-button {
-                width: 2em;
+                width: $spinnerButtonWidth;
 
                 .ui-clickable {
                     left: 50%;
                 }
+            }
+        }
+    }
+
+    .ui-slider {
+        background-color: $sliderBgColor;
+        border: $sliderBorder;
+
+        &.ui-slider-horizontal {
+            height: $sliderHeight;
+
+            .ui-slider-handle {
+                top: 50%;
+                margin-top: -1 * $sliderHandleHeight / 2;
+            }
+        }
+
+        &.ui-slider-vertical {
+            width: $sliderWidth;
+
+            .ui-slider-handle {
+                left: 50%;
+                margin-left: -1 * $sliderHandleWidth / 2;
+            }
+        }
+
+        .ui-slider-handle {
+            height: $sliderHandleHeight;
+            width: $sliderHandleWidth;
+            background-color: $sliderHandleBgColor;
+            border: $sliderHandleBorder;
+            @include border-radius($sliderHandleBorderRadius);
+            @include transition($sliderHandleTransition);
+        }
+
+        .ui-slider-range {
+            background-color: $sliderRangeBgColor;
+        }
+
+        &:not(.ui-state-disabled) {
+            .ui-slider-handle:hover {
+                background-color: $sliderHandleHoverBgColor;
+                border: $sliderHandleHoverBorder;
             }
         }
     }
@@ -779,38 +822,7 @@ body {
 
 
 
-    .ui-slider {
-        background-color: $dividerColor;
-        border-color: $dividerColor;
 
-        &.ui-slider-horizontal {
-            .ui-slider-handle {
-                top: -.25em;
-            }
-        }
-
-        &.ui-slider-vertical {
-            .ui-slider-handle {
-                left: -.25em;
-            }
-        }
-
-        .ui-slider-handle {
-            background-color: $primaryColor;
-            border-radius: 100%;
-            @include transition(background-color $transitionDuration);
-        }
-
-        .ui-slider-range {
-            background-color: lighten($primaryColor,15%);
-        }
-
-        &:not(.ui-state-disabled) {
-            .ui-slider-handle:hover {
-                background-color: darken($primaryColor,5%);
-            }
-        }
-    }
 
     .ui-togglebutton {
         background-color: $toggleButtonBgColor;

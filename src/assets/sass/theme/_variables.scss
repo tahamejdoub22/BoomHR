@@ -203,20 +203,19 @@ $ratingStarIconColor:$textColor; //OK
 $ratingStarIconHoverColor:$secondaryDarkColor; //OK
 
 //slider
-$sliderBgColor:#c8c8c8;
-$sliderHeight:4px;
-$sliderWidth:4px;
-$sliderHandleWidth:16px;
-$sliderHandleHeight:16px;
-$sliderHandleBgColor:#ffffff;
-$sliderHandleBorder:2px solid #666666;
-$sliderHandleHoverBorder:2px solid $primaryColor;
-$sliderHandleHoverBgColor:2px solid #666666;
-$sliderHandleFocusBorder:2px solid $primaryColor;
-$sliderHandleFocusBgColor:$primaryColor;
-$sliderHandleBorderRadius:50%;
-$sliderHandleTransition:background-color $transitionDuration;
-$sliderRangeBgColor:$primaryColor;
+$sliderBgColor:#c8c8c8; //OK
+$sliderBorder:0 none; //OK
+$sliderHeight:.286em; //OK
+$sliderWidth:0.286em; //OK
+$sliderHandleWidth:1.143em; //OK
+$sliderHandleHeight:1.143em; //OK
+$sliderHandleBgColor:#ffffff; //OK
+$sliderHandleBorder:2px solid #666666; //OK
+$sliderHandleBorderRadius:100%; //OK
+$sliderHandleHoverBorder:2px solid $primaryColor; //OK
+$sliderHandleHoverBgColor:2px solid #666666;  //OK
+$sliderHandleTransition:border-color $transitionDuration; //OK
+$sliderRangeBgColor:$primaryColor; //OK
 
 //calendar
 $calendarWidth:260px;
@@ -243,7 +242,7 @@ $calendarTimePickerInputPadding:6px 0;
 $calendarTimePickerInputMargin:0 10px 10px 40%;
 
 //spinner
-$spinnerButtonWidth:2em; //OK
+$spinnerButtonWidth:2em;
 
 //input switch
 $inputSwitchBorderRadius:8px;  //OK
