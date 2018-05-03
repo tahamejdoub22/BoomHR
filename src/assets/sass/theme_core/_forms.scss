@@ -744,6 +744,31 @@ body {
         }
     }
 
+    .ui-spinner {
+        .ui-spinner-input {
+            padding-right: 2.429em;
+        }
+
+        .ui-spinner-button {
+            width: 2em;
+        }
+    }
+
+    .ui-fluid {
+        .ui-spinner {
+            .ui-spinner-input {
+                padding-right: 2.429em;
+            }
+            
+            .ui-spinner-button {
+                width: 2em;
+
+                .ui-clickable {
+                    left: 50%;
+                }
+            }
+        }
+    }
 /*
 
 
@@ -752,41 +777,7 @@ body {
 
     
 
-    .ui-spinner {
-        input {
-            padding-right: 1.8em;
-        }
 
-        .ui-spinner-button {
-            &.ui-button {
-                z-index: auto;
-                background-color: transparent;
-                color: $textSecondaryColor;
-
-                &:not(.ui-state-disabled):hover {
-                    color: $textColor;
-                }
-
-                &:not(.ui-state-disabled):focus {
-                    color: $textColor;
-                }
-
-                &:not(.ui-state-disabled):active {
-                    color: $textSecondaryColor;
-                }
-
-                &.ui-spinner-up {
-                    top: 1px;
-                    right: 1px;
-                }
-
-                &.ui-spinner-down {
-                    bottom: 1px;
-                    right: 1px;
-                }
-            }
-        }
-    }
 
     .ui-slider {
         background-color: $dividerColor;

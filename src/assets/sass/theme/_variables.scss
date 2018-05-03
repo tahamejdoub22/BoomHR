@@ -243,19 +243,7 @@ $calendarTimePickerInputPadding:6px 0;
 $calendarTimePickerInputMargin:0 10px 10px 40%;
 
 //spinner
-$spinnerButtonWidth:16px;
-$spinnerButtonBorder:0 none;
-$spinnerButtonBgColor:transparent;
-$spinnerButtonTextColor:$textColor;
-$spinnerButtonHoverBorder:0 none;
-$spinnerButtonHoverBgColor:#eaeaea;
-$spinnerButtonHoverTextColor:$textColor;
-$spinnerButtonActiveBorder:0 none;
-$spinnerButtonActiveBgColor:$primaryColor;
-$spinnerButtonActiveTextColor:$primaryColorText;
-$spinnerButtonFocusBorder:0 none;
-$spinnerButtonFocusBgColor:#eaeaea;
-$spinnerButtonFocusTextColor:$textColor;
+$spinnerButtonWidth:2em; //OK
 
 //input switch
 $inputSwitchBorderRadius:8px;  //OK
