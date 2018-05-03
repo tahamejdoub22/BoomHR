@@ -362,6 +362,7 @@ body {
     }
 
     .ui-dropdown {
+        background: $inputBgColor;
         border: $inputBorder;
         @include transition($inputTransition);
 
@@ -369,24 +370,21 @@ body {
             border-color: $inputHoverBorderColor;
         }
 
-        /*.ui-dropdown-label:focus,
-        .ui-dropdown-label:hover {
-            border: 0 none;
+        &:not(.ui-state-disabled):focus {
+            @include focused-input();
         }
 
-        input.ui-dropdown-label:focus,
-        input.ui-dropdown-label:hover {
-            &.ui-inputtext {
-                border: 0 none;
-            }
-        }*/
+        .ui-dropdown-label {
+            padding-right: 2em;
+        }
 
         .ui-dropdown-trigger {
-            background-color: #ffffff;
+            background-color: $inputBgColor;
             width: 2em;
             line-height: 2em;
             text-align: center;
             padding: 0;
+            color: $inputDropdownIconColor;
 
             .ui-clickable {
                 @include icon_override("\f078");
@@ -412,6 +410,9 @@ body {
 
         .ui-dropdown-filter-container {
             padding: $inputListHeaderPaddingTop $inputListHeaderPaddingRight $inputListHeaderPaddingBottom $inputListHeaderPaddingLeft;
+            border-bottom: $inputListHeaderBorder;
+            color: $inputListHeaderTextColor;
+            background-color: $inputListHeaderBgColor;
 
             .ui-dropdown-filter {
                 width: 100%;
@@ -421,7 +422,8 @@ body {
             .fa {
                 top: 50%;
                 margin-top: -.5em;
-                right: $inputListHeaderPaddingRight + 1em;
+                right: $inputListHeaderPaddingRight + .5em;
+                color: $inputListHeaderSearchIconColor;
             }
         }
 
@@ -448,62 +450,50 @@ body {
             }
         }
     }
-/*
-
 
     .ui-multiselect {
         background: $inputBgColor;
-        border: 1px solid $inputBorderColor;
-        @include transition(border-color $transitionDuration, box-shadow $transitionDuration);
+        border: $inputBorder;
+        @include transition($inputTransition);
+
+        &:not(.ui-state-disabled):hover {
+            border-color: $inputHoverBorderColor;
+        }
+
+        &:not(.ui-state-disabled):focus {
+            @include focused-input();
+        }
 
         .ui-multiselect-label {
-            color: $textColor;
             padding: $inputPadding;
-            padding-right: 2.3em;
+            padding-right: 2em;
         }
 
         .ui-multiselect-trigger {
+            background-color: $inputBgColor;
             width: 2em;
             line-height: 2em;
-            box-sizing: border-box;
-            padding: 0;
             text-align: center;
-            @include box-sizing(border-box);
+            padding: 0;
+            color: $inputDropdownIconColor;
 
-            .fa {
-                margin: 0;
-                line-height: inherit;
-                color: $textSecondaryColor;
+            .ui-clickable {
                 @include icon_override("\f078");
-            }
-        }
-
-        &:not(.ui-state-disabled):hover {
-            border: 1px solid $inputHoverBorderColor;
-        }
-
-        &:not(.ui-state-disabled).ui-state-focus {
-            border: 1px solid $primaryColor;
-            @include border-shadow();
-
-            .ui-multiselect-trigger {
-                .fa {
-                    color: $primaryColor;
-                }
             }
         }
     }
 
     .ui-multiselect-panel {
         padding: 0;
-        min-width: 12em;
-        border: grey;
-        @include overlay-shadow();
+        border: $inputOverlayBorder;
+        background-color: $inputListBgColor;
+        @include shadow($inputOverlayShadow);
 
         .ui-multiselect-header {
-            padding: $headerPadding;
-            border: 0 none;
-            border-bottom: 1px solid $headerBorderColor;
+            padding: $inputListHeaderPaddingTop $inputListHeaderPaddingRight $inputListHeaderPaddingBottom $inputListHeaderPaddingLeft;
+            border-bottom: $inputListHeaderBorder;
+            color: $inputListHeaderTextColor;
+            background-color: $inputListHeaderBgColor;
 
             .ui-multiselect-filter-container {
                 float: none;
@@ -513,82 +503,79 @@ body {
                 margin-left: 0;
 
                 .ui-inputtext {
-                    padding: 1px;
-                    width: 100%;
-                    box-sizing: border-box;
-                    text-indent: 1.5em;
+                    padding: $inputPadding;
+                    padding-right: 2em;
                 }
 
                 .fa {
-                    color: $textColor;
-                    top: .3em;
-                    left: 0.2em;
+                    color: $inputListHeaderSearchIconColor;
+                    top: 50%;
+                    margin-top: -.5em;
+                    right: .5em;
+                    left: auto;
                 }
             }
 
             .ui-chkbox {
-                margin-right: 8px;
+                margin-right: $inlineSpacing;
                 float: none;
                 vertical-align: middle;
-
-                .ui-chkbox-box {
-                    &.ui-state-active {
-                        border-color: $highlightTextColor;
-                    }
-                }
             }
 
             .ui-multiselect-close {
-                color: $headerTextColor;
-                font-size: $fontSize + 4;
-                margin: 0;
-                margin-top: -.15em;
-                padding: 0;
-                @include transition(color $transitionDuration);
+                color: $inputListHeaderCloseIconColor;
+                top: 50%;
+                margin-top: -.5em;
+                right: $inputListHeaderPaddingRight;
+                @include transition($inputListHeaderCloseIconTransition);
 
                 &:hover {
-                    padding: 0;
-                    color: $headerIconHoverColor;
+                    color: $inputListHeaderCloseIconHoverColor;
                 }
 
                 &:focus {
                     outline: 0 none;
-                    color: lighten($primaryColor,10%);
+                    color: $inputListHeaderCloseIconHoverColor;
                 }
             }
         }
 
         .ui-multiselect-items {
+            padding: $inputListPadding;
+
             .ui-multiselect-item {
-                padding: $listItemPadding;
+                margin: $inputListItemMargin;
+                padding: $inputListItemPadding;
+                border: $inputListItemBorder;
+                color: $inputListItemTextColor;
+                background-color: $inputListItemBgColor;
+                @include border-radius(0);
 
-                .ui-chkbox {
-                    position: static;
-                    margin-top: 0;
-                    display: inline-block;
-                    vertical-align: middle;
-
-                    .ui-chkbox-box {
-                        &.ui-state-active {
-                            border-color: $highlightTextColor;
-                        }
-                    }
-                }
-
-                label {
-                    padding: 0;
-                    margin: 0 0 0 0.615em;
-                    display: inline-block;
-                    vertical-align: middle;
+                &.ui-state-highlight {
+                    color: $inputListItemHighlightTextColor;
+                    background-color: $inputListItemHighlightBgColor;
                 }
 
                 &:not(.ui-state-highlight):hover {
-                    border-radius: 0;
-                    @include list-item-hover();
+                    color: $inputListItemHoverTextColor;
+                    background-color: $inputListItemHoverBgColor;
+                }
+
+                .ui-chkbox {
+                    position: static;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 $inlineSpacing 0 0;
+                }
+
+                label {
+                    display: inline-block;
+                    vertical-align: middle;
                 }
             }
         }
     }
+/*
 
     .ui-listbox {
         padding: 0;
