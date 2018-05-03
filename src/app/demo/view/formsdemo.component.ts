@@ -12,7 +12,7 @@ export class FormsDemoComponent implements OnInit {
 
     filteredCountries: any[];
 
-    brands: string[] = ['Audi', 'BMW', 'Fiat', 'Ford', 'Honda', 'Jaguar', 'Mercedes', 'Renault', 'Volvo', 'VW'];
+    brands: string[] = ['Audi', 'BMW', 'Fiat', 'Ford', 'Honda', 'Jaguar', 'Mercedes', 'Renault', 'Volvo', 'Volkswagen'];
 
     filteredBrands: any[];
 
@@ -122,14 +122,5 @@ export class FormsDemoComponent implements OnInit {
                 this.filteredBrands.push(brand);
             }
         }
-    }
-
-    handleACDropdownClick() {
-        this.filteredBrands = [];
-
-        // mimic remote call
-        setTimeout(() => {
-            this.filteredBrands = this.brands;
-        }, 100);
     }
 }

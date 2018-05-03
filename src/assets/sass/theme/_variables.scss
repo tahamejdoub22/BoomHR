@@ -41,6 +41,7 @@ $inputListItemHighlightBgColor:$secondaryColor;
 $inputListItemHighlightTextColor:$secondaryColorText;
 $inputListItemBorder:0 none;
 $inputListItemMargin:0;
+$inputListItemDividerColor:#d8dae2;
 $inputListHeaderPaddingTop:6px;
 $inputListHeaderPaddingLeft:12px;
 $inputListHeaderPaddingRight:12px;
@@ -263,17 +264,17 @@ $spinnerButtonFocusBgColor:#eaeaea;
 $spinnerButtonFocusTextColor:$textColor;
 
 //input switch
-$inputSwitchBorderRadius:8px;
-$inputSwitchOffHandleBgColor:#a6a6a6;
-$inputSwitchOffHandleHoverBgColor:#848484;
-$inputSwitchOffHandleFocusBgColor:#848484;
-$inputSwitchOnBorderColor:$primaryColor;
-$inputSwitchOnBgColor:$primaryColor;
-$inputSwitchOnHandleBgColor:$primaryDarkColor;
-$inputSwitchOnHandleFocusBgColor:$primaryDarkColor;
-$inputSwitchOnHandleHoverBgColor:$primaryDarkerColor;
-$inputSwitchTransition:border-color $transitionDuration;
-$inputSwitchHandleTransition:background-color $transitionDuration;
+$inputSwitchBorderRadius:8px;  //OK
+$inputSwitchOffHandleBgColor:#a6a6a6;  //OK
+$inputSwitchOffHandleHoverBgColor:#848484;  //OK
+$inputSwitchOffHandleFocusBgColor:#848484;  //OK
+$inputSwitchOnBorderColor:$primaryColor;  //OK
+$inputSwitchOnBgColor:$primaryColor;  //OK
+$inputSwitchOnHandleBgColor:$primaryDarkColor;  //OK
+$inputSwitchOnHandleFocusBgColor:$primaryDarkColor;  //OK
+$inputSwitchOnHandleHoverBgColor:$primaryDarkerColor;  //OK
+$inputSwitchTransition:border-color $transitionDuration;  //OK
+$inputSwitchHandleTransition:background-color $transitionDuration;  //OK
 
 //keyboard
 $keyboardButtonPadding:6px;
@@ -455,8 +456,8 @@ $overlayMenuShadow:0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
 //misc
 $maskBgColor:rgba(0, 0, 0, 0.4);
-$inlineSpacing:6px;
-$chipsItemMargin:0 4px 0 0;
+$inlineSpacing:.5em;
+$chipsItemMargin:0 .286em 0 0;
 $dataIconColor:$textSecondaryColor;
 $dataIconHoverColor:$textColor;
 

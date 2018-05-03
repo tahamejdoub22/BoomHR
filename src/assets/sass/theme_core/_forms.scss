@@ -231,39 +231,28 @@ body {
         }
     }
 
-
-/*
     .ui-autocomplete {
         .ui-autocomplete-dropdown {
-            width: 2em;
-            padding: .06em;
-
-            .fa {
+            .ui-button-icon-left {
                 @include icon_override("\f078");
-            }
-
-            &.ui-button-icon-only {
-                .ui-button-text {
-                    padding: 0.385em;
-                }
             }
         }
 
         &.ui-autocomplete-multiple {
             .ui-autocomplete-multiple-container {
-                padding: $inputPadding - 0.085em;
+                padding: $inputPadding / 2 $inputPadding;
 
                 &:not(.ui-state-disabled):hover {
                     border-color: $inputHoverBorderColor;
                 }
 
                 &:not(.ui-state-disabled).ui-state-focus {
-                    border-color: $primaryColor;
+                    @include focused-input();
                 }
 
                 .ui-autocomplete-input-token {
-                    padding: 0 .25em 0 0;
-                    vertical-align: top;
+                    margin: 0;
+                    padding: $inputPadding / 2 0;
 
                     input {
                         font-family: $fontFamily;
@@ -274,29 +263,41 @@ body {
                 }
 
                 .ui-autocomplete-token {
-                    font-size: $fontSize - 2;
-                    vertical-align: top;
+                    padding: $inputPadding / 2 $inputPadding;
+                    margin: $chipsItemMargin;
+                    background: $highlightBgColor;
+                    color: $highlightColorText;
                 }
             }
         }
     }
 
     .ui-autocomplete-panel {
-        border: grey;
-        @include overlay-shadow();
+        padding: 0;
+        border: $inputOverlayBorder;
+        background-color: $inputListBgColor;
+        @include shadow($inputOverlayShadow);
 
         .ui-autocomplete-items {
-            padding: 0;
+            padding: $inputListPadding;
 
             .ui-autocomplete-list-item {
-                margin: 0;
-                padding: $listItemPadding;
+                margin: $inputListItemMargin;
+                padding: $inputListItemPadding;
+                border: $inputListItemBorder;
+                color: $inputListItemTextColor;
+                background-color: $inputListItemBgColor;
                 @include border-radius(0);
+
+                &.ui-state-highlight {
+                    color: $inputListItemHighlightTextColor;
+                    background-color: $inputListItemHighlightBgColor;
+                }
             }
 
             .ui-autocomplete-group {
-                padding: $listItemPadding;
-                background-color: $dividerColor;
+                padding: $inputListItemPadding;
+                background-color: $inputListItemDividerColor;
                 color: $textColor;
             }
         }
@@ -317,6 +318,10 @@ body {
             }
         }
     }
+
+
+/*
+
 
     .ui-chips {
         > ul.ui-inputtext {
