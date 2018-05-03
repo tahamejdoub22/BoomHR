@@ -263,20 +263,17 @@ $spinnerButtonFocusBgColor:#eaeaea;
 $spinnerButtonFocusTextColor:$textColor;
 
 //input switch
-$inputSwitchBorderRadius:30px;
-$inputSwitchOffBorderColor:#a6a6a6;
-$inputSwitchOffBgColor:#ffffff;
+$inputSwitchBorderRadius:8px;
+$inputSwitchOffHandleBgColor:#a6a6a6;
+$inputSwitchOffHandleHoverBgColor:#848484;
+$inputSwitchOffHandleFocusBgColor:#848484;
 $inputSwitchOnBorderColor:$primaryColor;
 $inputSwitchOnBgColor:$primaryColor;
-$inputSwitchHandleOffBgColor:#666666;
-$inputSwitchHandleOnBgColor:#ffffff;
-$inputSwitchHandleHoverBgColor:#333333;
-$inputSwitchHandleActiveHoverBgColor:$primaryDarkColor;
-$inputSwitchOffHandleFocusBgColor:#333333;
-$inputSwitchOnHandleFocusBgColor:#d0d0d0;
-$inputSwitchHandleHeight:22px;
-$inputSwitchHandleWidth:22px;
+$inputSwitchOnHandleBgColor:$primaryDarkColor;
+$inputSwitchOnHandleFocusBgColor:$primaryDarkColor;
+$inputSwitchOnHandleHoverBgColor:$primaryDarkerColor;
 $inputSwitchTransition:border-color $transitionDuration;
+$inputSwitchHandleTransition:background-color $transitionDuration;
 
 //keyboard
 $keyboardButtonPadding:6px;

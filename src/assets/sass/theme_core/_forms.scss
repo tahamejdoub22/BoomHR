@@ -167,53 +167,72 @@ body {
     .ui-radiobutton-label {
         margin: 0 0 0 .5em;
     }
-/*
-
-
-
 
     .ui-inputswitch {
-        height: 2em;
-        @include transition(background-color $transitionDuration, border-color $transitionDuration, box-shadow $transitionDuration);
+        height: 1em;
+        width: 2.429em !important;
+        overflow: visible;
+        background-color: $inputBgColor;
+        border: $inputBorder;
+        @include border-radius($inputSwitchBorderRadius);
+        @include transition($inputSwitchTransition);
 
-        .ui-inputswitch-on {
-            background-color: $highlightBgColor;
-            color: $primaryTextColor;
-            font-weight: normal;
-        }
-
-        .ui-inputswitch-off {
-            background-color: #a8acb1;
-            color: #ffffff;
-            font-weight: normal;
-
-            .ui-inputswitch-offlabel {
-                position: relative;
-                left: 1px;
-            }
-        }
-
-        .ui-inputswitch-on,
-        .ui-inputswitch-off {
-            line-height: 2em;
+        .ui-inputswitch-handle {
+            top: -0.286em;
+            background-color:$inputSwitchOffHandleBgColor;
+            width: 1.429em !important;
+            height: 1.429em !important;
+            @include border-radius(50%);
+            @include transition($inputSwitchHandleTransition);
         }
 
         &:not(.ui-state-disabled):hover {
-            border-color: $inputHoverBorderColor;
-        }
-
-        .ui-inputswitch-handle {
-            background-color: $inputBgColor;
-            border: 1px solid transparent;
-            box-sizing: border-box;
-            @include transition(background-color $transitionDuration);
+            .ui-inputswitch-handle {
+                background-color: $inputSwitchOffHandleHoverBgColor;
+            }
         }
 
         &.ui-state-focus {
-            @include border-shadow();
+            .ui-inputswitch-handle {
+                background-color: $inputSwitchOffHandleFocusBgColor;
+            }
+        }
+
+        .ui-inputswitch-on {
+            visibility: hidden;
+        }
+
+        .ui-inputswitch-off,
+        .ui-inputswitch-on {
+            span {
+                visibility: hidden;
+            }
+        }
+
+        &.ui-inputswitch-checked {
+            background-color: $inputSwitchOnBgColor;
+            border-color: $inputSwitchOnBorderColor;
+
+            .ui-inputswitch-handle {
+                background-color: $inputSwitchOnHandleBgColor;
+            }
+
+            &:not(.ui-state-disabled):hover {
+                .ui-inputswitch-handle {
+                    background-color: $inputSwitchOnHandleHoverBgColor;
+                }
+            }
+
+            &.ui-state-focus {
+                .ui-inputswitch-handle {
+                    background-color: $inputSwitchOnHandleHoverBgColor;
+                }
+            }
         }
     }
 
+
+/*
     .ui-autocomplete {
         .ui-autocomplete-dropdown {
             width: 2em;
