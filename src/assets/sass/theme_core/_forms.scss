@@ -6,7 +6,6 @@ body {
         padding: $inputPadding;
         border: $inputBorder;
         @include transition($inputTransition);
-        @include border-radius($borderRadius);
         @include appearance(none);
 
         &:enabled:hover:not(.ui-state-error) {
@@ -362,22 +361,15 @@ body {
         }
     }
 
-
-/*
-
-
-
-
     .ui-dropdown {
-        @include transition(box-shadow $transitionDuration, border-color $transitionDuration);
-        @include box-sizing(border-box);
-        border: 1px solid $inputBorderColor;
+        border: $inputBorder;
+        @include transition($inputTransition);
 
         &:not(.ui-state-disabled):hover {
-            border: 1px solid $inputHoverBorderColor;
+            border-color: $inputHoverBorderColor;
         }
 
-        .ui-dropdown-label:focus,
+        /*.ui-dropdown-label:focus,
         .ui-dropdown-label:hover {
             border: 0 none;
         }
@@ -387,7 +379,7 @@ body {
             &.ui-inputtext {
                 border: 0 none;
             }
-        }
+        }*/
 
         .ui-dropdown-trigger {
             background-color: #ffffff;
@@ -396,17 +388,13 @@ body {
             text-align: center;
             padding: 0;
 
-            .fa-caret-down {
-                color: $textSecondaryColor;
+            .ui-clickable {
                 @include icon_override("\f078");
-                line-height: inherit;
-                margin: 0;
             }
         }
 
         &:not(.ui-state-disabled).ui-state-focus {
             border: 1px solid $primaryColor;
-            @include border-shadow();
 
             .ui-dropdown-trigger {
                 .fa-caret-down {
@@ -417,48 +405,51 @@ body {
     }
 
     .ui-dropdown-panel {
-        border: 0 none;
-        @include overlay-shadow();
+        padding: 0;
+        border: $inputOverlayBorder;
+        background-color: $inputListBgColor;
+        @include shadow($inputOverlayShadow);
 
         .ui-dropdown-filter-container {
-            padding: $headerPadding;
+            padding: $inputListHeaderPaddingTop $inputListHeaderPaddingRight $inputListHeaderPaddingBottom $inputListHeaderPaddingLeft;
 
             .ui-dropdown-filter {
                 width: 100%;
-                box-sizing: border-box;
-                padding-right: 20px;
+                padding-right: 2em;
             }
 
             .fa {
-                top: 12px;
-                right: 15px;
+                top: 50%;
+                margin-top: -.5em;
+                right: $inputListHeaderPaddingRight + 1em;
             }
         }
 
         .ui-dropdown-items {
-            padding: 0;
+            padding: $inputListPadding;
 
-            .ui-dropdown-item {
-                margin: 0;
-                padding: $listItemPadding;
+            .ui-dropdown-item, .ui-dropdown-item-group {
+                margin: $inputListItemMargin;
+                padding: $inputListItemPadding;
+                border: $inputListItemBorder;
+                color: $inputListItemTextColor;
+                background-color: $inputListItemBgColor;
                 @include border-radius(0);
+
+                &.ui-state-highlight {
+                    color: $inputListItemHighlightTextColor;
+                    background-color: $inputListItemHighlightBgColor;
+                }
 
                 &:not(.ui-state-highlight):hover {
-                    @include list-item-hover();
+                    color: $inputListItemHoverTextColor;
+                    background-color: $inputListItemHoverBgColor;
                 }
-
-                > td {
-                    padding: $listItemPadding;
-                }
-            }
-
-            .ui-selectonemenu-item-group {
-                @include border-radius(0);
-                padding: $listItemPadding;
-                background-color: $dividerColor;
             }
         }
     }
+/*
+
 
     .ui-multiselect {
         background: $inputBgColor;
