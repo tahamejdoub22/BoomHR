@@ -263,6 +263,7 @@ body {
                 }
 
                 .ui-autocomplete-token {
+                    font-size: $fontSize;
                     padding: $inputPadding / 2 $inputPadding;
                     margin: $chipsItemMargin;
                     background: $highlightBgColor;
@@ -319,26 +320,24 @@ body {
         }
     }
 
-
-/*
-
-
     .ui-chips {
         > ul.ui-inputtext {
-            padding: .25em;
+            padding: $inputPadding / 2 $inputPadding;
             display: inline-block;
 
             &:not(.ui-state-disabled):hover {
-                border: 1px solid $inputHoverBorderColor;
+                border-color: $inputHoverBorderColor;
             }
 
             &:not(.ui-state-disabled).ui-state-focus {
-                border: 1px solid $primaryColor;
-                @include border-shadow();
+                @include focused-input();
             }
 
             .ui-chips-input-token {
+                padding: $inputPadding / 2 0;
+
                 input {
+                    font-family: $fontFamily;
                     font-size: $fontSize;
                     padding: 0;
                     margin: 0;
@@ -349,16 +348,25 @@ body {
 
                     &:focus {
                         border: 0 none;
-                        @include no-shadow();
                     }
                 }
             }
 
             .ui-chips-token {
-                font-size: 1em;
+                font-size: $fontSize;
+                padding: $inputPadding / 2 $inputPadding;
+                margin: $chipsItemMargin;
+                background: $highlightBgColor;
+                color: $highlightColorText;
             }
         }
     }
+
+
+/*
+
+
+
 
     .ui-dropdown {
         @include transition(box-shadow $transitionDuration, border-color $transitionDuration);
