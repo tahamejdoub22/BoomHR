@@ -815,13 +815,16 @@ body {
             }
         }
     }
-/*
+
     .ui-datepicker {
-        padding: 0;
-        width: 20em;
+        padding: $calendarPadding;
+        width: $calendarWidth;
+        background-color: $inputBgColor;
+        border: $inputBorder;
 
         &:not(.ui-datepicker-inline) {
-            border: $inputBorderColor;
+            border: $inputOverlayBorder;
+            @include shadow($inputOverlayShadow);
         }
 
         &:not(.ui-state-disabled) {
@@ -829,12 +832,12 @@ body {
                 .ui-datepicker-prev,
                 .ui-datepicker-next {
                     &:hover {
-                        color: lighten($primaryColor,15%);
+                        color: $calendarNavIconHoverColor;
                     }
 
                     &:focus {
                         outline: 0 none;
-                        color: lighten($primaryColor,20%);
+                        color: $calendarNavIconHoverColor;
                     }
                 }
             }
@@ -842,74 +845,76 @@ body {
             table {
                 td:not(.ui-state-disabled) {
                     a:not(.ui-state-active):not(.ui-state-highlight):hover {
-                        background-color: $listItemHoverBgColor;
+                        background-color: $calendarCellDateHoverBgColor;
                     }
                 }
             }
         }
 
         .ui-datepicker-header {
-            padding: $headerPadding;
-            border-top: 0;
-            border-left: 0;
-            border-right: 0;
+            padding: $inputListHeaderPaddingTop $inputListHeaderPaddingRight $inputListHeaderPaddingBottom $inputListHeaderPaddingLeft;
+            background-color: $inputListHeaderBgColor;
+            color: $inputListHeaderTextColor;
             @include border-radius(0);
 
-            .ui-datepicker-prev {
+            .ui-datepicker-prev, 
+            .ui-datepicker-next {
                 cursor: pointer;
-                top:1em;
-                color: $headerIconColor;
-                @include icon_override("\f053");
-                @include transition(color $transitionDuration);
-                span {
-                    display: none;
-                }
+                top: 0;
+                color: $calendarNavIconColor;
+                @include transition($calendarNavIconTransition);
             }
 
             .ui-datepicker-next {
-                cursor: pointer;
-                top:1em;
-                color: $headerIconColor;
-                @include icon_override("\f054");
-                @include transition(color $transitionDuration);
                 span {
-                    display: none;
+                    @include icon_override("\f054");
                 }
+            }
+
+            .ui-datepicker-prev {
+                span {
+                    @include icon_override("\f053");
+                }
+            }
+
+            .ui-datepicker-title {
+                margin: 0;
+                padding: 0;
+                line-height: 1;
             }
         }
 
         table {
             font-size: $fontSize;
+            margin: $calendarTableMargin;
+
+            th, td {
+                padding: $calendarCellPadding;
+            }
 
             td {
-                padding: 2px;
-
-                a,span {
-                    min-width: 15px;
+                a {
+                    min-width: 1em;
                     text-align: center;
                     color: $textColor;
-                    padding: .35em;
-                    @include border-radius($borderRadius);
-
-                    &:hover {
-                        background-color: $listItemHoverBgColor;
-                    }
+                    padding: $calendarCellDatePadding;
+                    @include border-radius($calendarCellDateBorderRadius);
 
                     &.ui-state-active {
-                        color: $primaryTextColor;
-                        background-color: $highlightBgColor;
+                        color: $calendarCellDateSelectedTextColor;
+                        background-color: $calendarCellDateSelectedBgColor;
                     }
 
                     &.ui-state-highlight {
-                        color: $textColor;
-                        background-color: $dividerColor;
+                        color: $calendarCellDateTodayTextColor;
+                        background-color: $calendarCellDateTodayBgColor;
                     }
                 }
 
                 &.ui-datepicker-today {
                     a {
-                        background-color: $dividerColor;
-                        color: $textColor;
+                        background-color: $calendarCellDateTodayBgColor;
+                        color: $calendarCellDateTodayTextColor;
                     }
                 }
             }
@@ -917,14 +922,28 @@ body {
 
         .ui-timepicker {
             border: 0 none;
-            border-top: 1px solid $headerBorderColor;
+            border-top: $calendarTimePickerDivider;
+            padding: $calendarTimePickerPadding;
 
             a {
-                color: $headerTextColor;
+                color:$calendarTimePickerIconColor;
+                font-size: $calendarTimePickerIconFontSize;
 
                 &:hover {
-                    color: $primaryColor;
+                    color: $calendarTimePickerIconHoverColor;
                 }
+            }
+
+            span {
+                font-size: $calendarTimePickerTimeFontSize;
+            }
+        }
+
+        &.ui-datepicker-timeonly {
+            padding: 0;
+
+            .ui-timepicker {
+                border-top: 0 none;
             }
         }
     }
@@ -939,12 +958,13 @@ body {
                 border-right: 0 none;
             }
         }
+        
         .ui-datepicker-trigger.ui-button {
             width: 2em;
             @include border-radius-left(0);
         }
     }
-
+/*
     .ui-inplace {
         .ui-inplace-display {
             padding: $inputPadding;

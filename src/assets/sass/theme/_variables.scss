@@ -223,28 +223,26 @@ $sliderHandleTransition:border-color $transitionDuration; //OK
 $sliderRangeBgColor:$primaryColor; //OK
 
 //calendar
-$calendarWidth:260px;
+$calendarWidth:20em;
 $calendarNavIconColor:#a6a6a6;
 $calendarNavIconHoverColor:$primaryColor;
 $calendarNavIconTransition:color $transitionDuration;
-$calendarTitlePadding:1px 12px;
-$calendarTitleBgColor:inherit;
-$calendarTitleTextColor:$textColor;
-$calendarTableMargin:12px 0 0 0;
-$calendarCellPadding:4px;
-$calendarCellDatePadding:4px;
-$calendarCellDateAnchorPadding:4px;
+$calendarPadding:0.857em;
+$calendarTableMargin:0.857em 0 0 0;
+$calendarCellPadding:0.286em;
+$calendarCellDatePadding:0.286em;
 $calendarCellDateHoverBgColor:#eaeaea;
 $calendarCellDateBorderRadius:$borderRadius;
 $calendarCellDateSelectedBgColor:$primaryColor;
 $calendarCellDateSelectedTextColor:$primaryColorText;
 $calendarCellDateTodayBgColor:#d0d0d0;
 $calendarCellDateTodayTextColor:$textColor;
-$calendarOverlayBorder:0 none;
-$calendarTimePickerMargin:12px 0;
-$calendarTimePickerLabelPadding:0;
-$calendarTimePickerInputPadding:6px 0;
-$calendarTimePickerInputMargin:0 10px 10px 40%;
+$calendarTimePickerDivider: 1px solid #d8dae2;
+$calendarTimePickerPadding:0.857em;
+$calendarTimePickerIconColor:$textColor;
+$calendarTimePickerIconFontSize:1.286em;
+$calendarTimePickerTimeFontSize:1.286em;
+$calendarTimePickerIconHoverColor:$primaryColor;
 
 //spinner
 $spinnerButtonWidth:2em;

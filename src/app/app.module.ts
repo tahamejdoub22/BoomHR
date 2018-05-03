@@ -34,6 +34,7 @@ import { FileUploadModule } from 'primeng/primeng';
 import { GalleriaModule } from 'primeng/primeng';
 import { GMapModule } from 'primeng/primeng';
 import { GrowlModule } from 'primeng/primeng';
+import { InplaceModule } from 'primeng/inplace';
 import { InputMaskModule } from 'primeng/primeng';
 import { InputSwitchModule } from 'primeng/primeng';
 import { InputTextModule } from 'primeng/primeng';
@@ -135,6 +136,7 @@ import { BreadcrumbService } from './breadcrumb.service';
         GalleriaModule,
         GMapModule,
         GrowlModule,
+        InplaceModule,
         InputMaskModule,
         InputSwitchModule,
         InputTextModule,
