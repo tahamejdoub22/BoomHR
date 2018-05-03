@@ -28,7 +28,7 @@ export class FormsDemoComponent implements OnInit {
 
     selectedCity1: any;
 
-    selectedCity2: any;
+    selectedCities: any[];
 
     ratingValue: number;
 

@@ -575,61 +575,75 @@ body {
             }
         }
     }
-/*
 
     .ui-listbox {
         padding: 0;
-        min-width: 12em;
+        min-width: $inputListMinWidth;
+        background: $inputBgColor;
+        border: $inputBorder;
 
         .ui-chkbox {
-            margin-right: .2em;
-
-            .ui-chkbox-box {
-                &.ui-state-active {
-                    border-color: $highlightTextColor;
-                }
-            }
+            margin: 0 $inlineSpacing 0 0;
         }
 
         .ui-listbox-header {
-            padding: $headerPadding;
-            border: 0 none;
-            border-bottom: 1px solid $headerBorderColor;
-            margin: 0;
-            @include border-radius(0);
+            padding: $inputListHeaderPaddingTop $inputListHeaderPaddingRight $inputListHeaderPaddingBottom $inputListHeaderPaddingLeft;
+            border-bottom: $inputListHeaderBorder;
+            color: $inputListHeaderTextColor;
+            background-color: $inputListHeaderBgColor;
 
             .ui-listbox-filter-container {
+                width: calc(100% - (#{$inputListHeaderPaddingLeft} + #{$inputListHeaderPaddingLeft} + #{$inlineSpacing}));
+
                 input {
-                    width: 100%;
-                    padding-left: 1.5em;
+                    padding: $inputPadding;
+                    padding-right: 2em;
                 }
 
                 .fa {
-                    color: $textSecondaryColor;
-                    top: .35em;
-                    left: .4em;
+                    top: 50%;
+                    left: auto;
+                    margin-top: -.5em;
+                    right: .5em;
+                    color: $inputListHeaderSearchIconColor;
                 }
             }
         }
 
-        .ui-listbox-item {
-            margin: 0;
-            padding: $listItemPadding;
-            @include border-radius(0);
+        .ui-listbox-list {
+            .ui-listbox-item {
+                margin: $inputListItemMargin;
+                padding: $inputListItemPadding;
+                border: $inputListItemBorder;
+                color: $inputListItemTextColor;
+                background-color: $inputListItemBgColor;
+                @include border-radius(0);
 
-            &.ui-state-highlight {
-                @include list-item-highlight();
-            }
+                &.ui-state-highlight {
+                    color: $inputListItemHighlightTextColor;
+                    background-color: $inputListItemHighlightBgColor;
+                }
 
-            > td {
-                padding: $listItemPadding;
+                .ui-chkbox {
+                    position: static;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin: 0 $inlineSpacing 0 0;
+                }
+
+                label {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
             }
         }
+        
 
         &:not(.ui-state-disabled) {
             .ui-listbox-item {
                 &:not(.ui-state-highlight):hover {
-                    @include list-item-hover();
+                    color: $inputListItemHoverTextColor;
+                    background-color: $inputListItemHoverBgColor;
                 }
             }
         }
@@ -637,11 +651,15 @@ body {
         &.ui-state-disabled {
             .ui-chkbox-box {
                 &:not(.ui-state-disabled):not(.ui-state-active):hover {
-                    border: 1px solid $inputBorderColor;
+                    border: $inputBorder;
                 }
             }
         }
     }
+
+/*
+
+
 
     .ui-editor-container {
         .ui-editor-toolbar {
