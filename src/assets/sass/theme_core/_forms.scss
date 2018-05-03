@@ -894,8 +894,10 @@ body {
 
             td {
                 a {
-                    min-width: 1em;
+                    display: block;
                     text-align: center;
+                    width: $calendarCellDateWidth;
+                    height: $calendarCellDateHeight;
                     color: $textColor;
                     padding: $calendarCellDatePadding;
                     @include border-radius($calendarCellDateBorderRadius);
@@ -958,7 +960,7 @@ body {
                 border-right: 0 none;
             }
         }
-        
+
         .ui-datepicker-trigger.ui-button {
             width: 2em;
             @include border-radius-left(0);
