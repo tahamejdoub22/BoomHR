@@ -719,38 +719,38 @@ body {
         }
     }
 
+    .ui-rating {
+        a {
+            text-align: center;
+            display: inline-block;
+            color: $ratingStarIconColor;
+            @include transition($ratingTransition);
+
+            &:hover {
+                color: $ratingStarIconHoverColor;
+            }
+        }
+
+        .fa {
+            font-size: $ratingIconFontSize;
+
+            &.fa-ban {
+                color: $ratingCancelIconColor;
+
+                &:hover {
+                    color: $ratingCancelHoverIconColor;
+                }
+            }
+        }
+    }
+
 /*
 
 
 
 
 
-    .ui-rating {
-        a {
-            color: $primaryColor;
-            text-align: center;
-            display: inline-block;
-            border-bottom: 1px solid transparent;
-
-            &:focus {
-                outline: 0 none;
-            }
-        }
-
-        .fa {
-            font-size: 20px;
-            height: 20px;
-            width: 20px;
-
-            &.fa-ban {
-                color: $pink;
-
-                &:hover {
-                    color: lighten($pink,5%);
-                }
-            }
-        }
-    }
+    
 
     .ui-spinner {
         input {

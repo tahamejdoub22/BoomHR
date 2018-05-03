@@ -195,14 +195,12 @@ $inplaceHoverTextColor:$textColor;
 $inplaceTransition:background-color $transitionDuration;
 
 //rating
-$ratingTransition:color $transitionDuration;
-$ratingCancelIconColor:#e4018d;
-$ratingCancelHoverIconColor:#b5019f;
-$ratingIconWidth:20px;
-$ratingIconHeight:20px;
-$ratingIconFontSize:20px;
-$ratingStarIconColor:$textColor;
-$ratingStarIconHoverColor:$secondaryDarkColor;
+$ratingTransition:color $transitionDuration; //OK
+$ratingCancelIconColor:#e4018d; //OK
+$ratingCancelHoverIconColor:#b5019f; //OK
+$ratingIconFontSize:20px; //OK
+$ratingStarIconColor:$textColor; //OK
+$ratingStarIconHoverColor:$secondaryDarkColor; //OK
 
 //slider
 $sliderBgColor:#c8c8c8;
