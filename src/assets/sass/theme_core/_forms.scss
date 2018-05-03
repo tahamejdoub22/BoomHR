@@ -981,12 +981,13 @@ body {
             }
         }
     }
-/*
-
 
     .ui-fileupload {
         .ui-fileupload-buttonbar {
-            padding: $headerPadding;
+            background-color: $panelHeaderBgColor;
+            padding: $panelHeaderPadding;
+            border: $panelHeaderBorder;
+            color: $panelHeaderTextColor;
             border-bottom: 0 none;
 
             .ui-button {
@@ -1000,23 +1001,49 @@ body {
             }
         }
 
+        .ui-fileupload-content {
+            background-color: $panelContentBgColor;
+            padding: $panelContentPadding;
+            border: $panelContentBorder;
+            color: $panelContentTextColor;
+        }
+
         .ui-progressbar {
             top: 0;
         }
     }
 
-    .ui-fileupload-choose:not(.ui-state-disabled):hover,
-    .ui-fileupload-choose.ui-state-focus {
-        background-color: darken($primaryColor, 5%);
-    }
+    .ui-fileupload-choose {
+        &:not(.ui-state-disabled):hover {
+            background-color: $buttonHoverBgColor;
+            color: $buttonHoverTextColor;
+            border-color: $buttonHoverBorderColor;
+        }
 
-    .ui-fileupload-choose:not(.ui-state-disabled):active {
-        background-color: darken($primaryColor, 10%);
+        &:not(.ui-state-disabled):active {
+            background-color: $buttonActiveBgColor;
+            color: $buttonActiveTextColor;
+            border-color: $buttonActiveBorderColor;
+        }
+
+        &.ui-state-focus {
+            outline: $buttonFocusOutline;
+            outline-offset: $buttonFocusOutlineOffset;
+        }
     }
 
     .ui-password-panel {
-        @include overlay-shadow();
+        padding: $inputContentPanelPadding;
+        background-color: $inputContentPanelBgColor;
+        color: $inputContentPanelTextColor;
+        border: $inputOverlayBorder;
+        @include shadow($inputOverlayShadow);
     }
+
+/*
+
+
+   
 
     .ui-inputgroup {
         .ui-inputgroup-addon {
