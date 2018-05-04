@@ -1,4 +1,11 @@
 body {
+    .ui-widget-content {
+        p {
+            line-height: 1.5;
+            margin: 0;
+        }
+    }
+
     .ui-panel {
         padding: 0;
         border: 0 none;
@@ -31,17 +38,12 @@ body {
         }
 
         .ui-panel-content {
-            padding: $panelHeaderPadding;
+            padding: $panelContentPadding;
             border: $panelContentBorder;
             background-color: $panelContentBgColor;
             color: $panelContentTextColor;
             padding: $panelContentPadding;
             border-top: 0 none;
-
-            p {
-                line-height: 1.5;
-                margin: 0;
-            }
         }
 
         .ui-panel-footer {
@@ -57,6 +59,53 @@ body {
             .ui-panel-titlebar {
                 padding-left: 40px;
             }
+        }
+    }
+
+    .ui-fieldset {
+        border: $panelContentBorder;
+        background-color: $panelContentBgColor;
+        color: $panelContentTextColor;
+
+        .ui-fieldset-legend {
+            a {
+                padding: $panelHeaderPadding;
+                border: $panelHeaderBorder;
+                color: $panelHeaderTextColor;
+                background-color: $panelHeaderBgColor;
+
+                .ui-fieldset-toggler {
+                    float: none;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: .5em;
+                    color: $panelHeaderIconColor;
+                }
+    
+                .ui-fieldset-legend-text{
+                    padding: 0;
+                }
+            }
+        }
+
+        &.ui-fieldset-toggleable {
+            .ui-fieldset-legend {
+                a {
+                    &:hover {
+                        background-color: $panelHeaderHoverBgColor;
+                        border: $panelHeaderHoverBorder;
+                        color: $panelHeaderHoverTextColor;
+    
+                        .ui-fieldset-toggler {
+                            color: $panelHeaderHoverIconColor;
+                        }
+                    }
+                }
+            }
+        }
+
+        .ui-fieldset-content {
+            padding: 0;
         }
     }
 }
@@ -102,11 +151,6 @@ body {
         .ui-fieldset-content {
             padding: $contentPadding;
         }
-    }
-
-    .ui-notificationbar {
-        background-color: $primaryColor;
-        color: #ffffff;
     }
 
     .ui-accordion {
