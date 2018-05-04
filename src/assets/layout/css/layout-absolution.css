@@ -356,7 +356,8 @@ a {
   .layout-wrapper .layout-sidebar .layout-menu {
     list-style-type: none;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    width: 242px; }
     .layout-wrapper .layout-sidebar .layout-menu > li > a {
       color: #333333;
       font-weight: 600;
@@ -446,8 +447,7 @@ a {
       display: block;
       visibility: hidden; }
     .layout-wrapper .layout-sidebar .ui-scrollpanel .layout-menu {
-      padding-bottom: 120px;
-      padding-right: 9px; }
+      padding-bottom: 120px; }
 
 @media (max-width: 1024px) {
   .layout-wrapper #topbar-sidebar-button {
@@ -465,7 +465,7 @@ a {
     .layout-wrapper .layout-sidebar .layout-menu > li {
       border-bottom: 1px solid #d0d0d0; }
       .layout-wrapper .layout-sidebar .layout-menu > li > a {
-        padding: 12px; }
+        padding: 12px 30px 12px 12px; }
         .layout-wrapper .layout-sidebar .layout-menu > li > a i {
           font-size: 20px; }
           .layout-wrapper .layout-sidebar .layout-menu > li > a i:first-child {
@@ -473,8 +473,7 @@ a {
       .layout-wrapper .layout-sidebar .layout-menu > li .layout-menu-tooltip {
         display: none; }
       .layout-wrapper .layout-sidebar .layout-menu > li ul li a {
-        padding: 8px 12px;
-        padding-left: 24px; }
+        padding: 8px 30px 12px 24px; }
         .layout-wrapper .layout-sidebar .layout-menu > li ul li a i:first-child {
           margin-right: 8px; }
         .layout-wrapper .layout-sidebar .layout-menu > li ul li a i.layout-menuitem-toggler {
@@ -487,8 +486,6 @@ a {
         padding-left: 72px; }
       .layout-wrapper .layout-sidebar .layout-menu > li ul li ul li ul li ul ul li a {
         padding-left: 88px; }
-    .layout-wrapper .layout-sidebar .nano > .nano-content.menu-scroll-content .layout-menu {
-      padding-bottom: 180px; }
   .layout-wrapper .layout-main {
     margin-left: 0; }
   .layout-wrapper.layout-menu-mobile-active .layout-sidebar {
@@ -516,7 +513,7 @@ a {
     .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li {
       border-bottom: 1px solid #d0d0d0; }
       .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li > a, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li > a {
-        padding: 12px; }
+        padding: 12px 30px 12px 12px; }
         .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li > a i, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li > a i {
           font-size: 20px; }
           .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li > a i:first-child, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li > a i:first-child {
@@ -526,8 +523,7 @@ a {
       .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li .layout-menu-tooltip, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li .layout-menu-tooltip {
         display: none; }
       .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li ul li a, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li ul li a {
-        padding: 8px 12px;
-        padding-left: 24px; }
+        padding: 8px 30px 12px 24px; }
         .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li ul li a i:first-child, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li ul li a i:first-child {
           margin-right: 8px; }
         .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li ul li a i.layout-menuitem-toggler, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li ul li a i.layout-menuitem-toggler {

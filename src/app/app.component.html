@@ -13,9 +13,7 @@
 
     <div class="layout-sidebar" (click)="onMenuClick($event)">
         <p-scrollPanel #layoutMenuScroller [style]="{height: '100%'}">
-            <div class="layout-menu menu-scroll-content">
-                <app-menu [reset]="resetMenu"></app-menu>
-            </div>
+            <app-menu [reset]="resetMenu"></app-menu>
         </p-scrollPanel>
     </div>
 

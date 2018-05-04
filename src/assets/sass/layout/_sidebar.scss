@@ -13,6 +13,7 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
+            width: 242px;
 
             > li {
                 > a {
@@ -145,7 +146,6 @@
 
             .layout-menu {
                 padding-bottom: 120px;
-                padding-right: 9px;
             }
         }
     }
@@ -168,7 +168,7 @@
                     border-bottom: 1px solid $sidebarDividerColor;
 
                     > a {
-                        padding: 12px;
+                        padding: 12px 30px 12px 12px;
 
                         i {
                             font-size: 20px;
@@ -186,8 +186,7 @@
                     ul {
                         li {
                             a {
-                                padding: 8px 12px;
-                                padding-left: 24px;
+                                padding: 8px 30px 12px 24px;
 
                                 i {
                                     &:first-child {
@@ -231,16 +230,6 @@
                                     }
                                 }
                             }
-                        }
-                    }
-                }
-            }
-
-            .nano {
-                > .nano-content {
-                    &.menu-scroll-content {
-                        .layout-menu {
-                            padding-bottom: 180px;
                         }
                     }
                 }
@@ -290,7 +279,7 @@
                         border-bottom: 1px solid $sidebarDividerColor;
 
                         > a {
-                            padding: 12px;
+                            padding: 12px 30px 12px 12px;
 
                             i {
                                 font-size: 20px;
@@ -311,8 +300,7 @@
                         ul {
                             li {
                                 a {
-                                    padding: 8px 12px;
-                                    padding-left: 24px;
+                                    padding: 8px 30px 12px 24px;
 
                                     i {
                                         &:first-child {
