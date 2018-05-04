@@ -54,12 +54,6 @@ body {
             border-top: 0 none;
             margin: 0;
         }
-
-        &.ui-panel-collapsed-h {
-            .ui-panel-titlebar {
-                padding-left: 40px;
-            }
-        }
     }
 
     .ui-fieldset {
@@ -108,88 +102,44 @@ body {
             padding: 0;
         }
     }
-}
-
-/*body {
-
-
-    .ui-fieldset {
-        padding: 0 0 .5em 0;
-
-        .ui-fieldset-legend {
-            border: 1px solid $headerBorderColor;
-            color: $headerTextColor;
-            background-color: $headerBgColor;
-            margin-left: .75em;
-            @include transition(background-color $transitionDuration);
-
-            .ui-fieldset-toggler {
-                float: none;
-                display: inline-block;
-                vertical-align: middle;
-                margin-right: .5em;
-                color: $headerIconColor;
-            }
-        }
-
-        .ui-fieldset-legend-text{
-          color: $headerIconColor;
-        }
-
-        &.ui-fieldset-toggleable {
-            .ui-fieldset-legend {
-                &:hover {
-                    background-color: darken($primaryColor, 5%);
-                }
-
-                &:focus {
-                    background-color: darken($primaryColor, 5%);
-                }
-            }
-        }
-
-        .ui-fieldset-content {
-            padding: $contentPadding;
-        }
-    }
 
     .ui-accordion {
         .ui-accordion-header {
-            background-color: $contentBgColor;
-            color: $textColor;
-            font-size: $fontSize;
-            border: 1px solid $contentBorderColor;
-            @include transition(background-color $transitionDuration);
-            margin-bottom: 0;
+            margin-bottom: $accordionSpacing;
+
+            a {
+                padding: $panelHeaderPadding;
+                border: $panelHeaderBorder;
+                color: $panelHeaderTextColor;
+                background-color: $panelHeaderBgColor;
+                color: $panelHeaderTextColor;
+
+                .ui-accordion-toggle-icon {
+                    color: $panelHeaderIconColor;
+                }
+            }
 
             &:not(.ui-state-active):not(.ui-state-disabled):hover {
-                background-color: $headerHoverBgColor;
-
                 a {
-                    background-color: $headerHoverBgColor;
+                    background-color: $panelHeaderHoverBgColor;
+                    border: $panelHeaderHoverBorder;
+                    color: $panelHeaderHoverTextColor;
+
+                    .ui-accordion-toggle-icon {
+                        color: $panelHeaderHoverIconColor;
+                    }
                 }
             }
 
             &:not(.ui-state-disabled).ui-state-active {
-                background-color: $primaryColor;
-                color: $primaryTextColor;
-                border-bottom-left-radius: 0;
-                border-bottom-right-radius: 0;
-
                 a {
-                    color: $primaryTextColor;
-
-                    &:focus {
-                        background-color: darken($primaryColor ,10%);
+                    background-color: $panelHeaderActiveBgColor;
+                    border: $panelHeaderActiveBorder;
+                    color: $panelHeaderActiveTextColor;
+                    
+                    .ui-accordion-toggle-icon {
+                        color: $panelHeaderActiveIconColor;
                     }
-                }
-
-                span {
-                    color: $primaryTextColor;
-                }
-
-                .fa {
-                    color: $primaryTextColor;
                 }
             }
 
@@ -200,27 +150,21 @@ body {
             .fa-caret-down {
                 @include icon_override("\f078");
             }
-
-            > a {
-                padding: $headerPadding;
-                color: $textColor;
-                outline: 0 none;
-                @include transition(background-color $transitionDuration);
-
-                &:focus {
-                    background-color: $headerHoverBgColor;
-                }
-            }
-
-            > span {
-                color: $textColor;
-            }
         }
 
         .ui-accordion-content {
-            padding: $contentPadding;
+            padding: $panelContentPadding;
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            padding: $panelContentPadding;
         }
     }
+}
+
+/*body {
+
+
 
     .ui-tabview {
         padding: 0;
