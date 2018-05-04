@@ -121,6 +121,10 @@ export class AppComponent implements AfterViewInit {
         event.preventDefault();
     }
 
+    onRightPanelClick() {
+        this.rightPanelClick = true;
+    }
+
     isHorizontal() {
         return this.menuMode === 'horizontal';
     }

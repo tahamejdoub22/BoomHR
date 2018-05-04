@@ -5,10 +5,10 @@ import {ScrollPanel} from 'primeng/primeng';
 @Component({
     selector: 'app-rightpanel',
     template: `
-        <div class="layout-right-panel" [ngClass]="{'layout-right-panel-active': app.rightPanelActive}">
+        <div class="layout-right-panel" [ngClass]="{'layout-right-panel-active': app.rightPanelActive}" (click)="app.onRightPanelClick()">
             <p-scrollPanel #scrollRightPanel [style]="{height: '100%'}">
                   <div class="right-panel-scroll-content">
-                      <p-tabView (onChange)="$event.preventDefault()">
+                      <p-tabView>
                           <p-tabPanel title="Status">
                               <div class="submenu-content settings">
                                   <div class="ui-g">
