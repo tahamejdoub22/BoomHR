@@ -60,7 +60,7 @@ a {
     float: left;
     height: 64px;
     text-align: center;
-    width: calc(100% - 260px); }
+    width: calc(100% - 225px); }
     .layout-wrapper .layout-topbar .topbar-content:after {
       content: "";
       display: table;
@@ -221,7 +221,7 @@ a {
       position: absolute;
       list-style-type: none;
       top: 64px;
-      right: 40px;
+      right: 17px;
       display: none;
       -webkit-animation-duration: .5s;
       animation-duration: .5s;
@@ -366,7 +366,7 @@ a {
       .layout-wrapper .layout-sidebar .layout-menu > li > a i {
         color: #a6a6a6;
         vertical-align: middle; }
-      .layout-wrapper .layout-sidebar .layout-menu > li > a .layout-submenu-toggler {
+      .layout-wrapper .layout-sidebar .layout-menu > li > a .layout-menuitem-toggler {
         float: right;
         left: auto;
         margin-right: 0;
@@ -385,7 +385,7 @@ a {
         color: #2d3f47; }
       .layout-wrapper .layout-sidebar .layout-menu > li.active-menuitem > a i {
         color: #2d3f47; }
-      .layout-wrapper .layout-sidebar .layout-menu > li.active-menuitem > a i.layout-submenu-toggler {
+      .layout-wrapper .layout-sidebar .layout-menu > li.active-menuitem > a i.layout-menuitem-toggler {
         -webkit-transform: rotate(-180deg);
         -moz-transform: rotate(-180deg);
         -o-transform: rotate(-180deg);
@@ -409,7 +409,7 @@ a {
           vertical-align: middle; }
           .layout-wrapper .layout-sidebar .layout-menu > li ul li a i.layout-menuitem-toggler {
             float: right; }
-        .layout-wrapper .layout-sidebar .layout-menu > li ul li a .layout-submenu-toggler {
+        .layout-wrapper .layout-sidebar .layout-menu > li ul li a .layout-menuitem-toggler {
           float: right;
           left: auto;
           margin-right: 0;
@@ -428,7 +428,7 @@ a {
           color: #2d3f47; }
         .layout-wrapper .layout-sidebar .layout-menu > li ul li.active-menuitem > a i {
           color: #2d3f47; }
-        .layout-wrapper .layout-sidebar .layout-menu > li ul li.active-menuitem > a i.layout-submenu-toggler {
+        .layout-wrapper .layout-sidebar .layout-menu > li ul li.active-menuitem > a i.layout-menuitem-toggler {
           -webkit-transform: rotate(-180deg);
           -moz-transform: rotate(-180deg);
           -o-transform: rotate(-180deg);
@@ -477,7 +477,7 @@ a {
         padding-left: 24px; }
         .layout-wrapper .layout-sidebar .layout-menu > li ul li a i:first-child {
           margin-right: 8px; }
-        .layout-wrapper .layout-sidebar .layout-menu > li ul li a i.layout-submenu-toggler {
+        .layout-wrapper .layout-sidebar .layout-menu > li ul li a i.layout-menuitem-toggler {
           font-size: 20px; }
       .layout-wrapper .layout-sidebar .layout-menu > li ul li ul li a {
         padding-left: 40px; }
@@ -530,7 +530,7 @@ a {
         padding-left: 24px; }
         .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li ul li a i:first-child, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li ul li a i:first-child {
           margin-right: 8px; }
-        .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li ul li a i.layout-submenu-toggler, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li ul li a i.layout-submenu-toggler {
+        .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li ul li a i.layout-menuitem-toggler, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li ul li a i.layout-menuitem-toggler {
           font-size: 20px; }
       .layout-wrapper.layout-menu-static .layout-sidebar .layout-menu > li ul li ul li a, .layout-wrapper.layout-menu-overlay .layout-sidebar .layout-menu > li ul li ul li a {
         padding-left: 40px; }
@@ -603,7 +603,7 @@ a {
           padding: 8px; }
           .layout-wrapper.layout-menu-slim .layout-sidebar .layout-menu > li > ul a i:first-child {
             margin-right: 8px; }
-          .layout-wrapper.layout-menu-slim .layout-sidebar .layout-menu > li > ul a i.layout-submenu-toggler {
+          .layout-wrapper.layout-menu-slim .layout-sidebar .layout-menu > li > ul a i.layout-menuitem-toggler {
             font-size: 20px; }
         .layout-wrapper.layout-menu-slim .layout-sidebar .layout-menu > li > ul > li > a {
           padding-left: 8px; }

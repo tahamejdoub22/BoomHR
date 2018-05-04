@@ -29,7 +29,7 @@
                         vertical-align: middle;
                     }
 
-                    .layout-submenu-toggler {
+                    .layout-menuitem-toggler {
                         float: right;
                         left: auto;
                         margin-right: 0;
@@ -58,7 +58,7 @@
                             color: $sidebarMenuItemActiveIconColor;
                         }
 
-                        i.layout-submenu-toggler {
+                        i.layout-menuitem-toggler {
                             @include rotate(-180deg);
                         }
                     }
@@ -90,7 +90,7 @@
                                 }
                             }
 
-                            .layout-submenu-toggler {
+                            .layout-menuitem-toggler {
                                 float: right;
                                 left: auto;
                                 margin-right: 0;
@@ -119,7 +119,7 @@
                                     color: $sidebarSubmenuItemActiveIconColor;
                                 }
 
-                                i.layout-submenu-toggler {
+                                i.layout-menuitem-toggler {
                                     @include rotate(-180deg);
                                 }
                             }
@@ -194,7 +194,7 @@
                                         margin-right: 8px;
                                     }
 
-                                    &.layout-submenu-toggler {
+                                    &.layout-menuitem-toggler {
                                         font-size: 20px;
                                     }
                                 }
@@ -319,7 +319,7 @@
                                             margin-right: 8px;
                                         }
 
-                                        &.layout-submenu-toggler {
+                                        &.layout-menuitem-toggler {
                                             font-size: 20px;
                                         }
                                     }
@@ -467,7 +467,7 @@
                                         margin-right: 8px;
                                     }
 
-                                    &.layout-submenu-toggler {
+                                    &.layout-menuitem-toggler {
                                         font-size: 20px;
                                     }
                                 }

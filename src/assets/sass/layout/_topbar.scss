@@ -41,7 +41,7 @@
             float: left;
             height: 64px;
             text-align: center;
-            width: calc(100% - 260px);
+            width: calc(100% - 225px);
             @include clearfix();
 
             #topbar-sidebar-button {
@@ -256,7 +256,7 @@
                 position: absolute;
                 list-style-type: none;
                 top: 64px;
-                right: 40px;
+                right: 17px;
                 display: none;
                 -webkit-animation-duration: .5s;
                 animation-duration: .5s;
