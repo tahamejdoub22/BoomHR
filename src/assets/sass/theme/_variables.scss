@@ -352,7 +352,6 @@ $tableFooterCellTextColor:$textColor;
 $tableFooterCellFontWeight:700;
 $tableFooterCellBorder:1px solid #c8c8c8;
 $tableResizerHelperBgColor:$primaryColor;
-$tableDataIconColor:$textSecondaryColor;
 
 //schedule
 $scheduleEventBgColor:$primaryDarkColor;
@@ -363,6 +362,9 @@ $scheduleEventTextColor:$primaryDarkColorText;
 $treeNodePadding:0.143em 0;
 $treeNodeLabelPadding:0.286em;
 $treeNodeContentSpacing:0.143em;
+
+//org chart
+$organizationChartConnectorColor:#c8c8c8;
 
 //messages
 $messagesMargin:14px 0;

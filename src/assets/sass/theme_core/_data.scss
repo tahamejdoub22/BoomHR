@@ -624,41 +624,98 @@ body {
                     }
                 }
             }
-
         }
     }
-}
 
-/*body {
-    
-    
+    .ui-organizationchart {
+        .ui-organizationchart-node-content {
+            &.ui-organizationchart-selectable-node:not(.ui-state-highlight):hover {
+                background-color: $inputListItemHoverBgColor;
+                color: $inputListItemHoverTextColor;
+            }
+
+            &.ui-state-highlight {
+                background-color: $highlightBgColor;
+                color: $highlightColorText;
+                        
+                .ui-node-toggler {
+                    i {
+                        color: darken($highlightBgColor, 25%);
+                    }
+                }
+            }
+        }
+
+        .ui-organizationchart-line-down {
+            background-color: $organizationChartConnectorColor;
+        }
+
+        .ui-organizationchart-line-left {
+            border-right: $panelContentBorder;
+            border-color: $organizationChartConnectorColor;
+        }
+
+        .ui-organizationchart-line-top {
+            border-top: $panelContentBorder;
+            border-color: $organizationChartConnectorColor;
+        }
+
+        .ui-organizationchart-node-content {
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            padding: $panelContentPadding;
+        }
+
+        .ui-organizationchart-node-content .ui-node-toggler {
+            bottom: -.7em;
+            margin-left: -.46em;
+            color: $dataIconColor;
+        }
+    }
+
     .ui-carousel {
         padding: 0;
 
         .ui-carousel-header {
-            padding: $headerPadding;
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            padding: $panelHeaderPadding;
+            border: $panelHeaderBorder;
             margin: 0;
-            border: 0 none;
-            border-bottom: 1px solid $headerBorderColor;
-            @include border-radius(0);
+            font-weight: $panelHeaderFontWeight;
 
             .ui-carousel-header-title {
                 padding: 0;
             }
         }
 
+        .ui-carousel-viewport {
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            padding: 0;
+
+            .ui-carousel-items {
+                .ui-carousel-item {
+                    border: $panelContentBorder;
+                }
+            }
+        }
+
         .ui-carousel-footer {
-            padding: $headerPadding;
-            border: 0 none;
-            border-top: 1px solid $headerBorderColor;
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            padding: $panelHeaderPadding;
+            border: $panelHeaderBorder;
             margin: 0;
-            @include border-radius(0);
         }
 
         .ui-carousel-button {
-            margin-top: .4em;
-            @include transition(color .3s);
-            color: $headerIconColor;
+            margin: .125em $inlineSpacing;
+            color: $panelHeaderIconColor;
+            font-size: $fontSize + 2;
+            @include transition(color $transitionDuration);
 
             &.ui-carousel-next-button {
                 @include icon-override("\f054");
@@ -669,68 +726,32 @@ body {
             }
 
             &:not(.ui-state-disabled):hover {
-                color: $headerIconHoverColor;
+                color: $panelHeaderIconHoverColor;
             }
         }
 
         .ui-carousel-page-links {
-            margin-top: .4em;
+            margin: .125em $inlineSpacing;
 
             .ui-carousel-page-link {
-                color: $headerIconColor;
+                color: $panelHeaderIconColor;
+                font-size: $fontSize + 2;
                 @include transition(color $transitionDuration);
 
                 &:hover {
-                    color: darken($headerIconColor, 10%);
-                }
-
-                &.fa-dot-circle-o {
-                    color: $headerIconColor;
+                    color: $panelHeaderIconHoverColor;
                 }
             }
         }
     }
+}
 
-    .ui-organizationchart {
-        .ui-organizationchart-node-content {
-            &.ui-organizationchart-selectable-node:not(.ui-state-highlight):hover {
-                @include list-item-hover();
-            }
+/*body {
+    
+    
 
-            &.ui-state-highlight {
-                .ui-node-toggler {
-                    i {
-                        color: darken($primaryColor, 25%);
-                    }
-                }
-            }
-        }
-        .ui-organizationchart-line-down {
-            background-color: darken($contentBorderColor, 10%);
-        }
 
-        .ui-organizationchart-line-left {
-            border-right: 1px solid darken($contentBorderColor, 10%);
-        }
 
-        .ui-organizationchart-line-right {
-
-        }
-
-        .ui-organizationchart-line-top {
-            border-top: 1px solid darken($contentBorderColor, 10%);
-        }
-
-        .ui-organizationchart-node-content {
-            border-color: darken($contentBorderColor, 10%);
-        }
-
-        .ui-organizationchart-node-content .ui-node-toggler {
-            color: darken($contentBorderColor, 10%);
-            bottom: -.7em;
-            margin-left: -.46em;
-        }
-    }
 
     .ui-treetable {
         .ui-treetable-header {
