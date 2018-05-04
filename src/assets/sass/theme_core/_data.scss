@@ -561,7 +561,7 @@ body {
                         margin: 0 $inlineSpacing 0 0;
 
                         .ui-chkbox-icon {
-                            margin-left: 0;
+                            margin: 1px 0 0 0;
                         }
                     }
 
@@ -744,98 +744,86 @@ body {
             }
         }
     }
-}
-
-/*body {
-    
-    
-
-
-
 
     .ui-treetable {
         .ui-treetable-header {
-            padding: $headerPadding;
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            border: $panelHeaderBorder;
+            padding: $panelHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
+            text-align: center;
+            border-bottom: 0 none;
         }
 
         .ui-treetable-footer {
-            padding: $headerPadding;
+            padding: $tableFooterCellPadding;
+            border: $tableFooterCellBorder;
+            font-weight: $tableFooterCellFontWeight;
+            color: $tableFooterCellTextColor;
+            background-color: $tableFooterCellBgColor;
         }
 
         thead {
             th {
-                background-color: #ffffff;
-                padding: $headerPadding;
-                border-color: $contentBorderColor;
-                color: $textColor;
-
-                &.ui-state-hover {
-                    @include list-item-hover();
-                }
-
-                &.ui-state-active {
-                    background-color: $primaryColor;
-                    border-color: darken($primaryColor,5%);
-                }
-
-                .ui-column-title {
-                    font-weight: 700;
-                }
+                padding: $tableHeaderCellPadding;
+                border: $tableHeaderCellBorder;
+                font-weight: $tableHeaderCellFontWeight;
+                color: $tableHeaderCellTextColor;
+                background-color: $tableHeaderCellBgColor;
             }
         }
 
         tfoot {
             td {
-                background-color: #ffffff;
-                padding: $headerPadding;
-                border-color: $dividerColor;
+                padding: $tableFooterCellPadding;
+                border: $tableFooterCellBorder;
+                font-weight: $tableFooterCellFontWeight;
+                color: $tableFooterCellTextColor;
+                background-color: $tableFooterCellBgColor;
             }
         }
 
         tbody {
-            > div {
-                &.ui-treetable-row-selectable {
-                    cursor: pointer;
+            background: $tableBodyRowBgColor;
+            color: $tableBodyRowTextColor;
+            border: $tableBodyCellBorder;
 
+            > div {
+                tbody {
+                    border: 0 none;
+                }
+
+                &.ui-treetable-row-selectable {
                     &:not(.ui-state-highlight):hover {
-                        background-color: $listItemHoverBgColor;
-                        border-color: darken($contentBorderColor,5%);
+                        cursor: pointer;
+                        background-color: $tableBodyRowHoverBgColor;
+                        color: $tableBodyRowHoverTextColor;
                     }
 
                     &.ui-state-highlight {
                         background-color: $highlightBgColor;
-                        border-color: darken($primaryColor,5%);
-
-                        .ui-treetable-toggler {
-                            color: #ffffff;
-                        }
+                        color: $highlightColorText;
                     }
                 }
 
                 td {
-                    padding: $contentPadding;
+                    padding: $tableBodyCellPadding;
 
                     .ui-treetable-toggler {
                         font-size: $fontSize + 2;
                         vertical-align: middle;
                         display: inline-block;
                         float: none;
-                        color: $textColor;
+                        color: $dataIconColor;
                         line-height: inherit;
                     }
 
                     .ui-treetable-checkbox .ui-chkbox-icon {
-                        margin: 0;
-
-                        &.fa-check {
-                            color: $primaryColor;
-                        }
+                        margin: 1px 0 0 0;
                     }
                 }
             }
         }
     }
-
-
 }
-*/
