@@ -1,55 +1,55 @@
-/*body {
+body {
     .ui-panel {
         padding: 0;
-        border-color: $panelContentBorderColor;
+        border: 0 none;
 
         .ui-panel-titlebar {
-            border: 0 none;
-            border-bottom: 1px solid $headerBorderColor;
-            padding: $headerPadding;
+            border: $panelHeaderBorder;
+            padding: $panelHeaderPadding;
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
             @include border-radius-top($borderRadius);
-            @include border-radius-bottom(0px);
+            @include border-radius-bottom(0);
 
             .ui-panel-title {
                 vertical-align: middle;
+                font-weight: $panelHeaderFontWeight;
             }
 
             .ui-panel-titlebar-icon {
                 margin: 0;
                 position: relative;
-                font-size: $fontSize + 3;
-                color: $headerIconColor;
+                font-size: $fontSize;
+                color: $panelHeaderIconColor;
                 border: 1px solid transparent;
-                @include transition(color $transitionDuration);
+                @include transition($panelHeaderIconTransition);
 
                 &:hover {
-                    color: $headerIconHoverColor;
-                }
-
-                .fa-minus {
-                    &:hover {
-                        color: darken($headerIconHoverColor, 10%);
-                    }
-                }
-
-                .fa-plus {
-                    &:hover {
-                        color: darken($headerIconHoverColor, 10%);
-                    }
+                    color: $panelHeaderIconHoverColor;
                 }
             }
         }
 
         .ui-panel-content {
-            height: 100%;
-            box-sizing: border-box;
-            padding: $contentPadding;
+            padding: $panelHeaderPadding;
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            padding: $panelContentPadding;
+            border-top: 0 none;
+
+            p {
+                line-height: 1.5;
+                margin: 0;
+            }
         }
 
         .ui-panel-footer {
-            padding: $headerPadding;
-            border: 0 none;
-            border-top: 1px solid $contentBorderColor;
+            padding: $panelFooterPadding;
+            border: $panelFooterBorder;
+            background-color: $panelFooterBgColor;
+            color: $panelFooterTextColor;
+            border-top: 0 none;
             margin: 0;
         }
 
@@ -59,6 +59,10 @@
             }
         }
     }
+}
+
+/*body {
+
 
     .ui-fieldset {
         padding: 0 0 .5em 0;
