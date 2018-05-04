@@ -309,6 +309,66 @@ body {
             border-top: 0 none;
         }
     }
+
+    .fc {
+        th {
+            background-color: $panelHeaderBgColor;
+            border: $panelHeaderBorder;
+            color: $panelHeaderTextColor;
+            padding: $panelHeaderPadding;
+        }
+
+        td {
+            &.ui-widget-content {
+                background-color: $panelContentBgColor;
+                border: $panelContentBorder;
+                color: $panelContentTextColor;
+            }
+
+            &.fc-head-container {
+                border: $panelHeaderBorder;
+            }
+        }
+
+        .fc-event {
+            background-color: $scheduleEventBgColor;
+            border: $scheduleEventBorder;
+            color: $scheduleEventTextColor;
+        }
+
+        .fc-toolbar {
+            .ui-button {
+                .ui-icon-circle-triangle-w {
+                    margin-top: 0.214em;
+                    @include icon_override_fa("\f053");
+                }
+
+                .ui-icon-circle-triangle-e {
+                    margin-top: 0.214em;
+                    @include icon_override_fa("\f054");
+                }
+
+                &:focus {
+                    outline: 0 none;
+                }
+            }
+        }
+
+        .fc-divider {
+            background-color: $panelHeaderBgColor;
+            border: $panelHeaderBorder;
+        }
+    }
+
+    .ui-fluid {
+        .fc {
+            .fc-toolbar {
+                .ui-button {
+                    width: auto;
+                }
+            }
+        }
+    }
 }
 
 /*body {
