@@ -1124,7 +1124,8 @@ a {
       display: block;
       visibility: hidden; }
     .layout-right-panel .ui-scrollpanel .right-panel-scroll-content {
-      padding-right: 18px; }
+      padding-right: 18px;
+      padding-bottom: 120px; }
 
 @media screen and (max-width: 1024px) {
   .layout-right-panel {

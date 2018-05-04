@@ -8,7 +8,7 @@ import {ScrollPanel} from 'primeng/primeng';
         <div class="layout-right-panel" [ngClass]="{'layout-right-panel-active': app.rightPanelActive}" (click)="app.onRightPanelClick()">
             <p-scrollPanel #scrollRightPanel [style]="{height: '100%'}">
                   <div class="right-panel-scroll-content">
-                      <p-tabView>
+                      <p-tabView (onChange)="onTabChange($event)">
                           <p-tabPanel title="Status">
                               <div class="submenu-content settings">
                                   <div class="ui-g">
@@ -174,5 +174,9 @@ export class AppRightpanelComponent implements AfterViewInit {
 
     ngAfterViewInit() {
       setTimeout(() => {this.rightPanelMenuScrollerViewChild.moveBar(); }, 100);
+    }
+
+    onTabChange(event) {
+        setTimeout(() => {this.rightPanelMenuScrollerViewChild.moveBar(); }, 450);
     }
 }
