@@ -160,133 +160,136 @@ body {
             padding: $panelContentPadding;
         }
     }
-}
-
-/*body {
-
-
 
     .ui-tabview {
-        padding: 0;
-
-        &.ui-tabview-top,&.ui-tabview-bottom,&.ui-tabview-left,&.ui-tabview-right {
+        &.ui-tabview-top,
+        &.ui-tabview-bottom,
+        &.ui-tabview-left,
+        &.ui-tabview-right {
             border: 0 none;
-            background: transparent;
 
             .ui-tabview-nav {
                 padding: 0;
-                border: 0 none;
-                background: $primaryColor;
-                @include box-sizing(border-box);
-                @include border-radius(0);
+                background: $tabsNavBgColor;
 
                 li {
-                    position: static;
-                    @include transition(background-color $transitionDuration);
-                    @include border-radius(0);
-                    margin: 0;
-                    box-sizing: border-box;
-                    background-color: $primaryColor;
-                    border-right: 1px solid darken($primaryColor, 5%);
-                    margin-right: 0;
+                    border: $panelHeaderBorder;
+                    background-color: $tabsNavBgColor;
 
                     a {
-                        @include transition(background-color $transitionDuration);
-                        padding: $tabHeaderPadding;
-                        color: $headerTextColor;
-                        outline: 0 none;
+                        float: none;
+                        display: inline-block;
+                        color: $panelHeaderTextColor;
+                        padding: $panelHeaderPadding;
 
                         .ui-tabview-left-icon {
-                            margin-right: .25em;
+                            color: $panelHeaderIconColor;
+                            margin-right: $inlineSpacing;
                         }
 
                         .ui-tabview-right-icon {
-                            margin-left: .25em;
-                        }
-
-                        &:focus {
-                            background-color: darken($primaryColor, 15%);
+                            color: $panelHeaderIconColor;
+                            margin-left: $inlineSpacing;
                         }
                     }
 
                     .ui-tabview-close {
-                        margin-top: .65em;
+                        color: $panelHeaderIconColor;
+                        margin: 0 $inlineSpacing 0 -1 * $inlineSpacing;
                     }
 
                     &:not(.ui-state-active):not(.ui-state-disabled):hover {
-                        background-color: darken($primaryColor, 15%);
+                        background-color: $panelHeaderHoverBgColor;
+                        border: $panelHeaderHoverBorder;
+                        
+                        a {
+                            color: $panelHeaderHoverTextColor;
 
-                        .fa-times {
-                            color: $headerIconHoverColor;
+                            .ui-tabview-left-icon, .ui-tabview-right-icon{
+                                color: $panelHeaderIconHoverColor;
+                            }
+                        }
+
+                        .ui-tabview-close {
+                            color: $panelHeaderHoverTextColor;
                         }
                     }
 
                     &.ui-state-active {
-                        background-color: $highlightBgColor;
-                        color: $primaryTextColor;
+                        background-color: $panelHeaderActiveBgColor;
+                        border: $panelHeaderActiveBorder;
 
                         a {
-                            color: $primaryTextColor;
+                            color: $panelHeaderActiveTextColor;
 
-                            &:focus {
-                                background-color: darken($highlightBgColor, 15%);
+                            .ui-tabview-left-icon, .ui-tabview-right-icon{
+                                color: $panelHeaderActiveIconColor;
                             }
                         }
 
-                        .ui-icon-close {
-                            color: $highlightTextColor;
+                        .ui-tabview-close {
+                            color: $panelHeaderActiveIconColor;
                         }
                     }
-
-                    .ui-icon-close {
-                        color: $headerIconColor;
-                        margin-top: .5em;
-                    }
                 }
             }
         }
 
-        &.ui-tabview-left,&.ui-tabview-right {
+        &.ui-tabview-top {
             .ui-tabview-nav {
-                li, li a {
-                    width: 100%;
+                margin-bottom: -1px;
+
+                li {
+                    margin-right: $tabHeaderSpacing;
                 }
             }
+        }
+
+        &.ui-tabview-bottom {
+            .ui-tabview-nav {
+                margin-top: -1px;
+
+                li {
+                    margin-right: $tabHeaderSpacing;
+                }
+            }
+        }
+
+        &.ui-tabview-left {
+            .ui-tabview-nav {
+                margin-right: -px;
+
+                li {
+                    margin-bottom: $tabHeaderSpacing;
+                }
+            }
+        }
+
+        &.ui-tabview-right {
+            .ui-tabview-nav {
+                margin-right: -1px;
+
+                li {
+                    margin-bottom: $tabHeaderSpacing;
+                }
+            }
+        }     
+
+        .ui-tabview-panels {
+            background-color: $panelContentBgColor;
+            padding: $panelContentPadding;
+            border: $panelContentBorder;
+            color: $panelContentTextColor;
 
             .ui-tabview-panel {
-                border-top: 1px solid $contentBorderColor;
-                border-left: 0 none;
-                border-right: 0 none;
+                padding: 0;
             }
-        }
-
-        .ui-tabview-panel {
-            padding: $contentPadding;
-            border: 1px solid $contentBorderColor;
-            border-top: 0 none;
         }
     }
 
     .ui-toolbar {
-        background-color: $contentBgColor;
-        border-color: $contentBorderColor;
-        padding: $headerPadding;
-
-        .fa-bars {
-          color: black;
-        }
+        background-color: $panelHeaderBgColor;
+        border: $panelHeaderBorder;
+        padding: $panelHeaderPadding;
     }
 }
-
-@media (max-width: 640px) {
-    body {
-        .ui-panelgrid {
-            .ui-grid-responsive {
-                .ui-grid-row {
-                    border: 0 none;
-                }
-            }
-        }
-    }
-}
-*/

@@ -309,8 +309,9 @@ $panelHeaderActiveIconColor:$containerHeaderActiveIconColor;
 $accordionSpacing:2px;
 
 //tabview
-$tabsNavBorder:0 none;
-$tabsNavBgColor:$panelHeaderBgColor;
+$tabsNavBorder:$containerHeaderBorder;
+$tabsNavBgColor:transparent;
+$tabHeaderSpacing: 2px;
 
 //scrollpanel
 $scrollPanelHandleBgColor:#dadada;
