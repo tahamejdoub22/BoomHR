@@ -1,11 +1,11 @@
 <div class="ui-g">
     <div class="ui-g-12">
         <div class="card no-margin">
-            <h1>DataTable</h1>
+            <h1>Table</h1>
             <p-table [columns]="cols" [value]="cars1" selectionMode="single" dataKey="vin" [(selection)]="selectedCar"
                      [paginator]="true" [rows]="10" [responsive]="true" paginatorPosition="both" [responsive]="true">
                 <ng-template pTemplate="caption">
-                  Single with Row Click
+                    List of Cars
                 </ng-template>
                 <ng-template pTemplate="header" let-columns>
                     <tr>

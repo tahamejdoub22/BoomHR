@@ -321,37 +321,38 @@ $scrollPanelTrackBgColor:#f8f8f8;
 //paginator
 $paginatorBgColor:#ffffff;
 $paginatorBorder:1px solid #c8c8c8;
-$paginatorIconColor:$textSecondaryColor;
 $paginatorPadding:0;
-$paginatorElementWidth:32px;
-$paginatorElementHeight:32px;
+$paginatorIconColor:$textSecondaryColor;
+$paginatorElementWidth:2.286em;
+$paginatorElementHeight:2.286em;
 $paginatorElementHoverBgColor:#eaeaea;
 $paginatorElementHoverIconColor:#333333;
 $paginatorElementMargin:0;
+$paginatorElementPadding:0;
 $paginatorElementBorder:0 none;
 
-//datatable
-$datatableHeaderCellPadding:8px 12px;
-$datatableHeaderCellBgColor:#ffffff;
-$datatableHeaderCellTextColor:$textColor;
-$datatableHeaderCellFontWeight:700;
-$datatableHeaderCellBorder:1px solid #c8c8c8;
-$datatableHeaderCellHoverBgColor:#eaeaea;
-$datatableHeaderCellHoverTextColor:#333333;
-$datatableBodyRowBgColor:#ffffff;
-$datatableBodyRowTextColor:$textColor;
-$datatableBodyRowBorder:1px solid #c8c8c8;
-$datatableBodyRowEvenBgColor:#f9f9f9;
-$datatableBodyRowHoverBgColor:#eaeaea;
-$datatableBodyRowHoverTextColor:#333333;
-$datatableBodyCellPadding:6px 12px;
-$datatableFooterCellPadding:8px 12px;
-$datatableFooterCellBgColor:#ffffff;
-$datatableFooterCellTextColor:$textColor;
-$datatableFooterCellFontWeight:700;
-$datatableFooterCellBorder:1px solid #c8c8c8;
-$datatableResizerHelperBgColor:$primaryColor;
-$datatableDataIconColor:$textSecondaryColor;
+//table
+$tableHeaderCellPadding:0.571em 0.857em;
+$tableHeaderCellBgColor:#ffffff;
+$tableHeaderCellTextColor:$textColor;
+$tableHeaderCellFontWeight:700;
+$tableHeaderCellBorder:1px solid #c8c8c8;
+$tableHeaderCellHoverBgColor:#eaeaea;
+$tableHeaderCellHoverTextColor:#333333;
+$tableBodyRowBgColor:#ffffff;
+$tableBodyRowTextColor:$textColor;
+$tableBodyRowEvenBgColor:#f9f9f9;
+$tableBodyRowHoverBgColor:#eaeaea;
+$tableBodyRowHoverTextColor:#333333;
+$tableBodyCellBorder:1px solid #c8c8c8;
+$tableBodyCellPadding:0.429em 0.857em;
+$tableFooterCellPadding:0.571em 0.857em;
+$tableFooterCellBgColor:#ffffff;
+$tableFooterCellTextColor:$textColor;
+$tableFooterCellFontWeight:700;
+$tableFooterCellBorder:1px solid #c8c8c8;
+$tableResizerHelperBgColor:$primaryColor;
+$tableDataIconColor:$textSecondaryColor;
 
 //schedule
 $scheduleEventBgColor:$primaryDarkColor;

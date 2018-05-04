@@ -1,33 +1,29 @@
-/*body {
+body {
     .ui-paginator {
-        background-color: $primaryColor;
-        border-color: darken($primaryColor, 5%);
+        background-color: $paginatorBgColor;
+        border: $paginatorBorder;
+        padding: $paginatorPadding;
 
-        .ui-paginator-first,.ui-paginator-prev,.ui-paginator-next,.ui-paginator-last {
-            color: $headerTextColor;
-            @include transition(background-color .3s);
-            min-height: 1em;
-            width: 1.5em;
-            padding: .1em .5em;
-
-            span {
-                display: none;
-            }
+        .ui-paginator-first,
+        .ui-paginator-prev,
+        .ui-paginator-next,
+        .ui-paginator-last {
+            color: $paginatorIconColor;
+            height: $paginatorElementHeight;
+            min-width: $paginatorElementWidth;
+            border: $paginatorElementBorder;
+            line-height: $paginatorElementHeight;
+            padding: $paginatorElementPadding;
+            margin: $paginatorElementMargin;
+            vertical-align: top;
 
             &:not(.ui-state-disabled):not(.ui-state-active):hover {
-                color: $primaryColor;
-                background-color: $headerIconHoverColor;
-                padding-bottom: .2em;
-            }
-
-            &:focus {
-                outline: 0 none;
+                background-color: $paginatorElementHoverBgColor;
+                color: $paginatorElementHoverIconColor;
             }
         }
 
         .ui-paginator-first {
-            @include icon-override("\f048");
-
             &:before {
                 position: relative;
                 top: 1px;
@@ -35,17 +31,12 @@
         }
 
         .ui-paginator-prev {
-            @include icon-override("\f04b");
-            @include rotate(180deg);
-
             &:before {
                 position: relative;
             }
         }
 
         .ui-paginator-next {
-            @include icon-override("\f04b");
-
             &:before {
                 position: relative;
                 top: 1px;
@@ -53,8 +44,6 @@
         }
 
         .ui-paginator-last {
-            @include icon-override("\f051");
-
             &:before {
                 position: relative;
                 top: 1px;
@@ -62,35 +51,136 @@
         }
 
         .ui-paginator-pages {
-            padding: 0;
-            vertical-align: middle;
+            vertical-align: top;
             display: inline-block;
-            @include border-radius(2);
+            padding: 0;
 
             .ui-paginator-page {
-                color: $headerTextColor;
-                min-height: 1em;
-                padding: .1em .5em;
-                border: 1px solid transparent;
-                @include transition(background-color .3s);
+                color: $paginatorIconColor;
+                height: $paginatorElementHeight;
+                min-width: $paginatorElementWidth;
+                border: $paginatorElementBorder;
+                line-height: $paginatorElementHeight;
+                padding: $paginatorElementPadding;
+                margin: $paginatorElementMargin;
+                vertical-align: top;
 
                 &.ui-state-active {
-                    background-color: $primaryTextColor;
-                    color: $primaryColor;
+                    background-color: $highlightBgColor;
+                    color: $highlightColorText;
                 }
 
                 &:not(.ui-state-active):hover {
-                    background-color: $headerIconHoverColor;
-                    color: $primaryColor;
-                }
-
-                &:focus {
-                    outline: 0 none;
-                    border: 1px solid $primaryColor;
+                    background-color: $paginatorElementHoverBgColor;
+                    color: $paginatorElementHoverIconColor;
                 }
             }
         }
     }
+
+    .ui-table {
+        .ui-table-caption,
+        .ui-table-summary {
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            border: $panelHeaderBorder;
+            padding: $panelHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
+            text-align: center;
+        }
+
+        .ui-table-caption {
+            border-bottom: 0 none;
+        }
+
+        .ui-table-summary {
+            border-top: 0 none;
+        }
+
+        .ui-table-thead > tr > th {
+            padding: $tableHeaderCellPadding;
+            border: $tableHeaderCellBorder;
+            font-weight: $tableHeaderCellFontWeight;
+            color: $tableHeaderCellTextColor;
+            background-color: $tableHeaderCellBgColor;
+        }
+
+        .ui-table-tbody > tr > td {
+            padding: $tableBodyCellPadding;
+        }
+
+        .ui-table-tfoot > tr > td {
+            padding: $tableFooterCellPadding;
+            border: $tableFooterCellBorder;
+            font-weight: $tableFooterCellFontWeight;
+            color: $tableFooterCellTextColor;
+            background-color: $tableFooterCellBgColor;
+        }
+
+        .ui-sortable-column {
+            &:not(.ui-state-highlight):hover {
+                background-color: $tableHeaderCellHoverBgColor;
+                color: $tableHeaderCellHoverTextColor;
+            }
+
+            &.ui-state-highlight {
+              background-color: $highlightBgColor;
+              color: $highlightColorText;
+            }
+        }
+
+        .ui-table-tbody {
+            > tr {
+                background: $tableBodyRowBgColor;
+                color: $tableBodyRowTextColor;
+
+                > td {
+                    background: inherit;
+                    border: $tableBodyCellBorder;
+                }
+
+                &.ui-state-highlight {
+                    background-color: $highlightBgColor;
+                    color: $highlightColorText;
+                }
+
+                &.ui-contextmenu-selected {
+                    background-color: $highlightBgColor;
+                    color: $highlightColorText;
+                }
+            }
+
+            > tr:nth-child(even) {
+                background-color: $tableBodyRowEvenBgColor;
+
+                &.ui-state-highlight {
+                    background-color: $highlightBgColor;
+                    color: $highlightColorText;
+                }
+
+                &.ui-contextmenu-selected {
+                    background-color: $highlightBgColor;
+                    color: $highlightColorText;
+                }
+            }
+        }
+
+        &.ui-table-hoverable-rows {
+            .ui-table-tbody > tr:not(.ui-state-highlight):hover {
+                cursor: pointer;
+                background-color: $tableBodyRowHoverBgColor;
+                color: $tableBodyRowHoverTextColor;
+            }
+        }
+
+        .ui-column-resizer-helper {
+            background-color: $tableResizerHelperBgColor;
+        }
+    }
+}
+
+/*body {
+    
 
     .ui-table {
 
@@ -145,7 +235,7 @@
 
                 > td {
                   background: inherit;
-                  border: 1px solid $datatableCellBorderColor;
+                  border: 1px solid $tableCellBorderColor;
                 }
 
                 &.ui-state-highlight {
@@ -181,7 +271,7 @@
         &.ui-table-hoverable-rows {
             .ui-table-tbody > tr:not(.ui-state-highlight):hover {
               cursor: pointer;
-              background-color: $datatableHoverBgColor;
+              background-color: $tableHoverBgColor;
             }
         }
     }
@@ -258,7 +348,7 @@
         .ui-datatable-data {
             tr {
                 background-color: $contentBgColor;
-                border-color: $datatableCellBorderColor;
+                border-color: $tableCellBorderColor;
 
                 &.ui-rowgroup-header {
                     background-color: $primaryColor;
@@ -270,7 +360,7 @@
 
                 &.ui-widget-header {
                     td {
-                        border-color: $datatableCellBorderColor;
+                        border-color: $tableCellBorderColor;
                     }
                 }
 
@@ -353,7 +443,7 @@
             &.ui-datatable-hoverable-rows {
                 > tr.ui-widget-content:not(.ui-state-highlight):hover {
                     cursor: pointer;
-                    background-color: $datatableHoverBgColor;
+                    background-color: $tableHoverBgColor;
                 }
             }
         }
