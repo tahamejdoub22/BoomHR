@@ -18,7 +18,6 @@
             QUICK MENU
         </a>
 
-
         <div class="topbar-icons">
             <ul>
                 <li>
@@ -70,7 +69,7 @@
             <img src="assets/layout/images/avatar.png" alt="harmony-layout" class="topbar-profile" />
             <span>Kate Winston</span>
         </a>
-        <ul id="topbar-profile-menu" [ngClass]="{'topbar-profile-menu-active': app.topbarMenuActive}">
+        <ul id="topbar-profile-menu" class="animated fadeInDown" [ngClass]="{'topbar-profile-menu-active': app.topbarMenuActive}">
             <li #theme [ngClass]="{'menuitem-active':app.activeTopbarItem === theme}" (click)="app.onTopbarItemClick($event, theme)">
                 <a href="#">
                     <i class="topbar-icon fa fa-fw fa-paint-brush"></i>
