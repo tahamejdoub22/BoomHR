@@ -5,7 +5,7 @@
             <p-table [columns]="cols" [value]="cars1" selectionMode="single" dataKey="vin" [(selection)]="selectedCar"
                      [paginator]="true" [rows]="10" [responsive]="true" paginatorPosition="both" [responsive]="true">
                 <ng-template pTemplate="caption">
-                    List of Cars
+                    Table of Cars
                 </ng-template>
                 <ng-template pTemplate="header" let-columns>
                     <tr>
@@ -25,26 +25,64 @@
             </p-table>
         </div>
     </div>
+
     <div class="ui-g-12">
-        <!-- Left Side -->
         <div class="card">
-            <h1>DataGrid</h1>
-            <p-dataGrid [value]="cars2" [paginator]="true" [rows]="6" paginatorPosition="both" [rowsPerPageOptions]="[3,6,9,12,16]">
+            <h1>DataView</h1>
+            <p-dataView #dv [value]="cars2" [paginator]="true" [rows]="20" paginatorPosition="both" filterBy="brand" [sortField]="sortField" [sortOrder]="sortOrder">
                 <p-header>
-                    Grid of Cars
-                </p-header>
-                <ng-template let-car pTemplate="item">
-                    <div class="ui-g-12 ui-md-4">
-                        <p-panel [header]="car.brand" [style]="{'text-align':'center'}">
-                            <div style="padding: 1em">
-                                <div class="car-detail">{{car.color}} - {{car.year}}</div>
-                                <br>
-                                <img src="assets/demo/images/car/{{car.brand}}.png" width="100px">
+                    <div class="ui-helper-clearfix">
+                        <div class="ui-g">
+                            <div class="ui-g-12 ui-md-4">
+                                <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [autoWidth]="false" [style]="{'min-width':'15em'}"></p-dropdown>
                             </div>
+                            <div class="ui-g-6 ui-md-4 filter-container">
+                                <div style="position:relative">
+                                    <input type="search" pInputText placeholder="Search by brand" (keyup)="dv.filter($event.target.value)">
+                                </div>
+                            </div>
+                            <div class="ui-g-6 ui-md-4" style="text-align:right">
+                                <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                            </div>
+                        </div>
+                    </div>
+                </p-header>
+                <ng-template let-car pTemplate="listItem">
+                    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+                        <div class="ui-g-12 ui-md-3" style="text-align:center">
+                            <img src="assets/demo/images/car/{{car.brand}}.png">
+                        </div>
+                        <div class="ui-g-12 ui-md-8 car-details">
+                            <div class="ui-g">
+                                <div class="ui-g-2 ui-sm-6">Vin: </div>
+                                <div class="ui-g-10 ui-sm-6"><b>{{car.vin}}</b></div>
+
+                                <div class="ui-g-2 ui-sm-6">Year: </div>
+                                <div class="ui-g-10 ui-sm-6"><b>{{car.year}}</b></div>
+
+                                <div class="ui-g-2 ui-sm-6">Brand: </div>
+                                <div class="ui-g-10 ui-sm-6"><b>{{car.brand}}</b></div>
+
+                                <div class="ui-g-2 ui-sm-6">Color: </div>
+                                <div class="ui-g-10 ui-sm-6"><b>{{car.color}}</b></div>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-1 search-icon">
+                            <button pButton type="button" icon="fa-search" (click)="selectCar($event, car)"></button>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template let-car pTemplate="gridItem">
+                    <div style="padding:.5em" class="ui-g-12 ui-md-3">
+                        <p-panel [header]="car.vin" [style]="{'text-align':'center'}">
+                                <img src="assets/demo/images/car/{{car.brand}}.png">
+                            <div class="car-detail">{{car.year}} - {{car.color}}</div>
+                            <hr class="ui-widget-content" style="border-top:0">
+                            <button pButton type="button" icon="fa-search" (click)="selectCar($event, car)" style="margin-top:0"></button>
                         </p-panel>
                     </div>
                 </ng-template>
-            </p-dataGrid>
+            </p-dataView>
         </div>
     </div>
 
@@ -74,27 +112,6 @@
                     </div>
                 </ng-template>
             </p-orderList>
-        </div>
-    </div>
-
-    <div class="ui-g-12">
-        <div class="card">
-            <h1>DataList</h1>
-            <p-dataList [value]="cars3" [paginator]="true" [rows]="5" styleClass="cars-datalist" paginatorPosition="both">
-                <p-header>
-                    List of Cars
-                </p-header>
-                <ng-template let-car pTemplate="item">
-                    <div style="border-bottom: 1px solid #eaeaea" class="clearfix car-item">
-                        <img src="assets/demo/images/car/{{car.brand}}.png" width="48" style="display:inline-block;margin:24px;vertical-align:middle"/>
-                        <div class="car-details" style="display:inline-block;vertical-align:middle">
-                            <p>{{car.brand}}</p>
-                            <p style="color:#757575">{{car.year}} - {{car.color}}</p>
-                        </div>
-                        <button type="button" pButton icon="fa-search" style="margin:28px 24px 0 0;float:right"></button>
-                    </div>
-                </ng-template>
-            </p-dataList>
         </div>
     </div>
 

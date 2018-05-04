@@ -3,20 +3,28 @@ import { CarService } from '../service/carservice';
 import { NodeService } from '../service/nodeservice';
 import { EventService } from '../service/eventservice';
 import { Car } from '../domain/car';
-import { TreeNode } from 'primeng/primeng';
+import { TreeNode, SelectItem } from 'primeng/api';
 import { BreadcrumbService } from '../../breadcrumb.service';
 
 @Component({
     templateUrl: './datademo.component.html',
     styles: [`
-        .cars-datalist ul {
-            margin: 0;
-            padding: 0;
+        .ui-dataview .search-icon {
+            margin-top: 3em;
+        }
+    
+        .ui-dataview .filter-container {
+            text-align: center;
         }
 
-        @media (max-width:640px) {
-            .cars-datalist .text-column {
+        @media (max-width: 40em) {
+            .ui-dataview .car-details, .ui-dataview .search-icon{
                 text-align: center;
+                margin-top: 0;
+            }
+    
+            .ui-dataview .filter-container {
+                text-align: left;
             }
         }
     `],
@@ -27,8 +35,6 @@ export class DataDemoComponent implements OnInit {
     cars1: Car[];
 
     cars2: Car[];
-
-    cars3: Car[];
 
     cols: any[];
 
@@ -58,6 +64,14 @@ export class DataDemoComponent implements OnInit {
 
     scheduleHeader: any;
 
+    sortOptions: SelectItem[];
+
+    sortKey: string;
+
+    sortField: string;
+
+    sortOrder: number;
+
     constructor(private carService: CarService, private eventService: EventService, private nodeService: NodeService,
         private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
@@ -75,7 +89,6 @@ export class DataDemoComponent implements OnInit {
             { field: 'color', header: 'Color' }
         ];
         this.carService.getCarsMedium().then(cars => this.cars2 = cars);
-        this.carService.getCarsMedium().then(cars => this.cars3 = cars);
         this.carService.getCarsMedium().then(cars => this.sourceCars = cars);
         this.targetCars = [];
         this.carService.getCarsSmall().then(cars => this.orderListCars = cars);
@@ -127,5 +140,11 @@ export class DataDemoComponent implements OnInit {
                 }
             ]
         }];
+
+        this.sortOptions = [
+            {label: 'Newest First', value: '!year'},
+            {label: 'Oldest First', value: 'year'},
+            {label: 'Brand', value: 'brand'}
+        ];
     }
 }

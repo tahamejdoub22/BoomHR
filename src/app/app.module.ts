@@ -25,6 +25,7 @@ import { DataGridModule } from 'primeng/primeng';
 import { DataListModule } from 'primeng/primeng';
 import { DataScrollerModule } from 'primeng/primeng';
 import { DataTableModule } from 'primeng/primeng';
+import { DataViewModule } from 'primeng/dataview';
 import { DialogModule } from 'primeng/primeng';
 import { DragDropModule } from 'primeng/primeng';
 import { DropdownModule } from 'primeng/primeng';
@@ -127,6 +128,7 @@ import { BreadcrumbService } from './breadcrumb.service';
         DataListModule,
         DataScrollerModule,
         DataTableModule,
+        DataViewModule,
         DialogModule,
         DragDropModule,
         DropdownModule,

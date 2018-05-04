@@ -76,6 +76,12 @@ body {
                 }
             }
         }
+
+        .ui-dropdown {
+            margin-left: $inlineSpacing;
+            height: $paginatorElementHeight;
+            min-width: auto;
+        }
     }
 
     .ui-table {
@@ -177,284 +183,20 @@ body {
             background-color: $tableResizerHelperBgColor;
         }
     }
-}
 
-/*body {
-    
-
-    .ui-table {
-
-        .ui-paginator {
-            padding: $headerPadding;
-        }
-        .ui-table-caption,
-        .ui-table-summary {
-            padding: $headerPadding;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .ui-table-caption {
-            border-bottom: 0 none;
-        }
-
-        .ui-table-summary {
-            border-top: 0 none;
-        }
-
-        .ui-table-thead > tr > th,
-        .ui-table-tbody > tr > td,
-        .ui-table-tfoot > tr > td {
-            padding: $contentPadding;
-        }
-
-        .ui-table-thead > tr > th,
-        .ui-table-tfoot > tr > td {
-          background-color: $primaryDarkColor;
-          padding: $headerPadding;
-          border-color: darken($primaryDarkColor, 5%);;
-          color: $primaryTextColor;
-        }
-
-        .ui-sortable-column {
-            &:not(.ui-state-highlight):hover {
-              background-color: darken($primaryDarkColor, 5%);
-              border-color: darken($highlightBgColor,5%);
-            }
-
-            &.ui-state-highlight {
-              background-color: $highlightBgColor;
-              color: $highlightTextColor;
-              border-color: darken($highlightBgColor,5%);
-            }
-        }
-
-        .ui-table-tbody {
-            > tr {
-                background: $contentBgColor;
-
-                > td {
-                  background: inherit;
-                  border: 1px solid $tableCellBorderColor;
+    @media screen and (max-width: 40em) {
+        .ui-table {
+            &.ui-table-responsive {
+                .ui-paginator-top {
+                    border-bottom: $paginatorBorder;
                 }
 
-                &.ui-state-highlight {
-                  background-color: $highlightBgColor;
-                  color: $highlightTextColor;
-                  border-color: darken($highlightBgColor,5%);
+                .ui-paginator-bottom {
+                    border-top: $paginatorBorder;
                 }
 
-                &.ui-contextmenu-selected {
-                  background-color: $highlightBgColor;
-                  color: $highlightTextColor;
-                  border-color: darken($highlightBgColor,5%);
-                }
-            }
-
-            > tr:nth-child(even) {
-                background-color: $datableEvenRowBgColor;
-
-                &.ui-state-highlight {
-                  background-color: $highlightBgColor;
-                  color: $highlightTextColor;
-                  border-color: darken($highlightBgColor,5%);
-                }
-
-                &.ui-contextmenu-selected {
-                  background-color: $highlightBgColor;
-                  color: $highlightTextColor;
-                  border-color: darken($highlightBgColor,5%);
-                }
-            }
-        }
-
-        &.ui-table-hoverable-rows {
-            .ui-table-tbody > tr:not(.ui-state-highlight):hover {
-              cursor: pointer;
-              background-color: $tableHoverBgColor;
-            }
-        }
-    }
-
-    .ui-datatable {
-        .ui-datatable-header, .ui-datatable-footer {
-            padding: $headerPadding;
-        }
-
-        .ui-datatable-header {
-            .ui-multiselect-item {
-                color: $textColor;
-
-                &.ui-state-highlight {
-                    color: $primaryTextColor;
-                }
-            }
-        }
-
-        .ui-paginator {
-            padding: $headerPadding;
-        }
-
-        .ui-datatable-thead {
-            > tr {
-                > th {
-                    background-color: $primaryDarkColor;
-                    padding: $headerPadding;
-                    border-color: darken($primaryDarkColor, 5%);;
-                    color: $primaryTextColor;
-
-                    .ui-dropdown-item,
-                    .ui-multiselect-item {
-                        color: $textColor;
-
-                        &.ui-state-highlight {
-                            color: $primaryTextColor;
-                        }
-                    }
-
-                    &.ui-selection-column {
-                        padding: 0.5em 0.6em;
-                    }
-
-                    &.ui-sortable-column:not(.ui-state-active):hover {
-                        background-color: darken($primaryDarkColor, 5%);
-                        border-color: darken($primaryDarkColor, 5%);
-                    }
-
-                    &.ui-state-active {
-                        background-color: $highlightBgColor;
-                        color: $highlightTextColor;
-                        border-color: darken($highlightBgColor, 5%);
-                    }
-
-                    .ui-column-title {
-                        font-weight: 700;
-                    }
-                }
-            }
-        }
-
-        .ui-datatable-tfoot {
-            > tr {
-                > td {
-                    background-color: $primaryDarkColor;
-                    padding: $headerPadding;
-                    border-color: darken($primaryDarkColor, 5%);
-                    color: $primaryTextColor;
-                }
-            }
-        }
-
-        .ui-datatable-data {
-            tr {
-                background-color: $contentBgColor;
-                border-color: $tableCellBorderColor;
-
-                &.ui-rowgroup-header {
-                    background-color: $primaryColor;
-
-                    .fa:hover {
-                        color: lighten($primaryColor, 5%);
-                    }
-                }
-
-                &.ui-widget-header {
-                    td {
-                        border-color: $tableCellBorderColor;
-                    }
-                }
-
-                &.ui-datatable-even {
-                    background-color: $datableEvenRowBgColor;
-
-                    &.ui-state-highlight {
-                        background-color: $highlightBgColor;
-                        color: $highlightTextColor;
-                        border-color: darken($highlightBgColor,5%);
-                    }
-                }
-
-                &.ui-datatable-odd {
-                    background-color: $primaryTextColor;
-
-                    &.ui-state-highlight {
-                        background-color: $highlightBgColor;
-                        color: $highlightTextColor;
-                        border-color: darken($highlightBgColor,5%);
-                    }
-                }
-
-                &.ui-state-highlight {
-                    border-color: darken($primaryColor,5%);
-                }
-
-                td {
-                    padding: $contentPadding;
-
-                    &.ui-selection-column {
-                        padding: 0.5em 0.6em;
-                    }
-
-                    &.ui-editable-column {
-                        &.ui-cell-editing {
-                            .ui-inputtext {
-                                border-color: $primaryColor;
-                            }
-
-                            .ui-datepicker table td a,
-                            .ui-datepicker table td span {
-                                min-width: 1.8em;
-                            }
-                        }
-                    }
-
-                    .ui-row-toggler {
-                        color: $textColor;
-                        @include transition(color .3s);
-
-                        &.fa-chevron-circle-right {
-                            @include icon_override("\f054");
-                        }
-
-                        &.fa-chevron-circle-down {
-                            @include icon_override("\f078");
-                        }
-
-                        &:hover {
-                            color: $primaryColor;
-                        }
-                    }
-                }
-
-                &.ui-widget-header {
-                    border: 1px solid $contentBorderColor;
-
-                    a {
-                        color: $headerTextColor;
-                        @include transition(color .3s);
-
-                        &:hover {
-                            color: $primaryColor;
-                        }
-                    }
-                }
-            }
-
-            &.ui-datatable-hoverable-rows {
-                > tr.ui-widget-content:not(.ui-state-highlight):hover {
-                    cursor: pointer;
-                    background-color: $tableHoverBgColor;
-                }
-            }
-        }
-
-        .ui-datatable-scrollable-header,
-        .ui-datatable-scrollable-footer {
-            background-color: #f0f3f5;
-
-            .ui-datatable-scrollable-header-box {
-                td {
-                    color: $textColor;
+                .ui-table-tbody > tr > td {
+                    border: 0 none;
                 }
             }
         }
@@ -462,31 +204,115 @@ body {
 
     .ui-datagrid {
         .ui-datagrid-header {
-            padding: $headerPadding;
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            border: $panelHeaderBorder;
+            padding: $panelHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
+            border-bottom: 0 none;
         }
 
-        .ui-paginator {
-            padding: $headerPadding;
+        .ui-datagrid-content {
+            padding: $panelContentPadding;
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            padding: $panelContentPadding;
         }
 
-        .ui-panel-titlebar {
-            background-color: lighten($primaryColor, 45%);
-            border: 1px solid $panelContentBorderColor;
-            border-bottom-color: lighten($primaryColor, 45%);
-            color: $textColor;
+        .ui-datagrid-footer {
+            background-color: $panelFooterBgColor;
+            color: $panelFooterTextColor;
+            border: $panelFooterBorder;
+            padding: $panelFooterPadding;
+            border-top: 0 none;
         }
     }
 
     .ui-datalist {
         .ui-datalist-header {
-            padding: $headerPadding;
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            border: $panelHeaderBorder;
+            padding: $panelHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
+            border-bottom: 0 none;
         }
 
-        .ui-paginator {
-            padding: $headerPadding;
+        .ui-datalist-content {
+            padding: $panelContentPadding;
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            padding: $panelContentPadding;
+        }
+
+        .ui-datalist-footer {
+            background-color: $panelFooterBgColor;
+            color: $panelFooterTextColor;
+            border: $panelFooterBorder;
+            padding: $panelFooterPadding;
+            border-top: 0 none;
         }
     }
 
+    .ui-datascroller {
+        .ui-datascroller-header {
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            border: $panelHeaderBorder;
+            padding: $panelHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
+            border-bottom: 0 none;
+        }
+
+        .ui-datascroller-content {
+            padding: $panelContentPadding;
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            padding: $panelContentPadding;
+        }
+
+        .ui-datascroller-footer {
+            background-color: $panelFooterBgColor;
+            color: $panelFooterTextColor;
+            border: $panelFooterBorder;
+            padding: $panelFooterPadding;
+            border-top: 0 none;
+        }
+    }
+    
+    .ui-dataview {
+        .ui-dataview-header {
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            border: $panelHeaderBorder;
+            padding: $panelHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
+            border-bottom: 0 none;
+        }
+
+        .ui-dataview-content {
+            padding: $panelContentPadding;
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            padding: $panelContentPadding;
+        }
+
+        .ui-dataview-footer {
+            background-color: $panelFooterBgColor;
+            color: $panelFooterTextColor;
+            border: $panelFooterBorder;
+            padding: $panelFooterPadding;
+            border-top: 0 none;
+        }
+    }
+}
+
+/*body {
+    
     .ui-datascroller {
         .ui-datascroller-header,
         .ui-datascroller-footer {
