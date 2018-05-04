@@ -9,7 +9,7 @@ import {ScrollPanel} from 'primeng/primeng';
             <p-scrollPanel #scrollRightPanel [style]="{height: '100%'}">
                   <div class="right-panel-scroll-content">
                       <p-tabView (onChange)="onTabChange($event)">
-                          <p-tabPanel title="Status">
+                          <p-tabPanel header="Status">
                               <div class="submenu-content settings">
                                   <div class="ui-g">
                                       <div class="ui-g-12 ui-md-6">
@@ -68,7 +68,7 @@ import {ScrollPanel} from 'primeng/primeng';
                                   </div>
                               </div>
                           </p-tabPanel>
-                          <p-tabPanel title="Inbox">
+                          <p-tabPanel header="Inbox">
                               <div class="submenu-content messages">
                                   <ul>
                                       <li>
@@ -111,7 +111,7 @@ import {ScrollPanel} from 'primeng/primeng';
                                   </ul>
                               </div>
                           </p-tabPanel>
-                          <p-tabPanel title="Notes">
+                          <p-tabPanel header="Notes">
                               <div class="submenu-content notes">
                                   <ul>
                                       <li>
