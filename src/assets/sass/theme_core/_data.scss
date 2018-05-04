@@ -369,16 +369,6 @@ body {
             }
         }
     }
-}
-
-/*body {
-    
-    .ui-datascroller {
-        .ui-datascroller-header,
-        .ui-datascroller-footer {
-            padding: $headerPadding;
-        }
-    }
 
     .ui-picklist {
         .ui-picklist-buttons {
@@ -388,37 +378,77 @@ body {
         }
 
         .ui-picklist-caption {
-            padding: $headerPadding;
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            border: $panelHeaderBorder;
+            padding: $panelHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
         }
 
         .ui-picklist-filter-container {
-            margin-bottom: -1px;
+            padding: $inputListHeaderPaddingTop $inputListHeaderPaddingRight $inputListHeaderPaddingBottom $inputListHeaderPaddingLeft;
+            border: $panelHeaderBorder;
+            color: $inputListHeaderTextColor;
+            background-color: $inputListHeaderBgColor;
+            margin: $inputListHeaderMargin;
+            border-bottom: 0 none;
+            border-top: 0 none;
+
+            input {
+                width: 100%;
+                padding-right: 2em;
+            }
 
             .fa {
-                color: $textSecondaryColor;
+                top: 50%;
+                margin-top: -.5em;
+                left: auto;
+                right: $inputListHeaderPaddingRight + .5em;
+                color: $inputListHeaderSearchIconColor;
             }
         }
 
+        .ui-picklist-buttons {
+            padding: $panelContentPadding;
+        }
+
         .ui-picklist-list {
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            padding: $inputListPadding;
+
             .ui-picklist-item {
-                padding: $listItemPadding;
-                margin: 0;
-                @include border-radius(0);
+                padding: $inputListItemPadding;
+                margin: $inputListItemMargin;
+                border: $inputListItemBorder;
+                color: $inputListItemTextColor;
+                background-color: $inputListItemBgColor;
 
                 &:not(.ui-state-highlight):hover {
-                    @include list-item-hover();
+                    background-color: $inputListItemHoverBgColor;
+                    color: $inputListItemHoverTextColor;
                 }
 
                 &.ui-state-highlight {
-                    background-color: $highlightBgColor;
+                    background-color: $inputListItemHighlightBgColor;
+                    color: $inputListItemHighlightTextColor;
                 }
+            }
+        }
+    }
+
+    @media (max-width: 40em) {
+        .ui-picklist.ui-picklist-responsive {
+            .ui-picklist-buttons {
+                padding: $panelContentPadding;
             }
         }
     }
 
     .ui-orderlist {
         .ui-orderlist-controls {
-            margin-right: 10px;
+            padding: $panelContentPadding;
 
             button {
                 font-size: $fontSize + 2;
@@ -426,47 +456,66 @@ body {
         }
 
         .ui-orderlist-caption {
-            padding: $headerPadding;
-            box-sizing: border-box;
-            width: 200px;
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            border: $panelHeaderBorder;
+            padding: $panelHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
         }
 
         .ui-orderlist-filter-container {
-            margin-bottom: -1px;
+            padding: $inputListHeaderPaddingTop $inputListHeaderPaddingRight $inputListHeaderPaddingBottom $inputListHeaderPaddingLeft;
+            border: $panelHeaderBorder;
+            color: $inputListHeaderTextColor;
+            background-color: $inputListHeaderBgColor;
+            margin: $inputListHeaderMargin;
+            border-bottom: 0 none;
+            border-top: 0 none;
+
+            input {
+                width: 100%;
+                padding-right: 2em;
+            }
 
             .fa {
-                color: $textSecondaryColor;
+                top: 50%;
+                margin-top: -.5em;
+                left: auto;
+                right: $inputListHeaderPaddingRight + .5em;
+                color: $inputListHeaderSearchIconColor;
             }
         }
 
         .ui-orderlist-list {
-            box-sizing: border-box;
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            padding: $inputListPadding;
 
             .ui-orderlist-item {
-                padding: $listItemPadding;
-                margin: 0;
-                @include border-radius(0);
+                padding: $inputListItemPadding;
+                margin: $inputListItemMargin;
+                border: $inputListItemBorder;
+                color: $inputListItemTextColor;
+                background-color: $inputListItemBgColor;
 
                 &:not(.ui-state-highlight):hover {
-                    @include list-item-hover();
+                    background-color: $inputListItemHoverBgColor;
+                    color: $inputListItemHoverTextColor;
                 }
 
                 &.ui-state-highlight {
-                    background-color: $highlightBgColor;
-                }
-            }
-        }
-
-        &.ui-grid-responsive {
-            .ui-grid-row {
-                .ui-orderlist-controls {
-                    margin-right: 0;
-                    padding-right: 10px;
+                    background-color: $inputListItemHighlightBgColor;
+                    color: $inputListItemHighlightTextColor;
                 }
             }
         }
     }
+}
 
+/*body {
+    
+    
     .ui-carousel {
         padding: 0;
 
