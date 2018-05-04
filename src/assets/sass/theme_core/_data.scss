@@ -795,29 +795,5 @@ body {
             }
         }
     }
-
-    .fc {
-        .fc-toolbar {
-            .ui-icon-circle-triangle-e {
-                @include icon_override("\f054");
-                height: auto;
-                width: auto;
-                overflow: visible;
-            }
-
-            .ui-icon-circle-triangle-w {
-                @include icon_override("\f053");
-                height: auto;
-                width: auto;
-                overflow: visible;
-            }
-        }
-        .fc-event-container {
-            .fc-event {
-                border-color: $primaryColor;
-                background-color: darken($primaryColor,5%);
-            }
-        }
-    }
 }
 */
