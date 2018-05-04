@@ -360,8 +360,9 @@ $scheduleEventBorder:1px solid $primaryDarkColor;
 $scheduleEventTextColor:$primaryDarkColorText;
 
 //tree
-$treeNodePadding:2px 0;
-$treeNodeLabelPadding:4px;
+$treeNodePadding:0.143em 0;
+$treeNodeLabelPadding:0.286em;
+$treeNodeContentSpacing:0.143em;
 
 //messages
 $messagesMargin:14px 0;

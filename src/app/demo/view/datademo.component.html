@@ -1,4 +1,4 @@
-<div class="ui-g">
+<div class="ui-g ui-fluid">
     <div class="ui-g-12">
         <div class="card no-margin">
             <h1>Table</h1>
@@ -117,10 +117,25 @@
 
     <div class="ui-g-12">
         <div class="card">
-            <h1>Tree</h1>
-            <p-tree [value]="files1" selectionMode="single" [(selection)]="selectedNode1"></p-tree>
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-6">
+                    <h1>Tree</h1>
+                    <p-tree [value]="files1" selectionMode="single" [(selection)]="selectedNode1"></p-tree>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                    <h1>Checkbox Tree</h1>
+                    <p-tree [value]="files2" selectionMode="checkbox" [(selection)]="selectedNodes"></p-tree>
+                </div>
+            </div>
         </div>
     </div>
+
+    <div class="ui-g-12">
+            <div class="card">
+                <h1>Horizontal Tree</h1>
+                <p-tree [value]="files3" selectionMode="single" [(selection)]="selectedNode3" layout="horizontal"></p-tree>
+            </div>
+        </div>
 
     <div class="ui-g-12">
         <div class="card" style="overflow:auto">
@@ -132,7 +147,7 @@
     <div class="ui-g-12">
         <div class="card">
             <h1>TreeTable</h1>
-            <p-treeTable [value]="files2" selectionMode="checkbox" [(selection)]="selectedNode2">
+            <p-treeTable [value]="files4" selectionMode="checkbox" [(selection)]="selectedNode2">
                 <p-header>Basic</p-header>
                 <p-column field="name" header="Name"></p-column>
                 <p-column field="size" header="Size"></p-column>
