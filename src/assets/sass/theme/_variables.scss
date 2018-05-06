@@ -363,6 +363,10 @@ $treeNodePadding:0.143em 0;
 $treeNodeLabelPadding:0.286em;
 $treeNodeContentSpacing:0.143em;
 
+//lightbox
+$lightBoxNavIconFontSize:3em;
+$lightBoxNavIconColor:#ffffff;
+
 //org chart
 $organizationChartConnectorColor:#c8c8c8;
 
@@ -397,6 +401,10 @@ $messageMargin:0;
 $overlayContentBorder:1px solid #c8c8c8;
 $overlayContainerShadow:0 0 6px 0 rgba(0, 0, 0, 0.16);
 
+//dialog
+$dialogHeaderPadding:1em;
+$confirmDialogPadding:1.5em;
+
 //overlay panel
 $overlayPanelCloseIconBgColor:$secondaryColor;
 $overlayPanelCloseIconColor:$secondaryColorText;
@@ -406,6 +414,7 @@ $overlayPanelCloseIconHoverColor:$secondaryDarkColorText;
 //tooltip
 $tooltipBgColor:#333333;
 $tooltipTextColor:#ffffff;
+$tooltipPadding:$inputPadding;
 
 //steps
 $stepsItemBgColor:#ffffff;

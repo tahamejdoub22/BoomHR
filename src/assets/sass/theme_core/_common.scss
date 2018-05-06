@@ -31,10 +31,6 @@ body {
         @include border-radius-right($borderRadius);
     }
 
-    .ui-widget-overlay {
-        background-color: $maskBgColor;
-    }
-
     a {
         color: $linkColor;
 

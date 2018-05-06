@@ -1,4 +1,8 @@
 body {
+    .ui-widget-overlay {
+        background-color: $maskBgColor;
+    }
+
     .ui-overlaypanel {
         background-color: $panelContentBgColor;
         color: $panelContentTextColor;
@@ -27,79 +31,62 @@ body {
             }
         }
     }
-}
-/*body {
-    .ui-overlaypanel {
-        @include overlay-shadow();
-        border: grey;
-        
-        .ui-overlaypanel-close {
-            background-color: $primaryColor;
-            color: $primaryTextColor;
-            text-align: center;
-            width: 1.538em;
-            height: 1.538em;
-            line-height: 1.538em;
-            @include transition(background-color $transitionDuration);
-            
-            &:hover {
-                background-color: darken($primaryColor, 5%);
-                color: $primaryTextColor;
-            }
-            
-            span {
-                width: 0.692em;
-                line-height: inherit;
-                position: relative;
-                right: .05em;
-            }
-        }
-    }
-    
+
     .ui-dialog {
-        @include overlay-shadow();
-        border: grey;
+        padding: 0;
+        @include shadow($overlayContainerShadow);
         
         .ui-dialog-titlebar {
-            padding: $headerPadding;
+            border: $panelHeaderBorder;
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            padding: $dialogHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
+            border-bottom: 0 none;
             
             .ui-dialog-title {
                 margin: 0;
                 float: none;
-                vertical-align: middle;
             }
             
             .ui-dialog-titlebar-icon {
-                color: $headerIconColor;
+                color: $panelHeaderIconColor;
                 border: 0 none;
-                @include transition(color $transitionDuration);
                 padding: 0;
-                margin-left: .35em;
-                font-size: $fontSize + 2;
+                margin-left: $inlineSpacing;
+                @include transition(color $transitionDuration);
                 
                 &:hover {
-                    color: darken($headerIconHoverColor, 10%);
+                    color: $panelHeaderIconHoverColor;
                 }
             }
         }
         
         .ui-dialog-content {
-            padding: $contentPadding;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            border: $overlayContentBorder;
+            padding: $panelContentPadding;
         }
         
         .ui-dialog-footer {
-            padding: $headerPadding;
+            border: $panelFooterBorder;
+            border-top: 0 none;
+            background-color: $panelFooterBgColor;
+            color: $panelFooterTextColor;
+            padding: $panelFooterPadding;
+            margin: 0;
             text-align: right;
-            border-width: 1px 0 0 0;
             
             button {
-                margin: 0 .35em 0 0;
+                margin: 0 $inlineSpacing 0 0;
+                width: auto;
             }
         }
                 
         &.ui-confirm-dialog {
             .ui-dialog-content {
-                padding: 1.5em;
+                padding: $confirmDialogPadding;
                 
                 > span {
                     float: none;
@@ -116,105 +103,93 @@ body {
             }
         }
     }
-        
+
+    .ui-sidebar {
+        background-color: $panelContentBgColor;
+        color: $panelContentTextColor;
+        padding: $panelContentPadding;
+        border: $overlayContentBorder;
+        @include shadow($overlayContainerShadow);
+    }
+
     .ui-tooltip {
         .ui-tooltip-text {
-            @include overlay-shadow();
+            background-color: $tooltipBgColor;
+            color: $tooltipTextColor;
+            padding: $tooltipPadding;
+            @include shadow($overlayContainerShadow);
         }
         
-        &.ui-state-error {
-            border: 0 none;
+        &.ui-tooltip-right {
+            .ui-tooltip-arrow {
+                border-right-color: $tooltipBgColor;
+            }
         }
         
-        .ui-tooltip {        
-            .ui-tooltip-text {
-                background-color: grey;
-                color: grey;
-                @include overlay-shadow();
+        &.ui-tooltip-left {
+            .ui-tooltip-arrow {
+                border-left-color: $tooltipBgColor;
             }
-            
-            &.ui-state-error {
-                border: 0 none;
+        }
+        
+        &.ui-tooltip-top {
+            .ui-tooltip-arrow {
+                border-top-color: $tooltipBgColor;
             }
-            
-            &.ui-tooltip-right {
-                .ui-tooltip-arrow {
-                    border-right-color: grey;
-                }
-            }
-            
-            &.ui-tooltip-left {
-                .ui-tooltip-arrow {
-                    border-left-color: grey;
-                }
-            }
-            
-            &.ui-tooltip-top {
-                .ui-tooltip-arrow {
-                    border-top-color: grey;
-                }
-            }
-            
-            &.ui-tooltip-bottom {
-                .ui-tooltip-arrow {
-                    border-bottom-color: grey;
-                }
+        }
+        
+        &.ui-tooltip-bottom {
+            .ui-tooltip-arrow {
+                border-bottom-color: $tooltipBgColor;
             }
         }
     }
-    
+
     .ui-lightbox {
-        @include overlay-shadow();
+        @include shadow($overlayContainerShadow);
         
         .ui-lightbox-caption {
-            padding: $headerPadding;
+            border: $panelHeaderBorder;
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            padding: $panelHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
             
             .ui-lightbox-caption-text {
-                color: $headerTextColor;
+                color: $panelHeaderTextColor;
                 margin: 0;
             }
             
             .ui-lightbox-close {
                 padding: 0;
-                color: $headerTextColor;
-                @include transition(color .3s);
+                color: $panelHeaderIconColor;
+                @include transition(color $transitionDuration);
                 
                 &:hover {
-                    color: lighten($primaryColor, 10%);
+                    color: $panelHeaderIconHoverColor;
+                }
+
+                .ui-icon {
+                    @include icon_override("\f00d");
                 }
             }
         }
-        
+
         .ui-lightbox-content-wrapper {
             overflow: hidden;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            border: 0 none;
+            padding: 0;
                       
-            .ui-lightbox-nav-left {
-                @include icon_override("\f053");
-                @include transition(all .3s);
-                font-size: 24px;
-                margin-left: 4px;
+            .ui-lightbox-nav-left, .ui-lightbox-nav-right {
+                @include transition(all $transitionDuration);
+                font-size: $lightBoxNavIconFontSize;
+                color: $lightBoxNavIconColor;
+                margin-top: -.5em;
 
                 &:hover {
                     @include scale(1.2);
-                }
-                
-                span {
-                    display: none;
-                }
-            }
-            
-            .ui-lightbox-nav-right {
-                @include icon_override("\f054");
-                @include transition(all .3s);
-                font-size: 24px;
-                margin-right: 4px;
-                
-                &:hover {
-                    @include scale(1.2);
-                }
-                
-                span {
-                    display: none;
                 }
             }
             
@@ -223,4 +198,4 @@ body {
             }
         }
     }
-}*/
+}
