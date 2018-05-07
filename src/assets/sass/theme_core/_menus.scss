@@ -288,6 +288,68 @@ body {
         }
     }
 
+    .ui-tabmenu {
+        border: 0 none;
+
+        .ui-tabmenu-nav {
+            padding: 0;
+            background: $tabsNavBgColor;
+            border-bottom: $panelHeaderBorder;
+           
+            .ui-tabmenuitem {
+                position: static;
+                border: $panelHeaderBorder;
+                background-color: $panelHeaderBgColor;
+                margin-right: $tabHeaderSpacing;
+                margin-bottom: -1px;
+
+                .ui-menuitem-link {
+                    color: $panelHeaderTextColor;
+                    padding: $panelHeaderPadding;
+
+                    .ui-menuitem-text {
+                        color: $panelHeaderTextColor;
+                        margin-right: $inlineSpacing;
+                    }
+
+                    .ui-menuitem-icon {
+                        color: $panelHeaderIconColor;
+                    }
+                }
+
+                &:not(.ui-state-active):not(.ui-state-disabled):hover {
+                    background-color: $panelHeaderHoverBgColor;
+                    border: $panelHeaderHoverBorder;
+
+                    .ui-menuitem-link {
+                        .ui-menuitem-text {
+                            color: $panelHeaderHoverTextColor;
+                        }
+
+                        .ui-menuitem-icon {
+                            color: $panelHeaderIconHoverColor;
+                        }
+                    }
+                }
+
+                &.ui-state-active {
+                    background-color: $panelHeaderActiveBgColor;
+                    border: $panelHeaderActiveBorder;
+
+                    .ui-menuitem-link {
+                        .ui-menuitem-text {
+                            color: $panelHeaderActiveTextColor;
+                        }
+
+                        .ui-menuitem-icon {
+                            color: $panelHeaderActiveIconColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 /*
 
@@ -324,65 +386,7 @@ body {
         }
     }
 
-    .ui-tabmenu {
-        border: 0 none;
 
-        .ui-tabmenu-nav {
-            padding: 0;
-            border: 0 none;
-            border-bottom: 1px solid $headerBorderColor;
-            background: transparent;
-            @include border-radius(0);
-
-            .ui-tabmenuitem {
-                margin: 0;
-                position: static;
-                background-color: $headerBgColor;
-                margin-right: 1px;
-                @include transition(background-color $transitionDuration);
-                @include border-radius(0);
-
-                .ui-menuitem-link {
-                    color: $headerTextColor;
-                    padding: $headerPadding;
-
-                    .ui-menuitem-icon, .ui-menuitem-text {
-                        vertical-align: middle;
-                        display: inline-block;
-                        float: none;
-                    }
-
-                    .ui-menuitem-icon {
-                        color: $headerIconColor;
-                    }
-                }
-
-                &:not(.ui-state-active):not(.ui-state-disabled):hover {
-                    background-color: $headerHoverBgColor;
-
-                    a {
-                        color: $headerHoverTextColor;
-                    }
-
-                    .ui-menuitem-icon {
-                        color: $headerIconHoverColor;
-                    }
-                }
-
-                &.ui-state-active {
-                    background-color: $primaryColor;
-
-                    a {
-                        color: $primaryTextColor;
-                    }
-
-                    .ui-menuitem-icon {
-                        color: $primaryTextColor;
-                    }
-                }
-            }
-        }
-    }
 
     .ui-panelmenu {
         .ui-icon {
