@@ -439,20 +439,21 @@ $progressBarBgColor:#eaeaea;
 $progressBarValueBgColor:$primaryColor;
 
 //menu
-$menuitemSubMenuPadding:0;
 $menuBgColor:#ffffff;
 $menuBorder:1px solid #c8c8c8;
 $menuPadding:0;
 $menuTextColor:$textColor;
-$menuitemPadding:6px 12px;
+$menuitemPadding:0.429em 0.857em;
+$menuitemMargin:0;
 $menuitemTextColor:#333333;
 $menuitemIconColor:#333333;
 $menuitemHoverTextColor:#333333;
 $menuitemHoverIconColor:#333333;
 $menuitemHoverBgColor:#eaeaea;
-$toggleableMenuHeaderMargin:1px;
-$overlayMenuBorder:1px solid #c8c8c8;
-$overlayMenuShadow:0 3px 6px 0 rgba(0, 0, 0, 0.16);
+$submenuHeaderMargin: 0;
+$submenuPadding: 1px 0;
+$overlayMenuBorder:0 none;
+$overlayMenuShadow:0 0px 6px 0 rgba(0, 0, 0, 0.16);
 
 //misc
 $maskBgColor:rgba(0, 0, 0, 0.4);
