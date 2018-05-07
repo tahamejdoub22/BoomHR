@@ -371,13 +371,18 @@ $lightBoxNavIconColor:#ffffff;
 $organizationChartConnectorColor:#c8c8c8;
 
 //messages
-$messagesMargin:14px 0;
-$messagesPadding:14px;
-$messagesIconFontSize:24px;
-$infoMessageBgColor:#b7d8b7;
+$messagesMargin:1em 0;
+$messagesPadding:1em;
+$messagesIconFontSize:1.714em;
+$messageCloseIconFontSize:1.5em;
+$infoMessageBgColor:#7fbcec;
 $infoMessageBorder:0 none;
 $infoMessageTextColor:#212121;
 $infoMessageIconColor:#212121;
+$successMessageBgColor:#b7d8b7;
+$successMessageBorder:0 none;
+$successMessageTextColor:#212121;
+$successMessageIconColor:#212121;
 $warnMessageBgColor:#ffe399;
 $warnMessageBorder:0 none;
 $warnMessageTextColor:#212121;
@@ -386,16 +391,19 @@ $errorMessageBgColor:#f8b7bd;
 $errorMessageBorder:0 none;
 $errorMessageTextColor:#212121;
 $errorMessageIconColor:#212121;
-$fatalMessageBgColor:#bcbcbc;
-$fatalMessageBorder:0 none;
-$fatalMessageTextColor:#212121;
-$fatalMessageIconColor:#212121;
-$growlIconFontSize:36px;
-$growlMargin:0 0 14px 0;
-$growlPadding:14px;
-$growlShadow:0 3px 6px 0 rgba(0, 0, 0, 0.16);
-$messagePadding:6px;
+
+//message
+$messagePadding:.5em;
 $messageMargin:0;
+
+//growl
+$growlTopLocation:120px;
+$growlIconFontSize:2.571em;
+$growlMessageTextMargin: 0 0 0 4em;
+$growlMargin:0 0 1em 0;
+$growlPadding:1em;
+$growlShadow:0 3px 6px 0 rgba(0, 0, 0, 0.16);
+$growlOpacity:.9;
 
 //overlays
 $overlayContentBorder:1px solid #c8c8c8;
