@@ -8,8 +8,6 @@ import {ScrollPanel} from 'primeng/primeng';
 })
 export class AppComponent implements AfterViewInit {
 
-    darkTheme = false;
-
     menuMode = 'static';
 
     topbarMenuActive: boolean;
@@ -159,16 +157,20 @@ export class AppComponent implements AfterViewInit {
         this.staticMenuMobileActive = false;
     }
 
-    changeTheme(theme) {
-        const themeLink: HTMLLinkElement = <HTMLLinkElement>document.getElementById('theme-css');
-        themeLink.href = 'assets/theme/theme-' + theme + '.css';
+    changeTheme(theme, style) {
         const layoutLink: HTMLLinkElement = <HTMLLinkElement>document.getElementById('layout-css');
         layoutLink.href = 'assets/layout/css/layout-' + theme + '.css';
 
-        if (theme.indexOf('dark') !== -1) {
-            this.darkTheme = true;
-        } else {
-            this.darkTheme = false;
+        const themeLink: HTMLLinkElement = <HTMLLinkElement>document.getElementById('theme-css');
+
+        if (style === 'color') {
+            themeLink.href = 'assets/theme/' + theme + '/theme.css';
+        }
+        if (style === 'dark') {
+            themeLink.href = 'assets/theme/' + theme + '/theme-dark.css';
+        }
+        if (style === 'light') {
+            themeLink.href = 'assets/theme/' + theme + '/theme-light.css';
         }
     }
 }
