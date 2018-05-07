@@ -248,7 +248,7 @@
         &.layout-rtl {
             .layout-sidebar {
                 right: -224px;
-                @include transition(right .3s);
+                @include transition(right $transitionDuration);
 
                 .layout-menu {
                     >li {
@@ -422,7 +422,7 @@
                 }
 
                 .layout-sidebar {
-                    @include transition(right .3s);
+                    @include transition(right $transitionDuration);
 
                     .layout-menu {
                         >li {

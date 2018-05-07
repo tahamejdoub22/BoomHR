@@ -161,7 +161,7 @@
             left: -224px;
             top: 128px;
             @include shadow(0 0 6px 0 rgba(0, 0, 0, 0.16));
-            @include transition(left .3s);
+            @include transition(left $transitionDuration);
 
             .layout-menu {
                 > li {
@@ -272,7 +272,7 @@
 
             .layout-sidebar {
                 @include shadow(0 0 6px 0 rgba(0, 0, 0, 0.16));
-                @include transition(left .3s);
+                @include transition(left $transitionDuration);
 
                 .layout-menu {
                     > li {
@@ -357,7 +357,7 @@
             }
 
             .layout-main {
-                @include transition(margin-left .3s);
+                @include transition(margin-left $transitionDuration);
                 margin-left: 224px;
             }
 
@@ -396,7 +396,7 @@
             .layout-sidebar {
                 width: 64px;
                 @include shadow(0 0 6px 0 rgba(0, 0, 0, 0.16));
-                @include transition(width .3s);
+                @include transition(width $transitionDuration);
 
                 .layout-menu {
                     > li {
