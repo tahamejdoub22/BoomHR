@@ -31,63 +31,55 @@ body {
             }
         }
     }
-}
-/*
+
     .ui-steps {
         position: relative;
-
+        
         .ui-steps-item {
             background-color: transparent;
             text-align: center;
-
+                        
             .ui-menuitem-link {
                 display: inline-block;
                 text-align: center;
                 background-color: transparent;
                 overflow: hidden;
-
+                
                 .ui-steps-number {
-                    display: inline-block;
-                    background-color: $primaryColor;
                     @include border-radius(50%);
-                    padding: 0.5em;
-                    font-size: 1em;
-                    color: $primaryTextColor;
+                    display: inline-block;
+                    color: $stepsItemNumberColor;
+                    background-color: $stepsItemBgColor;
+                    border: $stepsItemBorder;
                     position: relative;
-                    top: 1em;
-                    margin-bottom: 1em;
-                    border: 1px solid lighten($primaryColor,15%);
-                    width: 2.5em;
-                    height: 2.5em;
+                    top: $fontSize;
+                    margin-bottom: $fontSize;
+                    width: $stepsItemWidth;
+                    height: $stepsItemHeight;
+                    font-size: $fontSize + 2;
+                    line-height: $stepsItemHeight - 4;
+                    text-align: center;
                 }
-
+                
                 .ui-steps-title {
                     display: block;
-                    margin-top: 0.45em;
-                    color: $textSecondaryColor;
+                    margin-top: 6px;
+                    color: $stepsItemTextColor;
                 }
             }
-
-            &.ui-state-disabled {
-                @include opacity(1);
-                .ui-steps-number {
-                    background-color: $contentBgColor;
-                    border-color: $contentBorderColor;
-                    color: $textColor;
-                }
-            }
-
+                        
             &.ui-state-highlight {
                 .ui-steps-number {
-                    background-color: $primaryColor;
+                    background: $highlightBgColor;
+                    color: $highlightColorText;
                 }
-
-                .ui-steps-title {
+                
+                .ui-steps-title { 
                     font-weight: 700;
                     color: $textColor;
                 }
             }
-
+            
             &:last-child {
                 .ui-menuitem-link {
                     display: block;
@@ -97,7 +89,7 @@ body {
 
         &:before {
             content:' ';
-            border: 1px solid $contentBorderColor;
+            border-top: $panelContentBorder;
             width: 100%;
             top: 45%;
             left: 0;
@@ -106,6 +98,8 @@ body {
         }
     }
 
+}
+/*
     .ui-menu .ui-menuitem-link,
     .ui-menubar .ui-menuitem-link,
     .ui-tieredmenu .ui-menuitem-link,
