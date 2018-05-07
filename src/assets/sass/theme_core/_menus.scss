@@ -1,8 +1,8 @@
-/*body {
+body {
     .ui-breadcrumb {
-        background-color: $contentBgColor;
-        border: 1px solid $contentBorderColor;
-        padding: $headerPadding;
+        background-color: $panelContentBgColor;
+        border: $panelContentBorder;
+        padding: $panelContentPadding;
 
         ul {
             li {
@@ -11,31 +11,28 @@
                 vertical-align: middle;
 
                 .ui-menuitem-link {
-                    color: $textSecondaryColor;
+                    color: $panelContentTextColor;
                     margin: 0;
-                    position: relative;
+                    float: none;
                 }
 
                 &.ui-breadcrumb-chevron {
-                    @include icon_override("\f105");
-                    font-size: $fontSize + 4;
-                    margin: 0 .45em;
+                    margin: 0 $inlineSpacing 0 $inlineSpacing;
                     color: $textSecondaryColor;
                 }
 
                 &:first-child {
-                    font-size: $fontSize + 2;
-
-                    &.fa-home {
+                    a {
                         color: $textSecondaryColor;
                         margin: 0;
-                        font-size: 15px;
+                        font-size: $fontSize + 4;
                     }
                 }
             }
         }
     }
-
+}
+/*
     .ui-steps {
         position: relative;
 
