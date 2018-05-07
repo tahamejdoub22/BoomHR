@@ -548,8 +548,9 @@
                             overflow: visible;
                         }
                     }
-                    .layout-menu-content {
-                        width: 100%;
+                    .layout-menu {
+                        width: calc(100% - 18px);
+                        padding-bottom: 0;
                     }
                 }
             }
@@ -575,19 +576,20 @@
                 @include shadow(0 0 6px 0 rgba(0, 0, 0, 0.16));
 
                 .ui-scrollpanel {
+                    overflow: visible;
+                    border: none;
                     .ui-scrollpanel-wrapper {
                         overflow: visible;
                         .ui-scrollpanel-content {
                             overflow: visible;
                         }
                     }
-                    .layout-menu {
-                        padding-bottom: 0;
-                    }
                 }
 
                 .layout-menu {
                     margin: 0;
+                    width: 100%;
+                    padding-bottom: 0;
 
                     > li {
                         width: auto;
