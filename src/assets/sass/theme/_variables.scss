@@ -304,6 +304,10 @@ $panelHeaderActiveBgColor:$containerHeaderActiveBgColor;
 $panelHeaderActiveBorder:$containerHeaderActiveBorder;
 $panelHeaderActiveTextColor:$containerHeaderActiveTextColor;
 $panelHeaderActiveIconColor:$containerHeaderActiveIconColor;
+$panelHeaderActiveHoverBgColor:$containerHeaderActiveHoverBgColor;
+$panelHeaderActiveHoverBorder:$containerHeaderActiveHoverHoverBorder;
+$panelHeaderActiveHoverTextColor:$containerHeaderActiveHoverrTextColor;
+$panelHeaderActiveHoverIconColor:$containerHeaderActiveHoverIconColor;
 
 //accordion
 $accordionSpacing:2px;
@@ -443,7 +447,7 @@ $menuBgColor:#ffffff;
 $menuBorder:1px solid #c8c8c8;
 $menuPadding:0;
 $menuTextColor:$textColor;
-$menuitemPadding:0.429em 0.857em;
+$menuitemPadding:0.714em 0.857em;
 $menuitemMargin:0;
 $menuitemTextColor:#333333;
 $menuitemIconColor:#333333;

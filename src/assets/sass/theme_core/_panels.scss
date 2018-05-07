@@ -141,6 +141,18 @@ body {
                         color: $panelHeaderActiveIconColor;
                     }
                 }
+
+                &:hover {
+                    a {
+                        border: $panelHeaderActiveHoverBorder;
+                        background-color: $panelHeaderActiveHoverBgColor;
+                        color: $panelHeaderActiveHoverTextColor;
+                        
+                        .ui-accordion-toggle-icon {
+                            color: $panelHeaderActiveHoverIconColor;
+                        }
+                    }
+                }
             }
 
             .fa-caret-right {
@@ -229,6 +241,19 @@ body {
 
                         .ui-tabview-close {
                             color: $panelHeaderActiveIconColor;
+                        }
+
+                        &:hover {
+                            border: $panelHeaderActiveHoverBorder;
+                            background-color: $panelHeaderActiveHoverBgColor;
+
+                            a {
+                                color: $panelHeaderActiveHoverTextColor;
+                                
+                                .ui-tabview-left-icon, .ui-tabview-right-icon{
+                                    color: $panelHeaderActiveHoverIconColor;
+                                }
+                            }
                         }
                     }
                 }
