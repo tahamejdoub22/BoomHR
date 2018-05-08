@@ -386,19 +386,13 @@ body {
             padding: 0;
             color: $inputDropdownIconColor;
 
-            .ui-clickable {
+            .ui-dropdown-trigger-icon {
                 @include icon_override("\f078");
             }
         }
 
         &:not(.ui-state-disabled).ui-state-focus {
-            border: 1px solid $primaryColor;
-
-            .ui-dropdown-trigger {
-                .fa-caret-down {
-                    color: $primaryColor;
-                }
-            }
+            @include focused-input();
         }
     }
 
@@ -420,7 +414,7 @@ body {
                 padding-right: 2em;
             }
 
-            .fa {
+            .ui-dropdown-filter-icon {
                 top: 50%;
                 margin-top: -.5em;
                 right: $inputListHeaderPaddingRight + .5em;
@@ -478,7 +472,7 @@ body {
             padding: 0;
             color: $inputDropdownIconColor;
 
-            .ui-clickable {
+            .ui-dropdown-trigger-icon {
                 @include icon_override("\f078");
             }
         }
@@ -509,7 +503,7 @@ body {
                     padding-right: 2em;
                 }
 
-                .fa {
+                .ui-multiselect-filter-icon {
                     color: $inputListHeaderSearchIconColor;
                     top: 50%;
                     margin-top: -.5em;
@@ -603,7 +597,7 @@ body {
                     padding-right: 2em;
                 }
 
-                .fa {
+                .ui-listbox-filter-icon {
                     top: 50%;
                     left: auto;
                     margin-top: -.5em;
@@ -640,7 +634,7 @@ body {
                 }
             }
         }
-        
+
 
         &:not(.ui-state-disabled) {
             .ui-listbox-item {
@@ -679,44 +673,44 @@ body {
             color: $panelHeaderTextColor;
         }
 
-        .ql-snow.ql-toolbar button:hover, 
-        .ql-snow .ql-toolbar button:hover, 
-        .ql-snow.ql-toolbar button.ql-active, 
-        .ql-snow .ql-toolbar button.ql-active, 
-        .ql-snow.ql-toolbar .ql-picker-label:hover, 
-        .ql-snow .ql-toolbar .ql-picker-label:hover, 
-        .ql-snow.ql-toolbar .ql-picker-label.ql-active, 
-        .ql-snow .ql-toolbar .ql-picker-label.ql-active, 
-        .ql-snow.ql-toolbar .ql-picker-item:hover, 
-        .ql-snow .ql-toolbar .ql-picker-item:hover, 
-        .ql-snow.ql-toolbar .ql-picker-item.ql-selected, 
+        .ql-snow.ql-toolbar button:hover,
+        .ql-snow .ql-toolbar button:hover,
+        .ql-snow.ql-toolbar button.ql-active,
+        .ql-snow .ql-toolbar button.ql-active,
+        .ql-snow.ql-toolbar .ql-picker-label:hover,
+        .ql-snow .ql-toolbar .ql-picker-label:hover,
+        .ql-snow.ql-toolbar .ql-picker-label.ql-active,
+        .ql-snow .ql-toolbar .ql-picker-label.ql-active,
+        .ql-snow.ql-toolbar .ql-picker-item:hover,
+        .ql-snow .ql-toolbar .ql-picker-item:hover,
+        .ql-snow.ql-toolbar .ql-picker-item.ql-selected,
         .ql-snow .ql-toolbar .ql-picker-item.ql-selected {
             color: $panelHeaderIconHoverColor;
         }
 
-        .ql-snow.ql-toolbar button:hover .ql-stroke, 
-        .ql-snow .ql-toolbar button:hover .ql-stroke, 
-        .ql-snow.ql-toolbar button.ql-active .ql-stroke, 
-        .ql-snow .ql-toolbar button.ql-active .ql-stroke, 
-        .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke, 
-        .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke, 
-        .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke, 
-        .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke, 
-        .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke, 
-        .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke, 
-        .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke, 
-        .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, 
-        .ql-snow.ql-toolbar button:hover .ql-stroke-miter, 
-        .ql-snow .ql-toolbar button:hover .ql-stroke-miter, 
-        .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter, 
-        .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter, 
-        .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter, 
-        .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, 
-        .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, 
-        .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, 
-        .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter, 
-        .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter, 
-        .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter, 
+        .ql-snow.ql-toolbar button:hover .ql-stroke,
+        .ql-snow .ql-toolbar button:hover .ql-stroke,
+        .ql-snow.ql-toolbar button.ql-active .ql-stroke,
+        .ql-snow .ql-toolbar button.ql-active .ql-stroke,
+        .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+        .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
+        .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+        .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+        .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+        .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
+        .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+        .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+        .ql-snow.ql-toolbar button:hover .ql-stroke-miter,
+        .ql-snow .ql-toolbar button:hover .ql-stroke-miter,
+        .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
+        .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
+        .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+        .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+        .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+        .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+        .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+        .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+        .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
         .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
             stroke: $panelHeaderIconHoverColor;
         }
@@ -732,17 +726,17 @@ body {
             &:hover {
                 color: $ratingStarIconHoverColor;
             }
-        }
 
-        .fa {
-            font-size: $ratingIconFontSize;
-
-            &.fa-ban {
+            &.ui-rating-cancel {
                 color: $ratingCancelIconColor;
 
                 &:hover {
                     color: $ratingCancelHoverIconColor;
                 }
+            }
+
+            .ui-rating-icon {
+                font-size: $ratingIconFontSize;
             }
         }
     }
@@ -766,7 +760,7 @@ body {
             .ui-spinner-button {
                 width: $spinnerButtonWidth;
 
-                .ui-clickable {
+                .ui-spinner-button-icon {
                     left: 50%;
                 }
             }
@@ -857,7 +851,7 @@ body {
             color: $inputListHeaderTextColor;
             @include border-radius(0);
 
-            .ui-datepicker-prev, 
+            .ui-datepicker-prev,
             .ui-datepicker-next {
                 cursor: pointer;
                 top: 0;
