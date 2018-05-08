@@ -15,6 +15,7 @@ body {
         &:enabled:focus {
             outline: $buttonFocusOutline;
             outline-offset: $buttonFocusOutlineOffset;
+            background-color: darken($buttonHoverBgColor, 10%);
         }
 
         &:enabled:active  {
@@ -228,10 +229,14 @@ body {
             border-color: $secondaryButtonHoverBorderColor;
         }
 
-        &:enabled:active  {
+        &:enabled:active {
             background-color: $secondaryButtonActiveBgColor;
             color: $secondaryButtonActiveTextColor;
             border-color: $secondaryButtonActiveBorderColor;
+        }
+
+        &:enabled:focus {
+            background-color: darken($secondaryButtonHoverBgColor, 10%);
         }
     }
 
@@ -246,10 +251,14 @@ body {
             border-color: $infoButtonHoverBorderColor;
         }
 
-        &:enabled:active  {
+        &:enabled:active {
             background-color: $infoButtonActiveBgColor;
             color: $infoButtonActiveTextColor;
             border-color: $infoButtonActiveBorderColor;
+        }
+
+        &:enabled:focus {
+            background-color: darken($infoButtonHoverBgColor, 10%);
         }
     }
 
@@ -264,10 +273,14 @@ body {
             border-color: $successButtonHoverBorderColor;
         }
 
-        &:enabled:active  {
+        &:enabled:active {
             background-color: $successButtonActiveBgColor;
             color: $successButtonActiveTextColor;
             border-color: $successButtonActiveBorderColor;
+        }
+
+        &:enabled:focus {
+            background-color: darken($successButtonHoverBgColor, 10%);
         }
     }
 
@@ -282,10 +295,14 @@ body {
             border-color: $warningButtonHoverBorderColor;
         }
 
-        &:enabled:active  {
+        &:enabled:active {
             background-color: $warningButtonActiveBgColor;
             color: $warningButtonActiveTextColor;
             border-color: $warningButtonActiveBorderColor;
+        }
+
+        &:enabled:focus {
+            background-color: darken($warningButtonHoverBgColor, 10%);
         }
     }
 
@@ -304,6 +321,10 @@ body {
             background-color: $dangerButtonActiveBgColor;
             color: $dangerButtonActiveTextColor;
             border-color: $dangerButtonActiveBorderColor;
+        }
+
+        &:enabled:focus {
+            background-color: darken($dangerButtonHoverBgColor, 10%);
         }
     }
 }
