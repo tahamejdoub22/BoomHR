@@ -70,8 +70,8 @@
             <span>Kate Winston</span>
         </a>
         <ul id="topbar-profile-menu" class="animated fadeInDown" [ngClass]="{'topbar-profile-menu-active': app.topbarMenuActive}">
-            <li #theme [ngClass]="{'menuitem-active':app.activeTopbarItem === theme}" (click)="app.onTopbarItemClick($event, theme)">
-                <a href="#">
+            <li #theme [ngClass]="{'menuitem-active':app.activeTopbarItem === theme}">
+                <a href="#" (click)="app.onTopbarItemClick($event, theme)">
                     <i class="topbar-icon fa fa-fw fa-paint-brush"></i>
                     <span class="topbar-item-name">Change Theme</span>
                 </a>
@@ -90,8 +90,8 @@
                     </li>
                 </ul>
             </li>
-            <li #favorite [ngClass]="{'menuitem-active':app.activeTopbarItem === favorite}" (click)="app.onTopbarItemClick($event, favorite)">
-                <a href="#">
+            <li #favorite [ngClass]="{'menuitem-active':app.activeTopbarItem === favorite}">
+                <a href="#" (click)="app.onTopbarItemClick($event, favorite)">
                     <i class="topbar-icon fa fa-fw fa-heart"></i>
                     <span class="topbar-item-name">Favorites</span>
                 </a>
@@ -122,14 +122,14 @@
                     </li>
                 </ul>
             </li>
-            <li #screen [ngClass]="{'menuitem-active':app.activeTopbarItem === screen}" (click)="app.onTopbarItemClick($event, screen)">
-                <a href="#">
+            <li #screen [ngClass]="{'menuitem-active':app.activeTopbarItem === screen}">
+                <a href="#" (click)="app.onTopbarItemClick($event, screen)">
                     <i class="topbar-icon material-icons animated swing fa fa-fw fa-lock"></i>
                     <span class="topbar-item-name">Lock Screen</span>
                 </a>
             </li>
-            <li #wallpaper [ngClass]="{'menuitem-active':app.activeTopbarItem === wallpaper}" (click)="app.onTopbarItemClick($event, wallpaper)">
-                <a href="#">
+            <li #wallpaper [ngClass]="{'menuitem-active':app.activeTopbarItem === wallpaper}">
+                <a href="#" (click)="app.onTopbarItemClick($event, wallpaper)">
                     <i class="topbar-icon fa fa-fw fa-picture-o"></i>
                     <span class="topbar-item-name">Wallpaper</span>
                 </a>

@@ -110,6 +110,11 @@ export class AppComponent implements AfterViewInit {
             this.activeTopbarItem = item;
         }
 
+        if (item.childNodes.length === 3) {
+            this.topbarMenuActive = false;
+            this.activeTopbarItem = null;
+        }
+
         event.preventDefault();
     }
 
