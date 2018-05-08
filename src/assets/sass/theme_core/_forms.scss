@@ -472,7 +472,7 @@ body {
             padding: 0;
             color: $inputDropdownIconColor;
 
-            .ui-dropdown-trigger-icon {
+            .ui-multiselect-trigger-icon {
                 @include icon_override("\f078");
             }
         }
