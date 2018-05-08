@@ -949,6 +949,8 @@ body {
 
         .ui-datepicker-trigger.ui-button {
             width: 2em;
+            right: 0;
+            top: 0;
             @include border-radius-left(0);
         }
     }

@@ -1,8 +1,11 @@
 <div class="route-bar">
     <div class="route-bar-breadcrumb">
-        <a routerLink="">
-            <i class="fa fa-home"></i>
-        </a>
+        <li>
+            <a routerLink="">
+                <i class="fa fa-home"></i>
+            </a>
+        </li>
+        <li>/</li>
         <ng-template ngFor let-item let-last="last" [ngForOf]="items">
             <li>
                 <a [routerLink]="item.routerLink" *ngIf="item.routerLink">{{item.label}}</a>
