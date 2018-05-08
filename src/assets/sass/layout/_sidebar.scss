@@ -45,6 +45,17 @@
                             color: $sidebarMenuItemHoverIconColor;
                         }
                     }
+
+                    &.active-menuitem-routerlink {
+                        span {
+                            color: $sidebarMenuItemActiveRouteTextColor;
+                            font-weight: 700;
+                        }
+
+                        i {
+                            color: $sidebarMenuItemActiveRouteIconColor;
+                        }
+                    }
                 }
 
                 &.active-menuitem {
@@ -104,6 +115,19 @@
 
                                 i {
                                     color: $sidebarSubmenuItemHoverIconColor;
+                                }
+                            }
+
+                            &.active-menuitem-routerlink {
+                                background-color: $sidebarSubmenuItemActiveRouteBgColor;
+                                
+                                span {
+                                    color: $sidebarMenuItemActiveRouteTextColor;
+                                    font-weight: 700;
+                                }
+        
+                                i {
+                                    color: $sidebarMenuItemActiveRouteIconColor;
                                 }
                             }
                         }

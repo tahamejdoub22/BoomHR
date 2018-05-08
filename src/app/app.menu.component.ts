@@ -30,7 +30,7 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label: 'Theme', icon: 'fa fa-fw fa-paint-brush',
+                label: 'Themes', icon: 'fa fa-fw fa-paint-brush',
                 items: [
                     {
                         label: 'Flat', icon: 'fa fa-fw fa-paint-brush',
