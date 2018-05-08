@@ -120,12 +120,12 @@
 
                             &.active-menuitem-routerlink {
                                 background-color: $sidebarSubmenuItemActiveRouteBgColor;
-                                
+
                                 span {
                                     color: $sidebarMenuItemActiveRouteTextColor;
                                     font-weight: 700;
                                 }
-        
+
                                 i {
                                     color: $sidebarMenuItemActiveRouteIconColor;
                                 }
@@ -267,6 +267,10 @@
         &.layout-menu-mobile-active {
             .layout-sidebar {
                 left: 0px;
+
+                .layout-menu {
+                    padding-bottom: 184px;
+                }
             }
         }
 

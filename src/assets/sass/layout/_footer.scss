@@ -3,6 +3,8 @@
         background-color: $footerBgColor;
         padding: 24px;
         color: $footerTextColor;
+        width: 100%;
+        float: right;
 
         .logo-container {
             img {
