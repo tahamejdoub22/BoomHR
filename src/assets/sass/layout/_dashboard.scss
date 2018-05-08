@@ -294,6 +294,10 @@
 
     .tasks {
 
+        .ui-panel-content {
+            min-height: 298px;
+        }
+
         ul {
             padding: 0;
             margin: 0;
@@ -340,11 +344,9 @@
             min-height: 298px;
         }
 
-        .ui-inputfield {
+        .ui-inputtext {
             display: block;
             width: 100%;
-            margin-top: 5px;
-            margin-bottom: 15px;
         }
 
         .ui-outputlabel {
@@ -726,11 +728,11 @@
             img {
                 width: 32px;
                 height: 32px;
-                margin-right: 26px;
+                margin-right: 18px;
                 vertical-align: middle;
             }
 
-            .ui-inputfield {
+            .ui-inputtext {
                 font-size: 14px;
                 vertical-align: middle;
                 color: #666666;
@@ -742,7 +744,7 @@
                 border-color: #c8c8c8;
                 width: 32px;
                 height: 32px;
-                margin: 0 0 0 12px;
+                margin: 0 0 0 10px;
                 vertical-align: middle;
                 line-height: 32px;
                 display: inline-block;
@@ -752,17 +754,16 @@
                     font-size: 16px;
                     text-align: center;
                     color: #ffffff;
-
-                    &.ui-icon {
-                        vertical-align: middle;
-                        margin-top: -7px !important;
-                    }
                 }
             }
         }
     }
 
     .profile {
+        .ui-panel-titlebar {
+            display: none;
+        }
+
         .ui-panel-content {
             padding: 0;
             border: 0 none;
@@ -856,6 +857,10 @@
     }
 
     .inventory {
+        .ui-panel-titlebar {
+            display: none;
+        }
+        
         .ui-panel-content {
             padding: 0;
             border: 0 none;
