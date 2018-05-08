@@ -9,7 +9,7 @@
         @include background-gradient-left2right($topbarBgLeftColor, $topbarBgRightColor);
 
         @if variable-exists(topbarBgImage) {
-            background-image: url("\#{resource['harmony-layout:images/#{$topbarBgImage}']}");
+            background-image: url("../images/#{$topbarBgImage}");
             background-size: contain;
             background-repeat: repeat-x;
         }
