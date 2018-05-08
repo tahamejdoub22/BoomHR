@@ -748,6 +748,15 @@ body {
 
         .ui-spinner-button {
             width: $spinnerButtonWidth;
+
+            .ui-spinner-button-icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -.5em;
+                margin-left: -.5em;
+                width: 1em;
+            }
         }
     }
 
