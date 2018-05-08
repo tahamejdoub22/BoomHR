@@ -17,24 +17,7 @@ body {
         }
 
         &.ng-dirty {
-            border: 1px solid $inputErrorBorderColor;
-
-            &.ng-invalid {
-                background-color: $inputErrorBorderColor;
-
-                &:hover {
-                    border-color: $inputErrorBorderColor;
-                }
-
-                &:focus {
-                    border-color: $inputErrorBorderColor;
-                    box-shadow: none;
-                }
-
-                &:active {
-                    border-color: $inputErrorBorderColor;
-                }
-            }
+            border-color: $inputErrorBorderColor;
         }
     }
 
