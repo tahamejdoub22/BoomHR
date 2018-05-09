@@ -157,4 +157,17 @@ export class DataDemoComponent implements OnInit {
             {label: 'Brand', value: 'brand'}
         ];
     }
+
+    onSortChange(event) {
+        let value = event.value;
+
+        if (value.indexOf('!') === 0) {
+            this.sortOrder = -1;
+            this.sortField = value.substring(1, value.length);
+        }
+        else {
+            this.sortOrder = 1;
+            this.sortField = value;
+        }
+    }
 }
