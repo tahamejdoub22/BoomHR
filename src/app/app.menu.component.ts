@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { MenuItem } from 'primeng/primeng';
+import { MenuItem } from 'primeng/api';
 import { AppComponent } from './app.component';
 
 @Component({
@@ -475,7 +475,7 @@ export class AppMenuComponent implements OnInit {
                     }
                 ]
             },
-            { label: 'Docs', icon: 'fa fa-fw fa-file-code-o', routerLink: ['/documentation'] }
+            { label: 'Documentation', icon: 'fa fa-fw fa-file-code-o', routerLink: ['/documentation'] }
         ];
     }
 }

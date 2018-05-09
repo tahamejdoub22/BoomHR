@@ -6,13 +6,12 @@ import { BreadcrumbService } from '../../breadcrumb.service';
     styles: [`
         .docs pre {
             font-family: monospace;
-            background-color: #dee4e9;
-            color: #424242;
+            background-color: #bcc9cf;
+            color: #333333;
             padding: 1em;
             font-size: 14px;
-            border-radius: 3px;
+            border-radius: 0;
             overflow: auto;
-            font-weight: bold;
         }`
     ]
 })
