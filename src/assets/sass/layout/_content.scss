@@ -3,7 +3,6 @@
         padding-top: 64px;
 
         .route-bar {
-            height: 45px;
             background-color: #eaeaea;
             border-bottom: 1px solid #d0d0d0;
             @include clearfix();
@@ -42,7 +41,7 @@
                         font-size: 14px;
                         display: block;
                         height: 100%;
-                        padding: 14px 16px;
+                        padding: 14px 16px 13px 16px;
                         text-align: center;
                         color: #333333;
 
