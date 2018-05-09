@@ -20,11 +20,7 @@
                     color: $sidebarMenuItemTextColor;
                     font-weight: 600;
                     display: block;
-
-                    span {
-                        vertical-align: middle;
-                    }
-
+                    
                     i {
                         color: $sidebarMenuItemIconColor;
                         vertical-align: middle;
@@ -90,13 +86,9 @@
                             display: block;
                             padding: 8px;
 
-                            span {
-                                vertical-align: middle;
-                            }
-
                             i {
                                 color: $sidebarSubmenuItemIconColor;
-                                vertical-align: middle;
+
                                 &.layout-menuitem-toggler {
                                     float: right;
                                 }
