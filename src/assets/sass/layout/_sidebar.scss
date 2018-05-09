@@ -20,6 +20,10 @@
                     color: $sidebarMenuItemTextColor;
                     font-weight: 600;
                     display: block;
+
+                    span {
+                        vertical-align: middle;
+                    }
                     
                     i {
                         color: $sidebarMenuItemIconColor;
