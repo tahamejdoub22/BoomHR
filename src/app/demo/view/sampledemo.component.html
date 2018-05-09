@@ -209,22 +209,62 @@
         </div>
 
         <div class="ui-g-12 ui-lg-6">
-            <!-- Left Side -->
             <div class="card card-w-title">
-                <h1>DataGrid</h1>
-                <p-dataGrid [value]="carsLarge" [paginator]="true" paginatorPosition="both" [rows]="20">
+                <h1>DataView</h1>
+                <p-dataView #dv [value]="carsLarge" [paginator]="true" [rows]="10" paginatorPosition="both" filterBy="brand" [sortField]="sortField" [sortOrder]="sortOrder">
                     <p-header>
-                        List of Cars
+                        <div class="ui-helper-clearfix">
+                            <div class="ui-g">
+                                <div class="ui-g-12 ui-md-4">
+                                    <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [autoWidth]="false" [style]="{'min-width':'15em'}"></p-dropdown>
+                                </div>
+                                <div class="ui-g-6 ui-md-4 filter-container">
+                                    <div style="position:relative">
+                                        <input type="search" pInputText placeholder="Search by brand" (keyup)="dv.filter($event.target.value)">
+                                    </div>
+                                </div>
+                                <div class="ui-g-6 ui-md-4" style="text-align:right">
+                                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                                </div>
+                            </div>
+                        </div>
                     </p-header>
-                    <ng-template let-car pTemplate="item">
-                        <div style="padding:3px" class="ui-g-12 ui-md-3">
+                    <ng-template let-car pTemplate="listItem">
+                        <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+                            <div class="ui-g-12 ui-md-3" style="text-align:center">
+                                <img src="assets/demo/images/car/{{car.brand}}.png">
+                            </div>
+                            <div class="ui-g-12 ui-md-8 car-details">
+                                <div class="ui-g">
+                                    <div class="ui-g-2 ui-sm-6">Vin: </div>
+                                    <div class="ui-g-10 ui-sm-6"><b>{{car.vin}}</b></div>
+    
+                                    <div class="ui-g-2 ui-sm-6">Year: </div>
+                                    <div class="ui-g-10 ui-sm-6"><b>{{car.year}}</b></div>
+    
+                                    <div class="ui-g-2 ui-sm-6">Brand: </div>
+                                    <div class="ui-g-10 ui-sm-6"><b>{{car.brand}}</b></div>
+    
+                                    <div class="ui-g-2 ui-sm-6">Color: </div>
+                                    <div class="ui-g-10 ui-sm-6"><b>{{car.color}}</b></div>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-1 search-icon">
+                                <button pButton type="button" icon="fa-search" (click)="selectCar($event, car)"></button>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template let-car pTemplate="gridItem">
+                        <div style="padding:.5em" class="ui-g-12 ui-md-3">
                             <p-panel [header]="car.vin" [style]="{'text-align':'center'}">
-                                <img src="assets/demo/images/car/{{car.brand}}.png" width="50">
+                                    <img src="assets/demo/images/car/{{car.brand}}.png">
                                 <div class="car-detail">{{car.year}} - {{car.color}}</div>
+                                <hr class="ui-widget-content" style="border-top:0">
+                                <button pButton type="button" icon="fa-search" (click)="selectCar($event, car)" style="margin-top:0"></button>
                             </p-panel>
                         </div>
                     </ng-template>
-                </p-dataGrid>
+                </p-dataView>
             </div>
 
             <div class="card card-w-title">

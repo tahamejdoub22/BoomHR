@@ -7,13 +7,13 @@
 
             <h1>Getting Started</h1>
             <p>Harmony is a true native application template for Angular and is distributed as a CLI project.</p>
-<pre>
+<pre class="doc-command">
 npm install -g @angular/cli
 </pre>
 
             <p>Once CLI is ready in your system, extract the contents of the Harmony zip file distribution, cd to the directory,
             install the libraries from npm and then execute "ng serve" to run the application in your local environment at http://localhost:4200/.</p>
-<pre>
+<pre class="doc-command">
 cd harmony
 npm install
 ng serve
@@ -23,7 +23,7 @@ ng serve
 
             <h1>Important CLI Commands</h1>
             <p>Following commands are derived from CLI.</p>
-<pre>
+<pre class="doc-command">
 Run 'ng serve' for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 Run 'ng generate component component-name' to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
@@ -47,37 +47,39 @@ Run 'ng help' for more options.
                 the main template. The component class app.component.ts implements the logic such as opening menus and managing layout modes.
             </p>
 <pre>
+<code class="language-markup" pCode>
 &lt;div class="layout-wrapper" (click)="onLayoutClick()"
-    [ngClass]="&#123;'layout-menu-horizontal': isHorizontal(),
-                'layout-menu-overlay': isOverlay(),
-                'layout-menu-static': isStatic(),
-                'layout-menu-slim':isSlim(),
-                'layout-menu-static-inactive': staticMenuDesktopInactive,
-                'layout-menu-mobile-active': staticMenuMobileActive,
-                'layout-menu-overlay-active':overlayMenuActive&#125;"&gt;
+        [ngClass]="&#123;'layout-menu-horizontal': isHorizontal(),
+            'layout-menu-overlay': isOverlay(),
+            'layout-menu-static': isStatic(),
+            'layout-menu-slim':isSlim(),
+            'layout-menu-static-inactive': staticMenuDesktopInactive,
+            'layout-menu-mobile-active': staticMenuMobileActive,
+            'layout-menu-overlay-active':overlayMenuActive&#125;"&gt;
 
-   &lt;app-topbar&gt;&lt;/app-topbar&gt;
+    &lt;app-topbar&gt;&lt;/app-topbar&gt;
 
-   &lt;app-rightpanel&gt;&lt;/app-rightpanel&gt;
+    &lt;app-rightpanel&gt;&lt;/app-rightpanel&gt;
 
-   &lt;div class="layout-sidebar" (click)="onMenuClick($event)"&gt;
-       &lt;p-scrollPanel #layoutMenuScroller [style]="&#123;height: '100%'&#125;"&gt;
-           &lt;app-menu [reset]="resetMenu"&gt;&lt;/app-menu&gt;
-       &lt;/p-scrollPanel&gt;
-   &lt;/div&gt;
+    &lt;div class="layout-sidebar" (click)="onMenuClick($event)"&gt;
+        &lt;p-scrollPanel #layoutMenuScroller [style]="&#123;height: '100%'&#125;"&gt;
+            &lt;app-menu [reset]="resetMenu"&gt;&lt;/app-menu&gt;
+        &lt;/p-scrollPanel&gt;
+    &lt;/div&gt;
 
-   &lt;div class="layout-main"&gt;
+    &lt;div class="layout-main"&gt;
 
-       &lt;app-breadcrumb&gt;&lt;/app-breadcrumb&gt;
+        &lt;app-breadcrumb&gt;&lt;/app-breadcrumb&gt;
 
-       &lt;div class="layout-content"&gt;
-           &lt;router-outlet&gt;&lt;/router-outlet&gt;
-       &lt;/div&gt;
+        &lt;div class="layout-content"&gt;
+            &lt;router-outlet&gt;&lt;/router-outlet&gt;
+        &lt;/div&gt;
 
-       &lt;app-footer&gt;&lt;/app-footer&gt;
-       &lt;div class="layout-mask" *ngIf="staticMenuMobileActive"&gt;&lt;/div&gt;
-   &lt;/div&gt;
+        &lt;app-footer&gt;&lt;/app-footer&gt;
+        &lt;div class="layout-mask" *ngIf="staticMenuMobileActive"&gt;&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
+</code>
 </pre>
 
             <h1>Menu</h1>
@@ -86,6 +88,7 @@ Run 'ng help' for more options.
             app-submenu component is also available in the same file.</p>
 <div style="height:400px;overflow: auto;">
 <pre>
+<code class="language-javascript" pCode>
 import &#123; Component, Input, OnInit &#125; from '@angular/core';
 import &#123; trigger, state, style, transition, animate &#125; from '@angular/animations';
 import &#123; MenuItem &#125; from 'primeng/api';
@@ -567,6 +570,7 @@ export class AppMenuComponent implements OnInit &#123;
         ];
     &#125;
 &#125;
+</code>
 </pre>
 </div>
 
@@ -576,21 +580,22 @@ export class AppMenuComponent implements OnInit &#123;
 <ul>
     <li>Copy the <i>src/assets</i> folder to your projects folder with the same name</li>
     <li>Copy all app.* files and breadcrumb.service.ts to the src/app folder of your application.</li>
-
 </ul>
 
           <p>Install PrimeNG</p>
-<pre>
+<pre class="doc-command">
 npm install primeng@latest --save
 </pre>
 
           <p>Add PrimeNG CSS at styles section in angular-cli.json.</p>
 
 <pre>
+<code class="language-json" pCode>
 "styles": [
     "../node_modules/primeng/resources/primeng.min.css",        //required: PrimeNG components
     "styles.scss"                                               //your styles and overrides
 ],
+</code>
 </pre>
 
             <p>Last part is adding theme and layout css files, in the CLI app they are defined using link tags in index.html so the demo can switch them on
@@ -647,6 +652,7 @@ npm install primeng@latest --save
             <p>Here are the variables required to create a theme.</p>
 <div style="height:400px;overflow: auto;">
 <pre>
+<code class="language-sass" pCode>
 //main colors of the theme
 $primaryColor:#1baca9;
 $primaryColorText:#ffffff;
@@ -687,19 +693,20 @@ $containerHeaderActiveHoverHoverBorder:1px solid $secondaryDarkColor;
 $containerHeaderActiveHoverrTextColor:$secondaryDarkColorText;
 $containerHeaderActiveHoverIconColor:$secondaryDarkColorText;
 
-@import '../../sass/theme/_theme';     
+@import '../../sass/theme/_theme'; 
+</code>    
 </pre>
 </div>
 
             <p> An example sass command to compile the css would be;</p>
 
-<pre>
+<pre class="doc-command">
 sass src/assets/theme/mytheme/theme.scss src/assets/theme/mytheme/theme.css
 </pre>
 
             <p>Watch mode is handy to avoid compiling everytime when a change is made, instead use the following command
             so that sass generates the file whenever you make a customization. This builds all css files whenever a change is made to any scss file.</p>
-<pre>
+<pre class="doc-command">
 sass -w src/assets/ --sourcemap=none
 </pre>
 
@@ -715,6 +722,7 @@ sass -w src/assets/ --sourcemap=none
             <p>Here are the variables required to create a layout.</p>
 <div style="height:400px;overflow: auto;">
 <pre>
+<code class="language-sass" pCode>
 /*Topbar*/
 $topbarBgLeftColor:#2d3f47;
 $topbarBgRightColor:#2d3f47;
@@ -786,6 +794,7 @@ $footerTextColor:#ffffff;
 $footerIconColor:#ffffff;
 
 @import '../../sass/layout/_layout';
+</code>
 </pre>
 </div>
 
@@ -794,25 +803,30 @@ $footerIconColor:#ffffff;
 
 <h3>sass/_variables.scss</h3>
 <pre>
+<code class="language-sass" pCode>
 $fontFamily:"Open Sans","Helvetica Neue",sans-serif;
 $fontSize:14px;
 $textColor:#333333;
 $textSecondaryColor:lighten($textColor,25%);
 $borderRadius:0px;
 $transitionDuration:.3s;
+</code>
 </pre>
 
 <h3>sass/layout/_variables</h3>
 <pre>
+<code class="language-sass" pCode>
 @import '../_variables';
 
 $bodyBgColor:#f4f4f4;
 $breakpoint:1024px;
+</code>
 </pre>
 
 <h3>sass/theme/_variables</h3>
 <div style="height:400px;overflow: auto;">
 <pre>
+<code class="language-sass" pCode>
 @import '../_variables';
 
 //anchor
@@ -1284,6 +1298,7 @@ $dataIconHoverColor:$textColor;
 
 //general
 $disabledOpacity:.5;
+</code>
 </pre>
 </div>
 
@@ -1299,7 +1314,9 @@ $disabledOpacity:.5;
 
             <p>For example to create a horizontal menu, the div element should be in following form;</p>
 <pre>
+<code class="language-markup" pCode>
 &lt;div class="layout-wrapper layout-menu-horizontal"&gt;
+</code>
 </pre>
 
             <p>It is also possible to leave the choice to the user by keeping the preference at a component and using an ngClass expression so that user can switch between modes. Sample
@@ -1310,6 +1327,7 @@ $disabledOpacity:.5;
                 The items are dynamically generated using a BreadcrumbService where each main page that goes into the router-outlet should provide a collection of MenuItem instances.
                 Here is an example component that updates the breadcrumb.</p>
 <pre>
+<code class="language-javascript" pCode>
 import &#123;Component&#125; from '@angular/core';
 import &#123;BreadcrumbService&#125; from '../../breadcrumb.service';
 
@@ -1326,6 +1344,7 @@ export class ControlPanelComponent &#123;
     &#125;
 
 &#125;
+</code>
 </pre>
 
             <h1>Grid CSS</h1>
