@@ -82,6 +82,7 @@
                     color: #333333;
                     background-color: #ffb900;
                     border-color: #ffb900;
+                    padding: 6px 0;
                 }
             }
         }
@@ -134,6 +135,7 @@
                 }
 
                 button {
+                    padding: 6px 0;
                     @include background-gradient-left2right(#4b7ecf, #8e70ee);
                 }
             }
@@ -199,6 +201,7 @@
                         bottom: 20px;
                         width: 120px;
                         left: 50%;
+                        padding: 6px 0;
                         margin-left: -60px;
 
                         .ui-button-text {
