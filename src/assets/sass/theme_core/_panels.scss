@@ -322,5 +322,9 @@ body {
         background-color: $panelHeaderBgColor;
         border: $panelHeaderBorder;
         padding: $panelHeaderPadding;
+
+        button {
+            vertical-align: middle;
+        }
     }
 }
