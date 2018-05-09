@@ -124,14 +124,26 @@ body {
         }
 
         .ui-sortable-column {
+            a, a:hover {
+                color: $tableHeaderCellTextColor;
+            }
+
             &:not(.ui-state-highlight):hover {
                 background-color: $tableHeaderCellHoverBgColor;
                 color: $tableHeaderCellHoverTextColor;
+
+                a, a:hover {
+                    color: $tableHeaderCellHoverTextColor;
+                }
             }
 
             &.ui-state-highlight {
-              background-color: $highlightBgColor;
-              color: $highlightColorText;
+                background-color: $highlightBgColor;
+                color: $highlightColorText;
+
+                a, a:hover {
+                    color: $highlightColorText;
+                }
             }
         }
 

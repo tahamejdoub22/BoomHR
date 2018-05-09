@@ -185,8 +185,15 @@ body {
 
             &.ui-menuitem-active {
                 > .ui-menuitem-link {
-                    background-color: $highlightBgColor;
-                    color: $highlightColorText;
+                    background-color: $menuitemActiveBgColor;
+
+                    .ui-menuitem-text {
+                        color: $menuitemActiveTextColor;
+                    }
+            
+                    .ui-menuitem-icon {
+                        color: $menuitemActiveIconColor;
+                    }
                 }
             }
         }
@@ -216,8 +223,15 @@ body {
 
             &.ui-menuitem-active {
                 > .ui-menuitem-link {
-                    background-color: $highlightBgColor;
-                    color: $highlightColorText;
+                    background-color: $menuitemActiveBgColor;
+
+                    .ui-menuitem-text {
+                        color: $menuitemActiveTextColor;
+                    }
+            
+                    .ui-menuitem-icon {
+                        color: $menuitemActiveIconColor;
+                    }
                 }
             }
         }
@@ -246,8 +260,15 @@ body {
 
             &.ui-menuitem-active {
                 > .ui-menuitem-link {
-                    background-color: $highlightBgColor;
-                    color: $highlightColorText;
+                    background-color: $menuitemActiveBgColor;
+
+                    .ui-menuitem-text {
+                        color: $menuitemActiveTextColor;
+                    }
+            
+                    .ui-menuitem-icon {
+                        color: $menuitemActiveIconColor;
+                    }
                 }
             }
         }
@@ -275,8 +296,15 @@ body {
 
             &.ui-menuitem-active {
                 > .ui-menuitem-link {
-                    background-color: $highlightBgColor;
-                    color: $highlightColorText;
+                    background-color: $menuitemActiveBgColor;
+
+                    .ui-menuitem-text {
+                        color: $menuitemActiveTextColor;
+                    }
+            
+                    .ui-menuitem-icon {
+                        color: $menuitemActiveIconColor;
+                    }
                 }
             }
         }
@@ -390,8 +418,15 @@ body {
 
             &.ui-menuitem-active {
                 > .ui-menuitem-link {
-                    background-color: $highlightBgColor;
-                    color: $highlightColorText;
+                    background-color: $menuitemActiveBgColor;
+
+                    .ui-menuitem-text {
+                        color: $menuitemActiveTextColor;
+                    }
+            
+                    .ui-menuitem-icon {
+                        color: $menuitemActiveIconColor;
+                    }
                 }
             }
         }

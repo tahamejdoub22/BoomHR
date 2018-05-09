@@ -186,7 +186,7 @@ body {
 
                 li {
                     border: $panelHeaderBorder;
-                    background-color: $tabsNavBgColor;
+                    background-color: $panelHeaderBgColor;
 
                     a {
                         float: none;
@@ -254,6 +254,12 @@ body {
                                     color: $panelHeaderActiveHoverIconColor;
                                 }
                             }
+                        }
+                    }
+
+                    &.ui-tabview-selected {
+                        a {
+                            cursor: pointer;
                         }
                     }
                 }

@@ -211,19 +211,16 @@
         <div class="ui-g-12 ui-lg-6">
             <div class="card card-w-title">
                 <h1>DataView</h1>
-                <p-dataView #dv [value]="carsLarge" [paginator]="true" [rows]="10" paginatorPosition="both" filterBy="brand" [sortField]="sortField" [sortOrder]="sortOrder">
+                <p-dataView #dv [value]="carsLarge" [paginator]="true" [rows]="10" paginatorPosition="both" filterBy="brand">
                     <p-header>
                         <div class="ui-helper-clearfix">
                             <div class="ui-g">
-                                <div class="ui-g-12 ui-md-4">
-                                    <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [autoWidth]="false" [style]="{'min-width':'15em'}"></p-dropdown>
-                                </div>
-                                <div class="ui-g-6 ui-md-4 filter-container">
+                                <div class="ui-g-12 ui-md-6">
                                     <div style="position:relative">
                                         <input type="search" pInputText placeholder="Search by brand" (keyup)="dv.filter($event.target.value)">
                                     </div>
                                 </div>
-                                <div class="ui-g-6 ui-md-4" style="text-align:right">
+                                <div class="ui-g-12 ui-md-6" style="text-align:right">
                                     <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
                                 </div>
                             </div>
