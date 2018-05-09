@@ -1,6 +1,6 @@
 {
   "name": "harmony",
-  "version": "1.0.0",
+  "version": "1.0.1-SNAPSHOT",
   "license": "PrimeNG Commercial",
   "scripts": {
     "ng": "ng",
