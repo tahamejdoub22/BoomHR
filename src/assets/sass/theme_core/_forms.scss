@@ -968,6 +968,10 @@ body {
                 color: $inplaceHoverTextColor;
             }
         }
+
+        .ui-inplace-content > * {
+            vertical-align: middle;
+        }
     }
 
     .ui-fileupload {
