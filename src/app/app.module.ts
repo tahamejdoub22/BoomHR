@@ -71,7 +71,7 @@ import { TreeModule } from 'primeng/tree';
 import { TreeTableModule } from 'primeng/treetable';
 
 import { AppComponent } from './app.component';
-import { AppRightpanelComponent } from './app.rightpanel.component';
+import { AppRightPanelComponent } from './app.rightpanel.component';
 import { AppMenuComponent, AppSubMenuComponent } from './app.menu.component';
 import { AppTopBarComponent } from './app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
@@ -173,7 +173,7 @@ import { BreadcrumbService } from './breadcrumb.service';
         AppTopBarComponent,
         AppFooterComponent,
         AppBreadcrumbComponent,
-        AppRightpanelComponent,
+        AppRightPanelComponent,
         DashboardDemoComponent,
         SampleDemoComponent,
         FormsDemoComponent,

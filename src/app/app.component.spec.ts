@@ -4,25 +4,27 @@ import { AppComponent } from './app.component';
 import { AppMenuComponent, AppSubMenuComponent } from './app.menu.component';
 import { AppTopBarComponent } from './app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
+import { AppRightPanelComponent } from './app.rightpanel.component';
 import { AppBreadcrumbComponent } from './app.breadcrumb.component';
 import { BreadcrumbService } from './breadcrumb.service';
-import {InputSwitchModule, ProgressBarModule, ScrollPanelModule} from 'primeng/primeng';
-import {FormsModule} from '@angular/forms';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { TabViewModule } from 'primeng/tabview';
+import { FormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
                 RouterTestingModule,
-                ProgressBarModule,
-                InputSwitchModule,
-                FormsModule,
-                ScrollPanelModule
+                ScrollPanelModule,
+                ScrollPanelModule,
+                TabViewModule
             ],
             declarations: [
                 AppComponent,
                 AppMenuComponent,
                 AppSubMenuComponent,
+                AppRightPanelComponent,
                 AppTopBarComponent,
                 AppFooterComponent,
                 AppBreadcrumbComponent
