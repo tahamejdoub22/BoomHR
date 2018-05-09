@@ -34,6 +34,10 @@ export class AppComponent implements AfterViewInit {
 
     rightPanelClick: boolean;
 
+    topbarIconsActive: boolean;
+
+    quickMenuButtonClick: boolean;
+
     @ViewChild('layoutMenuScroller') layoutMenuScrollerViewChild: ScrollPanel;
 
     ngAfterViewInit() {
@@ -50,6 +54,11 @@ export class AppComponent implements AfterViewInit {
             this.rightPanelActive = false;
         }
 
+        if (!this.quickMenuButtonClick) {
+            this.quickMenuButtonClick = false;
+            this.topbarIconsActive = false;
+        }
+
         if (!this.menuClick) {
             if (this.isHorizontal() || this.isSlim()) {
                 this.resetMenu = true;
@@ -63,6 +72,7 @@ export class AppComponent implements AfterViewInit {
         }
 
         this.topbarItemClick = false;
+        this.quickMenuButtonClick = false;
         this.menuClick = false;
         this.rightPanelClick = false;
     }
@@ -80,6 +90,14 @@ export class AppComponent implements AfterViewInit {
             this.staticMenuMobileActive = !this.staticMenuMobileActive;
         }
 
+        event.preventDefault();
+    }
+
+    onQuickMenuButtonClick(event) {
+        if (this.isMobile()) {
+            this.topbarIconsActive = !this.topbarIconsActive;
+            this.quickMenuButtonClick = true;
+        }
         event.preventDefault();
     }
 

@@ -5,7 +5,8 @@
                  'layout-menu-slim':isSlim(),
                  'layout-menu-static-inactive': staticMenuDesktopInactive,
                  'layout-menu-mobile-active': staticMenuMobileActive,
-                 'layout-menu-overlay-active':overlayMenuActive}">
+                 'layout-menu-overlay-active':overlayMenuActive,
+                  'topbar-icons-active': topbarIconsActive}">
 
     <app-topbar></app-topbar>
 
@@ -26,6 +27,6 @@
         </div>
 
         <app-footer></app-footer>
-        <div class="layout-mask" *ngIf="staticMenuMobileActive"></div>
+        <div class="layout-mask" *ngIf="staticMenuMobileActive || topbarIconsActive"></div>
     </div>
 </div>
