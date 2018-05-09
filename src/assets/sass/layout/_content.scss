@@ -3,6 +3,7 @@
         padding-top: 64px;
 
         .route-bar {
+            height: 45px;
             background-color: #eaeaea;
             border-bottom: 1px solid #d0d0d0;
             @include clearfix();
