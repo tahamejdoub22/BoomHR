@@ -12,7 +12,7 @@ import { BreadcrumbService } from '../../breadcrumb.service';
         .ui-dataview .search-icon {
             margin-top: 3em;
         }
-    
+
         .ui-dataview .filter-container {
             text-align: center;
         }
@@ -22,7 +22,7 @@ import { BreadcrumbService } from '../../breadcrumb.service';
                 text-align: center;
                 margin-top: 0;
             }
-    
+
             .ui-dataview .filter-container {
                 text-align: left;
             }
@@ -159,13 +159,12 @@ export class DataDemoComponent implements OnInit {
     }
 
     onSortChange(event) {
-        let value = event.value;
+        const value = event.value;
 
         if (value.indexOf('!') === 0) {
             this.sortOrder = -1;
             this.sortField = value.substring(1, value.length);
-        }
-        else {
+        } else {
             this.sortOrder = 1;
             this.sortField = value;
         }

@@ -14,7 +14,7 @@ import { BreadcrumbService } from '../../breadcrumb.service';
             overflow: auto;
             font-weight: 700;
         }
-        
+
         .docs p {
             line-height: 1.5;
         }
