@@ -147,6 +147,24 @@
     <div class="ui-g-12">
         <div class="card">
             <h1>TreeTable</h1>
+            <p-treeTable [value]="files4" [columns]="cols2" selectionMode="checkbox" [(selection)]="selectedNode2">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Name</th>
+                        <th>Size</th>
+                        <th>Type</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+                    <tr>
+                        <td *ngFor="let col of columns; let i = index">
+                            <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+                            <p-treeTableCheckbox [value]="rowNode" *ngIf="i == 0"></p-treeTableCheckbox>
+                            <span style="vertical-align: middle">{{rowData[col.field]}}</span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-treeTable>
             <p-treeTable [value]="files4" selectionMode="checkbox" [(selection)]="selectedNode2">
                 <p-header>Basic</p-header>
                 <p-column field="name" header="Name"></p-column>

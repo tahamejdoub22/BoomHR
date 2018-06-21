@@ -769,17 +769,37 @@ body {
     }
 
     .ui-treetable {
-        .ui-treetable-header {
+        .ui-treetable-caption,
+        .ui-treetable-summary {
             background-color: $panelHeaderBgColor;
             color: $panelHeaderTextColor;
             border: $panelHeaderBorder;
             padding: $panelHeaderPadding;
             font-weight: $panelHeaderFontWeight;
             text-align: center;
+        }
+
+        .ui-treetable-caption {
             border-bottom: 0 none;
         }
 
-        .ui-treetable-footer {
+        .ui-treetable-summary {
+            border-top: 0 none;
+        }
+
+        .ui-treetable-thead > tr > th {
+            padding: $tableHeaderCellPadding;
+            border: $tableHeaderCellBorder;
+            font-weight: $tableHeaderCellFontWeight;
+            color: $tableHeaderCellTextColor;
+            background-color: $tableHeaderCellBgColor;
+        }
+
+        .ui-treetable-tbody > tr > td {
+            padding: $tableBodyCellPadding;
+        }
+
+        .ui-treetable-tfoot > tr > td {
             padding: $tableFooterCellPadding;
             border: $tableFooterCellBorder;
             font-weight: $tableFooterCellFontWeight;
@@ -787,66 +807,62 @@ body {
             background-color: $tableFooterCellBgColor;
         }
 
-        thead {
-            th {
-                padding: $tableHeaderCellPadding;
-                border: $tableHeaderCellBorder;
-                font-weight: $tableHeaderCellFontWeight;
+        .ui-sortable-column {
+            a, a:hover {
                 color: $tableHeaderCellTextColor;
-                background-color: $tableHeaderCellBgColor;
+            }
+
+            &:not(.ui-state-highlight):hover {
+                background-color: $tableHeaderCellHoverBgColor;
+                color: $tableHeaderCellHoverTextColor;
+
+                a, a:hover {
+                    color: $tableHeaderCellHoverTextColor;
+                }
+            }
+
+            &.ui-state-highlight {
+                background-color: $highlightBgColor;
+                color: $highlightColorText;
+
+                a, a:hover {
+                    color: $highlightColorText;
+                }
             }
         }
 
-        tfoot {
-            td {
-                padding: $tableFooterCellPadding;
-                border: $tableFooterCellBorder;
-                font-weight: $tableFooterCellFontWeight;
-                color: $tableFooterCellTextColor;
-                background-color: $tableFooterCellBgColor;
+        .ui-treetable-tbody {
+            > tr {
+                background: $tableBodyRowBgColor;
+                color: $tableBodyRowTextColor;
+
+                > td {
+                    background: inherit;
+                    border: $tableBodyCellBorder;
+                }
+
+                &.ui-state-highlight {
+                    background-color: $highlightBgColor;
+                    color: $highlightColorText;
+                }
+
+                &.ui-contextmenu-selected {
+                    background-color: $highlightBgColor;
+                    color: $highlightColorText;
+                }
             }
         }
 
-        tbody {
-            background: $tableBodyRowBgColor;
-            color: $tableBodyRowTextColor;
-            border: $tableBodyCellBorder;
-
-            > div {
-                tbody {
-                    border: 0 none;
-                }
-
-                &.ui-treetable-row-selectable {
-                    &:not(.ui-state-highlight):hover {
-                        cursor: pointer;
-                        background-color: $tableBodyRowHoverBgColor;
-                        color: $tableBodyRowHoverTextColor;
-                    }
-
-                    &.ui-state-highlight {
-                        background-color: $highlightBgColor;
-                        color: $highlightColorText;
-                    }
-                }
-
-                td {
-                    padding: $tableBodyCellPadding;
-
-                    .ui-treetable-toggler {
-                        font-size: $fontSize + 2;
-                        vertical-align: middle;
-                        display: inline-block;
-                        float: none;
-                        color: $dataIconColor;
-                        line-height: inherit;
-                    }
-
-                    .ui-treetable-checkbox .ui-chkbox-icon {
-                        margin: 1px 0 0 0;
-                    }
-                }
+        &.ui-treetable-hoverable-rows {
+            .ui-treetable-tbody > tr:not(.ui-state-highlight):hover {
+                cursor: pointer;
+                background-color: $tableBodyRowHoverBgColor;
+                color: $tableBodyRowHoverTextColor;
             }
+        }
+
+        .ui-column-resizer-helper {
+            background-color: $tableResizerHelperBgColor;
         }
     }
 }

@@ -38,6 +38,8 @@ export class DataDemoComponent implements OnInit {
 
     cols: any[];
 
+    cols2: any[];
+
     data: TreeNode[];
 
     selectedNode: TreeNode;
@@ -95,6 +97,11 @@ export class DataDemoComponent implements OnInit {
             { field: 'year', header: 'Year' },
             { field: 'brand', header: 'Brand' },
             { field: 'color', header: 'Color' }
+        ];
+        this.cols2 = [
+            { field: 'name', header: 'Name' },
+            { field: 'size', header: 'Size' },
+            { field: 'type', header: 'Type' }
         ];
         this.carService.getCarsMedium().then(cars => this.cars2 = cars);
         this.carService.getCarsMedium().then(cars => this.sourceCars = cars);
