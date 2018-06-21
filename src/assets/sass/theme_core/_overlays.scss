@@ -24,10 +24,18 @@ body {
             position: absolute;
             top: -1* 1.538em / 2;
             right: -1* 1.538em / 2;
-            
+
             &:hover {
                 background-color: $overlayPanelCloseIconHoverBgColor;
                 color: $overlayPanelCloseIconHoverColor;
+            }
+
+            .pi {
+                position: absolute;
+                margin-left: -.5em;
+                margin-top: -.5em;
+                left: 50%;
+                top: 50%;
             }
         }
     }
@@ -35,7 +43,7 @@ body {
     .ui-dialog {
         padding: 0;
         @include shadow($overlayContainerShadow);
-        
+
         .ui-dialog-titlebar {
             border: $panelHeaderBorder;
             background-color: $panelHeaderBgColor;
@@ -43,32 +51,32 @@ body {
             padding: $dialogHeaderPadding;
             font-weight: $panelHeaderFontWeight;
             border-bottom: 0 none;
-            
+
             .ui-dialog-title {
                 margin: 0;
                 float: none;
             }
-            
+
             .ui-dialog-titlebar-icon {
                 color: $panelHeaderIconColor;
                 border: 0 none;
                 padding: 0;
                 margin-left: $inlineSpacing;
                 @include transition(color $transitionDuration);
-                
+
                 &:hover {
                     color: $panelHeaderIconHoverColor;
                 }
             }
         }
-        
+
         .ui-dialog-content {
             background-color: $panelContentBgColor;
             color: $panelContentTextColor;
             border: $overlayContentBorder;
             padding: $panelContentPadding;
         }
-        
+
         .ui-dialog-footer {
             border: $panelFooterBorder;
             border-top: 0 none;
@@ -77,24 +85,24 @@ body {
             padding: $panelFooterPadding;
             margin: 0;
             text-align: right;
-            
+
             button {
                 margin: 0 $inlineSpacing 0 0;
                 width: auto;
             }
         }
-                
+
         &.ui-confirm-dialog {
             .ui-dialog-content {
                 padding: $confirmDialogPadding;
-                
+
                 > span {
                     float: none;
                     display: inline-block;
                     vertical-align: middle;
                     line-height: $fontSize;
                     margin: 0;
-                    
+
                     &.ui-icon {
                         margin-right: .35em;
                         font-size: $fontSize + 2;
@@ -119,25 +127,25 @@ body {
             padding: $tooltipPadding;
             @include shadow($overlayContainerShadow);
         }
-        
+
         &.ui-tooltip-right {
             .ui-tooltip-arrow {
                 border-right-color: $tooltipBgColor;
             }
         }
-        
+
         &.ui-tooltip-left {
             .ui-tooltip-arrow {
                 border-left-color: $tooltipBgColor;
             }
         }
-        
+
         &.ui-tooltip-top {
             .ui-tooltip-arrow {
                 border-top-color: $tooltipBgColor;
             }
         }
-        
+
         &.ui-tooltip-bottom {
             .ui-tooltip-arrow {
                 border-bottom-color: $tooltipBgColor;
@@ -147,24 +155,24 @@ body {
 
     .ui-lightbox {
         @include shadow($overlayContainerShadow);
-        
+
         .ui-lightbox-caption {
             border: $panelHeaderBorder;
             background-color: $panelHeaderBgColor;
             color: $panelHeaderTextColor;
             padding: $panelHeaderPadding;
             font-weight: $panelHeaderFontWeight;
-            
+
             .ui-lightbox-caption-text {
                 color: $panelHeaderTextColor;
                 margin: 0;
             }
-            
+
             .ui-lightbox-close {
                 padding: 0;
                 color: $panelHeaderIconColor;
                 @include transition(color $transitionDuration);
-                
+
                 &:hover {
                     color: $panelHeaderIconHoverColor;
                 }
@@ -181,7 +189,7 @@ body {
             color: $panelContentTextColor;
             border: 0 none;
             padding: 0;
-                      
+
             .ui-lightbox-nav-left, .ui-lightbox-nav-right {
                 @include transition(all $transitionDuration);
                 font-size: $lightBoxNavIconFontSize;
@@ -192,7 +200,7 @@ body {
                     @include scale(1.2);
                 }
             }
-            
+
             .ui-lightbox-content.ui-lightbox-loading ~ a {
                 display: none;
             }

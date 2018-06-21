@@ -294,7 +294,7 @@ body {
             border-top: 0 none;
         }
     }
-    
+
     .ui-dataview {
         .ui-dataview-header {
             background-color: $panelHeaderBgColor;
@@ -352,12 +352,12 @@ body {
             .ui-button {
                 .ui-icon-circle-triangle-w {
                     margin-top: 0.214em;
-                    @include icon_override_fa("\f053");
+                    @include icon-override("\f053");
                 }
 
                 .ui-icon-circle-triangle-e {
                     margin-top: 0.214em;
-                    @include icon_override_fa("\f054");
+                    @include icon-override("\f054");
                 }
 
                 &:focus {
@@ -411,7 +411,7 @@ body {
                 padding-right: 2em;
             }
 
-            .fa {
+            .pi {
                 top: 50%;
                 margin-top: -.5em;
                 left: auto;
@@ -489,7 +489,7 @@ body {
                 padding-right: 2em;
             }
 
-            .fa {
+            .pi {
                 top: 50%;
                 margin-top: -.5em;
                 left: auto;
@@ -533,7 +533,7 @@ body {
         .ui-tree-container {
             padding: 0;
             margin: 0;
-        
+
             .ui-treenode {
                 padding: $treeNodePadding;
 
@@ -649,7 +649,7 @@ body {
             &.ui-state-highlight {
                 background-color: $highlightBgColor;
                 color: $highlightColorText;
-                        
+
                 .ui-node-toggler {
                     i {
                         color: darken($highlightBgColor, 25%);
@@ -752,6 +752,18 @@ body {
 
                 &:hover {
                     color: $panelHeaderIconHoverColor;
+                }
+
+                &.pi-circle-off {
+                    color: $panelHeaderIconColor;
+                    @include icon-override("\F10C");
+                    font-size: $fontSize + 2;
+                }
+
+                &.pi-circle-on {
+                    color: $panelHeaderIconColor;
+                    @include icon-override("\F192");
+                    font-size: $fontSize + 2;
                 }
             }
         }

@@ -20,10 +20,10 @@
         <!-- Left Colum -->
         <div class="card">
             <h1>Plain Menu</h1>
-            <p-menu #menu [model]="items"></p-menu>
+            <p-menu #menu [model]="items" [style]="{'width':'250px'}"></p-menu>
 
             <p-menu #menu popup="popup" [model]="items" [style]="{'width':'250px'}"></p-menu>
-            <button type="button" pButton icon="fa-link" label="Show" (click)="menu.toggle($event)" style="margin-top:20px;width:auto"></button>
+            <button type="button" pButton icon="fa fa-link" label="Show" (click)="menu.toggle($event)" style="margin-top:20px;width:auto"></button>
         </div>
 
         <div class="card">

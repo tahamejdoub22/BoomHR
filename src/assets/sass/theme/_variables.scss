@@ -202,7 +202,7 @@ $inplaceTransition:background-color $transitionDuration;
 $ratingTransition:color $transitionDuration;
 $ratingCancelIconColor:#e4018d;
 $ratingCancelHoverIconColor:#b5019f;
-$ratingIconFontSize:20px;
+$ratingIconFontSize:25px;
 $ratingStarIconColor:$textColor;
 $ratingStarIconHoverColor:$secondaryDarkColor;
 
@@ -217,7 +217,7 @@ $sliderHandleBgColor:#ffffff;
 $sliderHandleBorder:2px solid #666666;
 $sliderHandleBorderRadius:100%;
 $sliderHandleHoverBorder:2px solid $primaryColor;
-$sliderHandleHoverBgColor:2px solid #666666; 
+$sliderHandleHoverBgColor:2px solid #666666;
 $sliderHandleTransition:border-color $transitionDuration;
 $sliderRangeBgColor:$primaryColor;
 
@@ -249,17 +249,17 @@ $calendarTimePickerIconHoverColor:$primaryColor;
 $spinnerButtonWidth:2em;
 
 //input switch
-$inputSwitchBorderRadius:8px; 
-$inputSwitchOffHandleBgColor:#a6a6a6; 
-$inputSwitchOffHandleHoverBgColor:#848484; 
-$inputSwitchOffHandleFocusBgColor:#848484; 
-$inputSwitchOnBorderColor:$primaryColor; 
-$inputSwitchOnBgColor:$primaryColor; 
-$inputSwitchOnHandleBgColor:$primaryDarkColor; 
-$inputSwitchOnHandleFocusBgColor:$primaryDarkColor; 
-$inputSwitchOnHandleHoverBgColor:$primaryDarkerColor; 
-$inputSwitchTransition:border-color $transitionDuration; 
-$inputSwitchHandleTransition:background-color $transitionDuration; 
+$inputSwitchBorderRadius:8px;
+$inputSwitchOffHandleBgColor:#a6a6a6;
+$inputSwitchOffHandleHoverBgColor:#848484;
+$inputSwitchOffHandleFocusBgColor:#848484;
+$inputSwitchOnBorderColor:$primaryColor;
+$inputSwitchOnBgColor:$primaryColor;
+$inputSwitchOnHandleBgColor:$primaryDarkColor;
+$inputSwitchOnHandleFocusBgColor:$primaryDarkColor;
+$inputSwitchOnHandleHoverBgColor:$primaryDarkerColor;
+$inputSwitchTransition:border-color $transitionDuration;
+$inputSwitchHandleTransition:background-color $transitionDuration;
 
 //keyboard
 $keyboardButtonPadding:6px;

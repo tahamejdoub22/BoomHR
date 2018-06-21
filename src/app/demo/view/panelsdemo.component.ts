@@ -3,7 +3,12 @@ import { MenuItem } from 'primeng/primeng';
 import { BreadcrumbService } from '../../breadcrumb.service';
 
 @Component({
-    templateUrl: './panelsdemo.component.html'
+    templateUrl: './panelsdemo.component.html',
+    styles: [`
+        :host ::ng-deep button {
+            margin-right: .25em;
+        }
+    `]
 })
 export class PanelsDemoComponent implements OnInit {
 
@@ -19,8 +24,8 @@ export class PanelsDemoComponent implements OnInit {
 
     ngOnInit() {
         this.items = [
-            { label: 'Angular.io', icon: 'fa-link', url: 'http://angular.io' },
-            { label: 'Theming', icon: 'fa-book', routerLink: ['/theming'] }
+            { label: 'Angular.io', icon: 'fa fa-link', url: 'http://angular.io' },
+            { label: 'Theming', icon: 'fa fa-book', routerLink: ['/theming'] }
         ];
     }
 }

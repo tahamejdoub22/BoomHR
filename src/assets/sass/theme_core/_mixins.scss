@@ -1,11 +1,4 @@
-
-@mixin icon-override($icon) {    
-    &:before {
-        content: $icon;
-    }
-}
-
-@mixin icon-override-fa($icon) {    
+@mixin icon-override($icon) {
     background: none;
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
@@ -15,7 +8,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-indent: 0px !important;
     text-align: center;
-    
+
     &:before {
         content: $icon;
     }
@@ -66,7 +59,7 @@
     border-top-right-radius: $val;
     -moz-border-radius-bottomright: $val;
     -webkit-border-bottom-right-radius: $val;
-    border-bottom-right-radius: $val; 
+    border-bottom-right-radius: $val;
 }
 
 @mixin border-radius-left($val) {
@@ -106,10 +99,10 @@
     ::-webkit-input-placeholder {@content}
     :-moz-placeholder           {@content}
     ::-moz-placeholder          {@content}
-    :-ms-input-placeholder      {@content}  
+    :-ms-input-placeholder      {@content}
 }
 
-@mixin rotate($deg) {    
+@mixin rotate($deg) {
     -webkit-transform: rotate($deg);
     -moz-transform: rotate($deg);
     -o-transform: rotate($deg);
@@ -117,7 +110,7 @@
     transform: rotate($deg);
 }
 
-@mixin scale($deg) {    
+@mixin scale($deg) {
     -webkit-transform: scale($deg);
     -moz-transform: scale($deg);
     -o-transform: scale($deg);

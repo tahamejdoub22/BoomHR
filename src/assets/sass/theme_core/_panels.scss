@@ -75,7 +75,7 @@ body {
                     margin-right: .5em;
                     color: $panelHeaderIconColor;
                 }
-    
+
                 .ui-fieldset-legend-text{
                     padding: 0;
                 }
@@ -89,7 +89,7 @@ body {
                         background-color: $panelHeaderHoverBgColor;
                         border: $panelHeaderHoverBorder;
                         color: $panelHeaderHoverTextColor;
-    
+
                         .ui-fieldset-toggler {
                             color: $panelHeaderHoverIconColor;
                         }
@@ -136,7 +136,7 @@ body {
                     background-color: $panelHeaderActiveBgColor;
                     border: $panelHeaderActiveBorder;
                     color: $panelHeaderActiveTextColor;
-                    
+
                     .ui-accordion-toggle-icon {
                         color: $panelHeaderActiveIconColor;
                     }
@@ -147,7 +147,7 @@ body {
                         border: $panelHeaderActiveHoverBorder;
                         background-color: $panelHeaderActiveHoverBgColor;
                         color: $panelHeaderActiveHoverTextColor;
-                        
+
                         .ui-accordion-toggle-icon {
                             color: $panelHeaderActiveHoverIconColor;
                         }
@@ -155,11 +155,11 @@ body {
                 }
             }
 
-            .fa-caret-right {
+            .pi-caret-right {
                 @include icon_override("\f054");
             }
 
-            .fa-caret-down {
+            .pi-caret-down {
                 @include icon_override("\f078");
             }
         }
@@ -213,7 +213,7 @@ body {
                     &:not(.ui-state-active):not(.ui-state-disabled):hover {
                         background-color: $panelHeaderHoverBgColor;
                         border: $panelHeaderHoverBorder;
-                        
+
                         a {
                             color: $panelHeaderHoverTextColor;
 
@@ -249,7 +249,7 @@ body {
 
                             a {
                                 color: $panelHeaderActiveHoverTextColor;
-                                
+
                                 .ui-tabview-left-icon, .ui-tabview-right-icon{
                                     color: $panelHeaderActiveHoverIconColor;
                                 }
@@ -304,7 +304,7 @@ body {
                     margin-bottom: $tabHeaderSpacing;
                 }
             }
-        }     
+        }
 
         .ui-tabview-panels {
             background-color: $panelContentBgColor;

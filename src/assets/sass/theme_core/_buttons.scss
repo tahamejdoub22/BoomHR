@@ -120,7 +120,7 @@ body {
                 background-color: $toggleButtonActiveFocusBgColor;
                 border-color: $toggleButtonActiveFocusBorderColor;
                 color: $toggleButtonActiveFocusTextColor;
-    
+
                 .ui-button-icon-left {
                     color: $toggleButtonActiveFocusIconColor;
                 }
@@ -134,37 +134,37 @@ body {
             border: $toggleButtonBorder;
             color: $toggleButtonTextColor;
             @include transition($buttonTransition);
-    
+
             .ui-button-icon-left {
                 color: $toggleButtonIconColor;
             }
-    
+
             &:not(.ui-state-disabled):not(.ui-state-active):hover {
                 background-color: $toggleButtonHoverBgColor;
                 border-color: $toggleButtonHoverBorderColor;
                 color: $toggleButtonHoverTextColor;
-    
+
                 .ui-button-icon-left {
                     color: $toggleButtonHoverIconColor;
                 }
             }
-    
+
             &:not(.ui-state-disabled):not(.ui-state-active).ui-state-focus {
                 background-color: $toggleButtonFocusBgColor;
                 border-color: $toggleButtonFocusBorderColor;
                 color: $toggleButtonFocusTextColor;
                 outline: $toggleButtonFocusOutline;
-    
+
                 .ui-button-icon-left {
                     color: $toggleButtonFocusIconColor;
                 }
             }
-    
+
             &.ui-state-active {
                 background-color: $toggleButtonActiveBgColor;
                 border-color: $toggleButtonActiveBorderColor;
                 color: $toggleButtonActiveTextColor;
-    
+
                 .ui-button-icon-left {
                     color: $toggleButtonActiveIconColor;
                 }
@@ -173,17 +173,17 @@ body {
                     background-color: $toggleButtonActiveHoverBgColor;
                     border-color: $toggleButtonActiveHoverBorderColor;
                     color: $toggleButtonActiveHoverTextColor;
-    
+
                     .ui-button-icon-left {
                         color: $toggleButtonActiveHoverIconColor;
                     }
                 }
-    
+
                 &.ui-state-focus {
                     background-color: $toggleButtonActiveFocusBgColor;
                     border-color: $toggleButtonActiveFocusBorderColor;
                     color: $toggleButtonActiveFocusTextColor;
-        
+
                     .ui-button-icon-left {
                         color: $toggleButtonActiveFocusIconColor;
                     }
@@ -215,7 +215,8 @@ body {
         }
 
         .ui-menu {
-            min-width: 100%;
+            width: 100%;
+            min-width: 12.5em;
         }
     }
 

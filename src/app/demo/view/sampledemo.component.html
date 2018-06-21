@@ -20,21 +20,21 @@
                         <div class="ui-g-12 ui-md-8">
                             <input id="input" type="text" pInputText/>
                         </div>
-                        
+
                         <div class="ui-g-12 ui-md-4">
                             <label for="textarea">Textarea</label>
                         </div>
                         <div class="ui-g-12 ui-md-8">
                             <textarea [rows]="3" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
                         </div>
-                        
+
                         <div class="ui-g-12 ui-md-4">
                             <label for="calendar">Calendar</label>
                         </div>
                         <div class="ui-g-12 ui-md-8">
                             <p-calendar id="calendar"></p-calendar>
                         </div>
-                        
+
                         <div class="ui-g-12 ui-md-4">
                             <label for="autocomplete">AutoComplete</label>
                         </div>
@@ -61,14 +61,14 @@
                             Button
                         </div>
                         <div class="ui-g-12 ui-md-8">
-                            <button pButton type="button" label="Edit" icon="fa-edit"></button>
+                            <button pButton type="button" label="Edit" icon="fa fa-edit"></button>
                         </div>
-    
+
                         <div class="ui-g-12 ui-md-4">
                             SplitButton
                         </div>
                         <div class="ui-g-12 ui-md-8">
-                            <p-splitButton label="Save" icon="fa-save" [model]="splitButtonItems"></p-splitButton>
+                            <p-splitButton label="Save" icon="fa fa-save" [model]="splitButtonItems"></p-splitButton>
                         </div>
 
                         <div class="ui-g-12 ui-md-4">
@@ -85,7 +85,7 @@
                             <p-slider></p-slider>
                         </div>
                     </div>
-                    
+
                     <div class="ui-g-12 ui-md-6">
                         <div class="ui-g-12 ui-md-4">
                             Checkbox
@@ -120,14 +120,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="ui-g-12 ui-md-4">
                             <label for="mask">Mask</label>
                         </div>
                         <div class="ui-g-12 ui-md-8">
                             <p-inputMask mask="99/99/9999" slotChar="dd/mm/yyyy" placeholder="Date"></p-inputMask>
                         </div>
-                    
+
                         <div class="ui-g-12 ui-md-4">
                             <label for="spinner">Spinner</label>
                         </div>
@@ -153,7 +153,7 @@
                             Dialog
                         </div>
                         <div class="ui-g-12 ui-md-8">
-                            <button type="button" label="Login" icon="fa-external-link" (click)="dialogVisible=true" pButton></button>
+                            <button type="button" label="Login" icon="fa fa-external-link" (click)="dialogVisible=true" pButton></button>
                         </div>
 
                         <div class="ui-g-12 ui-md-4">
@@ -177,7 +177,7 @@
 
                     <p-footer>
                         <div class="ui-dialog-buttonpane ui-helper-clearfix">
-                            <button type="button" label="Login" icon="fa-user" (click)="dialogVisible=false" pButton></button>
+                            <button type="button" label="Login" icon="fa fa-user" (click)="dialogVisible=false" pButton></button>
                         </div>
                     </p-footer>
                 </p-dialog>
@@ -235,19 +235,19 @@
                                 <div class="ui-g">
                                     <div class="ui-g-2 ui-sm-6">Vin: </div>
                                     <div class="ui-g-10 ui-sm-6"><b>{{car.vin}}</b></div>
-    
+
                                     <div class="ui-g-2 ui-sm-6">Year: </div>
                                     <div class="ui-g-10 ui-sm-6"><b>{{car.year}}</b></div>
-    
+
                                     <div class="ui-g-2 ui-sm-6">Brand: </div>
                                     <div class="ui-g-10 ui-sm-6"><b>{{car.brand}}</b></div>
-    
+
                                     <div class="ui-g-2 ui-sm-6">Color: </div>
                                     <div class="ui-g-10 ui-sm-6"><b>{{car.color}}</b></div>
                                 </div>
                             </div>
                             <div class="ui-g-12 ui-md-1 search-icon">
-                                <button pButton type="button" icon="fa-search" (click)="selectCar($event, car)"></button>
+                                <button pButton type="button" icon="fa fa-search" (click)="selectCar($event, car)"></button>
                             </div>
                         </div>
                     </ng-template>
@@ -257,26 +257,11 @@
                                     <img src="assets/demo/images/car/{{car.brand}}.png">
                                 <div class="car-detail">{{car.year}} - {{car.color}}</div>
                                 <hr class="ui-widget-content" style="border-top:0">
-                                <button pButton type="button" icon="fa-search" (click)="selectCar($event, car)" style="margin-top:0"></button>
+                                <button pButton type="button" icon="fa fa-search" (click)="selectCar($event, car)" style="margin-top:0"></button>
                             </p-panel>
                         </div>
                     </ng-template>
                 </p-dataView>
-            </div>
-
-            <div class="card card-w-title">
-                <h1>Tree</h1>
-                <p-tree [value]="filesTree"></p-tree>
-            </div>
-
-            <div class="card card-w-title">
-                <h1>Menu</h1>
-                <p-menu [model]="menuItems"></p-menu>
-            </div>
-
-            <div class="card card-w-title">
-                <h1>PanelMenu</h1>
-                <p-panelMenu [model]="panelMenuItems"></p-panelMenu>
             </div>
         </div>
         <div class="ui-g-12 ui-lg-6">
@@ -340,6 +325,21 @@
                 <h3>Heading 3</h3>
 
                 <h4>Heading 4</h4>
+            </div>
+
+            <div class="card card-w-title">
+                <h1>Tree</h1>
+                <p-tree [value]="filesTree"></p-tree>
+            </div>
+
+            <div class="card card-w-title">
+                <h1>Menu</h1>
+                <p-menu [model]="menuItems" [style]="{'width':'100%'}"></p-menu>
+            </div>
+
+            <div class="card card-w-title">
+                <h1>PanelMenu</h1>
+                <p-panelMenu [model]="panelMenuItems"></p-panelMenu>
             </div>
         </div>
 

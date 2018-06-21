@@ -88,9 +88,9 @@ export class FormsDemoComponent implements OnInit {
         this.types.push({ label: 'Studio', value: 'Studio' });
 
         this.splitButtonItems = [
-            { label: 'Update', icon: 'fa-refresh' },
-            { label: 'Delete', icon: 'fa-close' },
-            { label: 'Home', icon: 'fa-home', url: 'http://www.primefaces.org/primeng' }
+            { label: 'Update', icon: 'fa fa-refresh' },
+            { label: 'Delete', icon: 'fa fa-close' },
+            { label: 'Home', icon: 'fa fa-home', url: 'http://www.primefaces.org/primeng' }
         ];
     }
 

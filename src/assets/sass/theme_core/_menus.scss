@@ -34,17 +34,17 @@ body {
 
     .ui-steps {
         position: relative;
-        
+
         .ui-steps-item {
             background-color: transparent;
             text-align: center;
-                        
+
             .ui-menuitem-link {
                 display: inline-block;
                 text-align: center;
                 background-color: transparent;
                 overflow: hidden;
-                
+
                 .ui-steps-number {
                     @include border-radius(50%);
                     display: inline-block;
@@ -60,26 +60,26 @@ body {
                     line-height: $stepsItemHeight - 4;
                     text-align: center;
                 }
-                
+
                 .ui-steps-title {
                     display: block;
                     margin-top: 6px;
                     color: $stepsItemTextColor;
                 }
             }
-                        
+
             &.ui-state-highlight {
                 .ui-steps-number {
                     background: $highlightBgColor;
                     color: $highlightColorText;
                 }
-                
-                .ui-steps-title { 
+
+                .ui-steps-title {
                     font-weight: 700;
                     color: $textColor;
                 }
             }
-            
+
             &:last-child {
                 .ui-menuitem-link {
                     display: block;
@@ -123,7 +123,7 @@ body {
             .ui-menuitem-text {
                 color: $menuitemHoverTextColor;
             }
-    
+
             .ui-menuitem-icon {
                 color: $menuitemHoverIconColor;
             }
@@ -176,7 +176,7 @@ body {
 
         .ui-menuitem {
             margin: $menuitemMargin;
-            
+
             .ui-menuitem-link {
                 .ui-submenu-icon {
                     right: 0.429em;
@@ -190,7 +190,7 @@ body {
                     .ui-menuitem-text {
                         color: $menuitemActiveTextColor;
                     }
-            
+
                     .ui-menuitem-icon {
                         color: $menuitemActiveIconColor;
                     }
@@ -228,7 +228,7 @@ body {
                     .ui-menuitem-text {
                         color: $menuitemActiveTextColor;
                     }
-            
+
                     .ui-menuitem-icon {
                         color: $menuitemActiveIconColor;
                     }
@@ -265,7 +265,7 @@ body {
                     .ui-menuitem-text {
                         color: $menuitemActiveTextColor;
                     }
-            
+
                     .ui-menuitem-icon {
                         color: $menuitemActiveIconColor;
                     }
@@ -301,7 +301,7 @@ body {
                     .ui-menuitem-text {
                         color: $menuitemActiveTextColor;
                     }
-            
+
                     .ui-menuitem-icon {
                         color: $menuitemActiveIconColor;
                     }
@@ -331,7 +331,7 @@ body {
             padding: 0;
             background: $tabsNavBgColor;
             border-bottom: $panelHeaderBorder;
-           
+
             .ui-tabmenuitem {
                 position: static;
                 border: $panelHeaderBorder;
@@ -409,7 +409,7 @@ body {
 
         .ui-menuitem {
             margin: $menuitemMargin;
-        
+
             .ui-menuitem-link {
                 .ui-submenu-icon {
                     right: 0.429em;
@@ -423,7 +423,7 @@ body {
                     .ui-menuitem-text {
                         color: $menuitemActiveTextColor;
                     }
-            
+
                     .ui-menuitem-icon {
                         color: $menuitemActiveIconColor;
                     }
@@ -467,17 +467,17 @@ body {
                     display: inline-block;
                     margin-right: $inlineSpacing;
 
-                    &.fa-caret-right {
-                        @include icon_override_fa("\f054");
+                    &.pi-caret-right {
+                        @include icon-override("\f054");
                     }
-        
-                    &.fa-caret-down {
-                        @include icon_override_fa("\f078");
+
+                    &.pi-caret-down {
+                        @include icon-override("\f078");
                     }
                 }
             }
 
-            &:not(.ui-state-active) {                
+            &:not(.ui-state-active) {
                 > a:hover {
                     outline: 0 none;
                     border: $panelHeaderHoverBorder;
@@ -505,7 +505,7 @@ body {
                         border: $panelHeaderActiveHoverBorder;
                         background-color: $panelHeaderActiveHoverBgColor;
                         color: $panelHeaderActiveHoverTextColor;
-        
+
                         .ui-panelmenu-icon {
                             color: $panelHeaderActiveHoverIconColor;
                         }
@@ -536,17 +536,17 @@ body {
                 .ui-menuitem-link {
                     padding: $menuitemPadding;
                     color: $menuitemTextColor;
-    
+
                     &:hover {
                         background-color: $menuitemHoverBgColor;
- 
+
                         .ui-menuitem-icon, .ui-panelmenu-icon {
                             color: $menuitemHoverIconColor;
                         }
 
                         .ui-menuitem-text {
                             color: $menuitemHoverTextColor;
-                        }     
+                        }
                     }
                 }
             }
