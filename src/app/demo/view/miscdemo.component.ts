@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TerminalService } from 'primeng/components/terminal/terminalservice';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { BreadcrumbService } from '../../breadcrumb.service';
 
 @Component({
