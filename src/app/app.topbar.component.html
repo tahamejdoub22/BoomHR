@@ -77,13 +77,13 @@
                 </a>
                 <ul>
                     <li role="menuitem">
-                        <a href="#">
+                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-moon-o"></i>
                             <span>Dark Topbar</span>
                         </a>
                     </li>
                     <li role="menuitem">
-                        <a href="#">
+                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-sun-o"></i>
                             <span>Light Topbar</span>
                         </a>
@@ -97,25 +97,25 @@
                 </a>
                 <ul>
                     <li role="menuitem">
-                        <a href="#">
+                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-paint-brush"></i>
                             <span>Change Theme</span>
                         </a>
                     </li>
                     <li role="menuitem">
-                        <a href="#">
+                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-star-o"></i>
                             <span>Favorites</span>
                         </a>
                     </li>
                     <li role="menuitem">
-                        <a href="#">
+                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-lock"></i>
                             <span>Lock Screen</span>
                         </a>
                     </li>
                     <li role="menuitem">
-                        <a href="#">
+                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-picture-o"></i>
                             <span>Wallpaper</span>
                         </a>
@@ -123,7 +123,7 @@
                 </ul>
             </li>
             <li #screen [ngClass]="{'menuitem-active':app.activeTopbarItem === screen}">
-                <a href="#" (click)="app.onTopbarItemClick($event, screen)">
+                <a href="#" (click)="app.onTopbarSubItemClick($event)">
                     <i class="topbar-icon material-icons animated swing fa fa-fw fa-lock"></i>
                     <span class="topbar-item-name">Lock Screen</span>
                 </a>
@@ -135,25 +135,25 @@
                 </a>
                 <ul>
                     <li role="menuitem">
-                        <a href="#">
+                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-tasks"></i>
                             <span>Pending tasks</span>
                         </a>
                     </li>
                     <li role="menuitem">
-                        <a href="#">
+                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-calendar-check-o"></i>
                             <span>Meeting today</span>
                         </a>
                     </li>
                     <li role="menuitem">
-                        <a href="#">
+                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-download"></i>
                             <span>Download</span>
                         </a>
                     </li>
                     <li role="menuitem">
-                        <a href="#">
+                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="fa fa-fw fa-plane"></i>
                             <span>Book flight</span>
                         </a>
