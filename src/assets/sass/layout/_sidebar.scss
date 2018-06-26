@@ -24,7 +24,7 @@
                     span {
                         vertical-align: middle;
                     }
-                    
+
                     i {
                         color: $sidebarMenuItemIconColor;
                         vertical-align: middle;
@@ -572,6 +572,11 @@
                             overflow: visible;
                         }
                     }
+
+                    .ui-scrollpanel-bar {
+                        display: none;
+                    }
+
                     .layout-menu {
                         width: calc(100% - 18px);
                         padding-bottom: 0;

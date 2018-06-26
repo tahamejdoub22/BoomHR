@@ -3,7 +3,7 @@
         <div class="card docs no-margin">
 
             <h1>Current Version</h1>
-            <p>Angular 5.2.x and PrimeNG 5.2.x</p>
+            <p>Angular 6.0 and PrimeNG 6.0</p>
 
             <h1>Getting Started</h1>
             <p>Harmony is a true native application template for Angular and is distributed as a CLI project.</p>
@@ -585,14 +585,16 @@ export class AppMenuComponent implements OnInit &#123;
           <p>Install PrimeNG</p>
 <pre class="doc-command">
 npm install primeng@latest --save
+npm install primeicons@latest --save
 </pre>
 
-          <p>Add PrimeNG CSS at styles section in angular-cli.json.</p>
+          <p>Add PrimeNG CSS at styles section in angular.json.</p>
 
 <pre>
 <code class="language-json" pCode>
 "styles": [
     "../node_modules/primeng/resources/primeng.min.css",        //required: PrimeNG components
+    "node_modules/primeicons/primeicons.css",                   //required: PrimeIcons
     "styles.scss"                                               //your styles and overrides
 ],
 </code>
@@ -602,7 +604,7 @@ npm install primeng@latest --save
             the fly by changing the path however if this is not a requirement, you may also add them to the styles configuration above so they go inside the bundle.</p>
 
             <h1>Theme</h1>
-            <p>Harmony provides 30 PrimeNG themes out of the box where each theme provides 3 modes; colored, light and dark. 
+            <p>Harmony provides 30 PrimeNG themes out of the box where each theme provides 3 modes; colored, light and dark.
                 Setup of a theme is simple by including the css of theme to your bundle that are located inside assets/theme folder such as assets/theme/rebirth/theme-light.css.</p>
 
             <ul>
@@ -693,8 +695,8 @@ $containerHeaderActiveHoverHoverBorder:1px solid $secondaryDarkColor;
 $containerHeaderActiveHoverrTextColor:$secondaryDarkColorText;
 $containerHeaderActiveHoverIconColor:$secondaryDarkColorText;
 
-@import '../../sass/theme/_theme'; 
-</code>    
+@import '../../sass/theme/_theme';
+</code>
 </pre>
 </div>
 
@@ -1046,7 +1048,7 @@ $sliderHandleBgColor:#ffffff;
 $sliderHandleBorder:2px solid #666666;
 $sliderHandleBorderRadius:100%;
 $sliderHandleHoverBorder:2px solid $primaryColor;
-$sliderHandleHoverBgColor:2px solid #666666; 
+$sliderHandleHoverBgColor:2px solid #666666;
 $sliderHandleTransition:border-color $transitionDuration;
 $sliderRangeBgColor:$primaryColor;
 
@@ -1078,17 +1080,17 @@ $calendarTimePickerIconHoverColor:$primaryColor;
 $spinnerButtonWidth:2em;
 
 //input switch
-$inputSwitchBorderRadius:8px; 
-$inputSwitchOffHandleBgColor:#a6a6a6; 
-$inputSwitchOffHandleHoverBgColor:#848484; 
-$inputSwitchOffHandleFocusBgColor:#848484; 
-$inputSwitchOnBorderColor:$primaryColor; 
-$inputSwitchOnBgColor:$primaryColor; 
-$inputSwitchOnHandleBgColor:$primaryDarkColor; 
-$inputSwitchOnHandleFocusBgColor:$primaryDarkColor; 
-$inputSwitchOnHandleHoverBgColor:$primaryDarkerColor; 
-$inputSwitchTransition:border-color $transitionDuration; 
-$inputSwitchHandleTransition:background-color $transitionDuration; 
+$inputSwitchBorderRadius:8px;
+$inputSwitchOffHandleBgColor:#a6a6a6;
+$inputSwitchOffHandleHoverBgColor:#848484;
+$inputSwitchOffHandleFocusBgColor:#848484;
+$inputSwitchOnBorderColor:$primaryColor;
+$inputSwitchOnBgColor:$primaryColor;
+$inputSwitchOnHandleBgColor:$primaryDarkColor;
+$inputSwitchOnHandleFocusBgColor:$primaryDarkColor;
+$inputSwitchOnHandleHoverBgColor:$primaryDarkerColor;
+$inputSwitchTransition:border-color $transitionDuration;
+$inputSwitchHandleTransition:background-color $transitionDuration;
 
 //keyboard
 $keyboardButtonPadding:6px;
@@ -1358,9 +1360,22 @@ export class ControlPanelComponent &#123;
                 scss files under sass folders to avoid maintenance issues after an update.</p>
 
             <h1>Migration Guide</h1>
-            <p>Most of the time updates are related to styling so sass/layout, sass/theme_core will be the commonly updated folders. For seamless updates and easier maintenance, we suggest not editing sass/layout, sass/theme and sass/theme_core folders and keeping your CSS customizations 
-                in a separate sass file such as styles.scss as defined in .angular-cli.json so that your changes are not overriden with an update. 
+            <p>Most of the time updates are related to styling so sass/layout, sass/theme_core will be the commonly updated folders. For seamless updates and easier maintenance, we suggest not editing sass/layout, sass/theme and sass/theme_core folders and keeping your CSS customizations
+                in a separate sass file such as styles.scss as defined in angular.json so that your changes are not overriden with an update.
                 Additionally you may also use the _theme_styles.scss and _layout_styles.scss files under sass folder which are empty files provided for you to add your customizations to theme and layout respectively.</p>
+
+            <h4>1.0.0 to 6.0.0</h4>
+            <p>Brings support for Angular 6 and RxJS 6, adds theming for new components in PrimeNG such as the new TreeTable
+                and improves behaviors of the layout menus.</p>
+            <ul>
+                <li>Add PrimeIcons package.</li>
+                <li>Update app.module.ts.</li>
+                <li>Update app.component.ts</li>
+                <li>Update app.topbar.component.html</li>
+                <li>Update app.breadcrumb.component.ts and breadcrumb.service.ts.</li>
+                <li>Update layout css files.</li>
+                <li>Update theme css files.</li>
+            </ul>
         </div>
     </div>
 </div>
