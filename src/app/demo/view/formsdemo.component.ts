@@ -12,6 +12,8 @@ export class FormsDemoComponent implements OnInit {
 
     filteredCountries: any[];
 
+    yesterday: Date = new Date();
+
     brands: string[] = ['Audi', 'BMW', 'Fiat', 'Ford', 'Honda', 'Jaguar', 'Mercedes', 'Renault', 'Volvo', 'Volkswagen'];
 
     filteredBrands: any[];

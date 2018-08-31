@@ -412,7 +412,7 @@ body {
                     background-color: $inputListItemHighlightBgColor;
                 }
 
-                &:not(.ui-state-highlight):hover {
+                &:not(.ui-state-highlight):not(.ui-state-disabled):hover {
                     color: $inputListItemHoverTextColor;
                     background-color: $inputListItemHoverBgColor;
                 }
@@ -522,7 +522,7 @@ body {
                     background-color: $inputListItemHighlightBgColor;
                 }
 
-                &:not(.ui-state-highlight):hover {
+                &:not(.ui-state-highlight):not(.ui-state-disabled):hover {
                     color: $inputListItemHoverTextColor;
                     background-color: $inputListItemHoverBgColor;
                 }
@@ -822,6 +822,12 @@ body {
                     }
                 }
             }
+
+            .ui-monthpicker {
+                a.ui-monthpicker-month:not(.ui-state-active):hover {
+                    background-color: $calendarCellDateHoverBgColor;
+                }
+            }
         }
 
         .ui-datepicker-header {
@@ -854,7 +860,7 @@ body {
             }
 
             td {
-                a {
+                > a, > span {
                     display: block;
                     text-align: center;
                     width: $calendarCellDateWidth;
@@ -862,6 +868,10 @@ body {
                     color: $textColor;
                     padding: $calendarCellDatePadding;
                     @include border-radius($calendarCellDateBorderRadius);
+                }
+
+                > a {
+                    cursor: pointer;
 
                     &.ui-state-active {
                         color: $calendarCellDateSelectedTextColor;
@@ -902,11 +912,42 @@ body {
             }
         }
 
+        .ui-monthpicker {
+            .ui-monthpicker-month {
+                color: $textColor;
+
+                &.ui-state-active {
+                    color: $calendarCellDateSelectedTextColor;
+                    background-color: $calendarCellDateSelectedBgColor;
+                }
+            }
+        }
+
         &.ui-datepicker-timeonly {
             padding: 0;
 
             .ui-timepicker {
                 border-top: 0 none;
+            }
+        }
+
+        &.ui-datepicker-multiple-month {
+            width: auto;
+            .ui-datepicker-group {
+                border-right: $inputBorder;
+                padding-right: $calendarPadding;
+                padding-left: $calendarPadding;
+                padding-top: 0;
+                padding-bottom: 0;
+
+                &:first-child {
+                    padding-left: 0;
+                }
+
+                &:last-child {
+                    padding-right: 0;
+                    border-right: 0 none;
+                }
             }
         }
     }

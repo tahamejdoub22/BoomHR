@@ -184,7 +184,7 @@ body {
         }
 
         &.ui-table-hoverable-rows {
-            .ui-table-tbody > tr:not(.ui-state-highlight):hover {
+            .ui-table-tbody > tr:not(.ui-state-highlight):not(.ui-contextmenu-selected):hover {
                 cursor: pointer;
                 background-color: $tableBodyRowHoverBgColor;
                 color: $tableBodyRowHoverTextColor;
@@ -866,17 +866,36 @@ body {
                 &.ui-state-highlight {
                     background-color: $highlightBgColor;
                     color: $highlightColorText;
+
+                    > td {
+                        background: inherit;
+                        border: $tableBodyCellBorder;
+
+                        .ui-treetable-toggler {
+                            color: $highlightColorText;
+                        }
+                    }
                 }
 
                 &.ui-contextmenu-selected {
                     background-color: $highlightBgColor;
                     color: $highlightColorText;
+
+                    > td {
+                        background: inherit;
+                        border: $tableBodyCellBorder;
+
+                        .ui-treetable-toggler {
+                            color: $highlightColorText;
+                        }
+                    }
+
                 }
             }
         }
 
         &.ui-treetable-hoverable-rows {
-            .ui-treetable-tbody > tr:not(.ui-state-highlight):hover {
+            .ui-treetable-tbody > tr:not(.ui-state-highlight):not(.ui-contextmenu-selected):hover {
                 cursor: pointer;
                 background-color: $tableBodyRowHoverBgColor;
                 color: $tableBodyRowHoverTextColor;

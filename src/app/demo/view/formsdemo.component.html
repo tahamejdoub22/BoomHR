@@ -71,16 +71,22 @@
 
             <div class="ui-g" style="margin-top:20px">
                 <div class="ui-g-12">
-                    <p-calendar id="popup" placeholder="Popup"></p-calendar>
+                    <p-calendar placeholder="Popup" [showButtonBar]="true"></p-calendar>
                 </div>
                 <div class="ui-g-12">
-                    <p-calendar id="datetime" dateFormat="mm/dd/yy" showTime="true" placeholder="DateTime"></p-calendar>
+                    <p-calendar dateFormat="mm/dd/yy" showTime="true" placeholder="DateTime" [minDate]="yesterday"></p-calendar>
                 </div>
                 <div class="ui-g-12">
-                    <p-calendar id="time" showTime="true" [timeOnly]="true" placeholder="Time"></p-calendar>
+                    <p-calendar showTime="true" [timeOnly]="true" placeholder="Time"></p-calendar>
                 </div>
                 <div class="ui-g-12">
-                    <p-calendar id="showIcon" [showIcon]="true" placeholder="Button"></p-calendar>
+                    <p-calendar [showIcon]="true" placeholder="Button"></p-calendar>
+                </div>
+                <div class="ui-g-12">
+                    <p-calendar [numberOfMonths]="3" placeholder="Multiple Months"></p-calendar>
+                </div>
+                <div class="ui-g-12">
+                    <p-calendar placeholder="Month Picker" dateFormat="mm/yy" view="month"></p-calendar>
                 </div>
             </div>
         </div>
