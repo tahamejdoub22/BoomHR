@@ -214,11 +214,6 @@ body {
     }
 
     .ui-autocomplete {
-        .ui-autocomplete-dropdown {
-            .ui-button-icon-left {
-                @include icon_override("\f078");
-            }
-        }
 
         &.ui-autocomplete-multiple {
             .ui-autocomplete-multiple-container {
@@ -368,10 +363,6 @@ body {
             text-align: center;
             padding: 0;
             color: $inputDropdownIconColor;
-
-            .ui-dropdown-trigger-icon {
-                @include icon_override("\f078");
-            }
         }
 
         &:not(.ui-state-disabled).ui-state-focus {
@@ -454,10 +445,6 @@ body {
             text-align: center;
             padding: 0;
             color: $inputDropdownIconColor;
-
-            .ui-multiselect-trigger-icon {
-                @include icon_override("\f078");
-            }
         }
     }
 
@@ -851,18 +838,6 @@ body {
                 @include transition($calendarNavIconTransition);
             }
 
-            .ui-datepicker-next {
-                span {
-                    @include icon_override("\f054");
-                }
-            }
-
-            .ui-datepicker-prev {
-                span {
-                    @include icon_override("\f053");
-                }
-            }
-
             .ui-datepicker-title {
                 margin: 0;
                 padding: 0;
@@ -984,12 +959,6 @@ body {
 
             .ui-button {
                 margin-right: 8px;
-
-                &.ui-fileupload-upload {
-                    .ui-icon {
-                        @include icon_override("\f093");
-                    }
-                }
             }
         }
 

@@ -350,13 +350,45 @@ body {
         .fc-toolbar {
             .ui-button {
                 .ui-icon-circle-triangle-w {
+                    background: none !important;
+                    font-family: 'primeicons';
+                    speak: none;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    display: inline-block;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    text-indent: 0px !important;
+                    text-align: center;
+
+                    &:before {
+                        content: "\e900";
+                    }
                     margin-top: 0.214em;
-                    @include icon-override("\f053");
                 }
 
                 .ui-icon-circle-triangle-e {
+                    background: none !important;
+                    font-family: 'primeicons';
+                    speak: none;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    display: inline-block;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    text-indent: 0px !important;
+                    text-align: center;
+
+                    &:before {
+                        content: "\e901";
+                    }
                     margin-top: 0.214em;
-                    @include icon-override("\f054");
                 }
 
                 &:focus {
@@ -728,14 +760,6 @@ body {
             font-size: $fontSize + 2;
             @include transition(color $transitionDuration);
 
-            &.ui-carousel-next-button {
-                @include icon-override("\f054");
-            }
-
-            &.ui-carousel-prev-button {
-                @include icon-override("\f053");
-            }
-
             &:not(.ui-state-disabled):hover {
                 color: $panelHeaderIconHoverColor;
             }
@@ -755,13 +779,11 @@ body {
 
                 &.pi-circle-off {
                     color: $panelHeaderIconColor;
-                    @include icon-override("\F10C");
                     font-size: $fontSize + 2;
                 }
 
                 &.pi-circle-on {
                     color: $panelHeaderIconColor;
-                    @include icon-override("\F192");
                     font-size: $fontSize + 2;
                 }
             }

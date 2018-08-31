@@ -176,10 +176,6 @@ body {
                 &:hover {
                     color: $panelHeaderIconHoverColor;
                 }
-
-                .ui-icon {
-                    @include icon_override("\f00d");
-                }
             }
         }
 

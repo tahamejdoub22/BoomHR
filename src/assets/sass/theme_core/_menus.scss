@@ -468,14 +468,6 @@ body {
                     position: static;
                     display: inline-block;
                     margin-right: $inlineSpacing;
-
-                    &.pi-caret-right {
-                        @include icon-override("\f054");
-                    }
-
-                    &.pi-caret-down {
-                        @include icon-override("\f078");
-                    }
                 }
             }
 
