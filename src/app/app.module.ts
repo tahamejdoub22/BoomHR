@@ -6,12 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppRoutes } from './app.routes';
 
-
 import { AccordionModule } from 'primeng/accordion';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
+import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
 import { ChartModule } from 'primeng/chart';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -39,6 +39,7 @@ import { MegaMenuModule } from 'primeng/megamenu';
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
 import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { OrderListModule } from 'primeng/orderlist';
 import { OrganizationChartModule } from 'primeng/organizationchart';
@@ -64,6 +65,7 @@ import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { TerminalModule } from 'primeng/terminal';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { ToastModule } from 'primeng/toast';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
@@ -108,6 +110,7 @@ import { BreadcrumbService } from './breadcrumb.service';
         BreadcrumbModule,
         ButtonModule,
         CalendarModule,
+        CardModule,
         CarouselModule,
         ChartModule,
         CheckboxModule,
@@ -134,6 +137,7 @@ import { BreadcrumbService } from './breadcrumb.service';
         MegaMenuModule,
         MenuModule,
         MenubarModule,
+        MessageModule,
         MessagesModule,
         MultiSelectModule,
         OrderListModule,
@@ -160,6 +164,7 @@ import { BreadcrumbService } from './breadcrumb.service';
         TabViewModule,
         TerminalModule,
         TieredMenuModule,
+        ToastModule,
         ToggleButtonModule,
         ToolbarModule,
         TooltipModule,
