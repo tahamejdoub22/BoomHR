@@ -249,14 +249,15 @@ $calendarTimePickerIconHoverColor:$primaryColor;
 $spinnerButtonWidth:2em;
 
 //input switch
-$inputSwitchBorderRadius:8px;
-$inputSwitchOffHandleBgColor:#a6a6a6;
-$inputSwitchOffHandleHoverBgColor:#848484;
-$inputSwitchOffHandleFocusBgColor:#848484;
+$inputSwitchBorderRadius:30px;
+$inputSwitchOffHandleBgColor:#666666;
+$inputSwitchOffHandleHoverBgColor:#333333;
+$inputSwitchOffHandleFocusBgColor:#333333;
 $inputSwitchOnBorderColor:$primaryColor;
 $inputSwitchOnBgColor:$primaryColor;
-$inputSwitchOnHandleBgColor:$primaryDarkColor;
-$inputSwitchOnHandleFocusBgColor:$primaryDarkColor;
+$inputSwitchOnHandleBgColor:#ffffff;
+$inputSwitchOnHandleFocusBgColor:#d0d0d0;
+$inputSwitchHandleActiveHoverBgColor:$primaryDarkColor;
 $inputSwitchOnHandleHoverBgColor:$primaryDarkerColor;
 $inputSwitchTransition:border-color $transitionDuration;
 $inputSwitchHandleTransition:background-color $transitionDuration;

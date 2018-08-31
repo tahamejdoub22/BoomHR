@@ -151,63 +151,77 @@ body {
     }
 
     .ui-inputswitch {
-        height: 1em;
-        width: 2.429em !important;
-        overflow: visible;
-        background-color: $inputBgColor;
-        border: $inputBorder;
-        @include border-radius($inputSwitchBorderRadius);
-        @include transition($inputSwitchTransition);
+        height: 1.846em;
+        width: 3.846em !important;
 
-        .ui-inputswitch-handle {
-            top: -0.286em;
-            background-color:$inputSwitchOffHandleBgColor;
-            width: 1.429em !important;
-            height: 1.429em !important;
-            @include border-radius(50%);
-            @include transition($inputSwitchHandleTransition);
-        }
+        .ui-inputswitch-slider {
+            @include transition($inputSwitchTransition);
+            border-radius: $inputSwitchBorderRadius;
+            background-color: $inputBgColor;
+            border: $inputBorder;
 
-        &:not(.ui-state-disabled):hover {
-            .ui-inputswitch-handle {
-                background-color: $inputSwitchOffHandleHoverBgColor;
-            }
-        }
-
-        &.ui-state-focus {
-            .ui-inputswitch-handle {
-                background-color: $inputSwitchOffHandleFocusBgColor;
-            }
-        }
-
-        .ui-inputswitch-on {
-            visibility: hidden;
-        }
-
-        .ui-inputswitch-off,
-        .ui-inputswitch-on {
-            span {
-                visibility: hidden;
+            &:before {
+                background-color: $inputSwitchOffHandleBgColor;
+                height: 1.692em;
+                width: 1.692em;
+                left: 0;
+                bottom: 0;
+                border-radius: 50%;
+                -webkit-transition: $transitionDuration;
+                transition: $transitionDuration;
             }
         }
 
         &.ui-inputswitch-checked {
-            background-color: $inputSwitchOnBgColor;
-            border-color: $inputSwitchOnBorderColor;
-
-            .ui-inputswitch-handle {
-                background-color: $inputSwitchOnHandleBgColor;
+            .ui-inputswitch-slider:before {
+                -webkit-transform: translateX(2em);
+                -ms-transform: translateX(2em);
+                transform: translateX(2em);
             }
+        }
 
-            &:not(.ui-state-disabled):hover {
-                .ui-inputswitch-handle {
-                    background-color: $inputSwitchOnHandleHoverBgColor;
+        &.ui-inputswitch-focus {
+            .ui-inputswitch-slider {
+                background: $inputBgColor;
+
+                &:before {
+                    background-color: $inputSwitchOffHandleFocusBgColor;
+                }
+            }
+        }
+
+        &:not(.ui-state-disabled):hover {
+            .ui-inputswitch-slider {
+                background-color: $inputBgColor;
+                border-color: $inputHoverBorderColor;
+            }
+        }
+
+        &.ui-inputswitch-checked {
+            .ui-inputswitch-slider {
+                border-color:$inputSwitchOnBorderColor;
+                background-color: $inputSwitchOnBgColor;
+
+                &:before {
+                    background-color: $inputSwitchOnHandleBgColor;
                 }
             }
 
-            &.ui-state-focus {
-                .ui-inputswitch-handle {
-                    background-color: $inputSwitchOnHandleHoverBgColor;
+            &:not(.ui-state-disabled):hover {
+                .ui-inputswitch-slider {
+                    background-color: $inputSwitchHandleActiveHoverBgColor;
+                    border-color: $inputSwitchOnHandleHoverBgColor;
+                }
+            }
+
+            &.ui-inputswitch-focus {
+                .ui-inputswitch-slider {
+                    background: $inputSwitchOnBgColor;
+                    border-color: $inputSwitchOnBgColor;
+
+                    &:before {
+                        background-color: $inputSwitchOnHandleFocusBgColor;
+                    }
                 }
             }
         }
