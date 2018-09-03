@@ -180,7 +180,7 @@ body {
                 }
 
                 .ui-toast-icon {
-                    color: darken($infoMessageBgColor, 30%);
+                    color: $infoMessageTextColor;
                 }
             }
 
@@ -194,7 +194,7 @@ body {
                 }
 
                 .ui-toast-icon {
-                    color: darken($successMessageBgColor, 30%);
+                    color: $successMessageTextColor;
                 }
             }
 
@@ -208,7 +208,7 @@ body {
                 }
 
                 .ui-toast-icon {
-                    color: darken($warnMessageBgColor, 30%);
+                    color: $warnMessageTextColor;
                 }
             }
 
@@ -222,7 +222,7 @@ body {
                 }
 
                 .ui-toast-icon {
-                    color: darken($errorMessageBgColor, 30%);
+                    color: $errorMessageTextColor;
                 }
             }
         }

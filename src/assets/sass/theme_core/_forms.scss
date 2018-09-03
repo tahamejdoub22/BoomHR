@@ -1108,6 +1108,10 @@ body {
         }
     }
 
+    .ui-calendar .ui-datepicker {
+        min-width: 20em;
+    }
+
     ::-webkit-input-placeholder {color:$inputPlaceholderTextColor}
     :-moz-placeholder           {color:$inputPlaceholderTextColor}
     ::-moz-placeholder          {color:$inputPlaceholderTextColor}
