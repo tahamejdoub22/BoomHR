@@ -38,6 +38,26 @@ body {
                 top: 50%;
             }
         }
+
+        &:after {
+            border-color: rgba($panelContentBgColor, 0);
+            border-bottom-color: $panelContentBgColor;
+        }
+
+        &:before {
+            border-color: rgba($overlayContentBorderColor, 0);
+            border-bottom-color: $overlayContentBorderColor;
+        }
+
+        &.ui-overlaypanel-flipped {
+            &:after {
+                border-top-color: $panelContentBgColor;
+            }
+
+            &:before {
+                border-top-color: $overlayContentBorderColor;
+            }
+        }
     }
 
     .ui-dialog {
