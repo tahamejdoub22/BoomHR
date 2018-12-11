@@ -31,7 +31,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/moment/moment.js",
               "node_modules/chart.js/dist/Chart.js",
               "node_modules/fullcalendar/dist/fullcalendar.js",
               "node_modules/prismjs/prism.js",
@@ -83,7 +82,6 @@
               "tsConfig": "src/tsconfig.spec.json",
               "karmaConfig": "src/karma.conf.js",
             "scripts": [
-              "node_modules/moment/moment.js",
               "node_modules/chart.js/dist/Chart.js",
               "node_modules/fullcalendar/dist/fullcalendar.js",
               "node_modules/prismjs/prism.js",

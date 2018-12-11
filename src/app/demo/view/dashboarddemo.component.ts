@@ -27,6 +27,8 @@ export class DashboardDemoComponent implements OnInit {
 
     items: MenuItem[];
 
+    fullcalendarOptions: any;
+
     constructor(private carService: CarService, private eventService: EventService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: ' ', routerLink: [''] }
@@ -76,5 +78,9 @@ export class DashboardDemoComponent implements OnInit {
             { label: 'Update', icon: 'fa fa-refresh' },
             { label: 'Delete', icon: 'fa fa-trash' }
         ];
+
+        this.fullcalendarOptions = {
+            defaultDate: '2016-01-12'
+        };
     }
 }
