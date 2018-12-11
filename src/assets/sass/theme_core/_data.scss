@@ -311,7 +311,7 @@ body {
             color: $panelContentTextColor;
             .ui-virtualscroller-list {
                 li {
-                    border-bottom: $panelHeaderBorder;
+                    border-bottom: $panelContentBorder;
                 }
             }
         }
@@ -857,6 +857,10 @@ body {
             font-weight: $tableFooterCellFontWeight;
             color: $tableFooterCellTextColor;
             background-color: $tableFooterCellBgColor;
+        }
+
+        p-treeTableToggler {
+            vertical-align: middle;
         }
 
         .ui-sortable-column {

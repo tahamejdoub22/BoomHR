@@ -3,7 +3,7 @@
         <div class="card docs no-margin">
 
             <h1>Current Version</h1>
-            <p>Angular 6.0 and PrimeNG 6.0</p>
+            <p>Angular 7 and PrimeNG 7</p>
 
             <h1>Getting Started</h1>
             <p>Harmony is a true native application template for Angular and is distributed as a CLI project.</p>
@@ -1357,13 +1357,22 @@ export class ControlPanelComponent &#123;
             <p>Harmony uses PrimeNG Grid CSS (ui-g-*) throughout the demos, although any Grid library can be used with it. Harmony itself does not depend on Grid CSS.</p>
 
             <h1>Customizing Styles</h1>
-            <p>It is suggested to write your customizations in styles.scss file or another file instead of adding them to the
-                scss files under sass folders to avoid maintenance issues after an update.</p>
+            <p>It is suggested to add your customizations in the following sass files under the override folder instead of adding them to the
+                scss files under sass folder to avoid maintenance issues after an update.</p>
+
+            <ul>
+                <li><b>_layout_variables</b>: Variables of the layout.</li>
+                <li><b>_layout_styles</b>: Styles for the layout.</li>
+                <li><b>_theme_variables</b>: Variables of the theme.</li>
+                <li><b>_theme_styles</b>: Styles for the theme.</li>
+            </ul>
 
             <h1>Migration Guide</h1>
-            <p>Most of the time updates are related to styling so sass/layout, sass/theme_core will be the commonly updated folders. For seamless updates and easier maintenance, we suggest not editing sass/layout, sass/theme and sass/theme_core folders and keeping your CSS customizations
-                in a separate sass file such as styles.scss as defined in angular.json so that your changes are not overriden with an update.
-                Additionally you may also use the _theme_styles.scss and _layout_styles.scss files under sass folder which are empty files provided for you to add your customizations to theme and layout respectively.</p>
+            <h4>6.1.0 to 7.0.0</h4>
+            <ul>
+                <li>Update layout css files.</li>
+                <li>Update theme css files.</li>
+            </ul>
 
             <h4>6.0.0 to 6.1.0</h4>
             <p>Adds support for new features in PrimeNG 6.1.x</p>
