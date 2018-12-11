@@ -30,4 +30,4 @@ export const routes: Routes = [
     { path: 'documentation', component: DocumentationComponent },
 ];
 
-export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes);
+export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'});

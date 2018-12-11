@@ -124,7 +124,7 @@ body {
         }
 
         .ui-sortable-column {
-            a, a:hover {
+            .ui-sortable-column-icon {
                 color: $tableHeaderCellTextColor;
             }
 
@@ -132,7 +132,7 @@ body {
                 background-color: $tableHeaderCellHoverBgColor;
                 color: $tableHeaderCellHoverTextColor;
 
-                a, a:hover {
+                .ui-sortable-column-icon {
                     color: $tableHeaderCellHoverTextColor;
                 }
             }
@@ -141,7 +141,7 @@ body {
                 background-color: $highlightBgColor;
                 color: $highlightColorText;
 
-                a, a:hover {
+                .ui-sortable-column-icon {
                     color: $highlightColorText;
                 }
             }
@@ -184,7 +184,7 @@ body {
         }
 
         &.ui-table-hoverable-rows {
-            .ui-table-tbody > tr:not(.ui-state-highlight):not(.ui-contextmenu-selected):hover {
+            .ui-table-tbody > tr.ui-selectable-row:not(.ui-state-highlight):not(.ui-contextmenu-selected):hover {
                 cursor: pointer;
                 background-color: $tableBodyRowHoverBgColor;
                 color: $tableBodyRowHoverTextColor;
@@ -287,6 +287,36 @@ body {
         }
 
         .ui-datascroller-footer {
+            background-color: $panelFooterBgColor;
+            color: $panelFooterTextColor;
+            border: $panelFooterBorder;
+            padding: $panelFooterPadding;
+            border-top: 0 none;
+        }
+    }
+
+    .ui-virtualscroller {
+        .ui-virtualscroller-header {
+            background-color: $panelHeaderBgColor;
+            color: $panelHeaderTextColor;
+            border: $panelHeaderBorder;
+            padding: $panelHeaderPadding;
+            font-weight: $panelHeaderFontWeight;
+            border-bottom: 0 none;
+        }
+
+        .ui-virtualscroller-content {
+            border: $panelContentBorder;
+            background-color: $panelContentBgColor;
+            color: $panelContentTextColor;
+            .ui-virtualscroller-list {
+                li {
+                    border-bottom: $panelHeaderBorder;
+                }
+            }
+        }
+
+        .ui-virtualscroller-footer {
             background-color: $panelFooterBgColor;
             color: $panelFooterTextColor;
             border: $panelFooterBorder;
@@ -830,7 +860,7 @@ body {
         }
 
         .ui-sortable-column {
-            a, a:hover {
+            .ui-sortable-column-icon {
                 color: $tableHeaderCellTextColor;
             }
 
@@ -838,7 +868,7 @@ body {
                 background-color: $tableHeaderCellHoverBgColor;
                 color: $tableHeaderCellHoverTextColor;
 
-                a, a:hover {
+                .ui-sortable-column-icon {
                     color: $tableHeaderCellHoverTextColor;
                 }
             }
@@ -847,7 +877,7 @@ body {
                 background-color: $highlightBgColor;
                 color: $highlightColorText;
 
-                a, a:hover {
+                .ui-sortable-column-icon {
                     color: $highlightColorText;
                 }
             }

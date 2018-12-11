@@ -3,7 +3,7 @@ import { CarService } from '../service/carservice';
 import { NodeService } from '../service/nodeservice';
 import { EventService } from '../service/eventservice';
 import { Car } from '../domain/car';
-import { TreeNode, SelectItem } from 'primeng/api';
+import { TreeNode, SelectItem, LazyLoadEvent } from 'primeng/api';
 import { BreadcrumbService } from '../../breadcrumb.service';
 
 @Component({
@@ -27,6 +27,70 @@ import { BreadcrumbService } from '../../breadcrumb.service';
                 text-align: left;
             }
         }
+        .car-item {
+            padding-top: 5px;
+        }
+
+        .car-item .ui-md-3 {
+            text-align: center;
+        }
+
+        .car-item .ui-g-10 {
+            font-weight: bold;
+        }
+
+        .empty-car-item-index {
+            background-color: #f1f1f1;
+            width: 60px;
+            height: 60px;
+            margin: 36px auto 0 auto;
+            animation: pulse 1s infinite ease-in-out;
+        }
+
+        .empty-car-item-image {
+            background-color: #f1f1f1;
+            width: 120px;
+            height: 120px;
+            animation: pulse 1s infinite ease-in-out;
+        }
+
+        .empty-car-item-text {
+            background-color: #f1f1f1;
+            height: 18px;
+            animation: pulse 1s infinite ease-in-out;
+        }
+
+        .title-container {
+            padding: 1em;
+            text-align: right;
+        }
+
+        .sort-container {
+            text-align: left;
+        }
+
+        @media (max-width: 40em) {
+            .car-item {
+                text-align: center;
+            }
+            .index-col {
+                display: none;
+            }
+            .image-col {
+                display: none;
+            }
+        }
+        @keyframes pulse {
+            0% {
+                background-color: rgba(165, 165, 165, 0.1)
+            }
+            50% {
+                background-color: rgba(165, 165, 165, 0.3)
+            }
+            100% {
+                background-color: rgba(165, 165, 165, 0.1)
+            }
+        }
     `],
     encapsulation: ViewEncapsulation.None
 })
@@ -35,6 +99,10 @@ export class DataDemoComponent implements OnInit {
     cars1: Car[];
 
     cars2: Car[];
+
+    cars3: Car[];
+
+    carsVirtual: Car[] = [];
 
     cols: any[];
 
@@ -82,6 +150,8 @@ export class DataDemoComponent implements OnInit {
 
     sortOrder: number;
 
+    timeout: any;
+
     constructor(private carService: CarService, private eventService: EventService, private nodeService: NodeService,
         private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
@@ -104,6 +174,7 @@ export class DataDemoComponent implements OnInit {
             { field: 'type', header: 'Type' }
         ];
         this.carService.getCarsMedium().then(cars => this.cars2 = cars);
+        this.carService.getCarsLarge().then(cars => this.carsVirtual = cars);
         this.carService.getCarsMedium().then(cars => this.sourceCars = cars);
         this.targetCars = [];
         this.carService.getCarsSmall().then(cars => this.orderListCars = cars);
@@ -171,6 +242,18 @@ export class DataDemoComponent implements OnInit {
             {label: 'Oldest First', value: 'year'},
             {label: 'Brand', value: 'brand'}
         ];
+    }
+    loadCarsLazy(event: LazyLoadEvent) {
+        if (this.timeout) {
+            clearTimeout(this.timeout);
+        }
+
+        this.timeout = setTimeout(() => {
+            this.cars3 = [];
+            if (this.carsVirtual) {
+                this.cars3 = this.carsVirtual.slice(event.first, (event.first + event.rows));
+            }
+        }, 2000);
     }
 
     onSortChange(event) {
