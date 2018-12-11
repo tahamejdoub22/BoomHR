@@ -26,8 +26,9 @@
                         </a>
                     </div>
                     <a id="menu-btn" href="#" class="ui-g-3 ui-md-3 menu-button-mobile">
-                        <i class="fa fa-ellipsis-v"></i>
+                        <img src="../layout/images/icon-menu.svg" alt="Menu"/>
                     </a>
+
                     <div class="ui-g-12 ui-md-12 ui-lg-8">
                         <ul id="landing-menu">
                             <li>
@@ -203,7 +204,7 @@
                     <span class="ui-g-12">Premium PrimeFaces Application Template</span>
                 </div>
                 <div class="ui-g-12 ui-md-12 ui-lg-8" style="text-align:center">
-                    <div id="landing-menu">
+                    <div id="landing-menu-footer">
                         <div class="ui-g-12 ui-md-6 ui-lg-3 landing-box">
                             <span>OVERVIEW</span>
 
@@ -245,37 +246,56 @@
             </div>
         </div>
     </div>
-
+    
     <script>
-        var $this = this;
-        this.landingNav = $('#landing-nav');
-        this.landingMenuButton = $('#landing-menubar-button');
+        HarmonyLanding = {
+            addClass: function(element, className) {
+                if (element.classList)
+                    element.classList.add(className);
+                else
+                    element.className += ' ' + className;
+            },
 
-        this.landingMenuButton.on('click', function(e) {
-            $this.toggleMenu();
+            removeClass: function(element, className) {
+                if (element.classList)
+                    element.classList.remove(className);
+                else
+                    element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+            },
+
+            hasClass: function(element, className) {
+                if (element.classList)
+                    return element.classList.contains(className);
+                else
+                    return new RegExp('(^| )' + className + '( |$)', 'gi').test(element.className);
+            },
+
+            hideMenu: function() {
+                this.removeClass(document.getElementById('landing-menu'), 'landing-menu-active');
+            },
+
+            showMenu: function() {
+                this.addClass(document.getElementById('landing-menu'), 'landing-menu-active');
+            }
+        };
+
+        document.getElementById('menu-btn').addEventListener('click', function(e) {
+            var menu = document.getElementById('landing-menu');
+
+            if(HarmonyLanding.hasClass(menu, 'landing-menu-active'))
+                HarmonyLanding.hideMenu();
+            else
+                HarmonyLanding.showMenu();
+
             e.preventDefault();
         });
 
-        function toggleMenu() {
-            if(this.landingNav.hasClass('landing-mobile-menu'))
-                this.landingNav.removeClass('landing-mobile-menu');
-            else
-                $this.landingNav.addClass('landing-mobile-menu');
+        var menuLinks = document.querySelectorAll('#landing-menu a');
+        for (i = 0; i < menuLinks.length; i++) {
+            menuLinks[i].addEventListener('click', function(e) {
+                HarmonyLanding.hideMenu();
+            });
         }
-
-        /* Scroll Animate */
-        $('a[href*="#"]').click(function(event) {
-            $this.toggleMenu(); // When scrolling close the menu.
-
-            var target = $(this.hash);
-            var top = target.length ? target.offset().top - 80 : 0;
-
-            $('html, body').animate({
-                scrollTop: top
-            }, 500);
-
-            event.preventDefault();
-        });
     </script>
     </body>
 </html>
