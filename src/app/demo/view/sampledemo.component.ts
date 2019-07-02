@@ -66,7 +66,7 @@ export class SampleDemoComponent implements OnInit {
     selectedType: string;
 
     constructor(private carService: CarService, private countryService: CountryService, private nodeService: NodeService,
-        private breadcrumbService: BreadcrumbService) {
+                private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Components' },
             { label: 'Sample', routerLink: ['/sample'] }
@@ -232,8 +232,8 @@ export class SampleDemoComponent implements OnInit {
         // in a real application, make a request to a remote url with the query and return filtered results,
         // for demo we filter at client side
         const filtered: any[] = [];
-        for (let i = 0; i < countries.length; i++) {
-            const country = countries[i];
+        for (const item of countries) {
+            const country = item;
             if (country.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
                 filtered.push(country);
             }

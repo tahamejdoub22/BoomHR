@@ -38,7 +38,7 @@ export class AppComponent implements AfterViewInit {
 
     quickMenuButtonClick: boolean;
 
-    @ViewChild('layoutMenuScroller') layoutMenuScrollerViewChild: ScrollPanel;
+    @ViewChild('layoutMenuScroller', { static: true }) layoutMenuScrollerViewChild: ScrollPanel;
 
     ngAfterViewInit() {
         setTimeout(() => {this.layoutMenuScrollerViewChild.moveBar(); }, 100);
@@ -180,10 +180,10 @@ export class AppComponent implements AfterViewInit {
     }
 
     changeTheme(theme, style) {
-        const layoutLink: HTMLLinkElement = <HTMLLinkElement>document.getElementById('layout-css');
+        const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
         layoutLink.href = 'assets/layout/css/layout-' + theme + '.css';
 
-        const themeLink: HTMLLinkElement = <HTMLLinkElement>document.getElementById('theme-css');
+        const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
 
         if (style === 'color') {
             themeLink.href = 'assets/theme/' + theme + '/theme.css';

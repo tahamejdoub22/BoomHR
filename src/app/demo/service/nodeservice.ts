@@ -9,14 +9,14 @@ export class NodeService {
     getFiles() {
         return this.http.get<any>('assets/demo/data/files.json')
                     .toPromise()
-                    .then(res => <any[]> res.data)
+                    .then(res => res.data as any[])
                     .then(data => data);
     }
 
     getFilesystem() {
         return this.http.get<any>('assets/demo/data/filesystem.json')
                     .toPromise()
-                    .then(res => <any[]> res.data)
+                    .then(res => res.data as any[])
                     .then(data => data);
     }
 }

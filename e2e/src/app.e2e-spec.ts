@@ -1,9 +1,14 @@
-import { HarmonyPage } from './app.po';
+import {HarmonyPage} from './app.po';
 
-describe('Harmomy App', () => {
-  let page: HarmonyPage;
+describe('Babylon App', () => {
+    let page: HarmonyPage;
 
-  beforeEach(() => {
-    page = new HarmonyPage();
-  });
+    beforeEach(() => {
+        page = new HarmonyPage();
+    });
+
+    it('should display welcome message', () => {
+        page.navigateTo();
+        expect(page.getTitleText()).toEqual('Welcome to Harmony!');
+    });
 });

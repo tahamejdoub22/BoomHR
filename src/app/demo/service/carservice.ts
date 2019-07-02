@@ -10,21 +10,21 @@ export class CarService {
     getCarsSmall() {
         return this.http.get<any>('assets/demo/data/cars-small.json')
                     .toPromise()
-                    .then(res => <Car[]> res.data)
+                    .then(res => res.data as Car[])
                     .then(data => data);
     }
 
     getCarsMedium() {
         return this.http.get<any>('assets/demo/data/cars-medium.json')
                     .toPromise()
-                    .then(res => <Car[]> res.data)
+                    .then(res => res.data as Car[])
                     .then(data => data);
     }
 
     getCarsLarge() {
         return this.http.get<any>('assets/demo/data/cars-large.json')
                     .toPromise()
-                    .then(res => <Car[]> res.data)
+                    .then(res => res.data as Car[])
                     .then(data => data);
     }
 }

@@ -19,7 +19,7 @@ export class OverlaysDemoComponent implements OnInit {
     display: boolean;
 
     constructor(private carService: CarService, private confirmationService: ConfirmationService,
-        private breadcrumbService: BreadcrumbService) {
+                private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Components' },
             { label: 'Overlays', routerLink: ['/overlays'] }

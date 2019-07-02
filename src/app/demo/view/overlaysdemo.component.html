@@ -37,7 +37,7 @@
 
         <div class="card">
             <h1>Dialog</h1>
-            <p-dialog header="Godfather I" [(visible)]="display" modal="modal" showEffect="fade" width="400">
+            <p-dialog header="Godfather I" [(visible)]="display" modal="modal" showEffect="fade" [style]="{width: '400px'}">
                 <p>The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
                    His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
                    Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
@@ -54,7 +54,7 @@
 
         <div class="card">
             <h1>Confirm Dialog</h1>
-            <p-confirmDialog header="Confirmation" icon="fa fa-info" width="425"></p-confirmDialog>
+            <p-confirmDialog header="Confirmation" icon="fa fa-info" [style]="{width: '425px'}"></p-confirmDialog>
 
             <button type="text" (click)="confirm()" pButton icon="fa fa-check" label="Confirm"></button>
         </div>

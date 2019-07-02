@@ -107,8 +107,8 @@ export class FormsDemoComponent implements OnInit {
         // in a real application, make a request to a remote url with the query and
         // return filtered results, for demo we filter at client side
         const filtered: any[] = [];
-        for (let i = 0; i < countries.length; i++) {
-            const country = countries[i];
+        for (const item of countries) {
+            const country = item;
             if (country.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
                 filtered.push(country);
             }
@@ -118,8 +118,8 @@ export class FormsDemoComponent implements OnInit {
 
     filterBrands(event) {
         this.filteredBrands = [];
-        for (let i = 0; i < this.brands.length; i++) {
-            const brand = this.brands[i];
+        for (const item of this.brands) {
+            const brand = item;
             if (brand.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
                 this.filteredBrands.push(brand);
             }

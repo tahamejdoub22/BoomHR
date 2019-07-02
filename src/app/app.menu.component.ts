@@ -566,7 +566,7 @@ export class AppSubMenuComponent {
 
         // execute command
         if (item.command) {
-            item.command({ originalEvent: event, item: item });
+            item.command({ originalEvent: event, item });
         }
 
         // prevent hash change

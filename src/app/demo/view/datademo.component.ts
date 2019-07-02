@@ -5,6 +5,9 @@ import { EventService } from '../service/eventservice';
 import { Car } from '../domain/car';
 import { TreeNode, SelectItem, LazyLoadEvent } from 'primeng/api';
 import { BreadcrumbService } from '../../breadcrumb.service';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 @Component({
     templateUrl: './datademo.component.html',
@@ -153,7 +156,7 @@ export class DataDemoComponent implements OnInit {
     timeout: any;
 
     constructor(private carService: CarService, private eventService: EventService, private nodeService: NodeService,
-        private breadcrumbService: BreadcrumbService) {
+                private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Components' },
             { label: 'Data', routerLink: ['/data'] }
@@ -197,13 +200,13 @@ export class DataDemoComponent implements OnInit {
         ];
 
         this.fullcalendarOptions = {
+            plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
             defaultDate: '2016-01-12',
             header: {
-                left: 'prev,next, today',
+                left: 'prev,next today',
                 center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            editable: true
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            }
         };
 
         this.data = [{
