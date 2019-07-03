@@ -402,9 +402,9 @@ body {
         }
 
         td.fc-today {
-            background-color: $panelContentBgColor;
-            border: $panelContentBorder;
-            color: $panelContentTextColor;
+            background-color: $panelHeaderBgColor;
+            border: $panelHeaderBorder;
+            color: $panelHeaderTextColor;
         }
 
         .fc-toolbar {
