@@ -2,24 +2,58 @@
     <div class="ui-g-12">
         <div class="card no-margin">
             <h1>Table</h1>
-            <p-table [columns]="cols" [value]="cars1" selectionMode="single" dataKey="vin" [(selection)]="selectedCar"
-                     [paginator]="true" [rows]="10" [responsive]="true" paginatorPosition="both" [responsive]="true">
+            <p-table #dt [columns]="cols" styleClass="ui-table-cars" [value]="cars1" [paginator]="true" [rows]="10" dataKey="vin" selectionMode="single" [(selection)]="selectedCar">
                 <ng-template pTemplate="caption">
-                    Table of Cars
+                    DataTable
+                    <div class="ui-table-globalfilter-container">
+                        <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:250px;">
+                    </div>
                 </ng-template>
                 <ng-template pTemplate="header" let-columns>
                     <tr>
-                      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
-                        {{col.header}}
-                        <p-sortIcon [field]="col.field"></p-sortIcon>
-                      </th>
+                        <th *ngFor="let col of columns" [pSortableColumn]="col.field" [ngSwitch]="col.field">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+                        <th style="width: 8em; text-align: center;">
+                            <button pButton type="button" icon="pi pi-cog"></button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th *ngFor="let col of columns" [ngSwitch]="col.field" style="padding: .5em;">
+                            <input *ngSwitchCase="'vin'" pInputText type="text" placeholder="Starts with" class="ui-column-filter" style="width: 100%; margin-top: 0;" (input)="dt.filter($event.target.value, col.field, 'startsWith')">
+                            <input *ngSwitchCase="'year'" pInputText type="text" placeholder="Contains" class="ui-column-filter" style="width: 100%; margin-top: 0;" (input)="dt.filter($event.target.value, col.field, 'contains')">
+                            <p-dropdown *ngSwitchCase="'brand'" appendTo="body" [options]="brands" styleClass="ui-column-filter" [showClear]="true" [style]="{'min-width':'1em', 'width':'100%', 'margin-top':'0'}" placeholder="Select a Brand" (onChange)="dt.filter($event.value, col.field, 'equals')">
+                                <ng-template let-item pTemplate="selectedItem">
+                                    <img src="assets/demo/images/car/{{item.label}}.png" style="width:16px;vertical-align:middle" />
+                                    <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+                                </ng-template>
+                                <ng-template let-car pTemplate="item">
+                                    <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                                        <img src="assets/demo/images/car/{{car.label}}.png" style="width:24px;position:absolute;top:1px;left:5px"/>
+                                        <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                            <p-multiSelect *ngSwitchCase="'color'" [options]="colors" [filter]="false"  styleClass="ui-column-filter" [style]="{'width':'100%', 'margin-top':'0'}"  defaultLabel="Select a color" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                        </th>
+                        <th style="width: 8em;">
+                        </th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-rowData let-columns="columns">
-                    <tr [pSelectableRow]="rowData">
-                      <td *ngFor="let col of columns">
-                        {{rowData[col.field]}}
-                      </td>
+                    <tr [pSelectableRow]="rowData" [pEditableRow]="rowData">
+                        <td>{{rowData.vin}}</td>
+                        <td>{{rowData.year}}</td>
+                        <td>
+                            <img src="assets/demo/images/car/{{rowData.brand}}.png" style="width: 50px; margin-right: 1em; vertical-align: middle;">
+                            {{rowData.brand}}
+                        </td>
+                        <td>{{rowData.color}}</td>
+                        <td>
+                            <button pButton type="button" class="ui-button-success" icon="pi pi-search" style="margin-right: .5em"></button>
+                            <button pButton type="button" class="ui-button-warning" icon="pi pi-pencil"></button>
+                        </td>
                     </tr>
                 </ng-template>
             </p-table>
@@ -27,18 +61,19 @@
     </div>
 
     <div class="ui-g-12">
-        <div class="card">
+        <div class="card card-w-title">
             <h1>DataView</h1>
-            <p-dataView #dv [value]="cars2" [paginator]="true" [rows]="10" paginatorPosition="both" filterBy="brand" [sortField]="sortField" [sortOrder]="sortOrder">
+            <p-dataView #dv [value]="cars2" [paginator]="true" [rows]="10" paginatorPosition="both" filterBy="brand"
+                [sortField]="sortField" [sortOrder]="sortOrder">
                 <p-header>
                     <div class="ui-helper-clearfix">
                         <div class="ui-g">
                             <div class="ui-g-12 ui-md-4">
-                                <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [style]="{'width':'15em'}"></p-dropdown>
+                                <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [style]="{'min-width':'140px'}"></p-dropdown>
                             </div>
                             <div class="ui-g-6 ui-md-4 filter-container">
                                 <div style="position:relative">
-                                    <input type="text" pInputText placeholder="Search by brand" (keyup)="dv.filter($event.target.value)">
+                                    <input type="search" pInputText placeholder="Search by brand" (keyup)="dv.filter($event.target.value)">
                                 </div>
                             </div>
                             <div class="ui-g-6 ui-md-4" style="text-align:right">
@@ -48,37 +83,27 @@
                     </div>
                 </p-header>
                 <ng-template let-car pTemplate="listItem">
-                    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
-                        <div class="ui-g-12 ui-md-3" style="text-align:center">
-                            <img width="72" src="assets/demo/images/car/{{car.brand}}.png">
-                        </div>
-                        <div class="ui-g-12 ui-md-8 car-details">
-                            <div class="ui-g">
-                                <div class="ui-g-2 ui-sm-6">Vin: </div>
-                                <div class="ui-g-10 ui-sm-6"><b>{{car.vin}}</b></div>
-
-                                <div class="ui-g-2 ui-sm-6">Year: </div>
-                                <div class="ui-g-10 ui-sm-6"><b>{{car.year}}</b></div>
-
-                                <div class="ui-g-2 ui-sm-6">Brand: </div>
-                                <div class="ui-g-10 ui-sm-6"><b>{{car.brand}}</b></div>
-
-                                <div class="ui-g-2 ui-sm-6">Color: </div>
-                                <div class="ui-g-10 ui-sm-6"><b>{{car.color}}</b></div>
+                    <div class="ui-g-12">
+                        <div class="car-details-list">
+                            <div>
+                                <img src="assets/demo/images/car/{{car.brand}}.png">
+                                <div class="ui-g">
+                                    <div class="ui-g-12">Vin: <b>{{car.vin}}</b></div>
+                                    <div class="ui-g-12">Year: <b>{{car.year}}</b></div>
+                                    <div class="ui-g-12">Brand: <b>{{car.brand}}</b></div>
+                                    <div class="ui-g-12">Color: <b>{{car.color}}</b></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="ui-g-12 ui-md-1 search-icon">
-                            <button pButton type="button" icon="fa fa-search"></button>
+                            <button pButton type="button" icon="pi pi-search"></button>
                         </div>
                     </div>
                 </ng-template>
                 <ng-template let-car pTemplate="gridItem">
                     <div style="padding:.5em" class="ui-g-12 ui-md-3">
                         <p-panel [header]="car.vin" [style]="{'text-align':'center'}">
-                                <img src="assets/demo/images/car/{{car.brand}}.png">
+                            <img src="assets/demo/images/car/{{car.brand}}.png" width="60">
                             <div class="car-detail">{{car.year}} - {{car.color}}</div>
-                            <hr class="ui-widget-content" style="border-top:0">
-                            <button pButton type="button" icon="fa fa-search" style="margin-top:0"></button>
+                            <button pButton type="button" icon="pi pi-search" style="margin-top:0"></button>
                         </p-panel>
                     </div>
                 </ng-template>
@@ -232,23 +257,24 @@
     <div class="ui-g-12">
         <div class="card">
             <h1>Carousel</h1>
-            <p-carousel headerText="Cars" [value]="carouselCars">
+            <p-carousel [value]="carouselCars" [numVisible]="4" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
                 <ng-template let-car pTemplate="item">
-                    <div class="ui-g" style="text-align:center">
-                        <div class="ui-g-12" style="padding:2em">
-                            <img src="assets/demo/images/car/{{car.brand}}.png">
+                    <div class="car-details">
+                        <div class="p-grid p-nogutter">
+                            <div class="p-col-12">
+                                <img src="assets/demo/images/car/{{car.brand}}.png" />
+                            </div>
+                            <div class="p-col-12 car-data">
+                                <div class="car-title">{{car.brand}}</div>
+                                <div class="car-subtitle">{{car.year}} | {{car.color}}</div>
+
+                                <div class="car-buttons">
+                                    <button pButton type="button" class="ui-button-success" icon="pi pi-search"></button>
+                                    <button pButton type="button" class="ui-button-warning" icon="pi pi-star"></button>
+                                    <button pButton type="button" class="ui-button-info" icon="pi pi-cog"></button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="ui-g-6" style="text-align:right">Vin: </div>
-                        <div class="ui-g-6" style="font-weight:bold">{{car.vin}}</div>
-
-                        <div class="ui-g-6">Year: </div>
-                        <div class="ui-g-6" style="font-weight:bold">{{car.year}}</div>
-
-                        <div class="ui-g-6">Brand: </div>
-                        <div class="ui-g-6" style="font-weight:bold">{{car.brand}}</div>
-
-                        <div class="ui-g-6">Color: </div>
-                        <div class="ui-g-6" style="font-weight:bold">{{car.color}}</div>
                     </div>
                 </ng-template>
             </p-carousel>
