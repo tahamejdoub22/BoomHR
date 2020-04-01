@@ -260,7 +260,7 @@ export class DataDemoComponent implements OnInit {
                 private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Components' },
-            { label: 'Data', routerLink: ['/data'] }
+            { label: 'Data', routerLink: ['/components/data'] }
         ]);
     }
 

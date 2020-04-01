@@ -22,7 +22,7 @@ export class OverlaysDemoComponent implements OnInit {
                 private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Components' },
-            { label: 'Overlays', routerLink: ['/overlays'] }
+            { label: 'Overlays', routerLink: ['/components/overlays'] }
         ]);
     }
 

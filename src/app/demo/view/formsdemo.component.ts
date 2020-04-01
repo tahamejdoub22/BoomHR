@@ -57,7 +57,7 @@ export class FormsDemoComponent implements OnInit {
     constructor(private countryService: CountryService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Components' },
-            { label: 'Forms', routerLink: ['/forms'] }
+            { label: 'Forms', routerLink: ['/components/forms'] }
         ]);
     }
 

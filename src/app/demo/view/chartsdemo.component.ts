@@ -19,7 +19,7 @@ export class ChartsDemoComponent implements OnInit {
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Components' },
-            { label: 'Charts', routerLink: ['/charts'] }
+            { label: 'Charts', routerLink: ['/components/charts'] }
         ]);
     }
 

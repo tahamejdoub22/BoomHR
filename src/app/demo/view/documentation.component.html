@@ -65,9 +65,7 @@ Run 'ng help' for more options.
     &lt;app-rightpanel&gt;&lt;/app-rightpanel&gt;
 
     &lt;div class="layout-sidebar" (click)="onMenuClick($event)"&gt;
-        &lt;p-scrollPanel #layoutMenuScroller [style]="&#123;height: '100%'&#125;"&gt;
-            &lt;app-menu [reset]="resetMenu"&gt;&lt;/app-menu&gt;
-        &lt;/p-scrollPanel&gt;
+        &lt;app-menu&gt;&lt;/app-menu&gt;
     &lt;/div&gt;
 
     &lt;div class="layout-main"&gt;
@@ -100,12 +98,12 @@ import &#123; AppComponent &#125; from './app.component';
 @Component(&#123;
     selector: 'app-menu',
     template: `
-        &lt;ul app-submenu [item]="model" root="true" class="layout-menu" [reset]="reset" visible="true" parentActive="true"&gt;&lt;/ul&gt;
+        &lt;ul class="layout-menu"&gt;
+            &lt;li app-menuitem *ngFor="let item of model; let i = index;" [item]="item" [index]="i" [root]="true"&gt;&lt;/li&gt;
+        &lt;/ul&gt;
     `
 &#125;)
 export class AppMenuComponent implements OnInit &#123;
-
-    @Input() reset: boolean;
 
     model: any[];
 
@@ -496,24 +494,24 @@ export class AppMenuComponent implements OnInit &#123;
                 ]
             &#125;,
             &#123;
-                label: 'Components', icon: 'fa fa-fw fa-bars',
+                label: 'Components', icon: 'fa fa-fw fa-bars', routerLink: ['/components'],
                 items: [
-                    &#123; label: 'Sample Page', icon: 'fa fa-fw fa-columns', routerLink: ['/sample'] &#125;,
-                    &#123; label: 'Forms', icon: 'fa fa-fw fa-code', routerLink: ['/forms'] &#125;,
-                    &#123; label: 'Data', icon: 'fa fa-fw fa-table', routerLink: ['/data'] &#125;,
-                    &#123; label: 'Panels', icon: 'fa fa-fw fa-list-alt', routerLink: ['/panels'] &#125;,
-                    &#123; label: 'Overlays', icon: 'fa fa-fw fa-square', routerLink: ['/overlays'] &#125;,
-                    &#123; label: 'Menus', icon: 'fa fa-fw fa-minus-square-o', routerLink: ['/menus'] &#125;,
-                    &#123; label: 'Messages', icon: 'fa fa-fw fa-circle-o-notch', routerLink: ['/messages'] &#125;,
-                    &#123; label: 'Charts', icon: 'fa fa-fw fa-area-chart', routerLink: ['/charts'] &#125;,
-                    &#123; label: 'File', icon: 'fa fa-fw fa-arrow-circle-o-up', routerLink: ['/file'] &#125;,
-                    &#123; label: 'Misc', icon: 'fa fa-fw fa-user-secret', routerLink: ['/misc'] &#125;
+                    &#123; label: 'Sample Page', icon: 'fa fa-fw fa-columns', routerLink: ['/components/sample'] &#125;,
+                    &#123; label: 'Forms', icon: 'fa fa-fw fa-code', routerLink: ['/components/forms'] &#125;,
+                    &#123; label: 'Data', icon: 'fa fa-fw fa-table', routerLink: ['/components/data'] &#125;,
+                    &#123; label: 'Panels', icon: 'fa fa-fw fa-list-alt', routerLink: ['/components/panels'] &#125;,
+                    &#123; label: 'Overlays', icon: 'fa fa-fw fa-square', routerLink: ['/components/overlays'] &#125;,
+                    &#123; label: 'Menus', icon: 'fa fa-fw fa-minus-square-o', routerLink: ['/components/menus'] &#125;,
+                    &#123; label: 'Messages', icon: 'fa fa-fw fa-circle-o-notch', routerLink: ['/components/messages'] &#125;,
+                    &#123; label: 'Charts', icon: 'fa fa-fw fa-area-chart', routerLink: ['/components/charts'] &#125;,
+                    &#123; label: 'File', icon: 'fa fa-fw fa-arrow-circle-o-up', routerLink: ['/components/file'] &#125;,
+                    &#123; label: 'Misc', icon: 'fa fa-fw fa-user-secret', routerLink: ['/components/misc'] &#125;
                 ]
             &#125;,
             &#123;
-                label: 'Pages', icon: 'fa fa-fw fa-cube',
+                label: 'Pages', icon: 'fa fa-fw fa-cube', routerLink: ['/pages'],
                 items: [
-                    &#123; label: 'Empty Page', icon: 'fa fa-fw fa-square-o', routerLink: ['/empty'] &#125;,
+                    &#123; label: 'Empty Page', icon: 'fa fa-fw fa-square-o', routerLink: ['/pages/empty'] &#125;,
                     &#123; label: 'Landing Page', icon: 'fa fa-fw fa-globe', url: 'assets/pages/landing.html', target: '_blank' &#125;,
                     &#123; label: 'Login Page', icon: 'fa fa-fw fa-sign-in', url: 'assets/pages/login.html', target: '_blank' &#125;,
                     &#123; label: 'Error Page', icon: 'fa fa-fw fa-exclamation-circle', url: 'assets/pages/error.html', target: '_blank' &#125;,
@@ -1307,6 +1305,22 @@ $dataIconHoverColor:$textColor;
 
 //general
 $disabledOpacity:.5;
+
+//carousel
+$carouselNavButtonsBgColor: $buttonBgColor;
+$carouselNavButtonsBorder: $buttonBorder;
+$carouselNavButtonsBorderRadius: 2px;
+$carouselNavButtonsMargin: .2em;
+$carouselNavButtonsColor: $buttonTextColor;
+$carouselNavButtonsHoverBgColor: $buttonHoverBgColor;
+$carouselNavButtonsHoverColor: $buttonHoverTextColor;
+$carouselNavButtonsHoverBorderColor: $buttonHoverBorderColor;
+$carouselNavButtonsTransition: color $transitionDuration;
+$carouselDotIconWidth: 20px;
+$carouselDotIconHeight: 6px;
+$carouselDotIconBgColor: #b2c1cd;
+$carouselDotIconMargin: 0 .2em;
+$carouselActiveDotIconBgColor: $primaryColor;
 </code>
 </pre>
 </div>

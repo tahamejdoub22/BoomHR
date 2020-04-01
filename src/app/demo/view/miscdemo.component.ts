@@ -26,7 +26,7 @@ export class MiscDemoComponent implements OnInit, OnDestroy {
         });
         this.breadcrumbService.setItems([
             { label: 'Components' },
-            { label: 'Misc', routerLink: ['/misc'] }
+            { label: 'Misc', routerLink: ['/components/misc'] }
         ]);
     }
 

@@ -14,7 +14,7 @@ export class FileDemoComponent {
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
             { label: 'Components' },
-            { label: 'File', routerLink: ['/file'] }
+            { label: 'File', routerLink: ['/components/file'] }
         ]);
     }
 

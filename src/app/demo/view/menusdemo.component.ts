@@ -33,7 +33,7 @@ export class MenusDemoComponent implements OnInit {
         this.homeIcon = { icon: 'fa fa-fw fa-home' };
         this.breadcrumbService.setItems([
             { label: 'Components' },
-            { label: 'Menus', routerLink: ['/menus'] }
+            { label: 'Menus', routerLink: ['/components/menus'] }
         ]);
     }
 
