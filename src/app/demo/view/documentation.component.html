@@ -654,7 +654,7 @@ npm install primeicons@latest --save
             <p>Here are the variables required to create a theme.</p>
 <div style="height:400px;overflow: auto;">
 <pre>
-<code class="language-sass" pCode>
+<code class="language-css" pCode>
 //main colors of the theme
 $primaryColor:#1baca9;
 $primaryColorText:#ffffff;
@@ -724,7 +724,7 @@ sass --watch src/:src/ --no-source-map
             <p>Here are the variables required to create a layout.</p>
 <div style="height:400px;overflow: auto;">
 <pre>
-<code class="language-sass" pCode>
+<code class="language-css" pCode>
 /*Topbar*/
 $topbarBgLeftColor:#2d3f47;
 $topbarBgRightColor:#2d3f47;
@@ -805,7 +805,7 @@ $footerIconColor:#ffffff;
 
 <h3>sass/_variables.scss</h3>
 <pre>
-<code class="language-sass" pCode>
+<code class="language-css" pCode>
 $fontFamily:"Open Sans","Helvetica Neue",sans-serif;
 $fontSize:14px;
 $textColor:#333333;
@@ -817,7 +817,7 @@ $transitionDuration:.3s;
 
 <h3>sass/layout/_variables</h3>
 <pre>
-<code class="language-sass" pCode>
+<code class="language-css" pCode>
 @import '../_variables';
 
 $bodyBgColor:#f4f4f4;
@@ -828,7 +828,7 @@ $breakpoint:1024px;
 <h3>sass/theme/_variables</h3>
 <div style="height:400px;overflow: auto;">
 <pre>
-<code class="language-sass" pCode>
+<code class="language-css" pCode>
 @import '../_variables';
 
 //anchor
@@ -1384,13 +1384,13 @@ export class ControlPanelComponent &#123;
             </ul>
 
             <h1>Migration Guide</h1>
-            
+
             <h4>8.0.0 to 9.0.0</h4>
             <p>Angular 9 and PrimeNG 9</p>
             <ul>
                 <li>Update dependencies with <a href="https://angular.io/cli/update">ng update</a>.</li>
                 <li>Update theme.css and layout.css files.</li>
-                <li>Update app.menu.component.ts and app.menu.component.html while retaining your MenuModel.</li>
+                <li>Update app.menu.component.ts while retaining your MenuModel.</li>
                 <li>Include app.menuitem.component.ts under app folder and define it app.module.ts with declarations property.</li>
                 <li>Include app.menu.service.ts under app folder and define it app.module.ts with providers property.</li>
             </ul>
