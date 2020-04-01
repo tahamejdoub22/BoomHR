@@ -6,11 +6,16 @@
     transition: right $transitionDuration;
     overflow: auto;
     z-index: 999;
+    overflow: auto;
     top: 64px;
     height: 100%;
     padding: 0;
     margin: 0;
     @include shadow(0 0 6px 0 rgba(0, 0, 0, 0.16));
+
+    .right-panel-scroll-content {
+        padding-bottom: 150px;
+    }
 
     &.layout-right-panel-active {
         right: 0;
@@ -18,7 +23,6 @@
 
     .ui-tabview.ui-tabview-top {
         padding: 0;
-        padding-right: 18px;
 
         .ui-tabview-nav {
             padding: 0;
@@ -361,19 +365,6 @@
                     }
                 }
             }
-        }
-    }
-
-    .ui-scrollpanel  {
-        border-radius: 0;
-        border: none;
-        .ui-scrollpanel-hidden {
-            display: block;
-            visibility: hidden;
-        }
-        .right-panel-scroll-content{
-            width: 318px;
-            padding-bottom: 120px;
         }
     }
 }

@@ -16,17 +16,17 @@ import { DocumentationComponent } from './demo/view/documentation.component';
 
 export const routes: Routes = [
     { path: '', component: DashboardDemoComponent },
-    { path: 'sample', component: SampleDemoComponent },
-    { path: 'forms', component: FormsDemoComponent },
-    { path: 'data', component: DataDemoComponent },
-    { path: 'panels', component: PanelsDemoComponent },
-    { path: 'overlays', component: OverlaysDemoComponent },
-    { path: 'menus', component: MenusDemoComponent },
-    { path: 'messages', component: MessagesDemoComponent },
-    { path: 'charts', component: ChartsDemoComponent },
-    { path: 'file', component: FileDemoComponent },
-    { path: 'misc', component: MiscDemoComponent },
-    { path: 'empty', component: EmptyDemoComponent },
+    { path: 'components/sample', component: SampleDemoComponent },
+    { path: 'components/forms', component: FormsDemoComponent },
+    { path: 'components/data', component: DataDemoComponent },
+    { path: 'components/panels', component: PanelsDemoComponent },
+    { path: 'components/overlays', component: OverlaysDemoComponent },
+    { path: 'components/menus', component: MenusDemoComponent },
+    { path: 'components/messages', component: MessagesDemoComponent },
+    { path: 'components/charts', component: ChartsDemoComponent },
+    { path: 'components/file', component: FileDemoComponent },
+    { path: 'components/misc', component: MiscDemoComponent },
+    { path: 'pages/empty', component: EmptyDemoComponent },
     { path: 'documentation', component: DocumentationComponent },
 ];
 

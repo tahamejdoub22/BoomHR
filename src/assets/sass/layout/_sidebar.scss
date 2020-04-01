@@ -13,13 +13,15 @@
             list-style-type: none;
             margin: 0;
             padding: 0;
-            width: 242px;
 
             > li {
                 > a {
                     color: $sidebarMenuItemTextColor;
                     font-weight: 600;
                     display: block;
+                    cursor: pointer;
+                    outline: none;
+                    user-select: none;
 
                     span {
                         vertical-align: middle;
@@ -89,6 +91,10 @@
                             font-weight: 600;
                             display: block;
                             padding: 8px;
+                            cursor: pointer;
+                            outline: none;
+                            user-select: none;
+
 
                             i {
                                 color: $sidebarSubmenuItemIconColor;
@@ -150,23 +156,8 @@
             }
         }
 
-        .ui-scrollpanel {
-            background: transparent;
-            border-radius: 0;
-            border: none;
-            .ui-scrollpanel-bar {
-                background-color: #aaaaaa;
-                opacity: 0.3;
-                filter: alpha(opacity=30);
-            }
-            .ui-scrollpanel-hidden {
-                display: block;
-                visibility: hidden;
-            }
-
-            .layout-menu {
-                padding-bottom: 120px;
-            }
+        .layout-menu {
+            padding-bottom: 120px;
         }
     }
 }
@@ -180,6 +171,7 @@
         .layout-sidebar {
             left: -224px;
             top: 128px;
+            overflow: auto;
             @include shadow(0 0 6px 0 rgba(0, 0, 0, 0.16));
             @include transition(left $transitionDuration);
 
@@ -297,6 +289,7 @@
             .layout-sidebar {
                 @include shadow(0 0 6px 0 rgba(0, 0, 0, 0.16));
                 @include transition(left $transitionDuration);
+                overflow: auto;
 
                 .layout-menu {
                     > li {
@@ -421,6 +414,7 @@
                 width: 64px;
                 @include shadow(0 0 6px 0 rgba(0, 0, 0, 0.16));
                 @include transition(width $transitionDuration);
+                overflow: visible;
 
                 .layout-menu {
                     > li {
@@ -565,22 +559,9 @@
                     }
                 }
 
-                .ui-scrollpanel {
-                    .ui-scrollpanel-wrapper {
-                        overflow: visible;
-                        .ui-scrollpanel-content {
-                            overflow: visible;
-                        }
-                    }
-
-                    .ui-scrollpanel-bar {
-                        display: none;
-                    }
-
-                    .layout-menu {
-                        width: 100%;
-                        padding-bottom: 0;
-                    }
+                .layout-menu {
+                    width: 100%;
+                    padding-bottom: 0;
                 }
             }
 
@@ -602,18 +583,8 @@
                 z-index: 99;
                 border-bottom: 1px solid $sidebarDividerColor;
                 position: fixed;
+                overflow: visible;
                 @include shadow(0 0 6px 0 rgba(0, 0, 0, 0.16));
-
-                .ui-scrollpanel {
-                    overflow: visible;
-                    border: none;
-                    .ui-scrollpanel-wrapper {
-                        overflow: visible;
-                        .ui-scrollpanel-content {
-                            overflow: visible;
-                        }
-                    }
-                }
 
                 .layout-menu {
                     margin: 0;

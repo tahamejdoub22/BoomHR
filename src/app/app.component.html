@@ -13,9 +13,7 @@
     <app-rightpanel></app-rightpanel>
 
     <div class="layout-sidebar" (click)="onMenuClick($event)">
-        <p-scrollPanel #layoutMenuScroller [style]="{height: '100%'}">
-            <app-menu [reset]="resetMenu"></app-menu>
-        </p-scrollPanel>
+        <app-menu></app-menu>
     </div>
 
     <div class="layout-main">
