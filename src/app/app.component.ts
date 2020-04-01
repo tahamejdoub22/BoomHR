@@ -173,9 +173,8 @@ export class AppComponent {
         this.replaceLink(layoutLink, layoutHref);
 
         const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
-        const themeHref = 'assets/theme/' + theme + '/theme'+ (style === 'color' ? '' : '-' + style) +'.css';
+        const themeHref = 'assets/theme/' + theme + '/theme' + (style === 'color' ? '' : '-' + style) + '.css';
 
-        console.log(themeHref)
         this.replaceLink(themeLink, themeHref);
     }
 
