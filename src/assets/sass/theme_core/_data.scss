@@ -744,73 +744,50 @@ body {
     }
 
     .ui-carousel {
-        padding: 0;
+        .ui-carousel-content {
+            .ui-carousel-prev,
+            .ui-carousel-next {
+                background-color: $carouselNavButtonsBgColor;
+                border: $carouselNavButtonsBorder;
+                @include border-radius($carouselNavButtonsBorderRadius);
+                margin: $carouselNavButtonsMargin;
+                color: $carouselNavButtonsColor;
+                width: auto;
+                min-width: 2.5em;
+                @include transition($carouselNavButtonsTransition);
 
-        .ui-carousel-header {
-            background-color: $panelHeaderBgColor;
-            color: $panelHeaderTextColor;
-            padding: $panelHeaderPadding;
-            border: $panelHeaderBorder;
-            margin: 0;
-            font-weight: $panelHeaderFontWeight;
-
-            .ui-carousel-header-title {
-                padding: 0;
-            }
-        }
-
-        .ui-carousel-viewport {
-            border: $panelContentBorder;
-            background-color: $panelContentBgColor;
-            color: $panelContentTextColor;
-            padding: 0;
-
-            .ui-carousel-items {
-                .ui-carousel-item {
-                    border: $panelContentBorder;
+                &:not(.ui-state-disabled) {
+                    &:hover {
+                        background-color: $carouselNavButtonsHoverBgColor;
+                        color: $carouselNavButtonsHoverColor;
+                        border-color: $carouselNavButtonsHoverBorderColor;
+                    }
                 }
             }
         }
 
-        .ui-carousel-footer {
-            background-color: $panelHeaderBgColor;
-            color: $panelHeaderTextColor;
-            padding: $panelHeaderPadding;
-            border: $panelHeaderBorder;
-            margin: 0;
-        }
-
-        .ui-carousel-button {
-            margin: .125em $inlineSpacing;
-            color: $panelHeaderIconColor;
-            font-size: $fontSize + 2;
-            @include transition(color $transitionDuration);
-
-            &:not(.ui-state-disabled):hover {
-                color: $panelHeaderIconHoverColor;
-            }
-        }
-
-        .ui-carousel-page-links {
-            margin: .125em $inlineSpacing;
-
-            .ui-carousel-page-link {
-                color: $panelHeaderIconColor;
-                font-size: $fontSize + 2;
-                @include transition(color $transitionDuration);
-
-                &:hover {
-                    color: $panelHeaderIconHoverColor;
+        .ui-carousel-dots-container {
+            .ui-carousel-dot-item {
+                > .ui-button {
+                    border-color: transparent;
+                    background-color: transparent;
                 }
 
-                &.pi-circle-off {
-                    color: $panelHeaderIconColor;
-                    font-size: $fontSize + 2;
+                .ui-carousel-dot-icon {
+                    width: $carouselDotIconWidth;
+                    height: $carouselDotIconHeight;
+                    background-color: $carouselDotIconBgColor;
+                    margin: $carouselDotIconMargin;
+
+                    &::before {
+                        content: ' ';
+                    }
                 }
 
-                &.pi-circle-on {
-                    color: $panelHeaderIconColor;
-                    font-size: $fontSize + 2;
+                &.ui-state-highlight {
+                    .ui-carousel-dot-icon {
+                        background-color: $carouselActiveDotIconBgColor;
+                    }
                 }
             }
         }

@@ -902,6 +902,11 @@ body {
                     a {
                         background-color: $calendarCellDateTodayBgColor;
                         color: $calendarCellDateTodayTextColor;
+                        
+                        &.ui-state-active {
+                            color: $calendarCellDateSelectedTextColor;
+                            background-color: $calendarCellDateSelectedBgColor;
+                        }
                     }
                 }
             }
