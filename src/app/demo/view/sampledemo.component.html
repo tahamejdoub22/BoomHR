@@ -342,31 +342,5 @@
                 <p-panelMenu [model]="panelMenuItems"></p-panelMenu>
             </div>
         </div>
-
-        <div class="ui-g-12">
-            <div class="card card-w-title">
-                <h1>Carousel</h1>
-                <p-carousel headerText="Cars" [value]="carouselCars">
-                    <ng-template let-car pTemplate="item">
-                        <div class="ui-g" style="text-align:center">
-                            <div class="ui-g-12" style="text-align:Center">
-                                <img src="assets/demo/images/car/{{car.brand}}.png" />
-                            </div>
-                            <div class="ui-g-6">Vin: </div>
-                            <div class="ui-g-6" style="font-weight:bold">{{car.vin}}</div>
-
-                            <div class="ui-g-6">Year: </div>
-                            <div class="ui-g-6" style="font-weight:bold">{{car.year}}</div>
-
-                            <div class="ui-g-6">Brand: </div>
-                            <div class="ui-g-6" style="font-weight:bold">{{car.brand}}</div>
-
-                            <div class="ui-g-6">Color: </div>
-                            <div class="ui-g-6" style="font-weight:bold">{{car.color}}</div>
-                        </div>
-                    </ng-template>
-                </p-carousel>
-            </div>
-        </div>
     </div>
 </div>
