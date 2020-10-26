@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from './app.component';
+import { AppMainComponent } from './app.main.component';
 
 @Component({
     selector: 'app-menu',
@@ -13,467 +13,108 @@ export class AppMenuComponent implements OnInit {
 
     model: any[];
 
-    constructor(public app: AppComponent) { }
+    constructor(public app: AppMainComponent) { }
 
     ngOnInit() {
         this.model = [
-            { label: 'Dashboard', icon: 'fa fa-fw fa-dashboard', routerLink: ['/'] },
+            {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/']},
             {
-                label: 'Layouts', icon: 'fa fa-fw fa-cog',
+                label: 'UI Kit', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'],
                 items: [
-                    { label: 'Horizontal', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'horizontal' },
-                    { label: 'Overlay', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'overlay' },
-                    { label: 'Static', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'static' },
-                    { label: 'Slim', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'slim' }
+                    {label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
+                    {label: 'Input', icon: 'pi pi-fw pi-check-square', routerLink: ['/uikit/input']},
+                    {label: 'Float Label', icon: 'pi pi-fw pi-bookmark', routerLink: ['/uikit/floatlabel']},
+                    {label: 'Button', icon: 'pi pi-fw pi-mobile', routerLink: ['/uikit/button'], class: 'rotated-icon'},
+                    {label: 'Table', icon: 'pi pi-fw pi-table', routerLink: ['/uikit/table']},
+                    {label: 'List', icon: 'pi pi-fw pi-list', routerLink: ['/uikit/list']},
+                    {label: 'Tree', icon: 'pi pi-fw pi-share-alt', routerLink: ['/uikit/tree']},
+                    {label: 'Panel', icon: 'pi pi-fw pi-tablet', routerLink: ['/uikit/panel']},
+                    {label: 'Overlay', icon: 'pi pi-fw pi-clone', routerLink: ['/uikit/overlay']},
+                    {label: 'Media', icon: 'pi pi-fw pi-image', routerLink: ['/uikit/media']},
+                    {label: 'Menu', icon: 'pi pi-fw pi-bars', routerLink: ['/uikit/menu']},
+                    {label: 'Message', icon: 'pi pi-fw pi-comment', routerLink: ['/uikit/message']},
+                    {label: 'File', icon: 'pi pi-fw pi-file', routerLink: ['/uikit/file']},
+                    {label: 'Chart', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/uikit/charts']},
+                    {label: 'Misc', icon: 'pi pi-fw pi-circle-off', routerLink: ['/uikit/misc']}
                 ]
             },
             {
-                label: 'Themes', icon: 'fa fa-fw fa-paint-brush',
+                label: 'Utilities', icon: 'pi pi-fw pi-compass', routerLink: ['utilities'],
                 items: [
-                    {
-                        label: 'Flat', icon: 'fa fa-fw fa-paint-brush',
-                        items: [
-                            {
-                                label: 'Absolution', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('absolution', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('absolution', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                    command: (event) => this.app.changeTheme('absolution', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Rebirth', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('rebirth', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('rebirth', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('rebirth', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Hope', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('hope', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('hope', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('hope', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Bliss', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('bliss', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('bliss', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('bliss', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Grace', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('grace', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('grace', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('grace', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Dusk', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('dusk', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('dusk', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('dusk', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Navy', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('navy', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('navy', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('navy', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Infinity', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('infinity', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('infinity', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('infinity', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Fate', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('fate', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('fate', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('fate', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Ruby', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('ruby', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('ruby', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('ruby', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Comfort', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('comfort', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('comfort', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('comfort', 'dark') }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        label: 'Gradient', icon: 'fa fa-fw fa-paint-brush',
-                        items: [
-                            {
-                                label: 'Faith', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('faith', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('faith', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('faith', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Violet', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('violet', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('violet', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('violet', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Honor', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('honor', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('honor', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('honor', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Rebel', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('rebel', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('rebel', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('rebel', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Vanity', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('vanity', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('vanity', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('vanity', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Valor', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('valor', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('valor', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('valor', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Merit', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('merit', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('merit', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('merit', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Esprit', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('esprit', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('esprit', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('esprit', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Concord', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('concord', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('concord', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('concord', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Dulce', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('dulce', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('dulce', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('dulce', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Royal', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('royal', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('royal', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('royal', 'dark') }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        label: 'Image', icon: 'fa fa-fw fa-paint-brush',
-                        items: [
-                            {
-                                label: 'Hazel', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('hazel', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('hazel', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('hazel', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Essence', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('essence', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('essence', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('essence', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Eternity', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('eternity', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('eternity', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('eternity', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Clarity', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('clarity', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('clarity', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('clarity', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Solace', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('solace', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('solace', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('solace', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Joy', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('joy', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('joy', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('joy', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Purity', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('purity', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('purity', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('purity', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Euclid', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('euclid', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('euclid', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('euclid', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Elegance', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('elegance', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('elegance', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('elegance', 'dark') }
-                                ]
-                            },
-                            {
-                                label: 'Tranquil', icon: 'fa fa-fw fa-paint-brush',
-                                items: [
-                                    { label: 'Colored', icon: 'fa fa-fw fa-square-o',
-                                        command: (event) =>  this.app.changeTheme('tranquil', 'color') },
-                                    { label: 'Light', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('tranquil', 'light') },
-                                    { label: 'Dark', icon: 'fa fa-fw fa-square',
-                                        command: (event) => this.app.changeTheme('tranquil', 'dark') }
-                                ]
-                            }
-                        ]
-                    },
+                    {label: 'Display', icon: 'pi pi-fw pi-desktop', routerLink: ['utilities/display']},
+                    {label: 'Elevation', icon: 'pi pi-fw pi-external-link', routerLink: ['utilities/elevation']},
+                    {label: 'FlexBox', icon: 'pi pi-fw pi-directions', routerLink: ['utilities/flexbox']},
+                    {label: 'Icons', icon: 'pi pi-fw pi-search', routerLink: ['utilities/icons']},
+                    {label: 'Text', icon: 'pi pi-fw pi-pencil', routerLink: ['utilities/text']},
+                    {label: 'Widgets', icon: 'pi pi-fw pi-star-o', routerLink: ['utilities/widgets']},
+                    {label: 'Grid System', icon: 'pi pi-fw pi-th-large', routerLink: ['utilities/grid']},
+                    {label: 'Spacing', icon: 'pi pi-fw pi-arrow-right', routerLink: ['utilities/spacing']},
+                    {label: 'Typography', icon: 'pi pi-fw pi-align-center', routerLink: ['utilities/typography']}
                 ]
             },
             {
-                label: 'Components', icon: 'fa fa-fw fa-bars', routerLink: ['/components'],
+                label: 'Pages', icon: 'pi pi-fw pi-briefcase', routerLink: ['/pages'],
                 items: [
-                    { label: 'Sample Page', icon: 'fa fa-fw fa-columns', routerLink: ['/components/sample'] },
-                    { label: 'Forms', icon: 'fa fa-fw fa-code', routerLink: ['/components/forms'] },
-                    { label: 'Data', icon: 'fa fa-fw fa-table', routerLink: ['/components/data'] },
-                    { label: 'Panels', icon: 'fa fa-fw fa-list-alt', routerLink: ['/components/panels'] },
-                    { label: 'Overlays', icon: 'fa fa-fw fa-square', routerLink: ['/components/overlays'] },
-                    { label: 'Menus', icon: 'fa fa-fw fa-minus-square-o', routerLink: ['/components/menus'] },
-                    { label: 'Messages', icon: 'fa fa-fw fa-circle-o-notch', routerLink: ['/components/messages'] },
-                    { label: 'Charts', icon: 'fa fa-fw fa-area-chart', routerLink: ['/components/charts'] },
-                    { label: 'File', icon: 'fa fa-fw fa-arrow-circle-o-up', routerLink: ['/components/file'] },
-                    { label: 'Misc', icon: 'fa fa-fw fa-user-secret', routerLink: ['/components/misc'] }
+                    {label: 'Crud', icon: 'pi pi-fw pi-pencil', routerLink: ['/pages/crud']},
+                    {label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', routerLink: ['/pages/calendar']},
+                    {label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'},
+                    {label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['/login']},
+                    {label: 'Invoice', icon: 'pi pi-fw pi-dollar', routerLink: ['/pages/invoice']},
+                    {label: 'Help', icon: 'pi pi-fw pi-question-circle', routerLink: ['/pages/help']},
+                    {label: 'Error', icon: 'pi pi-fw pi-times-circle', routerLink: ['/error']},
+                    {label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', routerLink: ['/notfound']},
+                    {label: 'Access Denied', icon: 'pi pi-fw pi-lock', routerLink: ['/access']},
+                    {label: 'Empty', icon: 'pi pi-fw pi-circle-off', routerLink: ['/pages/empty']}
                 ]
             },
             {
-                label: 'Pages', icon: 'fa fa-fw fa-cube', routerLink: ['/pages'],
-                items: [
-                    { label: 'Empty Page', icon: 'fa fa-fw fa-square-o', routerLink: ['/pages/empty'] },
-                    { label: 'Landing Page', icon: 'fa fa-fw fa-globe', url: 'assets/pages/landing.html', target: '_blank' },
-                    { label: 'Login Page', icon: 'fa fa-fw fa-sign-in', url: 'assets/pages/login.html', target: '_blank' },
-                    { label: 'Error Page', icon: 'fa fa-fw fa-exclamation-circle', url: 'assets/pages/error.html', target: '_blank' },
-                    { label: '404 Page', icon: 'fa fa-fw fa-times', url: 'assets/pages/404.html', target: '_blank' },
-                    {
-                        label: 'Access Denied Page', icon: 'fa fa-fw fa-exclamation-triangle',
-                        url: 'assets/pages/access.html', target: '_blank'
-                    }
-                ]
-            },
-            {
-                label: 'Hierarchy', icon: 'fa fa-fw fa-sitemap',
+                label: 'Hierarchy', icon: 'pi pi-fw pi-align-left',
                 items: [
                     {
-                        label: 'Submenu 1', icon: 'fa fa-fw fa-sign-in',
+                        label: 'Submenu 1', icon: 'pi pi-fw pi-align-left',
                         items: [
                             {
-                                label: 'Submenu 1.1', icon: 'fa fa-fw fa-sign-in',
+                                label: 'Submenu 1.1', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    { label: 'Submenu 1.1.1', icon: 'fa fa-fw fa-sign-in' },
-                                    { label: 'Submenu 1.1.2', icon: 'fa fa-fw fa-sign-in' },
-                                    { label: 'Submenu 1.1.3', icon: 'fa fa-fw fa-sign-in' },
+                                    {label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-align-left'},
+                                    {label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-align-left'},
+                                    {label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-align-left'},
                                 ]
                             },
                             {
-                                label: 'Submenu 1.2', icon: 'fa fa-fw fa-sign-in',
+                                label: 'Submenu 1.2', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    { label: 'Submenu 1.2.1', icon: 'fa fa-fw fa-sign-in' },
-                                    { label: 'Submenu 1.2.2', icon: 'fa fa-fw fa-sign-in' }
+                                    {label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-align-left'}
                                 ]
                             },
                         ]
                     },
                     {
-                        label: 'Submenu 2', icon: 'fa fa-fw fa-sign-in',
+                        label: 'Submenu 2', icon: 'pi pi-fw pi-align-left',
                         items: [
                             {
-                                label: 'Submenu 2.1', icon: 'fa fa-fw fa-sign-in',
+                                label: 'Submenu 2.1', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    { label: 'Submenu 2.1.1', icon: 'fa fa-fw fa-sign-in' },
-                                    { label: 'Submenu 2.1.2', icon: 'fa fa-fw fa-sign-in' },
-                                    { label: 'Submenu 2.1.3', icon: 'fa fa-fw fa-sign-in' },
+                                    {label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-align-left'},
+                                    {label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-align-left'},
                                 ]
                             },
                             {
-                                label: 'Submenu 2.2', icon: 'fa fa-fw fa-sign-in',
+                                label: 'Submenu 2.2', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    { label: 'Submenu 2.2.1', icon: 'fa fa-fw fa-sign-in' },
-                                    { label: 'Submenu 2.2.2', icon: 'fa fa-fw fa-sign-in' }
+                                    {label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-align-left'},
                                 ]
                             },
                         ]
                     }
                 ]
             },
-            { label: 'Documentation', icon: 'fa fa-fw fa-file-code-o', routerLink: ['/documentation'] }
+            {
+                label: 'Buy Now', icon: 'pi pi-fw pi-shopping-cart', url: ['https://www.primefaces.org/store']
+            },
+            {
+                label: 'Documentation', icon: 'pi pi-fw pi-info-circle', routerLink: ['/documentation']
+            }
         ];
     }
 }

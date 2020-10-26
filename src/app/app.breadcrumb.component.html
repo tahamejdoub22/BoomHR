@@ -2,14 +2,14 @@
     <div class="route-bar-breadcrumb">
         <li>
             <a routerLink="">
-                <i class="fa fa-home"></i>
+                <i class="pi pi-home"></i>
             </a>
         </li>
-        <li>/</li>
+        <li>&nbsp;/&nbsp;</li>
         <ng-template ngFor let-item let-last="last" [ngForOf]="items">
             <li>
-                <a [routerLink]="item.routerLink" *ngIf="item.routerLink">{{item.label}}</a>
-                <ng-container *ngIf="!item.routerLink">{{item.label}}</ng-container>
+                <a [routerLink]="item.routerLink" *ngIf="item.routerLink"> {{item.label}} </a>
+                <ng-container *ngIf="!item.routerLink"> {{item.label}} </ng-container>
             </li>
             <li *ngIf="!last">/</li>
         </ng-template>
@@ -18,31 +18,31 @@
     <ul class="route-bar-menu">
         <li>
             <a href="#">
-                <i class="fa fa-asterisk"></i>
+                <i class="pi pi-eye"></i>
                 <span>Overview</span>
             </a>
         </li>
         <li>
             <a href="#">
-                <i class="fa fa-paper-plane"></i>
+                <i class="pi pi-briefcase"></i>
                 <span>Demos</span>
             </a>
         </li>
         <li>
             <a href="#">
-                <i class="fa fa-file-code-o"></i>
+                <i class="pi pi-file"></i>
                 <span>Documentation</span>
             </a>
         </li>
         <li>
             <a href="#">
-                <i class="fa fa-life-saver"></i>
+                <i class="pi pi-envelope"></i>
                 <span>Support</span>
             </a>
         </li>
         <li>
             <a href="#">
-                <i class="fa fa-user"></i>
+                <i class="pi pi-user"></i>
                 <span>Profile</span>
             </a>
         </li>

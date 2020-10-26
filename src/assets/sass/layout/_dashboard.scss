@@ -18,13 +18,13 @@
     }
 
     .intro-calendar {
-        .ui-calendar {
+        .p-calendar {
             float: right;
         }
     }
 
     .knobs {
-        .ui-panel-content {
+        .p-panel-content {
             text-align: center;
             padding: 42px 0;
             min-height: 297px;
@@ -136,7 +136,7 @@
     .weekly-progress {
         padding: 0;
 
-        .ui-panel-content {
+        .p-panel-content {
             padding: 8px 14px;
         }
 
@@ -294,7 +294,7 @@
 
     .tasks {
 
-        .ui-panel-content {
+        .p-panel-content {
             min-height: 298px;
         }
 
@@ -312,7 +312,7 @@
                     border-bottom: 0 none;
                 }
 
-                .ui-chkbox {
+                .p-checkbox {
                     vertical-align: middle;
                     margin-right: 6px;
                 }
@@ -340,23 +340,23 @@
     .resolution-center {
         padding-bottom: 1px;
 
-        .ui-panel-content {
+        .p-panel-content {
             min-height: 298px;
         }
 
-        .ui-inputtext {
+        .p-inputtext {
             display: block;
             width: 100%;
             margin-top: 5px;
         }
 
-        .ui-outputlabel {
+        .p-outputlabel {
             vertical-align: middle;
         }
     }
 
     .my-contacts {
-        .ui-panel-content {
+        .p-panel-content {
             min-height: 298px;
         }
 
@@ -478,7 +478,7 @@
     }
 
     .global-sales {
-        .ui-panel-content {
+        .p-panel-content {
             padding: 0;
         }
 
@@ -509,7 +509,7 @@
                 border-color: transparent;
                 padding: 8px 16px;
 
-                .ui-button {
+                .p-button {
 
                     border-radius: 50%;
                     width: 32px;
@@ -519,11 +519,6 @@
                         font-size: 13px;
                         text-align: center;
                         color: #ffffff;
-
-                        &.ui-icon {
-                            vertical-align: middle;
-                            margin-top: -7px !important;
-                        }
                     }
                 }
             }
@@ -555,13 +550,13 @@
                 vertical-align: middle;
             }
 
-            .fa-angle-up {
+            .pi-angle-up {
                 color: #00b395;
                 font-size: 28px;
                 padding-right: 10px;
             }
 
-            .fa-angle-down {
+            .pi-angle-down {
                 color: #e81123;
                 font-size: 28px;
                 padding-right: 10px;
@@ -585,7 +580,7 @@
 
     .live-map {
 
-        .ui-panel-content {
+        .p-panel-content {
             padding: 24px;
             height: 405px;
             width: 100%;
@@ -643,7 +638,7 @@
     }
 
     .chat {
-        .ui-panel-content {
+        .p-panel-content {
             padding: 0;
             padding-top: 18px;
         }
@@ -733,7 +728,7 @@
                 vertical-align: middle;
             }
 
-            .ui-inputtext {
+            .p-inputtext {
                 font-size: 14px;
                 vertical-align: middle;
                 color: #666666;
@@ -743,6 +738,7 @@
             button {
                 border-radius: 50%;
                 border-color: #c8c8c8;
+                padding: 0;
                 width: 32px;
                 height: 32px;
                 margin: 0 0 0 10px;
@@ -761,11 +757,11 @@
     }
 
     .profile {
-        .ui-panel-titlebar {
+        .p-panel-titlebar {
             display: none;
         }
 
-        .ui-panel-content {
+        .p-panel-content {
             padding: 0;
             border: 0 none;
 
@@ -858,18 +854,18 @@
     }
 
     .inventory {
-        .ui-panel-titlebar {
+        .p-panel-titlebar {
             display: none;
         }
 
-        .ui-panel-content {
+        .p-panel-content {
             padding: 0;
             border: 0 none;
         }
     }
 
     .latest-activities {
-        .ui-panel-content {
+        .p-panel-content {
             padding: 0;
         }
 
@@ -981,19 +977,43 @@
             }
         }
     }
+
+    .product-badge {
+        border-radius: 2px;
+        padding: .25em .5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: .3px;
+
+        &.status-instock {
+            background: #00b395;
+            color: #005f4f;
+        }
+
+        &.status-outofstock {
+            background: #e4018d;
+            color: #64003e;
+        }
+
+        &.status-lowstock {
+            background: #ffba01;
+            color: #654900;
+        }
+    }
 }
 
 @media screen and (max-width: 40.063em) {
     .layout-dashboard {
         .intro-calendar {
-            .ui-calendar {
+            .p-calendar {
                 input {
                     width: 120px;
                 }
             }
         }
         .knobs {
-            .ui-panel-content {
+            .p-panel-content {
                 text-align: center;
                 padding: 42px 0;
 

@@ -8,7 +8,11 @@
             "sourceRoot": "src",
             "projectType": "application",
             "prefix": "app",
-            "schematics": {},
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
             "architect": {
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
@@ -25,21 +29,13 @@
                             "src/favicon.ico"
                         ],
                         "styles": [
-                            "node_modules/primeng/resources/primeng.min.css",
-                            "node_modules/@fullcalendar/core/main.min.css",
-                            "node_modules/@fullcalendar/daygrid/main.min.css",
-                            "node_modules/@fullcalendar/timegrid/main.min.css",
-                            "node_modules/quill/dist/quill.snow.css",
-                            "node_modules/font-awesome/css/font-awesome.min.css",
-                            "src/assets/demo/css/codehighlight.css",
-                            "node_modules/primeicons/primeicons.css",
                             "src/styles.scss"
                         ],
                         "scripts": [
-                            "node_modules/chart.js/dist/Chart.js",
                             "node_modules/prismjs/prism.js",
-                            "node_modules/quill/dist/quill.js"
-                        ]
+                            "node_modules/prismjs/components/prism-typescript.js"
+                        ],
+                        "allowedCommonJsDependencies": ["@fullcalendar/daygrid","@fullcalendar/timegrid","@fullcalendar/interaction","chart.js"]
                     },
                     "configurations": {
                         "production": {
@@ -92,21 +88,10 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.spec.json",
                         "karmaConfig": "karma.conf.js",
-                        "scripts": [
-                            "node_modules/chart.js/dist/Chart.js",
-                            "node_modules/prismjs/prism.js",
-                            "node_modules/quill/dist/quill.js"
-                        ],
                         "styles": [
-                            "node_modules/primeng/resources/primeng.min.css",
-                            "node_modules/@fullcalendar/core/main.min.css",
-                            "node_modules/@fullcalendar/daygrid/main.min.css",
-                            "node_modules/@fullcalendar/timegrid/main.min.css",
-                            "node_modules/quill/dist/quill.snow.css",
-                            "node_modules/font-awesome/css/font-awesome.min.css",
-                            "src/assets/demo/css/codehighlight.css",
                             "src/styles.scss"
                         ],
+                        "scripts": [],
                         "assets": [
                             "src/assets",
                             "src/upload.php",

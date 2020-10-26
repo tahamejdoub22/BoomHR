@@ -21,10 +21,10 @@
         right: 0;
     }
 
-    .ui-tabview.ui-tabview-top {
+    .p-tabview.p-tabview-top {
         padding: 0;
 
-        .ui-tabview-nav {
+        .p-tabview-nav {
             padding: 0;
             border: 0 none;
 
@@ -48,12 +48,12 @@
             }
         }
 
-        .ui-tabview-panels {
+        .p-tabview-panels {
             padding: 0;
             margin: 0;
             border: 0 none;
 
-            .ui-tabview-panel {
+            .p-tabview-panel {
                 padding: 0;
                 margin: 0;
             }
@@ -61,8 +61,6 @@
     }
 
     .submenu-content {
-        padding: 8px 14px;
-
         &.messages {
             ul {
                 padding: 0;
@@ -330,6 +328,7 @@
                         font-weight: 600;
                         border: 0 none;
                         margin-right: 12px;
+                        padding: .5em;
 
                         span{
                             color: #ffffff;

@@ -4,7 +4,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {MenuService} from './app.menu.service';
-import {AppComponent} from './app.component';
+import {AppMainComponent} from './app.main.component';
 
 @Component({
     /* tslint:disable:component-selector */
@@ -14,18 +14,18 @@ import {AppComponent} from './app.component';
 		<ng-container>
 			<a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="!item.routerLink || item.items"
 			   (mouseenter)="onMouseEnter()" (keydown.enter)="itemClick($event)"
-			   [attr.target]="item.target" [attr.tabindex]="0">
-               <i [ngClass]="item.icon"></i>
+			   [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
+                <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
                <span>{{item.label}}</span>
-               <i class="fa fa-fw fa-angle-down layout-menuitem-toggler" *ngIf="item.items"></i>
+               <i class="pi pi-fw pi-angle-down layout-menuitem-toggler" *ngIf="item.items"></i>
                <span class="menuitem-badge" *ngIf="item.badge">{{item.badge}}</span>
 			</a>
 			<a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="item.routerLink && !item.items"
 			   [routerLink]="item.routerLink" routerLinkActive="active-menuitem-routerlink"
-			   [routerLinkActiveOptions]="{exact: true}" [attr.target]="item.target" [attr.tabindex]="0">
-               <i [ngClass]="item.icon"></i>
+			   [routerLinkActiveOptions]="{exact: true}" [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
+                <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
                <span>{{item.label}}</span>
-               <i class="fa fa-fw fa-angle-down layout-menuitem-toggler" *ngIf="item.items"></i>
+               <i class="pi pi-fw pi-angle-down layout-menuitem-toggler" *ngIf="item.items"></i>
                <span class="menuitem-badge" *ngIf="item.badge">{{item.badge}}</span>
 			</a>
 			<ul *ngIf="item.items && active"
@@ -84,7 +84,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     key: string;
 
-    constructor(public app: AppComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
+    constructor(public app: AppMainComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
             // deactivate current active menu
             if (this.active && this.key !== key && key.indexOf(this.key) !== 0) {

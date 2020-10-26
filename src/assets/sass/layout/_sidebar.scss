@@ -1,5 +1,4 @@
 .layout-wrapper {
-
     .layout-sidebar {
         position: fixed;
         width: 224px;
@@ -23,13 +22,9 @@
                     outline: none;
                     user-select: none;
 
-                    span {
-                        vertical-align: middle;
-                    }
-
                     i {
                         color: $sidebarMenuItemIconColor;
-                        vertical-align: middle;
+                        vertical-align: bottom;
                     }
 
                     .layout-menuitem-toggler {
@@ -97,10 +92,17 @@
 
 
                             i {
+                                vertical-align: bottom;
                                 color: $sidebarSubmenuItemIconColor;
 
                                 &.layout-menuitem-toggler {
                                     float: right;
+                                }
+                            }
+
+                            &.rotated-icon {
+                                .layout-menuitem-icon {
+                                    transform: rotate(90deg);
                                 }
                             }
 
@@ -299,7 +301,7 @@
                             padding: 12px 30px 12px 12px;
 
                             i {
-                                font-size: 20px;
+                                font-size: 18px;
 
                                 &:first-child {
                                     margin-right: 8px;
@@ -618,6 +620,10 @@
                                     margin-right: 0;
                                 }
                             }
+
+                            span {
+                                vertical-align: bottom;
+                            }
                         }
 
                         > ul {
@@ -638,7 +644,6 @@
                                         margin-right: 8px;
                                         float: none;
                                         position: static;
-                                        vertical-align: middle;
                                         margin-top: 0;
                                         top: auto;
                                         right: auto;

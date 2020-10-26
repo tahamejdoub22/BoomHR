@@ -1,5 +1,9 @@
 .layout-wrapper {
     .layout-main {
+        @include flex();
+        @include flex-direction-column();
+        @include flex-justify-between();
+        min-height: 100vh;
         padding-top: 64px;
 
         .route-bar {
@@ -10,7 +14,11 @@
             .route-bar-breadcrumb {
                 display: inline-block;
                 padding: 14px;
-                
+
+                a {
+                    color: #333333;
+                }
+
                 i {
                     font-size: 16px;
                 	color: #a6a6a6;
@@ -49,6 +57,7 @@
                             font-size: 16px;
                             color: #333333;
                             margin-right: 6px;
+                            vertical-align: bottom;
                         }
 
                         &:hover {
@@ -61,7 +70,8 @@
         }
 
         .layout-content {
-            padding: 16px;
+            flex: 1 1 0;
+            padding: 25px;
             background-color: #f4f4f4;
         }
     }
@@ -71,13 +81,13 @@
     .layout-wrapper {
         .layout-main {
             padding-top: 128px;
-               
-            .route-bar {    
-                .route-bar-menu {    
-                    li {    
+
+            .route-bar {
+                .route-bar-menu {
+                    li {
                         a {
                             padding: 14px 11px;
-                            
+
                             i {
                                 margin-right: 0px;
                             }

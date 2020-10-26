@@ -13,17 +13,17 @@ import {Component} from '@angular/core';
               <ul>
                   <li>
                       <a>
-                          <i class="fa fa-twitter"></i>
+                          <i class="pi pi-twitter"></i>
                       </a>
                   </li>
                   <li>
                       <a>
-                          <i class="fa fa-facebook"></i>
+                          <i class="pi pi-facebook"></i>
                       </a>
                   </li>
                   <li>
                       <a>
-                          <i class="fa fa-github"></i>
+                          <i class="pi pi-github"></i>
                       </a>
                   </li>
               </ul>

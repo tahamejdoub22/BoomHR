@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BreadcrumbService } from '../../breadcrumb.service';
+import { BreadcrumbService } from '../../app.breadcrumb.service';
 
 @Component({
     templateUrl: './documentation.component.html',

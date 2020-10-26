@@ -6,7 +6,7 @@ import { AppTopBarComponent } from './app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppRightPanelComponent } from './app.rightpanel.component';
 import { AppBreadcrumbComponent } from './app.breadcrumb.component';
-import { BreadcrumbService } from './breadcrumb.service';
+import { BreadcrumbService } from './app.breadcrumb.service';
 import { TabViewModule } from 'primeng/tabview';
 import { MenuService } from './app.menu.service';
 

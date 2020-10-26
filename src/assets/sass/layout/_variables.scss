@@ -1,4 +1,9 @@
-@import '../_variables';
+$fontFamily:"Open Sans","Helvetica Neue",sans-serif;
+$fontSize:14px;
+$textColor:#333333;
+$textSecondaryColor:lighten($textColor,25%);
+$borderRadius:0px;
+$transitionDuration:.3s;
 
 $bodyBgColor:#f4f4f4;
 $breakpoint:1024px;
