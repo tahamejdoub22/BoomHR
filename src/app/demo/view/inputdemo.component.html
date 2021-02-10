@@ -11,7 +11,7 @@
 					<input type="text" pInputText placeholder="Disabled" [disabled]="true"/>
 				</div>
 				<div class="p-col-12 p-mb-2 p-lg-4 p-mb-lg-0">
-					<input type="text" pInputText placeholder="Invalid" class="p-invalid"/>
+					<input type="text" pInputText placeholder="Invalid" class="ng-dirty ng-invalid "/>
 				</div>
 			</div>
 
@@ -62,17 +62,26 @@
 			<p-chips></p-chips>
 		</div>
 
-
 		<div class="card">
-			<h5>Slider</h5>
-			<input type="text" pInputText [(ngModel)]="valSlider" readonly/>
-			<p-slider [(ngModel)]="valSlider"></p-slider>
-
-			<h5>Rating</h5>
-			<p-rating></p-rating>
-
-			<h5>ColorPicker</h5>
-			<p-colorPicker [(ngModel)]="valColor"></p-colorPicker>
+			<div class="p-grid">
+				<div class="p-col-12">
+					<h5>Slider</h5>
+					<input type="text" pInputText [(ngModel)]="valSlider" readonly/>
+					<p-slider [(ngModel)]="valSlider"></p-slider>
+				</div>
+				<div class="p-col-12 p-md-6">
+					<h5>Rating</h5>
+					<p-rating></p-rating>
+				</div>
+				<div class="p-col-12 p-md-6">
+					<h5>ColorPicker</h5>
+					<p-colorPicker [(ngModel)]="valColor"></p-colorPicker>
+				</div>
+				<div class="p-col-12">
+					<h5>Knob</h5>
+					<p-knob [(ngModel)]="valueKnob" valueTemplate="{value}%" [step]="10" [min]="-50" [max]="50"></p-knob>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -127,13 +136,12 @@
 			<p-inputSwitch [(ngModel)]="valSwitch"></p-inputSwitch>
 		</div>
 
-		<div class="card">
+		<div class="card p-fluid">
 			<h5>Listbox</h5>
 			<p-listbox [options]="cities" [(ngModel)]="selectedList" [filter]="true"></p-listbox>
 
 			<h5>Dropdown</h5>
 			<p-dropdown [options]="cities" [(ngModel)]="selectedDrop" placeholder="Select a City" [showClear]="true"></p-dropdown>
-
 
 			<h5>Multiselect</h5>
 			<p-multiSelect [options]="countries" [(ngModel)]="selectedMulti" defaultLabel="Select a Country" optionLabel="name" class="multiselect-custom">
@@ -148,12 +156,11 @@
 				</ng-template>
 				<ng-template let-country pTemplate="item">
 					<div class="country-item">
-						<img src="assets/demo/flags/flag_placeholder.png" [class]="'flag flag-' + country.value.code.toLowerCase()" />
-						<div>{{country.value.name}}</div>
+						<img src="assets/demo/flags/flag_placeholder.png" [class]="'flag flag-' + country.code.toLowerCase()" />
+						<div>{{country.name}}</div>
 					</div>
 				</ng-template>
 			</p-multiSelect>
-
 		</div>
 
 		<div class="card">
