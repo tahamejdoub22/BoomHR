@@ -11,6 +11,20 @@
                     </span>
                 </div>
                 <div class="p-field">
+                    <span class="p-float-label p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input type="text" id="lefticon" pInputText [(ngModel)]="value11">
+                        <label for="lefticon">Left Icon</label>
+                    </span>
+                </div>
+                <div class="p-field">
+                    <span class="p-float-label p-input-icon-right">
+                        <input type="text" id="righticon" pInputText [(ngModel)]="value12">
+                        <label for="righticon">Right Icon</label>
+                        <i class="pi pi-spin pi-spinner"></i>
+                    </span>
+                </div>
+                <div class="p-field">
                     <span class="p-float-label">
                         <p-inputMask inputId="inputmask" mask="99/99/9999" [(ngModel)]="value5"></p-inputMask>
                         <label for="inputmask">InputMask</label>
@@ -23,6 +37,15 @@
                     </span>
                 </div>
                 <div class="p-field">
+                    <span class="p-float-label">
+                        <p-chips inputId="chips" [(ngModel)]="value4"></p-chips>
+                        <label for="chips">Chips</label>
+                    </span>
+                </div>
+            </div>
+
+            <div class="p-col-12 p-md-6">
+                <div class="p-field">
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">
                             <i class="pi pi-user"></i>
@@ -33,15 +56,6 @@
                         </span>
                     </div>
                 </div>
-                <div class="p-field">
-                    <span class="p-float-label">
-                        <textarea inputId="textarea" rows="3" cols="30" [(ngModel)]="value10" pInputTextarea></textarea>
-                        <label for="textarea">Textarea</label>
-                    </span>
-                </div>
-            </div>
-
-            <div class="p-col-12 p-md-6">
                 <div class="p-field">
                     <span class="p-float-label">
                         <p-autoComplete inputId="autocomplete" [(ngModel)]="value2" [suggestions]="filteredCountries"
@@ -64,15 +78,15 @@
                 </div>
                 <div class="p-field">
                     <span class="p-float-label">
-                        <p-chips inputId="chips" [(ngModel)]="value4"></p-chips>
-                        <label for="chips">Chips</label>
+                        <p-multiSelect inputId="multiselect" [options]="cities" [(ngModel)]="value9" optionLabel="name"
+                                       [filter]="false"></p-multiSelect>
+                        <label for="multiselect">MultiSelect</label>
                     </span>
                 </div>
                 <div class="p-field">
                     <span class="p-float-label">
-                        <p-multiSelect inputId="multiselect" [options]="cities" [(ngModel)]="value9" optionLabel="name"
-                                       [filter]="false"></p-multiSelect>
-                        <label for="multiselect">MultiSelect</label>
+                        <textarea inputId="textarea" rows="3" cols="30" [(ngModel)]="value10" pInputTextarea></textarea>
+                        <label for="textarea">Textarea</label>
                     </span>
                 </div>
             </div>
