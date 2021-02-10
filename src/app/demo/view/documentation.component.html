@@ -3,7 +3,7 @@
         <div class="card docs no-margin">
 
             <h4>Current Version</h4>
-            <p>Angular 10 and PrimeNG 10</p>
+            <p>Angular 11 and PrimeNG 11</p>
 
             <h4>Dependencies</h4>
             <p>Harmony has no direct dependency. More information about dependencies is available at <a href="https://www.primefaces.org/why-primeng-templates/">Why PrimeNG Templates</a> article.</p>
@@ -58,7 +58,7 @@ Run 'ng help' for more options.
             'layout-menu-static-inactive': staticMenuDesktopInactive,
             'layout-menu-mobile-active': staticMenuMobileActive,
             'layout-menu-overlay-active':overlayMenuActive,
-            'p-input-filled': inputStyle === 'filled', 'p-ripple-disabled': !ripple&#125;"&gt;
+            'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple&#125;"&gt;
 
     &lt;app-topbar&gt;&lt;/app-topbar&gt;
 
@@ -117,6 +117,7 @@ export class AppMenuComponent implements OnInit &#123;
                     &#123;label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']&#125;,
                     &#123;label: 'Input', icon: 'pi pi-fw pi-check-square', routerLink: ['/uikit/input']&#125;,
                     &#123;label: 'Float Label', icon: 'pi pi-fw pi-bookmark', routerLink: ['/uikit/floatlabel']&#125;,
+                    &#123;label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', routerLink: ['/uikit/invalidstate']&#125;,
                     &#123;label: 'Button', icon: 'pi pi-fw pi-mobile', routerLink: ['/uikit/button'], class: 'rotated-icon'&#125;,
                     &#123;label: 'Table', icon: 'pi pi-fw pi-table', routerLink: ['/uikit/table']&#125;,
                     &#123;label: 'List', icon: 'pi pi-fw pi-list', routerLink: ['/uikit/list']&#125;,
@@ -150,6 +151,7 @@ export class AppMenuComponent implements OnInit &#123;
                 items: [
                     &#123;label: 'Crud', icon: 'pi pi-fw pi-pencil', routerLink: ['/pages/crud']&#125;,
                     &#123;label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', routerLink: ['/pages/calendar']&#125;,
+                    &#123;label: 'Timeline', icon: 'pi pi-fw pi-calendar', routerLink: ['/pages/timeline']&#125;,
                     &#123;label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'&#125;,
                     &#123;label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['/login']&#125;,
                     &#123;label: 'Invoice', icon: 'pi pi-fw pi-dollar', routerLink: ['/pages/invoice']&#125;,
@@ -431,7 +433,7 @@ $shade800:#343a40 !default;    //unused
 $shade900:#212529 !default;    //unused
 
 //global
-$fontFamily:"Open Sans","Helvetica Neue",sans-serif;
+$fontFamily:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $fontSize:1rem !default;
 $fontWeight:normal !default;
 $textColor:$shade700 !default;
@@ -514,7 +516,7 @@ $inputListHeaderBorder:0 none !default;
 //inputs with overlays (e.g. autocomplete, dropdown, multiselect)
 $inputOverlayBg:$inputListBg !default;
 $inputOverlayHeaderBg:$inputListHeaderBg !default;
-$inputOverlayBorder:0 none !default;
+$inputOverlayBorder:0 none !default;                  
 $inputOverlayShadow:0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
 
 //button
@@ -935,6 +937,17 @@ $treeNodeContentPadding:.5rem !default;
 $treeNodeChildrenPadding:0 0 0 1rem !default;
 $treeNodeIconColor:$shade600 !default;
 
+//timeline
+$timelineVerticalEventContentPadding:0 1rem !default;
+$timelineHorizontalEventContentPadding:1rem 0 !default;
+$timelineEventMarkerWidth:1rem !default;
+$timelineEventMarkerHeight:1rem !default;
+$timelineEventMarkerBorderRadius:50% !default;
+$timelineEventMarkerBorder:2px solid $primaryColor !default;
+$timelineEventMarkerBackground:$shade000 !default;
+$timelineEventConnectorSize:2px !default;
+$timelineEventColor:$shade300 !default;
+
 //org chart
 $organizationChartConnectorColor:$shade300 !default;
 
@@ -1046,6 +1059,7 @@ $overlayMenuBg:$menuBg !default;
 $overlayMenuBorder:0 none !default;
 $overlayMenuShadow:0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
 $verticalMenuPadding:.25rem 0 !default;
+$verticalMenuitemMargin:0;
 $menuSeparatorMargin:.25rem 0 !default;
 
 $breadcrumbPadding:1rem !default;
@@ -1135,6 +1149,40 @@ $galleriaThumbnailNavigatorHoverColor:$shade100 !default;
 $galleriaThumbnailNavigatorBorderRadius:50% !default;
 $galleriaThumbnailNavigatorWidth:2rem !default;
 $galleriaThumbnailNavigatorHeight:2rem !default;
+
+//divider
+$dividerHorizontalMargin:1rem 0;
+$dividerHorizontalPadding:0 1rem;
+$dividerVerticalMargin:0 1rem;
+$dividerVerticalPadding:1rem 0;
+$dividerSize:1px;
+$dividerColor:$shade300;
+
+//avatar
+$avatarBg:$shade300;
+$avatarTextColor:$textColor;
+
+//chip
+$chipBg:$shade300;
+$chipTextColor:$textColor;
+$chipBorderRadius: 16px;
+
+//scrollTop
+$scrollTopBg:rgba(0,0,0,0.7);
+$scrollTopHoverBg:rgba(0,0,0,0.8);
+$scrollTopWidth:3rem;
+$scrollTopHeight:3rem;
+$scrollTopBorderRadius:50%;
+$scrollTopFontSize:1.5rem;
+$scrollTopTextColor:$shade100;
+
+//skeleton
+$skeletonBg:$shade200;
+$skeletonAnimationBg:rgba(255,255,255,0.4);
+
+//splitter
+$splitterGutterBg:$shade100;
+$splitterGutterHandleBg:$shade300;
 
 :root &#123;
 --surface-a:#&#123;$shade000&#125;;
