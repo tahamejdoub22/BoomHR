@@ -1,14 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import { MenuService } from './app.menu.service';
 import { PrimeNGConfig } from 'primeng/api';
+import { AppComponent } from './app.component';
 
 @Component({
     selector: 'app-main',
     templateUrl: './app.main.component.html'
 })
 export class AppMainComponent implements OnInit{
-
-    menuMode = 'static';
 
     topbarMenuActive: boolean;
 
@@ -34,15 +33,11 @@ export class AppMainComponent implements OnInit{
 
     quickMenuButtonClick: boolean;
 
-    inputStyle = 'outlined';
-
-    ripple: boolean;
-
     configActive: boolean;
 
     configClick: boolean;
 
-    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig) { }
+    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, public app: AppComponent) { }
 
     ngOnInit() {
         this.primengConfig.ripple = true;
@@ -150,7 +145,7 @@ export class AppMainComponent implements OnInit{
     }
 
     onRippleChange(event) {
-        this.ripple = event.checked;
+        this.app.ripple = event.checked;
     }
 
     onConfigClick(event) {
@@ -158,19 +153,19 @@ export class AppMainComponent implements OnInit{
     }
 
     isHorizontal() {
-        return this.menuMode === 'horizontal';
+        return this.app.menuMode === 'horizontal';
     }
 
     isSlim() {
-        return this.menuMode === 'slim';
+        return this.app.menuMode === 'slim';
     }
 
     isOverlay() {
-        return this.menuMode === 'overlay';
+        return this.app.menuMode === 'overlay';
     }
 
     isStatic() {
-        return this.menuMode === 'static';
+        return this.app.menuMode === 'static';
     }
 
     isMobile() {

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
 
 @Component({
@@ -7,7 +8,7 @@ import { AppMainComponent } from './app.main.component';
         <a style="cursor: pointer" id="layout-config-button" class="layout-config-button" (click)="onConfigButtonClick($event)">
             <i class="pi pi-cog"></i>
         </a>
-        <div class="layout-config" [ngClass]="{'layout-config-active': app.configActive}" (click)="app.onConfigClick($event)">
+        <div class="layout-config" [ngClass]="{'layout-config-active': appMain.configActive}" (click)="appMain.onConfigClick($event)">
             <h5>Menu Type</h5>
             <div class="p-field-radiobutton">
                 <p-radioButton name="menuMode" value="static" [(ngModel)]="app.menuMode" inputId="mode1"></p-radioButton>
@@ -37,14 +38,14 @@ import { AppMainComponent } from './app.main.component';
             </div>
 
             <h5>Ripple Effect</h5>
-			<p-inputSwitch [ngModel]="app.ripple" (onChange)="app.onRippleChange($event)"></p-inputSwitch>
+			<p-inputSwitch [ngModel]="app.ripple" (onChange)="appMain.onRippleChange($event)"></p-inputSwitch>
 
             <h5>Image Themes</h5>
             <div class="layout-themes">
                 <div *ngFor="let i of imageThemes">
                     <a style="cursor: pointer" (click)="changeTheme(i.name)">
                         <img src="assets/layout/images/configurator/{{i.image}}" alt="{{i.name}}"/>
-                        <i class="pi pi-check" *ngIf="theme === i.name"></i>
+                        <i class="pi pi-check" *ngIf="app.theme === i.name"></i>
                     </a>
                 </div>
             </div>
@@ -54,7 +55,7 @@ import { AppMainComponent } from './app.main.component';
                 <div *ngFor="let g of gradientThemes">
                     <a style="cursor: pointer" (click)="changeTheme(g.name)"
                        [ngStyle]="{'background-image': 'linear-gradient(to right, ' + g.color1 +','+ g.color2+')'} ">
-                        <i class="pi pi-check" *ngIf="theme === g.name"></i>
+                        <i class="pi pi-check" *ngIf="app.theme === g.name"></i>
                     </a>
                 </div>
             </div>
@@ -63,7 +64,7 @@ import { AppMainComponent } from './app.main.component';
             <div class="layout-themes">
                 <div *ngFor="let f of flatThemes">
                     <a style="cursor: pointer" (click)="changeTheme(f.name)" [ngStyle]="{'background-color': f.color}">
-                        <i class="pi pi-check" *ngIf="theme === f.name"></i>
+                        <i class="pi pi-check" *ngIf="app.theme === f.name"></i>
                     </a>
                 </div>
             </div>
@@ -78,9 +79,7 @@ export class AppConfigComponent implements OnInit {
 
     gradientThemes: any[];
 
-    theme = 'absolution';
-
-    constructor(public app: AppMainComponent) {}
+    constructor(public appMain: AppMainComponent, public app: AppComponent) {}
 
     ngOnInit() {
         this.flatThemes = [
@@ -126,7 +125,7 @@ export class AppConfigComponent implements OnInit {
     }
 
     changeTheme(theme) {
-        this.theme = theme;
+        this.app.theme = theme;
 
         const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
         const layoutHref = 'assets/layout/css/layout-' + theme + '.css';
@@ -159,8 +158,8 @@ export class AppConfigComponent implements OnInit {
     }
 
     onConfigButtonClick(event) {
-        this.app.configActive = !this.app.configActive;
-        this.app.configClick = true;
+        this.appMain.configActive = !this.appMain.configActive;
+        this.appMain.configClick = true;
         event.preventDefault();
     }
 }
