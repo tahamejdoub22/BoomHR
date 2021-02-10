@@ -494,7 +494,7 @@
 
     <div class="p-col-12 p-lg-8">
         <p-panel styleClass="inventory">
-            <p-table [value]="products" [paginator]="true" [rows]="5">
+            <p-table [value]="products" [paginator]="true" [rows]="5" styleClass="p-datatable-customers">
                 <ng-template pTemplate="header">
                     <tr>
                         <th pSortableColumn="id">ID
@@ -514,11 +514,18 @@
                 </ng-template>
                 <ng-template pTemplate="body" let-product>
                     <tr>
-                        <td>{{product.id}}</td>
-                        <td>{{product.category}}</td>
-                        <td>{{product.price | currency:'USD'}}</td>
-                        <td><span
-                            [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+                        <td>
+                            <span class="p-column-title">Id</span>
+                            {{product.id}}</td>
+                        <td>
+                            <span class="p-column-title">Category</span>
+                            {{product.category}}</td>
+                        <td>
+                            <span class="p-column-title">Price</span>
+                            {{product.price | currency:'USD'}}</td>
+                        <td>
+                            <span class="p-column-title">Status</span>
+                            <span [class]="'product-badge status-' + product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
                         </td>
                         <td style="text-align: center">
                             <button pButton type="button" icon="pi pi-search"></button>

@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { Product } from '../demo/domain/product';
-import { ProductService } from '../demo/service/productservice';
-import { ConfirmationService } from 'primeng/api';
-import { MessageService } from 'primeng/api';
-import {BreadcrumbService} from '../app.breadcrumb.service';
+import {Product} from '../demo/domain/product';
+import {ProductService} from '../demo/service/productservice';
+import {ConfirmationService, MessageService} from 'primeng/api';
 
 @Component({
     templateUrl: './app.crud.component.html',
@@ -14,6 +12,17 @@ import {BreadcrumbService} from '../app.breadcrumb.service';
             margin: 0 auto 2rem auto;
             display: block;
         }
+
+        @media screen and (max-width: 960px) {
+            :host ::ng-deep .p-datatable.p-datatable-customers .p-datatable-tbody > tr > td:last-child {
+                text-align: center;
+            }
+
+            :host ::ng-deep .p-datatable.p-datatable-customers .p-datatable-tbody > tr > td:nth-child(6) {
+                display: flex;
+            }
+        }
+
     `],
     providers: [MessageService, ConfirmationService]
 })
@@ -32,21 +41,17 @@ export class AppCrudComponent implements OnInit {
     cols: any[];
 
     constructor(private productService: ProductService, private messageService: MessageService,
-                private confirmationService: ConfirmationService, private breadcrumbService: BreadcrumbService) {
-        this.breadcrumbService.setItems([
-            {label: 'Crud'}
-        ]);
-    }
+                private confirmationService: ConfirmationService) {}
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
 
         this.cols = [
-            { field: 'name', header: 'Name' },
-            { field: 'price', header: 'Price' },
-            { field: 'category', header: 'Category' },
-            { field: 'rating', header: 'Reviews' },
-            { field: 'inventoryStatus', header: 'Status' }
+            {field: 'name', header: 'Name'},
+            {field: 'price', header: 'Price'},
+            {field: 'category', header: 'Category'},
+            {field: 'rating', header: 'Reviews'},
+            {field: 'inventoryStatus', header: 'Status'}
         ];
     }
 
@@ -99,8 +104,7 @@ export class AppCrudComponent implements OnInit {
             if (this.product.id) {
                 this.products[this.findIndexById(this.product.id)] = this.product;
                 this.messageService.add({severity: 'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
-            }
-            else {
+            } else {
                 this.product.id = this.createId();
                 this.product.image = 'product-placeholder.svg';
                 this.products.push(this.product);
@@ -128,7 +132,7 @@ export class AppCrudComponent implements OnInit {
     createId(): string {
         let id = '';
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for ( let i = 0; i < 5; i++ ) {
+        for (let i = 0; i < 5; i++) {
             id += chars.charAt(Math.floor(Math.random() * chars.length));
         }
         return id;
