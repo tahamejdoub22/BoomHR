@@ -15,6 +15,36 @@ import {BreadcrumbService} from '../../app.breadcrumb.service';
 		:host ::ng-deep .misc-demo .badges .p-tag {
 			margin-right: .5rem;
 		}
+
+        :host ::ng-deep .p-chip.custom-chip {
+            background: var(--primary-color);
+            color: var(--primary-color-text);
+        }
+
+        :host ::ng-deep .custom-scrolltop{
+            width: 2rem;
+            height: 2rem;
+            border-radius: 4px;
+            background-color: var(--primary-color);
+        }
+
+        :host ::ng-deep .custom-scrolltop .p-scrolltop-icon {
+            font-size: 1rem;
+            color: var(--primary-color-text);
+        }
+
+        :host ::ng-deep .custom-scrolltop:hover {
+             background-color: var(--primary-color);
+        }
+
+        :host ::ng-deep  .custom-skeleton {
+            border: 1px solid var(--surface-d);
+            border-borderRadius: 4px;
+        }
+
+        :host ::ng-deep  .custom-skeleton ul {
+            list-style: none;
+        }
     `]
 })
 export class MiscDemoComponent implements OnInit {
