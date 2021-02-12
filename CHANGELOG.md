@@ -1,5 +1,16 @@
 # Changelog
 
+## 11.0.0
+**Migration Guide**
+- Update your project to Angular 11.
+- Update app.main.component.ts, app.main.component.html and app.component.ts
+- Update theme files and layout files.
+
+**Implemented New Features and Enhancements:**
+
+- Upgrade to Angular and PrimeNG 11
+- Styles of new PrimeNG components
+
 ##10.0.0
 **Migration Guide**
 - Update your project to Angular 10.

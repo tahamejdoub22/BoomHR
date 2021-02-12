@@ -41,7 +41,7 @@ Run 'ng help' for more options.
 </app-code>
 
             <h4>Structure</h4>
-            <p>Harmony consists of 3 main parts; the application layout, layout resources and theme resources for PrimeNG components. <i>app.component.html</i> inside app folder is the html template for the base layout,
+            <p>Harmony consists of 3 main parts; the application layout, layout resources and theme resources for PrimeNG components. <i>app.main.component.html</i> inside app folder is the html template for the base layout,
                 required resources for the layout are placed inside the <i>src/assets/layout</i> folder and similarly theme resources are inside <i>src/assets/theme</i> folder.
             </p>
 
@@ -234,7 +234,7 @@ npm install primeicons@latest --save
 
 <app-code ngPreserveWhitespaces ngNonBindable lang="json">
 "styles": [
-    "styles.scss"                                               //your styles and overrides
+    "styles.scss"            //your styles and overrides
 ],
 </app-code>
 
@@ -516,7 +516,7 @@ $inputListHeaderBorder:0 none !default;
 //inputs with overlays (e.g. autocomplete, dropdown, multiselect)
 $inputOverlayBg:$inputListBg !default;
 $inputOverlayHeaderBg:$inputListHeaderBg !default;
-$inputOverlayBorder:0 none !default;                  
+$inputOverlayBorder:0 none !default;
 $inputOverlayShadow:0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
 
 //button
