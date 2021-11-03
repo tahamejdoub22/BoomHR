@@ -28,6 +28,15 @@
 
     <div class="p-col-12">
         <div class="card">
+            <h5>Image</h5>
+            <div class="p-d-flex p-jc-center">
+                <p-image src="assets/demo/images/galleria/galleria10.jpg" alt="Image" width="250" [preview]="true"></p-image>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-col-12">
+        <div class="card">
             <h5>Galleria</h5>
             <p-galleria [value]="images" [responsiveOptions]="galleriaResponsiveOptions"
                         [containerStyle]="{'max-width': '800px', 'margin':'auto'}" [numVisible]="7" [circular]="true">

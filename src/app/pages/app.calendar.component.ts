@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {EventService} from '../demo/service/eventservice';
+import {BreadcrumbService} from '../app.breadcrumb.service';
 
 @Component({
     templateUrl: './app.calendar.component.html',
@@ -26,7 +27,10 @@ export class AppCalendarComponent implements OnInit {
 
     clickedEvent = null;
 
-    constructor(private eventService: EventService) {
+    constructor(private eventService: EventService, private breadcrumbService: BreadcrumbService) {
+        this.breadcrumbService.setItems([
+            {label: 'Calendar'}
+        ]);
     }
 
     ngOnInit() {
