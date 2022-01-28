@@ -9,8 +9,11 @@ export class ButtonDemoComponent implements OnInit {
 
     items: MenuItem[];
 
+    loading = [false, false, false, false];
+
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'UI Kit'},
             {label: 'Button'}
         ]);
     }
@@ -23,5 +26,10 @@ export class ButtonDemoComponent implements OnInit {
             {separator: true},
             {label: 'Setup', icon: 'pi pi-cog'}
         ];
+    }
+
+    load(index) {
+        this.loading[index] = true;
+        setTimeout(() => this.loading[index] = false, 1000);
     }
 }

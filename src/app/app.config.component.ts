@@ -10,29 +10,29 @@ import { AppMainComponent } from './app.main.component';
         </a>
         <div class="layout-config" [ngClass]="{'layout-config-active': appMain.configActive}" (click)="appMain.onConfigClick($event)">
             <h5>Menu Type</h5>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="menuMode" value="static" [(ngModel)]="app.menuMode" inputId="mode1"></p-radioButton>
                 <label for="mode1">Static</label>
             </div>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="menuMode" value="overlay" [(ngModel)]="app.menuMode" inputId="mode2"></p-radioButton>
                 <label for="mode2">Overlay</label>
             </div>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="menuMode" value="slim" [(ngModel)]="app.menuMode" inputId="mode3"></p-radioButton>
                 <label for="mode3">Slim</label>
             </div>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="menuMode" value="horizontal" [(ngModel)]="app.menuMode" inputId="mode4"></p-radioButton>
                 <label for="mode4">Horizontal</label>
             </div>
 
             <h5>Input Style</h5>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="app.inputStyle" inputId="inputStyle1"></p-radioButton>
                 <label for="inputStyle1">Outlined</label>
             </div>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="inputStyle" value="filled" [(ngModel)]="app.inputStyle" inputId="inputStyle2"></p-radioButton>
                 <label for="inputStyle2">Filled</label>
             </div>

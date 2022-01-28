@@ -8,7 +8,6 @@ import {BreadcrumbService} from '../../app.breadcrumb.service';
 })
 export class TreeDemoComponent implements OnInit {
 
-
     files1: TreeNode[];
 
     files2: TreeNode[];
@@ -25,6 +24,7 @@ export class TreeDemoComponent implements OnInit {
 
     constructor(private nodeService: NodeService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'UI Kit'},
             {label: 'Tree'}
         ]);
     }

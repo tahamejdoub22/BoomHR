@@ -4,7 +4,6 @@ import {BreadcrumbService} from '../app.breadcrumb.service';
 
 @Component({
     templateUrl: './icons.component.html',
-    styleUrls: ['./icons.scss']
 })
 export class IconsComponent implements OnInit {
 
@@ -16,6 +15,7 @@ export class IconsComponent implements OnInit {
 
     constructor(private iconService: IconService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'Utilities'},
             {label: 'Icons'}
         ]);
     }

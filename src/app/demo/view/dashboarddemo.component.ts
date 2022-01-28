@@ -7,7 +7,25 @@ import { BreadcrumbService } from '../../app.breadcrumb.service';
 
 @Component({
     templateUrl: './dashboard.component.html',
-    styleUrls: ['./tabledemo.scss']
+    styleUrls: ['../../../assets/demo/badges.scss'],
+    styles: [`
+    @media screen and (max-width: 960px) {
+        :host ::ng-deep .fc-header-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+
+            .fc-dayGridMonth-button {
+                margin-top: 1rem;
+            }
+            .fc-timeGridWeek-button{
+                margin-top: 1rem;
+            }
+            .fc-timeGridDay-button{
+                margin-top: 1rem;
+            }
+        }
+    }
+`]
 })
 export class DashboardDemoComponent implements OnInit {
 

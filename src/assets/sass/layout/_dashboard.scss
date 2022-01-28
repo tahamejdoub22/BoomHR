@@ -977,30 +977,6 @@
             }
         }
     }
-
-    .product-badge {
-        border-radius: 2px;
-        padding: .25em .5rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        font-size: 12px;
-        letter-spacing: .3px;
-
-        &.status-instock {
-            background: #00b395;
-            color: #005f4f;
-        }
-
-        &.status-outofstock {
-            background: #e4018d;
-            color: #64003e;
-        }
-
-        &.status-lowstock {
-            background: #ffba01;
-            color: #654900;
-        }
-    }
 }
 
 @media screen and (max-width: 40.063em) {

@@ -6,7 +6,7 @@ import {BreadcrumbService} from '../../app.breadcrumb.service';
 
 @Component({
     templateUrl: './mediademo.component.html',
-    styleUrls: ['./mediademo.scss'],
+    styleUrls: ['../../../assets/demo/badges.scss']
 })
 export class MediaDemoComponent implements OnInit{
 

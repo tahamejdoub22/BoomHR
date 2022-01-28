@@ -28,6 +28,7 @@ export class ChartsDemoComponent implements OnInit {
 
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'UI Kit'},
             {label: 'Charts'}
         ]);
     }

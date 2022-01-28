@@ -1,5 +1,10 @@
-<div class="card icons-demo">
+<div class="card">
 	<h4>Icons</h4>
+
+	<h5>Download</h5>
+<app-code lang="markup" ngPreserveWhitespaces ngNonBindable>
+npm install primeicons --save
+</app-code>
 
 	<h5>Getting Started</h5>
 	<p>PrimeIcons use the <strong>pi pi-&#123;icon&#125;</strong> syntax such as <strong>pi pi-check</strong>.
@@ -40,12 +45,12 @@
 	<h5>List of Icons</h5>
 	<p>Here is the current list of PrimeIcons, more icons will be added periodically. You may also <a href="https://github.com/primefaces/primeicons/issues">request new icons</a> at the issue tracker.</p>
 	<div>
-		<input class="icon-filter" (input)="onFilter($event)" pInputText placeholder="Search an icon">
+		<input class="icon-filter" (input)="onFilter($event)" pInputText placeholder="Search an icon" class="w-full p-3 mt-3 mb-5 w-full p-3 mt-3 mb-5">
 	</div>
 
-	<div class="p-grid icons-list">
-		<div class="p-col-12 p-md-2" *ngFor="let icon of filteredIcons">
-			<i class="pi pi-{{icon.properties.name}}"></i>
+	<div class="grid text-center">
+		<div class="col-6 sm:col-4 lg:col-3 xl:col-2 pb-5" *ngFor="let icon of filteredIcons">
+			<i class="text-2xl pi pi-{{icon.properties.name}}"></i>
 			<div>pi-{{icon.properties.name}}</div>
 		</div>
 	</div>

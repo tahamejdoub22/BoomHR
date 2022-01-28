@@ -1,26 +1,29 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {Customer, Representative} from '../domain/customer';
 import {CustomerService} from '../service/customerservice';
 import {Product} from '../domain/product';
 import {ProductService} from '../service/productservice';
 import {Table} from 'primeng/table';
 import {BreadcrumbService} from '../../app.breadcrumb.service';
+import {MessageService, ConfirmationService} from 'primeng/api';
 
 @Component({
     templateUrl: './tabledemo.component.html',
-    styleUrls: ['./tabledemo.scss'],
+    providers: [MessageService, ConfirmationService],
+    styleUrls: ['../../../assets/demo/badges.scss'],
     styles: [`
-        :host ::ng-deep .p-datatable-gridlines p-progressBar {
-            width: 100%;
+        :host ::ng-deep  .p-frozen-column {
+            font-weight: bold;
         }
 
-        @media screen and (max-width: 960px) {
-            :host ::ng-deep .p-datatable.p-datatable-customers.rowexpand-table .p-datatable-tbody > tr > td:nth-child(6) {
-                display: flex;
-            }
+        :host ::ng-deep .p-datatable-frozen-tbody {
+            font-weight: bold;
         }
 
-    `],
+        :host ::ng-deep .p-progressbar {
+            height:.5rem;
+        }
+    `]
 })
 export class TableDemoComponent implements OnInit {
 
@@ -42,13 +45,24 @@ export class TableDemoComponent implements OnInit {
 
     rowGroupMetadata: any;
 
+    expandedRows = {};
+
     activityValues: number[] = [0, 100];
 
+    isExpanded: boolean = false;
+
+    idFrozen: boolean = false;
+
+    loading:boolean = true;
+
     @ViewChild('dt') table: Table;
+
+    @ViewChild('filter') filter: ElementRef;
 
     constructor(private customerService: CustomerService, private productService: ProductService,
                 private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'UI Kit'},
             {label: 'Table'}
         ]);
     }
@@ -56,11 +70,13 @@ export class TableDemoComponent implements OnInit {
     ngOnInit() {
         this.customerService.getCustomersLarge().then(customers => {
             this.customers1 = customers;
+            this.loading = false;
+
             // @ts-ignore
             this.customers1.forEach(customer => customer.date = new Date(customer.date));
         });
         this.customerService.getCustomersMedium().then(customers => this.customers2 = customers);
-        this.customerService.getCustomersMedium().then(customers => this.customers3 = customers);
+        this.customerService.getCustomersLarge().then(customers => this.customers3 = customers);
         this.productService.getProductsWithOrdersSmall().then(data => this.products = data);
 
         this.representatives = [
@@ -113,5 +129,24 @@ export class TableDemoComponent implements OnInit {
                 }
             }
         }
+    }
+
+    expandAll() {
+        if(!this.isExpanded){
+          this.products.forEach(product => this.expandedRows[product.name] = true);
+
+        } else {
+          this.expandedRows={};
+        }
+        this.isExpanded = !this.isExpanded;
+    }
+
+    formatCurrency(value) {
+        return value.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
+    }
+
+    clear(table: Table) {
+        table.clear();
+        this.filter.nativeElement.value = '';
     }
 }

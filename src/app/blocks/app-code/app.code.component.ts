@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
         <pre [ngClass]="'language-' + lang"><code #code><ng-content></ng-content>
 </code></pre>
     `,
-    styleUrls: ['./app.code.component.scss']
 })
 export class AppCodeComponent implements AfterViewInit {
 
@@ -18,7 +17,9 @@ export class AppCodeComponent implements AfterViewInit {
     constructor(public el: ElementRef) { }
 
     ngAfterViewInit() {
+        // @ts-ignore
         if (window['Prism']) {
+            // @ts-ignore
             window['Prism'].highlightElement(this.codeViewChild.nativeElement);
         }
     }

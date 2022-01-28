@@ -1,6 +1,6 @@
 {
     "name": "harmony",
-    "version": "13.0.0",
+    "version": "13.1.0",
     "license": "PrimeNG Commercial",
     "scripts": {
         "ng": "ng",
@@ -27,9 +27,9 @@
         "@fullcalendar/interaction": "^5.8.0",
         "@fullcalendar/timegrid": "^5.8.0",
         "chart.js": "^3.3.2",
-        "primeflex": "2.0.0",
+        "primeflex": "3.1.2",
         "primeicons": "5.0.0",
-        "primeng": "~13.0.2",
+        "primeng": "13.1.0",
         "prismjs": "1.15.0",
         "rxjs": "~6.6.0",
         "tslib": "^2.0.0",

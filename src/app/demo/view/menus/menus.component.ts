@@ -1,12 +1,11 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {MegaMenuItem, MenuItem} from 'primeng/api';
-import {BreadcrumbService} from '../../app.breadcrumb.service';
-
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MegaMenuItem, MenuItem } from 'primeng/api';
+import { BreadcrumbService } from 'src/app/app.breadcrumb.service';
 @Component({
-    templateUrl: './menusdemo.component.html',
+    templateUrl: './menus.component.html',
     encapsulation: ViewEncapsulation.None
 })
-export class MenusDemoComponent implements OnInit {
+export class MenusComponent implements OnInit {
 
     breadcrumbItems: MenuItem[];
 
@@ -14,7 +13,7 @@ export class MenusDemoComponent implements OnInit {
 
     items: MenuItem[];
 
-    tabMenuItems: MenuItem[];
+    routeItems: MenuItem[];
 
     megaMenuItems: MegaMenuItem[];
 
@@ -26,8 +25,13 @@ export class MenusDemoComponent implements OnInit {
 
     menuItems: MenuItem[];
 
+    plainMenuItems: MenuItem[];
+
+    pageIndex: number = 0;
+
     constructor(private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'UI Kit'},
             {label: 'Menu'}
         ]);
     }
@@ -179,7 +183,7 @@ export class MenusDemoComponent implements OnInit {
                 separator: true
             },
             {
-                label: 'Quit', icon: 'pi pi-fw pi-sign-out'
+                label: 'Home', icon: 'pi pi-fw pi-home'
             },
         ];
 
@@ -249,6 +253,36 @@ export class MenusDemoComponent implements OnInit {
             }
         ];
 
+        this.plainMenuItems = [
+            {
+                label: 'Customers',
+                items: [
+                    {
+                        label: 'New',
+                        icon: 'pi pi-fw pi-plus'
+                    },
+                    {
+                        label: 'Edit',
+                        icon: 'pi pi-fw pi-user-edit'
+                    }
+                ]
+            },
+            {
+                label: 'Orders',
+                items: [
+                    {
+                        label: 'View',
+                        icon: 'pi pi-fw pi-list'
+                    },
+                    {
+                        label: 'Search',
+                        icon: 'pi pi-fw pi-search'
+                    }
+
+                ]
+            }
+        ];
+
         this.breadcrumbItems = [];
         this.breadcrumbItems.push({ label: 'Electronics' });
         this.breadcrumbItems.push({ label: 'Computer' });
@@ -257,12 +291,11 @@ export class MenusDemoComponent implements OnInit {
         this.breadcrumbItems.push({ label: 'Backpacks' });
         this.breadcrumbItems.push({ label: 'Item' });
 
-        this.tabMenuItems = [
-            {label: 'Overview', icon: 'pi pi-fw pi-home'},
-            {label: 'Members', icon: 'pi pi-fw pi-users'},
-            {label: 'Sales', icon: 'pi pi-fw pi-shopping-cart'},
-            {label: 'Profile', icon: 'pi pi-fw pi-user'},
-            {label: 'Settings', icon: 'pi pi-fw pi-cog'}
+        this.routeItems = [
+            {label: 'Personal', routerLink:'personal'},
+            {label: 'Seat', routerLink:'seat'},
+            {label: 'Payment', routerLink:'payment'},
+            {label: 'Confirmation', routerLink:'confirmation'},
         ];
 
         this.megaMenuItems = [
@@ -440,21 +473,6 @@ export class MenusDemoComponent implements OnInit {
                         icon: 'pi pi-fw pi-file'
                     }
                 ]
-            }
-        ];
-
-        this.stepsItems = [
-            {
-                label: 'Personal'
-            },
-            {
-                label: 'Seat'
-            },
-            {
-                label: 'Payment'
-            },
-            {
-                label: 'Confirmation'
             }
         ];
     }

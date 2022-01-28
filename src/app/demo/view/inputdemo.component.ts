@@ -88,6 +88,7 @@ export class InputDemoComponent implements OnInit{
 
     constructor(private countryService: CountryService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'UI Kit'},
             {label: 'Input'}
         ]);
     }

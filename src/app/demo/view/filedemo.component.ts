@@ -12,6 +12,7 @@ export class FileDemoComponent {
 
     constructor(private messageService: MessageService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'UI Kit'},
             {label: 'File'}
         ]);
     }

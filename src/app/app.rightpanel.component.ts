@@ -9,8 +9,8 @@ import {AppMainComponent} from './app.main.component';
                     <p-tabView>
                         <p-tabPanel header="Status">
                             <div class="submenu-content settings">
-                                <div class="p-grid">
-                                    <div class="p-col-12 p-md-6">
+                                <div class="grid">
+                                    <div class="col-12 md:col-6">
                                         <div class="status-box wireless-status">
                                             <i class="pi pi-wifi box-icon"></i>
                                             <i class="pi pi-angle-right icon-details"></i>
@@ -18,7 +18,7 @@ import {AppMainComponent} from './app.main.component';
                                             <span class="status">Stable</span>
                                         </div>
                                     </div>
-                                    <div class="p-col-12 p-md-6">
+                                    <div class="col-12 md:col-6">
                                         <div class="status-box cooling-systems">
                                             <i class="pi pi-compass box-icon"></i>
                                             <i class="pi pi-angle-right icon-details"></i>
@@ -26,7 +26,7 @@ import {AppMainComponent} from './app.main.component';
                                             <span class="status">Stable</span>
                                         </div>
                                     </div>
-                                    <div class="p-col-12 p-md-6">
+                                    <div class="col-12 md:col-6">
                                         <div class="status-box hq-security">
                                             <i class="pi pi-lock box-icon"></i>
                                             <i class="pi pi-angle-right icon-details"></i>
@@ -35,7 +35,7 @@ import {AppMainComponent} from './app.main.component';
                                         </div>
                                     </div>
 
-                                    <div class="p-col-12 p-md-6">
+                                    <div class="col-12 md:col-6">
                                         <div class="status-box help-desk-load">
                                             <i class="pi pi-envelope box-icon"></i>
                                             <i class="pi pi-angle-right icon-details"></i>
@@ -45,7 +45,7 @@ import {AppMainComponent} from './app.main.component';
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="p-col-12 p-md-6">
+                                    <div class="col-12 md:col-6">
                                         <div class="status-box meeting-intensity">
                                             <i class="pi pi-calendar box-icon"></i>
                                             <i class="pi pi-angle-right icon-details"></i>
@@ -53,7 +53,7 @@ import {AppMainComponent} from './app.main.component';
                                             <span class="status">Stable</span>
                                         </div>
                                     </div>
-                                    <div class="p-col-12 p-md-6">
+                                    <div class="col-12 md:col-6">
                                         <div class="status-box energy-backup ">
                                             <i class="pi pi-info-circle box-icon"></i>
                                             <i class="pi pi-angle-right icon-details"></i>
