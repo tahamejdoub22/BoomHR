@@ -4,6 +4,15 @@
 **Migration Guide**
 - Upgrade to Angular 13 and PrimeNG 13.1.0
 - Upgrade to PrimeFlex 3.1.2
+
+## 13.0.0
+**Migration Guide**
+- Update your project to Angular 13.
+- Update theme files and layout files.
+
+**Implemented New Features and Enhancements:**
+
+- Upgrade to Angular and PrimeNG 13
   
 ## 12.2.0
 **Migration Guide**
