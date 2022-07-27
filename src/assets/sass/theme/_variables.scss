@@ -8,7 +8,8 @@ $colors: (
     "teal": #009688,
     "orange": #F57C00,
     "bluegray": #607D8B,
-    "purple": #9C27B0
+    "purple": #9C27B0,
+    "primary": $primaryColor
 ) !default;
 
 //reused color variables
@@ -354,6 +355,7 @@ $panelHeaderTextHoverColor:$shade700 !default;
 $panelContentBorderColor: $shade300 !default;
 $panelContentBorder:1px solid $shade300 !default;
 $panelContentBg:$shade000 !default;
+$panelContentEvenRowBg:scale-color($panelContentBg, $lightness: -1%) !default;
 $panelContentTextColor:$shade700 !default;
 $panelContentPadding:1rem !default;
 
