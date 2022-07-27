@@ -21,6 +21,13 @@ import {BreadcrumbService} from '../app.breadcrumb.service';
                 }
             }
         }
+
+        :host ::ng-deep {
+            .fc.fc-theme-standard .fc-highlight {
+                color: #ffffff;
+                background: var(--fc-highlight-color, rgba(63, 81, 181, 0.12));
+            }
+        }
     `]
 })
 export class AppCalendarComponent implements OnInit {
