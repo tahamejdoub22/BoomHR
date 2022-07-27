@@ -31,6 +31,7 @@ export class OverlaysDemoComponent implements OnInit {
     constructor(private productService: ProductService, private confirmationService: ConfirmationService,
                 private messageService: MessageService, private breadcrumbService: BreadcrumbService) {
         this.breadcrumbService.setItems([
+            {label: 'UI Kit'},
             {label: 'Overlay'}
         ]);
     }
