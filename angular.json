@@ -30,7 +30,10 @@
                             "src/favicon.ico"
                         ],
                         "styles": [
-                            "src/styles.scss"
+                            "src/styles.scss",
+                            "./node_modules/@fullcalendar/common/main.css",
+                            "./node_modules/@fullcalendar/daygrid/main.css",
+                            "./node_modules/@fullcalendar/timegrid/main.css"
                         ],
                         "scripts": [
                             "node_modules/prismjs/prism.js",
@@ -126,5 +129,8 @@
             }
         }
     },
-    "defaultProject": "harmony"
+    "defaultProject": "harmony",
+    "cli": {
+      "analytics": false
+    }
 }
