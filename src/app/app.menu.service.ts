@@ -15,6 +15,6 @@ export class MenuService {
     }
 
     reset() {
-        this.resetSource.next(null);
+        this.resetSource.next(true);
     }
 }
