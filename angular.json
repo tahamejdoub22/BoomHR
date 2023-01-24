@@ -30,16 +30,12 @@
                             "src/favicon.ico"
                         ],
                         "styles": [
-                            "src/styles.scss",
-                            "./node_modules/@fullcalendar/common/main.css",
-                            "./node_modules/@fullcalendar/daygrid/main.css",
-                            "./node_modules/@fullcalendar/timegrid/main.css"
+                            "src/styles.scss"
                         ],
                         "scripts": [
                             "node_modules/prismjs/prism.js",
                             "node_modules/prismjs/components/prism-typescript.js"
-                        ],
-                        "allowedCommonJsDependencies": ["@fullcalendar/daygrid","@fullcalendar/timegrid","@fullcalendar/interaction","chart.js"]
+                        ]
                     },
                     "configurations": {
                         "production": {
