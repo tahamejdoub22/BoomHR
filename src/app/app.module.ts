@@ -5,7 +5,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AppRoutingModule} from './app-routing.module';
-
+import { ReactiveFormsModule } from '@angular/forms'; // import ReactiveFormsModule
 import {AccordionModule} from 'primeng/accordion';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {AvatarModule} from 'primeng/avatar';
@@ -87,7 +87,6 @@ import {TreeModule} from 'primeng/tree';
 import {TreeTableModule} from 'primeng/treetable';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 
-import {AppCodeModule} from './blocks/app-code/app.code.component';
 import {AppComponent} from './app.component';
 import {AppMainComponent} from './app.main.component';
 import {AppConfigComponent} from './app.config.component';
@@ -97,47 +96,16 @@ import {AppMenuitemComponent} from './app.menuitem.component';
 import {AppTopBarComponent} from './app.topbar.component';
 import {AppFooterComponent} from './app.footer.component';
 import {AppBreadcrumbComponent} from './app.breadcrumb.component';
-import {DashboardDemoComponent} from './demo/view/dashboarddemo.component';
-import {FormLayoutDemoComponent} from './demo/view/formlayoutdemo.component';
-import {FloatLabelDemoComponent} from './demo/view/floatlabeldemo.component';
-import {InvalidStateDemoComponent} from './demo/view/invalidstatedemo.component';
-import {InputDemoComponent} from './demo/view/inputdemo.component';
-import {ButtonDemoComponent} from './demo/view/buttondemo.component';
-import {TableDemoComponent} from './demo/view/tabledemo.component';
-import {ListDemoComponent} from './demo/view/listdemo.component';
-import {TreeDemoComponent} from './demo/view/treedemo.component';
-import {PanelsDemoComponent} from './demo/view/panelsdemo.component';
-import {OverlaysDemoComponent} from './demo/view/overlaysdemo.component';
-import {MediaDemoComponent} from './demo/view/mediademo.component';
-import {MenusComponent} from './demo/view/menus/menus.component';
-import {MessagesDemoComponent} from './demo/view/messagesdemo.component';
-import {MiscDemoComponent} from './demo/view/miscdemo.component';
 import {EmptyDemoComponent} from './demo/view/emptydemo.component';
-import {ChartsDemoComponent} from './demo/view/chartsdemo.component';
-import {FileDemoComponent} from './demo/view/filedemo.component';
-import {DocumentationComponent} from './demo/view/documentation.component';
-import {IconsComponent} from './utilities/icons.component';
-import {AppCrudComponent} from './pages/app.crud.component';
-import {AppCalendarComponent} from './pages/app.calendar.component';
-import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
-import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
 import {AppNotfoundComponent} from './pages/app.notfound.component';
 import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
-import {AppLoginComponent} from './pages/app.login.component';
-import {BlocksComponent} from './blocks/blocks/blocks.component';
-import {BlockViewer} from './blocks/blockviewer/blockviewer.component';
 
-import {CountryService} from './demo/service/countryservice';
-import {CustomerService} from './demo/service/customerservice';
-import {EventService} from './demo/service/eventservice';
-import {IconService} from './demo/service/iconservice';
-import {NodeService} from './demo/service/nodeservice';
-import {PhotoService} from './demo/service/photoservice';
-import {ProductService} from './demo/service/productservice';
 import {BreadcrumbService} from './app.breadcrumb.service';
 import {MenuService} from './app.menu.service';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
     imports: [
@@ -153,6 +121,7 @@ import {MenuService} from './app.menu.service';
         BadgeModule,
         BreadcrumbModule,
         ButtonModule,
+        ReactiveFormsModule,
         CalendarModule,
         CardModule,
         CarouselModule,
@@ -226,7 +195,7 @@ import {MenuService} from './app.menu.service';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        AppCodeModule
+        
     ],
     declarations: [
         AppComponent,
@@ -238,43 +207,21 @@ import {MenuService} from './app.menu.service';
         AppFooterComponent,
         AppBreadcrumbComponent,
         AppRightPanelComponent,
-        DashboardDemoComponent,
-        FormLayoutDemoComponent,
-        FloatLabelDemoComponent,
-        InvalidStateDemoComponent,
-        InputDemoComponent,
-        ButtonDemoComponent,
-        TableDemoComponent,
-        ListDemoComponent,
-        TreeDemoComponent,
-        PanelsDemoComponent,
-        OverlaysDemoComponent,
-        MediaDemoComponent,
-        MenusComponent,
-        MessagesDemoComponent,
-        MessagesDemoComponent,
-        MiscDemoComponent,
-        ChartsDemoComponent,
+       
+       
         EmptyDemoComponent,
-        FileDemoComponent,
-        DocumentationComponent,
-        IconsComponent,
-        AppCrudComponent,
-        AppCalendarComponent,
-        AppTimelineDemoComponent,
-        AppLoginComponent,
-        AppInvoiceComponent,
+      
         AppHelpComponent,
         AppNotfoundComponent,
         AppErrorComponent,
         AppAccessdeniedComponent,
-        BlocksComponent,
-        BlockViewer
+        LoginComponent,
+        SignUpComponent,
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
-        CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, BreadcrumbService, MenuService
+           
+ BreadcrumbService, MenuService
     ],
     bootstrap: [AppComponent]
 })

@@ -1,67 +1,19 @@
 <div class="layout-topbar">
 
     <a href="/" class="logo-container">
-        <img class="logo" alt="harmony-layout" src="assets/layout/images/harmony-logo.png" />
-        <span class="app-name">HARMONY</span>
+        <img class="logo" alt="" src="" />
+        <span class="app-name">Boom HR</span>
     </a>
 
     <div class="topbar-content">
         <a href="#" id="topbar-sidebar-button" (click)="app.onMenuButtonClick($event)">
             <i class="pi pi-bars"></i>
         </a>
-        <div class="search-input">
-            <i class="pi pi-search icon-search"></i>
-            <input type="text" pInputText=""/>
-        </div>
+      
 
-        <a href="#" id="topbar-quickmenu-button" (click)="app.onQuickMenuButtonClick($event)">
-            QUICK MENU
-        </a>
+       
 
-        <div class="topbar-icons">
-            <ul>
-                <li>
-                    <a>
-                        <i class="pi pi-envelope topbar-icon-plane"></i>
-                        <span class="icon-label">Send Mail</span>
-                    </a>
-                    <div class="layout-quickmenu-tooltip">
-                        <div class="layout-quickmenu-tooltip-arrow"></div>
-                        <div class="layout-quickmenu-tooltip-text">Send Mail</div>
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="pi pi-calendar topbar-icon-calendar"></i>
-                        <span class="icon-label">Add Event</span>
-                    </a>
-                    <div class="layout-quickmenu-tooltip">
-                        <div class="layout-quickmenu-tooltip-arrow"></div>
-                        <div class="layout-quickmenu-tooltip-text">Add Event</div>
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="pi pi-external-link topbar-icon-notes"></i>
-                        <span class="icon-label">New Post</span>
-                    </a>
-                    <div class="layout-quickmenu-tooltip">
-                        <div class="layout-quickmenu-tooltip-arrow"></div>
-                        <div class="layout-quickmenu-tooltip-text">New Post</div>
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <i class="pi pi-cog topbar-icon-settings"></i>
-                        <span class="icon-label">Settings</span>
-                    </a>
-                    <div class="layout-quickmenu-tooltip">
-                        <div class="layout-quickmenu-tooltip-arrow"></div>
-                        <div class="layout-quickmenu-tooltip-text">Settings</div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+       
         <a id="topbar-right-panel-button" href="#" (click)="app.onRightPanelButtonClick($event)">
             <i class="pi pi-ellipsis-v"></i>
         </a>
@@ -90,76 +42,16 @@
                     </li>
                 </ul>
             </li>
-            <li #favorite [ngClass]="{'menuitem-active':app.activeTopbarItem === favorite}">
-                <a href="#" (click)="app.onTopbarItemClick($event, favorite)">
-                    <i class="topbar-icon pi pi-fw pi-heart"></i>
-                    <span class="topbar-item-name">Favorites</span>
-                </a>
-                <ul>
-                    <li role="menuitem">
-                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                            <i class="pi pi-fw pi-palette"></i>
-                            <span>Change Theme</span>
-                        </a>
-                    </li>
-                    <li role="menuitem">
-                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                            <i class="pi pi-fw pi-star"></i>
-                            <span>Favorites</span>
-                        </a>
-                    </li>
+            
                     <li role="menuitem">
                         <a href="#" (click)="app.onTopbarSubItemClick($event)">
                             <i class="pi pi-fw pi-lock"></i>
-                            <span>Lock Screen</span>
+                            <span>Log out</span>
                         </a>
                     </li>
-                    <li role="menuitem">
-                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                            <i class="pi pi-fw pi-image"></i>
-                            <span>Wallpaper</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li #screen [ngClass]="{'menuitem-active':app.activeTopbarItem === screen}">
-                <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                    <i class="topbar-icon material-icons animated swing pi pi-fw pi-lock"></i>
-                    <span class="topbar-item-name">Lock Screen</span>
-                </a>
-            </li>
-            <li #wallpaper [ngClass]="{'menuitem-active':app.activeTopbarItem === wallpaper}">
-                <a href="#" (click)="app.onTopbarItemClick($event, wallpaper)">
-                    <i class="topbar-icon pi pi-fw pi-image"></i>
-                    <span class="topbar-item-name">Wallpaper</span>
-                </a>
-                <ul>
-                    <li role="menuitem">
-                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                            <i class="pi pi-fw pi-sliders-h"></i>
-                            <span>Pending tasks</span>
-                        </a>
-                    </li>
-                    <li role="menuitem">
-                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                            <i class="pi pi-fw pi-calendar-plus"></i>
-                            <span>Meeting today</span>
-                        </a>
-                    </li>
-                    <li role="menuitem">
-                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                            <i class="pi pi-fw pi-download"></i>
-                            <span>Download</span>
-                        </a>
-                    </li>
-                    <li role="menuitem">
-                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                            <i class="pi pi-fw pi-ticket"></i>
-                            <span>Book flight</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                   
+          
+        
         </ul>
     </div>
 </div>
