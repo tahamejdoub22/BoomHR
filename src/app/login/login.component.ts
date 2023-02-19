@@ -17,7 +17,7 @@ export class LoginComponent  {
   isEmailValid = true;
   isPasswordValid = true;
 
-  constructor(private formBuilder: FormBuilder,private messageService: MessageService,    private authService: AuthService,
+  constructor(private formBuilder: FormBuilder,private messageService: MessageService,    
     ) {
     this.createLoginForm();
   }
