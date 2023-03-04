@@ -19,7 +19,7 @@
         </a>
         <a id="topbar-profile-menu-button" href="#" (click)="appMain.onTopbarMenuButtonClick($event)">
             <img src="assets/layout/images/avatar.png" alt="harmony-layout" class="topbar-profile" />
-            <span>Kate Winston</span>
+            <span>{{ username }}</span>
         </a>
         <ul id="topbar-profile-menu" class="animated fadeInDown" [ngClass]="{'topbar-profile-menu-active': appMain.topbarMenuActive}">
             <li #theme [ngClass]="{'menuitem-active':appMain.activeTopbarItem === theme}">

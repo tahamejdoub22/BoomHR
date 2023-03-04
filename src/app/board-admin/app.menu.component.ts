@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../_services/auth.service';
+import { StorageService } from '../_services/storage.service';
 import { BoardAdminComponent } from './board-admin.component';
 
 @Component({
@@ -13,7 +16,7 @@ export class AppMenuComponent implements OnInit {
 
     model: any[];
 
-    constructor(public app: BoardAdminComponent) { }
+    constructor(public app: BoardAdminComponent,private authService: AuthService,public router: Router,private storageService: StorageService) { }
 
     ngOnInit() {
         this.model = [
@@ -35,9 +38,23 @@ export class AppMenuComponent implements OnInit {
             },
            
             {
-                label: 'Log Out', icon: 'pi pi-fw pi-sign-out'      , routerLink: []
+                label: 'Log Out', icon: 'pi pi-fw pi-sign-out'      , routerLink: [],  command: () => {
+                    this.logout();
+                }
             }
           
         ];
+    }
+    logout(): void {
+        this.authService.logout().subscribe({
+          next: res => {
+            console.log(res);
+            this.storageService.clean();
+            this.router.navigate(['/login']);
+          },
+          error: err => {
+            console.log(err);
+          }
+        });
     }
 }

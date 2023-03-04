@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppMainComponent } from './app.main.component';
+import { AuthService } from './_services/auth.service';
+import { StorageService } from './_services/storage.service';
 
 @Component({
     selector: 'app-menu',
@@ -13,7 +16,7 @@ export class AppMenuComponent implements OnInit {
 
     model: any[];
 
-    constructor(public app: AppMainComponent) { }
+    constructor(public app: AppMainComponent,private authService: AuthService,public router: Router,private storageService: StorageService) { }
 
     ngOnInit() {
         this.model = [
@@ -47,11 +50,32 @@ export class AppMenuComponent implements OnInit {
                     {label: 'All Holiday', icon: 'pi pi-fw pi-list', routerLink: []},
                 ]
             },
+            {
+                label: 'Jobs', icon: 'pi pi-fw pi-sun', routerLink: [],
+                items: [
+                    {label: 'All job', icon: 'pi pi-fw pi-list', routerLink: []},
+                ]
+            },
            
             {
-                label: 'Log Out', icon: 'pi pi-fw pi-sign-out'      , routerLink: []
+                label: 'Log Out', icon: 'pi pi-fw pi-sign-out'      , routerLink: [],
+                command: () => {
+                    this.logout();
+                }
             }
           
         ];
+    }
+    logout(): void {
+        this.authService.logout().subscribe({
+          next: res => {
+            console.log(res);
+            this.storageService.clean();
+            this.router.navigate(['/login']);
+          },
+          error: err => {
+            console.log(err);
+          }
+        });
     }
 }

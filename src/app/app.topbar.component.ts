@@ -11,11 +11,20 @@ import { UserService } from './_services/user.service';
     templateUrl: './app.topbar.component.html'
 })
 export class AppTopBarComponent {
+    isLoggedIn = false;
+    username?: string;
 
     flatThemes: any[];
     constructor(public appMain: AppMainComponent,public app: AppComponent,private authService: AuthService,private storageService: StorageService,private router: Router) { }
 
  ngOnInit() {
+    this.isLoggedIn = this.storageService.isLoggedIn();
+    if (this.isLoggedIn) {
+
+    const user = this.storageService.getUser();
+    this.username = user.username;
+}
+
         this.flatThemes = [
             {name: 'honor', color1: '#3bb2b8', color2: '#00dac7'},
             {name: 'comfort', color: '#0084a1'},
