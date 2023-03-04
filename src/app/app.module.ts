@@ -101,15 +101,18 @@ import {AppHelpComponent} from './pages/app.help.component';
 import {AppNotfoundComponent} from './pages/app.notfound.component';
 import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
+import { AdminModule } from './board-admin/admin.module';
 
 import {BreadcrumbService} from './app.breadcrumb.service';
 import {MenuService} from './app.menu.service';
-import { LoginComponent } from './login/login.component';
+import { loginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { httpInterceptorProviders } from './_helpers/http.interceptor';
 
 @NgModule({
     imports: [
         BrowserModule,
+        AdminModule,
         FormsModule,
         AppRoutingModule,
         HttpClientModule,
@@ -215,14 +218,16 @@ import { SignUpComponent } from './sign-up/sign-up.component';
         AppNotfoundComponent,
         AppErrorComponent,
         AppAccessdeniedComponent,
-        LoginComponent,
+        loginComponent,
         SignUpComponent,
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
            
- BreadcrumbService, MenuService
+ BreadcrumbService, MenuService,httpInterceptorProviders
+
     ],
+
     bootstrap: [AppComponent]
 })
 export class AppModule {

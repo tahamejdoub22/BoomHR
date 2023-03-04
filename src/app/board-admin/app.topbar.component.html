@@ -1,0 +1,52 @@
+<div class="layout-topbar">
+
+    <a href="/" class="logo-container">
+        <img class="logo" alt="" src="" />
+        <span class="app-name">Boom HR</span>
+    </a>
+
+    <div class="topbar-content">
+        <a href="#" id="topbar-sidebar-button" (click)="appMain.onMenuButtonClick($event)">
+            <i class="pi pi-bars"></i>
+        </a>
+      
+
+       
+
+       
+        <a id="topbar-right-panel-button" href="#" (click)="appMain.onRightPanelButtonClick($event)">
+            <i class="pi pi-ellipsis-v"></i>
+        </a>
+        <a id="topbar-profile-menu-button" href="#" (click)="appMain.onTopbarMenuButtonClick($event)">
+            <img src="assets/layout/images/avatar.png" alt="harmony-layout" class="topbar-profile" />
+            <span>Kate Winston</span>
+        </a>
+        <ul id="topbar-profile-menu" class="animated fadeInDown" [ngClass]="{'topbar-profile-menu-active': appMain.topbarMenuActive}">
+            <li #theme [ngClass]="{'menuitem-active':appMain.activeTopbarItem === theme}">
+                <a href="#" (click)="appMain.onTopbarItemClick($event, theme)">
+                    <i class="topbar-icon pi pi-fw pi-palette"></i>
+                    <span class="topbar-item-name">Change Theme</span>
+                </a>
+                <ul>
+                        <li *ngFor="let f of flatThemes">
+                          <a style="cursor: pointer" (click)="changeTheme(f.name)" [ngStyle]="{'background-color': f.color}">
+                            <i class="pi pi-check" *ngIf="app.theme === f.name" ></i>
+                            <span class="topbar-item-name">{{ f.name }}</span>
+                          </a>
+                        </li>
+                    
+                </ul>
+            </li>
+            
+                    <li role="menuitem">
+                        <a href="#" (click)="logout()" >
+                            <i class="pi pi-fw pi-lock"></i>
+                            <span>Log out</span>
+                        </a>
+                    </li>
+                   
+          
+        
+        </ul>
+    </div>
+</div>

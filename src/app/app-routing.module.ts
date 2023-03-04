@@ -5,18 +5,25 @@ import {AppNotfoundComponent} from './pages/app.notfound.component';
 import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
 import {AppHelpComponent} from './pages/app.help.component';
-import { LoginComponent } from "./login/login.component";
+import { loginComponent } from "./login/login.component";
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AuthGuard } from './auth.guard';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardModeratorComponent } from './board-HrManager/board-moderator.component';
 
 @NgModule({
     imports: [
         RouterModule.forRoot([
-            {path:'',redirectTo:'Login',pathMatch:'full'},
-            {path:'login',component:LoginComponent},
+            {path:'',redirectTo:'notfound',pathMatch:'full'},
+            {path:'login',component:loginComponent},
             {path:'signup',component:SignUpComponent},
+            { path: 'user', component: BoardUserComponent },
+            { path: 'mod', component: BoardModeratorComponent ,canActivate: [AuthGuard]},
+            { path: 'admin', component: BoardAdminComponent ,canActivate: [AuthGuard]},
             {
 
-                path: 'Dashboard', component: AppMainComponent,
+                path: 'Dashboard', component: AppMainComponent ,canActivate: [AuthGuard],
                 children: [
                
                     {path: 'pages/help', component: AppHelpComponent},

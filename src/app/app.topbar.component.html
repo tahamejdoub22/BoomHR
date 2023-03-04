@@ -6,7 +6,7 @@
     </a>
 
     <div class="topbar-content">
-        <a href="#" id="topbar-sidebar-button" (click)="app.onMenuButtonClick($event)">
+        <a href="#" id="topbar-sidebar-button" (click)="appMain.onMenuButtonClick($event)">
             <i class="pi pi-bars"></i>
         </a>
       
@@ -14,37 +14,32 @@
        
 
        
-        <a id="topbar-right-panel-button" href="#" (click)="app.onRightPanelButtonClick($event)">
+        <a id="topbar-right-panel-button" href="#" (click)="appMain.onRightPanelButtonClick($event)">
             <i class="pi pi-ellipsis-v"></i>
         </a>
-        <a id="topbar-profile-menu-button" href="#" (click)="app.onTopbarMenuButtonClick($event)">
+        <a id="topbar-profile-menu-button" href="#" (click)="appMain.onTopbarMenuButtonClick($event)">
             <img src="assets/layout/images/avatar.png" alt="harmony-layout" class="topbar-profile" />
             <span>Kate Winston</span>
         </a>
-        <ul id="topbar-profile-menu" class="animated fadeInDown" [ngClass]="{'topbar-profile-menu-active': app.topbarMenuActive}">
-            <li #theme [ngClass]="{'menuitem-active':app.activeTopbarItem === theme}">
-                <a href="#" (click)="app.onTopbarItemClick($event, theme)">
+        <ul id="topbar-profile-menu" class="animated fadeInDown" [ngClass]="{'topbar-profile-menu-active': appMain.topbarMenuActive}">
+            <li #theme [ngClass]="{'menuitem-active':appMain.activeTopbarItem === theme}">
+                <a href="#" (click)="appMain.onTopbarItemClick($event, theme)">
                     <i class="topbar-icon pi pi-fw pi-palette"></i>
                     <span class="topbar-item-name">Change Theme</span>
                 </a>
                 <ul>
-                    <li role="menuitem">
-                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                            <i class="pi pi-fw pi-circle-on"></i>
-                            <span>Dark Topbar</span>
-                        </a>
-                    </li>
-                    <li role="menuitem">
-                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                            <i class="pi pi-fw pi-circle-off"></i>
-                            <span>Light Topbar</span>
-                        </a>
-                    </li>
+                        <li *ngFor="let f of flatThemes">
+                          <a style="cursor: pointer" (click)="changeTheme(f.name)" [ngStyle]="{'background-color': f.color}">
+                            <i class="pi pi-check" *ngIf="app.theme === f.name" ></i>
+                            <span class="topbar-item-name">{{ f.name }}</span>
+                          </a>
+                        </li>
+                    
                 </ul>
             </li>
             
                     <li role="menuitem">
-                        <a href="#" (click)="app.onTopbarSubItemClick($event)">
+                        <a href="#" (click)="logout()" >
                             <i class="pi pi-fw pi-lock"></i>
                             <span>Log out</span>
                         </a>

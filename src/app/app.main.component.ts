@@ -2,7 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import { MenuService } from './app.menu.service';
 import { PrimeNGConfig } from 'primeng/api';
 import { AppComponent } from './app.component';
-
+import { UserService } from './_services/user.service';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 @Component({
     selector: 'app-main',
     templateUrl: './app.main.component.html'
@@ -22,6 +24,7 @@ export class AppMainComponent implements OnInit{
     topbarItemClick: boolean;
 
     activeTopbarItem: any;
+    content?: string;
 
     menuHoverActive: boolean;
 
@@ -37,9 +40,31 @@ export class AppMainComponent implements OnInit{
 
     configClick: boolean;
 
-    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, public app: AppComponent) { }
+    constructor(private menuService: MenuService,private userService: UserService, private primengConfig: PrimeNGConfig, public app: AppComponent,private location: Location, private router: Router) { }
 
-    ngOnInit() {
+    ngOnInit() :void{
+       
+        this.userService.getHrManagerBoard().subscribe({
+            next: data => {
+              this.content = data;
+            },
+            error: err => {
+              if (err.error) {
+                try {
+                  const res = JSON.parse(err.error);
+                  this.content = res.message;
+                } catch {
+                  this.content = `Error with status: ${err.status} - ${err.statusText}`;
+                }
+              } else {
+                this.content = `Error with status: ${err.status}`;
+                
+              }
+
+            }
+          });
+          this.overrideBackButton();
+
         this.primengConfig.ripple = true;
     }
 
@@ -104,7 +129,12 @@ export class AppMainComponent implements OnInit{
         }
         event.preventDefault();
     }
-
+    overrideBackButton() {
+        window.history.pushState(null, '', window.location.href);
+        window.onpopstate = () => {
+          this.router.navigateByUrl('/not-found');
+        };
+      }
     onMenuClick($event) {
         this.menuClick = true;
     }
