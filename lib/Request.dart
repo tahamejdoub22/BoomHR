@@ -1,87 +1,102 @@
 import 'package:flutter/material.dart';
-import 'package:table_calendar/table_calendar.dart';
+import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart' show CalendarCarousel;
 
-class DoubleCalendar extends StatefulWidget {
+
+class CalendarPage extends StatefulWidget {
   @override
-  _DoubleCalendarState createState() => _DoubleCalendarState();
+  _CalendarPageState createState() => _CalendarPageState();
 }
 
-class _DoubleCalendarState extends State<DoubleCalendar> {
-  CalendarFormat _calendarFormat = CalendarFormat.month;
-  DateTime _focusedDay = DateTime.now();
-  DateTime? _selectedDay;
+class _CalendarPageState extends State<CalendarPage> {
+  late DateTime _startDate;
+  late DateTime _endDate;
 
-  CalendarFormat _calendarFormat2 = CalendarFormat.month;
-  DateTime _focusedDay2 = DateTime.now();
-  DateTime? _selectedDay2;
+  @override
+  void initState() {
+    super.initState();
+    _startDate = DateTime.now();
+    _endDate = DateTime.now();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Double Calendar'),
-      ),
-      body: Column(
-        children: [
-          TableCalendar(
-            firstDay: DateTime.utc(2021, 01, 01),
-            lastDay: DateTime.utc(2030, 12, 31),
-            focusedDay: _focusedDay,
-            calendarFormat: _calendarFormat,
-            selectedDayPredicate: (day) {
-              return isSameDay(_selectedDay, day);
-            },
-            onDaySelected: (selectedDay, focusedDay) {
-              setState(() {
-                _selectedDay = selectedDay;
-                _focusedDay = focusedDay;
-              });
-            },
-            onFormatChanged: (format) {
-              setState(() {
-                _calendarFormat = format;
-              });
-            },
-            calendarStyle: CalendarStyle(
-              todayDecoration: BoxDecoration(
-                color: Colors.blue,
-                shape: BoxShape.circle,
-              ),
-              selectedDecoration: BoxDecoration(
-                color: Colors.green,
-                shape: BoxShape.circle,
-              ),
-            ),
+      body: ListView(
+        children: <Widget>[
+          Container(
+              width: double.infinity,
+              margin: const EdgeInsets.fromLTRB(10, 50, 0, 10),
+              child:Row(
+                children:  [
+                  IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, "/");
+                    },
+                  ),
+                  Text(" New Request",
+                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold))
+                ],
+              )
           ),
-          TableCalendar(
-            firstDay: DateTime.utc(2021, 01, 01),
-            lastDay: DateTime.utc(2030, 12, 31),
-            focusedDay: _focusedDay2,
-            calendarFormat: _calendarFormat2,
-            selectedDayPredicate: (day) {
-              return isSameDay(_selectedDay2, day);
-            },
-            onDaySelected: (selectedDay, focusedDay) {
+          Container(
+              width: double.infinity,
+              margin: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+              child:Row(
+                children:  [
+                  Text(" When will you be out ?",
+                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold))
+                ],
+              )
+          ),
+          Container(
+              width: double.infinity,
+              margin: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+              child:Row(
+                children:  [
+                  Text(" Tap or drag to select the day(s) you will be out ",
+                      style: TextStyle(fontSize: 12,color: Colors.grey))
+                ],
+              )
+          ),
+          CalendarCarousel(
+            onDayPressed: (DateTime date, List events) {
               setState(() {
-                _selectedDay2 = selectedDay;
-                _focusedDay2 = focusedDay;
+                _startDate = date;
               });
             },
-            onFormatChanged: (format) {
-              setState(() {
-                _calendarFormat2 = format;
-              });
-            },
-            calendarStyle: CalendarStyle(
-              todayDecoration: BoxDecoration(
-                color: Colors.blue,
-                shape: BoxShape.circle,
-              ),
-              selectedDecoration: BoxDecoration(
-                color: Colors.green,
-                shape: BoxShape.circle,
-              ),
+            weekendTextStyle: TextStyle(
+              color: Colors.red,
             ),
+            thisMonthDayBorderColor: Colors.grey,
+            weekFormat: false,
+            height: 420.0,
+            selectedDateTime: _startDate,
+            showIconBehindDayText: true,
+          ),
+          CalendarCarousel(
+            onDayPressed: (DateTime date, List events) {
+              setState(() {
+                _endDate = date;
+              });
+            },
+            weekendTextStyle: TextStyle(
+              color: Colors.red,
+            ),
+            thisMonthDayBorderColor: Colors.grey,
+            weekFormat: false,
+            height: 420.0,
+            selectedDateTime: _endDate,
+            showIconBehindDayText: true,
+          ),
+          SizedBox(height: 20.0),
+          ElevatedButton(
+            onPressed: () {
+              print('Start Date: $_startDate');
+              Navigator.pushReplacementNamed(context, "/ValidateRequest"
+                  ,arguments: {'startDate': _startDate, 'endDate': _endDate});
+            },
+            child: Text('Afficher les dates sélectionnées'),
           ),
         ],
       ),

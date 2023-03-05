@@ -1,6 +1,7 @@
 import 'package:boom_hr/ForgetPassword.dart';
 import 'package:boom_hr/Home.dart';
 import 'package:boom_hr/Validate.dart';
+import 'package:boom_hr/validateRequest.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'Login.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "/":(context){
-          return  Login();
+          return  CalendarPage();
         },
         "/ForgetPassword":(context){
           return const ForgetPassword();
@@ -38,6 +39,9 @@ class MyApp extends StatelessWidget {
         },
         "/navigation":(context){
           return const NavigationBottom();
+        },
+        "/ValidateRequest":(context){
+          return  ValidateRequest();
         }
       },
     );
