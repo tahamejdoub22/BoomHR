@@ -11,8 +11,8 @@ class NewPassword extends StatefulWidget {
 class _NewPassword extends State<NewPassword>
 {
 
-  String? _email = 'oussama.sebai@esprit.tn';
   String? _password = '0000';
+  String? _cpassword = '0000';
 
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
@@ -20,6 +20,7 @@ class _NewPassword extends State<NewPassword>
 
   @override
   Widget build(BuildContext context) {
+    final String? email = ModalRoute.of(context)?.settings.arguments as String?;
     return Scaffold(
         body: Form(
           key: _keyForm,
@@ -30,8 +31,13 @@ class _NewPassword extends State<NewPassword>
                   width: double.infinity,
                   margin: const EdgeInsets.fromLTRB(20, 40, 20, 10),
                   child:Row(
-                    children: [
-                      Icon(Icons.arrow_back),
+                    children:  [
+                      IconButton(
+                       icon: Icon(Icons.arrow_back),
+                       onPressed: () {
+                        Navigator.pushReplacementNamed(context, "/Validate");
+                      },
+                    ),
                       Text("   New Password",
                           style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold))
                     ],
@@ -40,7 +46,7 @@ class _NewPassword extends State<NewPassword>
               Container(
                   width: double.infinity,
                   margin: const EdgeInsets.fromLTRB(40, 20, 80, 10),
-                  child: Text("Can vreate a new password, please "
+                  child: const Text("Can vreate a new password, please "
                       "don't forget it too",
                       style: TextStyle(fontSize: 15,color: Colors.grey))
               ),
@@ -55,12 +61,12 @@ class _NewPassword extends State<NewPassword>
                     decoration: const InputDecoration(
                         border:  OutlineInputBorder(),
                         labelText: "New Password",
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           Icons.key,
                           color: Colors.blue,
                         )),
                     onSaved: (String? value) {
-                      _email = value;
+                      _password = value;
                     },
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -76,12 +82,12 @@ class _NewPassword extends State<NewPassword>
                     decoration: const InputDecoration(
                         border:  OutlineInputBorder(),
                         labelText: "Confirm Password",
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           Icons.key,
                           color: Colors.blue,
                         )),
                     onSaved: (String? value) {
-                      _email = value;
+                      _cpassword = value;
                     },
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -96,17 +102,16 @@ class _NewPassword extends State<NewPassword>
                   child: ElevatedButton(
                     child: const Text("Submit"),
                     onPressed: () {
-                      Navigator.pushNamed(context, "/Validate");
                       if(_keyForm.currentState!.validate()){
                         _keyForm.currentState!.save();
                         Map<String, dynamic> employeeData = {
-                          "email": _email,
-                          "password": _password
+                          "pwd": _password,
+                          "email": email,
                         };
                         Map<String, String> headers = {
                           "Content-Type": "application/json; charset=UTF-8"
                         };
-                        http.post(Uri.http(_baseUrl, "/employee/Login"), body: json.encode(employeeData), headers: headers)
+                        http.post(Uri.http(_baseUrl, "/employee/reset"), body: json.encode(employeeData), headers: headers)
                             .then((http.Response response) {
                           if(response.statusCode == 200) {
                             showDialog(
@@ -114,11 +119,11 @@ class _NewPassword extends State<NewPassword>
                                 builder: (context) {
                                   return const AlertDialog(
                                       title: Text("Information"),
-                                      content: Text("Logged successfully")
+                                      content: Text("password updated successfully")
                                   );
                                 }
                             );
-                            // Navigator.pushReplacementNamed(context, "/homeTab");
+                             Navigator.pushReplacementNamed(context, "/Login");
                           } else if(response.statusCode == 401) {
                             showDialog(
                                 context: context,
@@ -150,6 +155,4 @@ class _NewPassword extends State<NewPassword>
         )
     );
   }
-
-
 }

@@ -30,13 +30,13 @@ class _LoginState extends State<Login>
           Container(
               width: double.infinity,
               margin: const EdgeInsets.fromLTRB(40, 40, 20, 10),
-              child: Text("Sign In",
+              child: const Text("Sign In",
               style: TextStyle(fontSize: 40,fontWeight: FontWeight.bold))
           ),
           Container(
               width: double.infinity,
               margin: const EdgeInsets.fromLTRB(40, 20, 20, 10),
-              child: Text("Use your email to Login to your account",
+              child: const Text("Use your email to Login to your account",
                   style: TextStyle(fontSize: 15,color: Colors.grey))
           ),
            Container(
@@ -45,7 +45,7 @@ class _LoginState extends State<Login>
                      decoration: const InputDecoration(
                      border:  OutlineInputBorder(),
                        labelText: "Email",
-                prefixIcon: const Icon(
+                      prefixIcon: Icon(
                   Icons.email,
                   color: Colors.blue,
                 )),
@@ -67,7 +67,7 @@ class _LoginState extends State<Login>
              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: "Password",
-                prefixIcon: const Icon(
+                prefixIcon: Icon(
                   Icons.key,
                   color: Colors.blue,
                 )),
@@ -118,6 +118,14 @@ class _LoginState extends State<Login>
                         http.post(Uri.http(_baseUrl, "/employee/Login"), body: json.encode(employeeData), headers: headers)
                             .then((http.Response response) {
                         if(response.statusCode == 200) {
+                          dynamic jsonData = json.decode(response.body);
+                          List<dynamic> userData = [];
+
+                          if (jsonData is List<dynamic>) {
+                            userData = jsonData;
+                          } else {
+                            userData.add(jsonData);
+                          }
                         showDialog(
                           context: context,
                   builder: (context) {
@@ -127,7 +135,7 @@ class _LoginState extends State<Login>
                        );
                     }
                         );
-                     // Navigator.pushReplacementNamed(context, "/homeTab");
+                      Navigator.pushReplacementNamed(context, "/navigation",arguments: userData);
                    } else if(response.statusCode == 401) {
                      showDialog(
                      context: context,
@@ -160,7 +168,7 @@ class _LoginState extends State<Login>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
               GestureDetector(
-                child: Text("Mot de passe oublié ?",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold))
+                child: const Text("Mot de passe oublié ?",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold))
               ,onTap: () {
                 Navigator.pushNamed(context, "/ForgetPassword");
               },

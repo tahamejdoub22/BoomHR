@@ -10,10 +10,7 @@ class Validate extends StatefulWidget {
 }
 class _ValidateState extends State<Validate>
 {
-
-  String? _email = 'oussama.sebai@esprit.tn';
-  String? _password = '0000';
-  bool _isChecked = false;
+  late String? _code;
 
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
@@ -21,6 +18,7 @@ class _ValidateState extends State<Validate>
 
   @override
   Widget build(BuildContext context) {
+    final String? email = ModalRoute.of(context)?.settings.arguments as String?;
     return Scaffold(
         body: Form(
           key: _keyForm,
@@ -31,8 +29,13 @@ class _ValidateState extends State<Validate>
                   width: double.infinity,
                   margin: const EdgeInsets.fromLTRB(20, 40, 20, 10),
                   child:Row(
-                    children: [
-                      Icon(Icons.arrow_back),
+                    children:  [
+                      IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(context, "/ForgetPassword");
+                        },
+                      ),
                       Text("   Validate with email",
                           style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold))
                     ],
@@ -41,7 +44,7 @@ class _ValidateState extends State<Validate>
               Container(
                   width: double.infinity,
                   margin: const EdgeInsets.fromLTRB(40, 20, 20, 10),
-                  child: Text("Code has ben send in your email",
+                  child: const Text("Code has ben send in your email",
                       style: TextStyle(fontSize: 15,color: Colors.grey))
               ),
               Container(
@@ -50,7 +53,7 @@ class _ValidateState extends State<Validate>
                     decoration: const InputDecoration(
                         border:  OutlineInputBorder(),),
                     onSaved: (String? value) {
-                      _email = value;
+                      _code = value;
                     },
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -65,17 +68,16 @@ class _ValidateState extends State<Validate>
                   child: ElevatedButton(
                     child: const Text("Verify"),
                     onPressed: () {
-                      Navigator.pushNamed(context, "/NewPassword");
                       if(_keyForm.currentState!.validate()){
                         _keyForm.currentState!.save();
                         Map<String, dynamic> employeeData = {
-                          "email": _email,
-                          "password": _password
+                          "email": email,
+                          "resetCode": _code
                         };
                         Map<String, String> headers = {
                           "Content-Type": "application/json; charset=UTF-8"
                         };
-                        http.post(Uri.http(_baseUrl, "/employee/Login"), body: json.encode(employeeData), headers: headers)
+                        http.post(Uri.http(_baseUrl, "/employee/test"), body: json.encode(employeeData), headers: headers)
                             .then((http.Response response) {
                           if(response.statusCode == 200) {
                             showDialog(
@@ -87,7 +89,7 @@ class _ValidateState extends State<Validate>
                                   );
                                 }
                             );
-                            // Navigator.pushReplacementNamed(context, "/homeTab");
+                            Navigator.pushNamed(context, "/NewPassword",arguments: email);
                           } else if(response.statusCode == 401) {
                             showDialog(
                                 context: context,

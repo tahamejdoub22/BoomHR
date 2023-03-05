@@ -12,7 +12,6 @@ class _ForgetPassword extends State<ForgetPassword>
 {
 
   String? _email = 'oussama.sebai@esprit.tn';
-  String? _password = '0000';
 
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
@@ -30,8 +29,13 @@ class _ForgetPassword extends State<ForgetPassword>
                   width: double.infinity,
                   margin: const EdgeInsets.fromLTRB(20, 40, 20, 10),
                   child:Row(
-                    children: [
-                      Icon(Icons.arrow_back),
+                    children:  [
+                    IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(context, "/");
+                      },
+                    ),
                       Text("   Forget Password",
                           style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold))
                     ],
@@ -48,7 +52,7 @@ class _ForgetPassword extends State<ForgetPassword>
                     decoration: const InputDecoration(
                         border:  OutlineInputBorder(),
                         labelText: "Email",
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           Icons.email,
                           color: Colors.blue,
                         )),
@@ -68,17 +72,15 @@ class _ForgetPassword extends State<ForgetPassword>
                   child: ElevatedButton(
                     child: const Text("Continue"),
                     onPressed: () {
-                      Navigator.pushNamed(context, "/Validate");
                       if(_keyForm.currentState!.validate()){
                         _keyForm.currentState!.save();
                         Map<String, dynamic> employeeData = {
-                          "email": _email,
-                          "password": _password
+                          "email": _email
                         };
                         Map<String, String> headers = {
                           "Content-Type": "application/json; charset=UTF-8"
                         };
-                        http.post(Uri.http(_baseUrl, "/employee/Login"), body: json.encode(employeeData), headers: headers)
+                        http.post(Uri.http(_baseUrl, "/employee/forget"), body: json.encode(employeeData), headers: headers)
                             .then((http.Response response) {
                           if(response.statusCode == 200) {
                             showDialog(
@@ -86,18 +88,18 @@ class _ForgetPassword extends State<ForgetPassword>
                                 builder: (context) {
                                   return const AlertDialog(
                                       title: Text("Information"),
-                                      content: Text("Logged successfully")
+                                      content: Text("email validee")
                                   );
                                 }
                             );
-                            // Navigator.pushReplacementNamed(context, "/homeTab");
-                          } else if(response.statusCode == 401) {
+                            Navigator.pushNamed(context, "/Validate",arguments: _email);
+                          } else if(response.statusCode == 500) {
                             showDialog(
                                 context: context,
                                 builder: (context) {
                                   return const AlertDialog(
                                       title: Text("Information"),
-                                      content: Text("Username et/ou mot de passe incorrect")
+                                      content: Text("this account n'est existe pas")
                                   );
                                 }
                             );
