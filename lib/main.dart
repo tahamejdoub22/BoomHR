@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         "/":(context){
-          return  CalendarPage();
+          return  Login();
         },
         "/ForgetPassword":(context){
           return const ForgetPassword();
@@ -42,6 +42,9 @@ class MyApp extends StatelessWidget {
         },
         "/ValidateRequest":(context){
           return  ValidateRequest();
+        },
+    "/Request":(context){
+      return  CalendarPage();
         }
       },
     );

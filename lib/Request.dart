@@ -96,7 +96,7 @@ class _CalendarPageState extends State<CalendarPage> {
               Navigator.pushReplacementNamed(context, "/ValidateRequest"
                   ,arguments: {'startDate': _startDate, 'endDate': _endDate});
             },
-            child: Text('Afficher les dates sélectionnées'),
+            child: Text('Next'),
           ),
         ],
       ),

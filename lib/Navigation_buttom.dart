@@ -22,15 +22,15 @@ class _NavigationBottomState extends State<NavigationBottom> {
         items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: "Store"
+              label: "Home"
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.list_alt_outlined),
-              label: "Bibliothèque"
+              icon: Icon(Icons.person),
+              label: "Profile"
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_basket),
-              label: "panier"
+              icon: Icon(Icons.settings),
+              label: "Settings"
           )
         ],
         currentIndex: _currentIndex,

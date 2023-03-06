@@ -26,7 +26,7 @@ class Info {
   class _HomeState extends State<Home>
 {
   final List<Info> _infos = [];
-  final String _baseUrl = "10.0.2.2:9091";
+  final String _baseUrl = "172.16.1.161:9091";
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
 
@@ -86,7 +86,7 @@ class Info {
                   Spacer(),
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 10, 70, 10),
-                    child: Text(_infos.isNotEmpty ? _infos[0].localisation ?? '' : ''),
+                    child: Text(_infos.isNotEmpty ? _infos[0].Enom ?? '' : ''),
                   ),
                 ],
               ),
@@ -100,7 +100,7 @@ class Info {
                   Spacer(),
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 10, 70, 10),
-                    child: Text(_infos.isNotEmpty ? _infos[0].Enom ?? '' : ''),
+                    child: Text(_infos.isNotEmpty ? _infos[0].localisation ?? '' : ''),
                   ),
                 ],
               ),
@@ -125,16 +125,16 @@ class Info {
                   Column(
                     children: [
                       Container(
-                        margin: const EdgeInsets.fromLTRB(20, 30, 0, 10),
+                        margin: const EdgeInsets.fromLTRB(5, 30, 0, 10),
                         child: Text("Vacation",style: TextStyle(fontWeight: FontWeight.bold),),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(20, 0, 0, 10),
+                        margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                         child: Text(_infos.isNotEmpty ? _infos[0].vacation.toString() ?? '' : '',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,fontSize: 30)),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(20, 0, 0, 10),
-                        child: Text("HOURS AVAILABE",style: TextStyle(color: Colors.blue)),
+                        margin: const EdgeInsets.fromLTRB(30, 0, 0, 10),
+                        child: Text("HOURS AVAILABE",style: TextStyle(color: Colors.blue,fontSize: 10)),
                       ),
 
                     ],
@@ -151,7 +151,7 @@ class Info {
                       ),
                       Container(
                         margin: const EdgeInsets.fromLTRB(20, 0, 0, 10),
-                        child: Text("HOURS AVAILABE",style: TextStyle(color: Colors.blue)),
+                        child: Text("HOURS AVAILABE",style: TextStyle(color: Colors.blue,fontSize: 10)),
                       ),
 
                     ],
@@ -179,7 +179,9 @@ class Info {
                       child: ElevatedButton
                         (
                         child: Text("Request Time Off"),
-                        onPressed: () {  },
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/Request");
+                        },
                       ),
                     )
               ]

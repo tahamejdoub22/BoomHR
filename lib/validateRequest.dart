@@ -15,7 +15,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
   late DateTime _endDate;
   late String? _type ;
   late String? _note;
-  final String _baseUrl = "10.0.2.2:9091";
+  final String _baseUrl = "172.16.1.161:9091";
 
   @override
   void initState() {
@@ -158,7 +158,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
                       builder: (context) {
                         return const AlertDialog(
                             title: Text("Information"),
-                            content: Text("Logged successfully")
+                            content: Text("your request has been sent ")
                         );
                       }
                   );
@@ -186,7 +186,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
                 }
               });
             },
-            child: Text('Afficher les dates sélectionnées'),
+            child: Text('Submit'),
           ),
 
 

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\flutters\\boom_hr\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "D:\\PIM\\FrontEnd\\boom_hr\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\lenovo\\.gradle\\caches\\transforms-3\\acbce933e4b464a5224ed377a62db1f5\\transformed\\core-1.6.0\\res\\values\\values.xml",
@@ -42,7 +42,7 @@
                     }
                 },
                 {
-                    "source": "D:\\flutters\\boom_hr\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "D:\\PIM\\FrontEnd\\boom_hr\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
