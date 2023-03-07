@@ -1,5 +1,6 @@
 {
   "name": "auth-jwt-taha",
+  "type": "module",
   "version": "1.0.0",
   "description": "Node.js + MongoDB: JWT Authentication & Authorization",
   "main": "server.js",
@@ -25,8 +26,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^9.0.0",
+    "mailgun-js": "^0.22.0",
     "mongoose": "^5.13.13",
     "nodemon": "^2.0.20"
-  },
-  "devDependencies": {}
+  }
 }

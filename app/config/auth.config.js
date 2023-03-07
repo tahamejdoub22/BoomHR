@@ -1,3 +1,1 @@
-module.exports = {
-  secret: "taha-secret-key"
-};
+export const secret = "taha-secret-key";

@@ -1,17 +1,16 @@
-const jwt = require("jsonwebtoken");
-const config = require("../config/auth.config.js");
-const db = require("../models");
-const User = db.user;
-const Role = db.role;
+import  Role  from "../models/role.model.js";
+import User from "../models/user.model.js";
+import { verify } from "jsonwebtoken";
+import { secret } from "../config/auth.config.js";
 
-verifyToken = (req, res, next) => {
+export const verifyToken = (req, res, next) => {
   let token = req.session.token;
 
   if (!token) {
     return res.status(403).send({ message: "No token provided!" });
   }
 
-  jwt.verify(token, config.secret, (err, decoded) => {
+   verify(token, secret, (err, decoded) => {
     if (err) {
       return res.status(401).send({ message: "Unauthorized!" });
     }
@@ -20,7 +19,7 @@ verifyToken = (req, res, next) => {
   });
 };
 
-isAdmin = (req, res, next) => {
+export const isAdmin = (req, res, next) => {
   User.findById(req.userId).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
@@ -51,7 +50,7 @@ isAdmin = (req, res, next) => {
   });
 };
 
-isHrManger = (req, res, next) => {
+export const isHrManger = (req, res, next) => {
   User.findById(req.userId).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
@@ -87,4 +86,4 @@ const authJwt = {
   isAdmin,
   isHrManger,
 };
-module.exports = authJwt;
+export default authJwt;

@@ -1,8 +1,12 @@
-const express = require("express");
-const cors = require("cors");
-const cookieSession = require("cookie-session");
-
-const dbConfig = require("./app/config/db.config");
+import authRoutes from "./app/routes/auth.routes.js";
+import congeeRoutes from "./app/routes/Congee.js";
+import cookieSession from "cookie-session";
+import cors from "cors";
+import db from "./app/models/index.js";
+import employeeRoutes from "./app/routes/Epmloyee.js";
+import express, { json, urlencoded } from "express";
+import userRoutes from "./app/routes/user.routes.js";
+import { DB, HOST, PORT as _PORT } from "./app/config/db.config.js";
 
 const app = express();
 
@@ -15,24 +19,23 @@ var corsOptions = {
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
-app.use(express.json());
+app.use(json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: true }));
+app.use(urlencoded({ extended: true }));
 
 app.use(
   cookieSession({
-    name: "bezkoder-session",
+    name: "BoomHr-session",
     secret: "COOKIE_SECRET", // should use as secret environment variable
     httpOnly: true
   })
 );
 
-const db = require("./app/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
+  .connect(`mongodb://${HOST}:${_PORT}/${DB}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -51,9 +54,12 @@ app.get("/", (req, res) => {
 });
 
 // routes
-require("./app/routes/auth.routes")(app);
-require("./app/routes/user.routes")(app);
+// routes
 
+authRoutes(app);
+userRoutes(app);
+app.use('/employee',employeeRoutes);
+app.use('/congee',congeeRoutes)
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
@@ -74,13 +80,13 @@ function initial() {
       });
 
       new Role({
-        name: "moderator"
+        name: "HrManager"
       }).save(err => {
         if (err) {
           console.log("error", err);
         }
 
-        console.log("added 'moderator' to roles collection");
+        console.log("added 'HrManager' to roles collection");
       });
 
       new Role({
