@@ -1,6 +1,7 @@
 import 'package:boom_hr/ForgetPassword.dart';
 import 'package:boom_hr/Home.dart';
 import 'package:boom_hr/Validate.dart';
+import 'package:boom_hr/Profile.dart';
 import 'package:boom_hr/validateRequest.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -8,6 +9,7 @@ import 'Login.dart';
 import 'Navigation_buttom.dart';
 import 'NewPassword.dart';
 import 'Request.dart';
+import 'congee_info.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,6 +17,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  final String _baseUrl = "172.16.5.102:9091";
 
   // This widget is the root of your application.
   @override
@@ -45,6 +48,9 @@ class MyApp extends StatelessWidget {
         },
     "/Request":(context){
       return  CalendarPage();
+        },
+        "/Profile":(context){
+          return  Profile();
         }
       },
     );

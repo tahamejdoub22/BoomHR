@@ -16,7 +16,7 @@ class _NewPassword extends State<NewPassword>
 
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
-  final String _baseUrl = "172.16.1.161:9091";
+  final String _baseUrl = "192.168.101.227:9091";
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +123,7 @@ class _NewPassword extends State<NewPassword>
                                   );
                                 }
                             );
-                             Navigator.pushReplacementNamed(context, "/Login");
+                             Navigator.pushReplacementNamed(context, "/");
                           } else if(response.statusCode == 401) {
                             showDialog(
                                 context: context,

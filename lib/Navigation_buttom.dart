@@ -1,3 +1,4 @@
+import 'package:boom_hr/Profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class NavigationBottom extends StatefulWidget {
 
 class _NavigationBottomState extends State<NavigationBottom> {
   int _currentIndex = 0;
-  final List<Widget> _interfaces = const [Home()];
+  final List<Widget> _interfaces = const [Home(),Profile()];
 
   @override
   Widget build(BuildContext context) {

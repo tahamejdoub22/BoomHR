@@ -1,6 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -17,10 +20,19 @@ class _LoginState extends State<Login>
 
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
-  final String _baseUrl = "172.16.1.161:9091";
+  final String _baseUrl = "192.168.101.227:9091";
 
   @override
   Widget build(BuildContext context) {
+    Random random = Random();
+    Color color = Color.fromARGB(
+      255,
+      random.nextInt(256),
+      random.nextInt(256),
+      random.nextInt(256),);
+    String colorToHex(Color color) {
+      return '#${color.value.toRadixString(16).substring(2)}';
+    }
     return Scaffold(
       body: Form(
         key: _keyForm,
@@ -116,17 +128,28 @@ class _LoginState extends State<Login>
                          "Content-Type": "application/json; charset=UTF-8"
                          };
                         http.post(Uri.http(_baseUrl, "/employee/Login"), body: json.encode(employeeData), headers: headers)
-                            .then((http.Response response) {
+                            .then((http.Response response) async {
                         if(response.statusCode == 200) {
-                          dynamic jsonData = json.decode(response.body);
-                          List<dynamic> userData = [];
+                          Map<String,dynamic> userData = json.decode(response.body);
+                          // Map<String,dynamic> userData = [];
+                          //
+                          // if (jsonData is List<dynamic>) {
+                          //   userData = jsonData;
+                          // } else {
+                          //   userData.add(jsonData);
+                          // }
+                          SharedPreferences prefs = await SharedPreferences.getInstance();
+                          prefs.setString("userId", userData["_id"]);
+                          prefs.setString("nom", userData["nom"]);
+                          prefs.setString("prenom", userData["prenom"]);
+                          prefs.setString("salary", userData["salary"].toString());
+                          prefs.setString("vacation", userData["vacation"].toString());
+                          prefs.setString("sick", userData["sick"].toString());
+                          prefs.setString("Enom", userData["Enom"]);
+                          prefs.setString("localisation", userData["localisation"]);
+                          prefs.setString("color", colorToHex(color));
 
-                          if (jsonData is List<dynamic>) {
-                            userData = jsonData;
-                          } else {
-                            userData.add(jsonData);
-                          }
-                        showDialog(
+                          showDialog(
                           context: context,
                   builder: (context) {
                        return const AlertDialog(

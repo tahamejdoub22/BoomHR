@@ -1,4 +1,11 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:math';
+
+import 'package:boom_hr/congee_info.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -6,79 +13,159 @@ class Home extends StatefulWidget {
   State<StatefulWidget> createState() =>_HomeState();
 
 }
-class Info {
-  final String? nom;
-  final String? prenom;
-  final double? salary;
-  final double? vacation;
-  final double? sick;
-  final String? Enom;
-  final String? localisation;
+class   Congee {
+  final String id;
+  final String date_debut;
+  final String date_fin;
+  final String etat;
+  final String note;
 
-  Info(this.nom, this.prenom, this.salary, this.vacation, this.sick, this.Enom,
-      this.localisation);
+  Congee(this.id, this.date_debut, this.date_fin, this.etat, this.note);
 
   @override
   String toString() {
-    return 'Game{nom: $nom, prenom: $prenom, salary: $salary, vacation: $vacation, sick: $sick, Enom: $Enom, localisation: $localisation}';
+    return 'Congee{_id: $id, date_debut: $date_debut, date_fin: $date_fin, etat: $etat, note: $note}';
   }
 }
+
   class _HomeState extends State<Home>
 {
-  final List<Info> _infos = [];
-  final String _baseUrl = "172.16.1.161:9091";
+  int _counter = 0;
+  late Future<bool> fetchedCongees;
+  final List<Congee> _congees = [];
+  final List<Congee> _congeesV = [];
+  final List<Congee> _congeesS = [];
+  late List<dynamic> congeesFromServer;
+  late String? nom ="";
+  late String? prenom ="";
+  late String? salary="";
+  late String? Enom="";
+  late String? localisation="";
+  late String? vacation="";
+  late String? sick="";
+  late Timer _timer;
+  late String? c="";
+  int x = 0;
+  Future<bool> fetchCongees() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    nom = prefs.getString("nom");
+    prenom = prefs.getString("prenom");
+    salary = prefs.getString("salary");
+    Enom = prefs.getString("Enom");
+    localisation = prefs.getString("localisation");
+    vacation = prefs.getString("vacation");
+    sick = prefs.getString("sick");
+    c = prefs.getString("color");
+    http.Response response = await http.get(Uri.http(_baseUrl, "/congee/get/" + prefs.getString("userId")!));
+
+     congeesFromServer = json.decode(response.body);
+
+    print("++++++++++++");
+    print(congeesFromServer[0]["type"]);
+    print(nom);
+    print("++++++++++++");
+    print(congeesFromServer.length);
+    congeesFromServer.forEach((congee) {
+      if(congee["type"]=="vacation") {
+        _congeesV.add(Congee(
+            congee["_id"], congee["date_debut"], congee["date_fin"],
+            congee["etat"], congee["type"]));
+
+        _congees.add(Congee(
+            congee["_id"], congee["date_debut"], congee["date_fin"],
+            congee["etat"], congee["type"]));
+      }
+      else
+        {
+          _congeesS.add(Congee(
+              congee["_id"], congee["date_debut"], congee["date_fin"],
+              congee["etat"], congee["type"]));
+
+          _congees.add(Congee(
+              congee["_id"], congee["date_debut"], congee["date_fin"],
+              congee["etat"], congee["type"]));
+        }
+    });
+    print(_congees);
+    return true;
+  }
+  @override
+  void initState() {
+    fetchedCongees = fetchCongees();
+    super.initState();
+    _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+      setState(() {
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+  final String _baseUrl = "192.168.101.227:9091";
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
 
   @override
   Widget build(BuildContext context) {
     final route = ModalRoute.of(context);
-    final List< dynamic> userData = route!.settings.arguments as List< dynamic>;
-    userData.forEach((element) {
-      print(element);
-      _infos.add(Info(
-        element["nom"],
-        element["prenom"],
-        double.tryParse(element["salary"].toString()),
-        double.tryParse(element["vacation"].toString()),
-        double.tryParse(element["sick"].toString()),
-        element["Enom"],
-        element["localisation"],
-      ));
+    //  List<dynamic> _infos = [];
+    // final Map<String, dynamic> userData = route!.settings.arguments as Map<String,dynamic>;
+    // _infos = userData.values.toList();
+    Color hexToColor(String hexString) {
+      return Color(int.parse(hexString.substring(1, 7), radix: 16) + 0xFF000000);
+    }
+
+    setState((){
+
     });
+
     return Scaffold(
         body: Form(
           key: _keyForm,
           child:
-          ListView(
+            ListView(
             children: [
               const SizedBox(
                 height: 20,
               ),
               Row(
                 children: [
-                   Container(
-                     margin: const EdgeInsets.fromLTRB(20, 10, 10, 10),
-                     child: Image.asset("assets/images/ellipse15.png", width: 50, height: 94),
-                ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/Profile');
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.fromLTRB(20, 10, 10, 10),
+                      child: CircleAvatar(
+                        backgroundColor: hexToColor(c!),
+                        child: Text(
+                          nom!.substring(0, 1).toUpperCase(),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
                   Container(
                     margin: const EdgeInsets.fromLTRB(0, 10, 20, 10),
                     child: Column(
                       children: [
-                        Text(_infos.isNotEmpty ? _infos[0].nom ?? '' : ''),
-                         Text(_infos.isNotEmpty ? _infos[0].prenom ?? '' : '')
+                        Text(nom!),
+                         Text(prenom!)
                       ],
                     ),
                   ),
 
                   Spacer(),
-                  Icon(Icons.currency_exchange,color: Colors.blue,),
-                  Text(_infos.isNotEmpty ? _infos[0].salary.toString() ?? '' : '')
-
+                  Text(salary!),
+                  Icon(Icons.attach_money,color: Colors.blue,),
                 ],
               ),
               Row(
                 children: [
+                  Icon(Icons.home),
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 10, 10, 10),
                     child: Text("Entreprise"),
@@ -86,13 +173,14 @@ class Info {
                   Spacer(),
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 10, 70, 10),
-                    child: Text(_infos.isNotEmpty ? _infos[0].Enom ?? '' : ''),
+                    child: Text(Enom!),
                   ),
                 ],
               ),
               Divider(),
               Row(
                 children: [
+                  Icon(Icons.location_on),
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 10, 10, 10),
                     child: Text("Localisation"),
@@ -100,7 +188,7 @@ class Info {
                   Spacer(),
                   Container(
                     margin: const EdgeInsets.fromLTRB(20, 10, 70, 10),
-                    child: Text(_infos.isNotEmpty ? _infos[0].localisation ?? '' : ''),
+                    child: Text(localisation!),
                   ),
                 ],
               ),
@@ -126,11 +214,25 @@ class Info {
                     children: [
                       Container(
                         margin: const EdgeInsets.fromLTRB(5, 30, 0, 10),
-                        child: Text("Vacation",style: TextStyle(fontWeight: FontWeight.bold),),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState((){
+                            x=1;
+                            });
+                          },
+                          child: const Text(
+                            'Vacation',
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        )
+
                       ),
                       Container(
                         margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                        child: Text(_infos.isNotEmpty ? _infos[0].vacation.toString() ?? '' : '',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,fontSize: 30)),
+                        child: Text(vacation!,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,fontSize: 30)),
                       ),
                       Container(
                         margin: const EdgeInsets.fromLTRB(30, 0, 0, 10),
@@ -142,12 +244,26 @@ class Info {
                   Column(
                     children: [
                       Container(
-                        margin: const EdgeInsets.fromLTRB(20, 30, 0, 10),
-                        child: Text("Sick",style: TextStyle(fontWeight: FontWeight.bold),),
+                          margin: const EdgeInsets.fromLTRB(5, 30, 0, 10),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState((){
+                                x=2;
+                              });
+                            },
+                            child: const Text(
+                              'Sick',
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,fontWeight: FontWeight.bold,
+                                color: Colors.blue,
+                              ),
+                            ),
+                          )
+
                       ),
                       Container(
                         margin: const EdgeInsets.fromLTRB(20, 0, 0, 10),
-                        child: Text(_infos.isNotEmpty ? _infos[0].sick.toString() ?? '' : '',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,fontSize: 30)),
+                        child: Text(sick!,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,fontSize: 30)),
                       ),
                       Container(
                         margin: const EdgeInsets.fromLTRB(20, 0, 0, 10),
@@ -183,16 +299,65 @@ class Info {
                           Navigator.pushNamed(context, "/Request");
                         },
                       ),
-                    )
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    FutureBuilder(
+                      future: fetchedCongees,
+                      builder: (BuildContext context, AsyncSnapshot<bool> snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        } else if (snapshot.connectionState == ConnectionState.done) {
+                          if (snapshot.hasData) {
+                            return ListView.builder(
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: _congees.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                if (x==0) {
+                                  return CongeeInfo(_congees[index]);
+                                } else if (x==1 && index < _congeesV.length) {
+                                  return CongeeInfo(_congeesV[index]);
+                                } else if (x==2 && index < _congeesS.length) {
+                                  return CongeeInfo(_congeesS[index]);
+                                } else {
+
+                                  return const SizedBox.shrink();
+                                }
+
+                              },
+                            );
+                          } else if (snapshot.hasError) {
+                            return Center(
+                              child: Text('Error loading data'),
+                            );
+                          } else {
+                            return const Center(
+                              child: Text('No data'),
+                            );
+                          }
+                        } else {
+                          return const SizedBox.shrink();
+                        }
+                      },
+                    ),
               ]
                 )
-              )
 
-            ],
-          ),
-        )
+
+            ),
+      ]
+    ),
+
+        ),
+
     );
+
   }
+
 
 
 }

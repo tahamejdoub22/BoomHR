@@ -1,3 +1,4 @@
+import 'package:boom_hr/Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart' show CalendarCarousel;
 
@@ -20,6 +21,7 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
+    Object? congee = ModalRoute.of(context)?.settings.arguments  ;
     return Scaffold(
       body: ListView(
         children: <Widget>[
@@ -31,7 +33,7 @@ class _CalendarPageState extends State<CalendarPage> {
                   IconButton(
                     icon: Icon(Icons.arrow_back),
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, "/");
+                      Navigator.pushReplacementNamed(context, "/navigation");
                     },
                   ),
                   Text(" New Request",
@@ -93,8 +95,13 @@ class _CalendarPageState extends State<CalendarPage> {
           ElevatedButton(
             onPressed: () {
               print('Start Date: $_startDate');
-              Navigator.pushReplacementNamed(context, "/ValidateRequest"
-                  ,arguments: {'startDate': _startDate, 'endDate': _endDate});
+              if(congee!=null) {
+                Navigator.pushReplacementNamed(context, "/ValidateRequest"
+                  ,arguments: {'startDate': _startDate, 'endDate': _endDate,'congee':congee});
+              } else {
+                Navigator.pushReplacementNamed(context, "/ValidateRequest"
+                    ,arguments: {'startDate': _startDate, 'endDate': _endDate});
+              }
             },
             child: Text('Next'),
           ),

@@ -39,6 +39,10 @@ dependencies:
   http: ^0.13.5
   table_calendar: ^3.0.0
   flutter_calendar_carousel: ^2.3.1
+  shared_preferences: ^2.0.8
+  animated_bottom_navigation_bar: ^0.3.3
+  flutter_icons: ^1.1.0
+  page_transition: ^2.0.5
 
 dev_dependencies:
   flutter_test:
