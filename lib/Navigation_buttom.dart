@@ -2,7 +2,7 @@ import 'package:boom_hr/Profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'Home.dart';
+import 'Home2.dart';
 
 class NavigationBottom extends StatefulWidget {
   const NavigationBottom({Key? key}) : super(key: key);

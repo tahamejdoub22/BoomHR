@@ -19,7 +19,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
   late DateTime _endDate;
   late String? _type='' ;
   late String? _note;
-  final String _baseUrl = "192.168.101.227:9091";
+  final String _baseUrl = "192.168.153.227:9091";
   String _selectedItem = 'vacation';
 
   @override
@@ -149,14 +149,14 @@ class _ValidateRequestState extends State<ValidateRequest> {
                   value: 'sick',
                   child: Padding(
                     padding: EdgeInsets.only(left: 12.0),
-                    child: Text('Sick'),
+                    child: Text('sick'),
                   ),
                 ),
                 DropdownMenuItem(
                   value: 'vacation',
                   child: Padding(
                     padding: EdgeInsets.only(left: 12.0),
-                    child: Text('Vacation'),
+                    child: Text('vacation'),
                   ),
                 ),
               ],
@@ -164,6 +164,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
               onChanged: (value) {
                 setState(() {
                   _selectedItem = value!;
+                  _type= _selectedItem;
                 });
               },
               elevation: 16,
@@ -207,6 +208,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
 
                 if(congee==null) {
                   print("eeeeee");
+                  print(_type);
                   Map<String, dynamic> congeeData = {
                     'id':prefs.getString("userId"),
                     'startDate':startDate.toIso8601String(),'endDate':endDate.toIso8601String(),'type':_type,'note':_note};
@@ -247,7 +249,6 @@ class _ValidateRequestState extends State<ValidateRequest> {
                   });
                 }
                 else {
-                  print("jjjjjj");
                   Map<String, dynamic> congeeData = {
                     '_id':congee.id,
                     'startDate':startDate.toIso8601String(),'endDate':endDate.toIso8601String(),'type':_type,'note':_note};

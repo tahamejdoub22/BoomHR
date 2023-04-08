@@ -18,30 +18,60 @@ class CongeeInfo extends StatelessWidget {
     DateTime EndDate = DateTime.parse(endDate);
     String months = DateFormat('MMMM').format(StartDate);
     String monthe = DateFormat('MMMM').format(EndDate);
+    final duration = EndDate.difference(StartDate);
+    final days = duration.inDays;
     return SizedBox(
-      height: 120,
+      height: 150,
       child: Card(
+        shape: RoundedRectangleBorder(
+          side: BorderSide(// Définir la couleur de la bordure
+            color: Colors.black12,
+            width: 2, // Définir la largeur de la bordure
+          ),
+          borderRadius: BorderRadius.circular(10), // Définir le rayon des coins
+        ),
         child: Column(
           children: [
             Expanded(child:
              Row(
               children: [
                 Expanded(child:
-                 Column(
+                Column(
                   children: [
-                    Text(congee.etat,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.amber,fontSize: 20)),
+                    Text(
+                      congee.etat,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: (() {
+                          switch(congee.etat) {
+                            case "en cours":
+                              return Colors.amber;
+                            case "approuvé":
+                              return Colors.green;
+                            case "rejeté":
+                              return Colors.red;
+                            default:
+                              return Colors.black;
+                          }
+                        }()),
+                      ),
+                    ),
                   ],
+                )
                 ),
-                ),
-                Expanded(child: SizedBox()),
+                //Expanded(child: SizedBox()),
                 Column(
                   children: [
                     Text(congee.note)
                     ,
-                    Expanded(child: SizedBox())
+                    SizedBox(width: 20,),
+                    // Expanded(child: SizedBox(
+                    //   width: 20,
+                    // ))
                   ],
                 )
-                
+
               ],
             ),
             ),
@@ -55,15 +85,21 @@ class CongeeInfo extends StatelessWidget {
                 SizedBox(width: 20,),
                 Text(EndDate.day.toString()+" "+monthe,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.blue,fontSize: 20)),
                 SizedBox(width: 70,),
-                IconButton(
-                  icon: Icon(Icons.edit),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/Request",arguments: congee);
-                  },
-                ),
+                Visibility(
+                  visible: congee.etat == "en cours", // Vérification de la condition
+                  child: IconButton(
+                    icon: Icon(Icons.edit),
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/Request",arguments: congee);
+                    },
+                  ),
+                )
+
               ],
             ),
-            SizedBox(height: 30,)
+            SizedBox(height: 20,),
+            Text('le nombre total en jours est :$days',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15))
+            ,SizedBox(height: 20,)
           ],
         ),
       ),
