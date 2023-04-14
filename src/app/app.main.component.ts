@@ -43,29 +43,29 @@ export class AppMainComponent implements OnInit{
     constructor(private menuService: MenuService,private userService: UserService, private primengConfig: PrimeNGConfig, public app: AppComponent,private location: Location, private router: Router) { }
 
     ngOnInit() :void{
-       
-        this.userService.getHrManagerBoard().subscribe({
-            next: data => {
-              this.content = data;
-            },
-            error: err => {
-              if (err.error) {
-                try {
-                  const res = JSON.parse(err.error);
-                  this.content = res.message;
-                } catch {
-                  this.content = `Error with status: ${err.status} - ${err.statusText}`;
-                }
-              } else {
-                this.content = `Error with status: ${err.status}`;
-                
-              }
 
-            }
-          });
-          this.overrideBackButton();
+        // this.userService.getHrManagerBoard().subscribe({
+        //     next: data => {
+        //       this.content = data;
+        //     },
+        //     error: err => {
+        //       if (err.error) {
+        //         try {
+        //           const res = JSON.parse(err.error);
+        //           this.content = res.message;
+        //         } catch {
+        //           this.content = `Error with status: ${err.status} - ${err.statusText}`;
+        //         }
+        //       } else {
+        //         this.content = `Error with status: ${err.status}`;
 
-        this.primengConfig.ripple = true;
+        //       }
+
+        //     }
+        //   });
+        //   this.overrideBackButton();
+
+        // this.primengConfig.ripple = true;
     }
 
     onLayoutClick() {

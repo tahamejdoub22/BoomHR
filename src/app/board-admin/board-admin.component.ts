@@ -14,8 +14,8 @@ export class BoardAdminComponent implements OnInit {
   content?: string;
 
 
-  
 
+     user: any;
     topbarMenuActive: boolean;
 
     overlayMenuActive: boolean;
@@ -47,27 +47,49 @@ export class BoardAdminComponent implements OnInit {
     constructor(private menuService: MenuService,private userService: UserService, private primengConfig: PrimeNGConfig, public app: AppComponent,private router: Router) { }
 
     ngOnInit() :void{
-      this.userService.getAdminBoard().subscribe({
-        next: data => {
-          this.content = data;
-        },
-        error: err => {
-          if (err.error) {
-            try {
-              const res = JSON.parse(err.error);
-              this.content = res.message;
-            } catch {
-              this.content = `Error with status: ${err.status} - ${err.statusText}`;
-            }
-          } else {
-            this.content = `Error with status: ${err.status}`;
-            
-          }
-        }
-      });
-      this.overrideBackButton();
+    //   this.userService.getAdminBoard()
+    //   .subscribe({
+    //     next: data => {
+    //       this.content = data;
+    //     },
+    //     error: err => {
+    //       if (err.error) {
+    //         try {
+    //           const res = JSON.parse(err.error);
+    //           this.content = res.message;
+    //         } catch {
+    //           this.content = `Error with status: ${err.status} - ${err.statusText}`;
+    //         }
+    //       } else {
+    //         this.content = `Error with status: ${err.status}`;
 
-        this.primengConfig.ripple = true;
+    //       }
+    //     }
+    //   });
+
+
+    //     this.userService.getAdminBoard().subscribe({
+    //         next: (user: any) => {
+    //             this.user = user;
+    //           },
+    //           error: (err: any) =>{
+    //         if (err.error) {
+    //           try {
+    //             const res = JSON.parse(err.error);
+    //             this.content = res.message;
+    //           } catch {
+    //             this.content = `Error with status: ${err.status} - ${err.statusText}`;
+    //           }
+    //         } else {
+    //           this.content = `Error with status: ${err.status}`;
+    //         }
+    //       }
+    // });
+
+
+    //   this.overrideBackButton();
+
+    //     this.primengConfig.ripple = true;
     }
     overrideBackButton() {
         window.history.pushState(null, '', window.location.href);

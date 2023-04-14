@@ -11,6 +11,9 @@ import { AuthGuard } from './auth.guard';
 import { BoardUserComponent } from './board-user/board-user.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardModeratorComponent } from './board-HrManager/board-moderator.component';
+import { TabUserRoleComponent } from './board-admin/tab-user-role/tab-user-role.component';
+import { HrBoardComponent } from './hr-board/hr-board.component';
+import { JobsDashboardComponent } from './hr-board/jobs-dashboard/jobs-dashboard.component';
 
 @NgModule({
     imports: [
@@ -20,15 +23,38 @@ import { BoardModeratorComponent } from './board-HrManager/board-moderator.compo
             {path:'signup',component:SignUpComponent},
             { path: 'user', component: BoardUserComponent },
             { path: 'mod', component: BoardModeratorComponent ,canActivate: [AuthGuard]},
-            { path: 'admin', component: BoardAdminComponent ,canActivate: [AuthGuard]},
+            { path: 'admin', component: BoardAdminComponent ,
+            children: [
+
+                {path: 'userroles', component: TabUserRoleComponent},
+            ]
+        },
             {
 
-                path: 'Dashboard', component: AppMainComponent ,canActivate: [AuthGuard],
+                path: 'Dashboard', component: AppMainComponent ,
                 children: [
-               
+
                     {path: 'pages/help', component: AppHelpComponent},
                 ]
             },
+            {
+
+                path: 'HomeHr', component: HrBoardComponent ,
+                // children: [
+
+                //     {path: 'jobs', component: JobsDashboardComponent},
+                // ]
+            },
+            {
+
+                path: 'jobs', component: JobsDashboardComponent ,
+                // children: [
+
+                //     {path: 'jobs', component: JobsDashboardComponent},
+                // ]
+            },
+            //{path: 'abcd', component: TabUserRoleComponent},
+
             {path: 'error', component: AppErrorComponent},
             {path: 'access', component: AppAccessdeniedComponent},
             {path: 'notfound', component: AppNotfoundComponent},

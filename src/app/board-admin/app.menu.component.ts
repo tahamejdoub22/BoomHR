@@ -20,29 +20,29 @@ export class AppMenuComponent implements OnInit {
 
     ngOnInit() {
         this.model = [
-            {label: 'Dashboard', icon: 'pi pi-fw pi-th-large', routerLink: []},
+            {label: 'Dashboard', icon: 'pi pi-fw pi-th-large', routerLink: ['/admin']},
             {
                 label: 'users', icon: 'pi pi-fw pi-users', routerLink: [],
                 items: [
-                    {label: 'All users', icon: 'pi pi-fw pi-list', routerLink: []},
-           
+                    {label: 'All users', icon: 'pi pi-fw pi-list', routerLink: ['/admin/userroles']},
+
                 ]
             },
-            
-           
+
+
             {
                 label: 'roles', icon: 'pi pi-fw pi-sun', routerLink: [],
                 items: [
                     {label: 'All roles', icon: 'pi pi-fw pi-list', routerLink: []},
                 ]
             },
-           
+
             {
                 label: 'Log Out', icon: 'pi pi-fw pi-sign-out'      , routerLink: [],  command: () => {
                     this.logout();
                 }
             }
-          
+
         ];
     }
     logout(): void {

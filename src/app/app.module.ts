@@ -108,10 +108,13 @@ import {MenuService} from './app.menu.service';
 import { loginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { TabUserRoleComponent } from './board-admin/tab-user-role/tab-user-role.component';
+import { HrBoardModule } from './hr-board/hr-board.module';
 
 @NgModule({
     imports: [
         BrowserModule,
+        HrBoardModule,
         AdminModule,
         FormsModule,
         AppRoutingModule,
@@ -198,7 +201,7 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        
+
     ],
     declarations: [
         AppComponent,
@@ -210,20 +213,22 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
         AppFooterComponent,
         AppBreadcrumbComponent,
         AppRightPanelComponent,
-       
-       
+
+
         EmptyDemoComponent,
-      
+
         AppHelpComponent,
         AppNotfoundComponent,
         AppErrorComponent,
         AppAccessdeniedComponent,
         loginComponent,
         SignUpComponent,
+
+        
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
-           
+
  BreadcrumbService, MenuService,httpInterceptorProviders
 
     ],
