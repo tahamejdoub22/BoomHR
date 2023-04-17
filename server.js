@@ -7,6 +7,11 @@ import employeeRoutes from "./app/routes/Epmloyee.js";
 import express, { json, urlencoded } from "express";
 import userRoutes from "./app/routes/user.routes.js";
 import { DB, HOST, PORT as _PORT } from "./app/config/db.config.js";
+import { IncomeTaxRoute } from "./app/routes/IncomeTaxRouts.js";
+import { attendanceRoutes } from "./app/routes/attendanceRoutes.js";
+import { benefitRoute } from "./app/routes/benefitRoute.js";
+import { PayrollRoute } from "./app/routes/payrollroutes.js";
+import { salaryRoutes } from "./app/routes/salaryRoute.js";
 
 const app = express();
 
@@ -37,7 +42,8 @@ const Role = db.role;
 db.mongoose
   .connect(`mongodb://${HOST}:${_PORT}/${DB}`, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify:true
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
@@ -59,7 +65,14 @@ app.get("/", (req, res) => {
 authRoutes(app);
 userRoutes(app);
 app.use('/employee',employeeRoutes);
-app.use('/congee',congeeRoutes)
+app.use('/congee',congeeRoutes);
+app.use('/attendance', attendanceRoutes);
+app.use('/salary',salaryRoutes)
+app.use('/tax',IncomeTaxRoute)
+app.use('/benefit',benefitRoute)
+app.use('/payroll',PayrollRoute)
+
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

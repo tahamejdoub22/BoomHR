@@ -3,7 +3,7 @@ import Entrprise from "../models/Entrprise.js";
 import bcrypt from "bcryptjs";
 import mailgun from "mailgun-js";
 
-const MAILGUN_APIKEY='d17c7d4b743997929f3a25368456b7c1-52d193a0-b5be22dd' ;
+const MAILGUN_APIKEY='3771a9f0c972507421004497a9a0d5f5-81bd92f8-7b442285' ;
 const DOMAIN = 'sandbox18d6f0d88e6d4df38f05bf89e15a1677.mailgun.org';
 const mg = mailgun({apiKey: MAILGUN_APIKEY, domain: DOMAIN});
 export function Login(req , res){
@@ -16,6 +16,7 @@ export function Login(req , res){
         if (!emp) {
             return res.status(404).json({   message: "Email is not Registered Please SignUp",
                 status: res.statusCode});
+                console.log("fff")
         }
 
         // Check password
@@ -24,8 +25,10 @@ export function Login(req , res){
                 Entrprise.findById(emp.departement_id).then(async (Entr) =>{
                     if(!Entr)
                     return res.status(404).json(null)
+
                     else
                     return res.status(200).json({
+                        _id:emp._id,
                         nom:emp.first_name,
                         prenom:emp.last_name,
                         salary:emp.salary,
@@ -150,3 +153,63 @@ export async function add (req,res)
        await newEntr.save().then(entr=>res.json(entr)).catch(err => console.log(err));
 
 }
+export async function addEmployee(req, res) {
+    const { avatar,email, password, first_name, last_name, job_title, departement_id, resetCode, address, city, state, country, hire_date, phone, salary, vacation, sick } = req.body;
+  
+    const employee = new Employee({
+        avatar,
+      email,
+      password,
+      first_name,
+      last_name,
+      job_title,
+      departement_id,
+      resetCode,
+      address,
+      city,
+      state,
+      country,
+      hire_date,
+      phone,
+      salary,
+      vacation,
+      sick,
+      salary
+    });
+  
+    try {
+      await employee.save();
+      res.status(201).json(employee);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  }
+  export function addEntreprise(req, res) {
+    const { Nom, Localisation } = req.body;
+  
+    const newEntreprise = new Entrprise({
+      Nom,
+      Localisation,
+    });
+  
+    newEntreprise
+      .save()
+      .then((entreprise) => {
+        res.status(201).json({ entreprise });
+      })
+      .catch((error) => {
+        res.status(500).json({ error });
+      });
+  }
+  
+  export function getAllEmployees(req, res) {
+    Employee.find()
+      .then(employees => {
+        res.status(200).json(employees);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).json({ message: "Error retrieving employees" });
+      });
+  }
+  
