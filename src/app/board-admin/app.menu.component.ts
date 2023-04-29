@@ -29,14 +29,42 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             
-           
             {
                 label: 'roles', icon: 'pi pi-fw pi-sun', routerLink: [],
                 items: [
                     {label: 'All roles', icon: 'pi pi-fw pi-list', routerLink: []},
                 ]
             },
+            {
+                label: 'employes', icon: 'pi pi-fw pi-users', routerLink: [],
+                items: [
+                    {label: 'All employees', icon: 'pi pi-fw pi-list', routerLink: ['lemp']},
            
+                ]
+            },
+            {
+                label: 'departments', icon: 'pi pi-fw pi-users', routerLink: [],
+                items: [
+                    {label: 'All departments', icon: 'pi pi-fw pi-list', routerLink: ['ldep']},
+           
+                ]
+            },
+            {
+                label: 'projects', icon: 'pi pi-fw pi-users', routerLink: [],
+                items: [
+                    {label: 'All projects', icon: 'pi pi-fw pi-list', routerLink: []},
+           
+                ]
+            },
+            {
+                label: 'Diagrammes', icon: 'pi pi-fw pi-users', routerLink: [],
+                items: [
+                    {label: 'pie par departement', icon: 'pi pi-fw pi-list', routerLink: ['pie']},
+                    {label: 'diagramme bar par departement', icon: 'pi pi-fw pi-list', routerLink: ['bar']},
+                    {label: 'diagramme line par departement', icon: 'pi pi-fw pi-list', routerLink: ['line']},
+           
+                ]
+            },
             {
                 label: 'Log Out', icon: 'pi pi-fw pi-sign-out'      , routerLink: [],  command: () => {
                     this.logout();

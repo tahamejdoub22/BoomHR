@@ -1,0 +1,71 @@
+<div class="bg"><br>
+    
+    <div>
+        <p-button icon="pi pi-plus" label=""  class="custom-class" (click) = "addDepartment()"></p-button>
+      <font face="fantasy" size="6" style="color:rgb(3, 1, 14)" class="center"> Listes de departements </font>
+    </div>
+    <br> 
+<div   class ="table table-striped" >
+   
+
+  <p-table #dt1 [value]="departements" selectionMode="single" [(selection)]="selectedP" dataKey="name"  
+      [rows]="8" [paginator]="true" [responsive]="true" styleClass="p-datatable-departement" [style]="{'width':'100%','overflow':'auto!important'}" >
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+              <th pSortableColumn="description"> Description   <p-sortIcon field="description"></p-sortIcon></th>
+             
+              <th>Action  </th>
+          </tr>
+          <tr>
+              <th>
+                  <input pInputText type="text" (input)="dt1.filter($any($event.target)?.value, 'name', 'contains')" [value]="$any(dt1.filters['name'])?.value" placeholder="recherche par name" class="p-column-filter">
+              </th>
+              <th>
+                  <input pInputText type="text" (input)="dt1.filter($any($event.target)?.value, 'description', 'contains')" [value]="$any(dt1.filters['description'])?.value" placeholder="recherche par description" class="p-column-filter">
+              </th>
+              
+   <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-element>
+          <tr [pSelectableRow]="element">
+              <td>
+                  <span class="p-column-title">name  </span>
+                  {{element.name }}
+              </td>
+              <td>
+                  <span class="p-column-title">description </span>
+                  
+                  <span class="image-text">{{element.description}}</span>
+              </td>
+             
+
+            <td>
+                <span class="p-column-title">Action </span>
+                
+                <!-- <button *ngIf="element._id" (click) = "updateDepartement(element._id)" class="btn btn"> <mat-icon>edit</mat-icon> Modifier </button>
+             
+                <button *ngIf="element._id" (click) = "deleteDepartement(element._id)" class="btn btn" width="20px"><mat-icon>delete_outline</mat-icon> Supprimer</button> -->
+                <button *ngIf="element._id" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click) = "updateDepartement(element._id)"></button>
+                <button *ngIf="element._id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click) = "deleteDepartement(element._id)"></button>
+            </td>
+
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="4">pas de departements trouvés.</td>
+          </tr>
+      </ng-template>
+      
+  </p-table>
+</div>
+
+<!-- 
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+  <p style="color: rgb(247, 247, 247)">Please Wait. </p>  
+  </ngx-spinner>  -->
+
+
+</div>

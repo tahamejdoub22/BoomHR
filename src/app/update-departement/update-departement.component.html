@@ -1,0 +1,31 @@
+<div class="bg"><div class=" col-md-12 " ><br> <br><div style ="text-align: center"> <font  size="6" style="color:rgb(29, 4, 143)" align= "center">Update </font>
+</div> <br> <br>
+<div >
+    <div >
+  
+    
+  <div class="row">
+   <div class="col-4">
+    <label for="name" class="p-col-fixed" >Name</label>
+    </div>
+    <div class="col-4">
+    <input id="name" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="departement.name">       
+    </div>
+   </div>
+<div class="row">
+    <div class="col-4">
+    <label for="description" class="p-col-fixed" >Description</label>
+    </div>
+    <div class="col-4">
+    <input id="description" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="departement.description">       
+    </div>
+</div>
+
+
+
+<div style ="text-align: right">   
+    <button  pButton type="button" icon="pi pi-save" class="bn632-hover bn26"  (click)="verif()"  label="sauvegarder"></button>
+</div>
+</div></div>
+</div>
+<p-toast></p-toast>

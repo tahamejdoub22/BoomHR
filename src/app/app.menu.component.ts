@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AppMainComponent } from './app.main.component';
 import { AuthService } from './_services/auth.service';
 import { StorageService } from './_services/storage.service';
-
+import { MatDialog } from '@angular/material/dialog';
 @Component({
     selector: 'app-menu',
     template: `
@@ -16,7 +16,7 @@ export class AppMenuComponent implements OnInit {
 
     model: any[];
 
-    constructor(public app: AppMainComponent,private authService: AuthService,public router: Router,private storageService: StorageService) { }
+    constructor(public app: AppMainComponent,private authService: AuthService,public router: Router,private storageService: StorageService, private dialog: MatDialog) { }
 
     ngOnInit() {
         this.model = [
@@ -24,7 +24,30 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Employees', icon: 'pi pi-fw pi-users', routerLink: [],
                 items: [
-                    {label: 'All Employees', icon: 'pi pi-fw pi-list', routerLink: []},
+                    {label: 'All Employees', icon: 'pi pi-fw pi-list', routerLink: ['lemp']},
+           
+                ]
+            },
+            {
+                label: 'Department', icon: 'pi pi-fw pi-home', routerLink: [],
+                items: [
+                    {label: 'All Department', icon: 'pi pi-fw pi-list', routerLink: ['ldep']},
+           
+                ]
+            },
+            {
+                label: 'Project', icon: 'pi pi-fw pi-charges-track', routerLink: [],
+                items: [
+                    {label: 'All Project', icon: 'pi pi-fw pi-list', routerLink: ['lproj']},
+           
+                ]
+            },
+            {
+                label: 'Diagrammes ', icon: 'pi pi-fw pi-charges-track', routerLink: [],
+                items: [
+                    {label: 'pie par departement', icon: 'pi pi-fw pi-list', routerLink: ['pie']},
+                    {label: 'diagramme bar par departement', icon: 'pi pi-fw pi-list', routerLink: ['bar']},
+                    {label: 'diagramme line par departement', icon: 'pi pi-fw pi-list', routerLink: ['line']},
            
                 ]
             },

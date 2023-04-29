@@ -1,0 +1,125 @@
+<div class="bg"><br>
+    <div>
+        <p-button icon="pi pi-plus" label=""  class="custom-class" (click) = "addProject()"></p-button>
+      <font face="fantasy" size="6" style="color:rgb(3, 1, 14)" class="center"> Listes des projets </font>
+    </div>
+    <br> 
+<div   class ="table table-striped" >
+  
+
+  <p-table #dt1 [value]="projects" selectionMode="single" [(selection)]="selectedP" dataKey="name"  
+      [rows]="8" [paginator]="true" [responsive]="true" styleClass="p-datatable-project"  >
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+              <th pSortableColumn="startdate"> StartDate  <p-sortIcon field="startdate"></p-sortIcon></th>
+              <th pSortableColumn="enddate">EndDate <p-sortIcon field="enddate"></p-sortIcon></th>
+              <th pSortableColumn="projectmanager">projectManager  <p-sortIcon field="projectmanager"></p-sortIcon></th>
+<!--              
+              <th pSortableColumn="salary">Salary <p-sortIcon field="salary"></p-sortIcon></th>
+              <th pSortableColumn="jobtitle">Jobtitle <p-sortIcon field="jobtitle"></p-sortIcon></th>
+              
+              
+              <th pSortableColumn="dirstday">Firstday <p-sortIcon field="dirstday"></p-sortIcon></th>
+              
+               -->
+              
+              <th>Action  </th>
+          </tr>
+          <tr>
+              <th>
+                  <input pInputText type="text" (input)="dt1.filter($any($event.target)?.value, 'name', 'contains')" [value]="$any(dt1.filters['name'])?.value" placeholder="recherche par nom" class="p-column-filter">
+              </th>
+              <th>
+                  <input pInputText type="text" (input)="dt1.filter($any($event.target)?.value, 'startdate', 'contains')" [value]="$any(dt1.filters['startdate'])?.value" placeholder="recherche par StartDate" class="p-column-filter">
+              </th>
+              <th>
+                <input pInputText type="date"  (input)="dt1.filter($any($event.target)?.value, 'enddate', 'contains')" [value]="$any(dt1.filters['enddate'])?.value" placeholder="recherche par EndDate " class="p-column-filter">
+       </th>
+       <th>
+        <input pInputText type="text"  (input)="dt1.filter($any($event.target)?.value, 'projectmanager', 'contains')" [value]="$any(dt1.filters['projectmanager'])?.value" placeholder="recherche par projectManager " class="p-column-filter">
+</th>
+<!--               
+   <th>
+            <input pInputText type="text"  (input)="dt1.filter($any($event.target)?.value, 'salary', 'contains')" [value]="$any(dt1.filters['salary'])?.value" placeholder="recherche par direction " class="p-column-filter">
+   </th>
+   <th>
+    <input pInputText type="text"  (input)="dt1.filter($any($event.target)?.value, 'jobtitle', 'contains')" [value]="$any(dt1.filters['jobtitle'])?.value" placeholder="recherche par cycle " class="p-column-filter">
+</th>
+
+
+<th>
+    <input pInputText type="text"  (input)="dt1.filter($any($event.target)?.value, 'firstday', 'contains')" [value]="$any(dt1.filters['firstday'])?.value" placeholder="recherche par cycle " class="p-column-filter">
+</th> -->
+
+
+<th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-element>
+          <tr [pSelectableRow]="element">
+              <td>
+                  <span class="p-column-title">Name  </span>
+                  {{element.name}}
+              </td>
+              <td>
+                  <span class="p-column-title">StartDate </span>
+                  
+                  <span class="image-text">{{element.startDate  | date:'dd/MM/yyyy' }}</span>
+              </td>
+              <td>
+                <span class="p-column-title">EndDate </span>
+                
+                <span class="image-text">{{element.endDate | date:'dd/MM/yyyy' }}</span>
+            </td>
+              <td>
+                  <span class="p-column-title">projectManager  </span>
+                  
+                  <span class="image-text">{{element.projectManagerData.fullname }}</span>
+              </td>
+              
+            <!-- <td>
+                <span class="p-column-title">Salary </span>
+                
+                <span class="image-text">{{element.salary}}</span>
+            </td>
+            <td>
+                <span class="p-column-title">Jobtitle </span>
+                
+                <span class="image-text">{{element.jobtitle}}</span>
+            </td>
+            
+            <td>
+                <span class="p-column-title">Firstday </span>
+                
+                <span class="image-text">{{element.firstday}}</span>
+            </td>
+           -->
+            <td>
+                <span class="p-column-title">Action </span>
+                
+                <!-- <button *ngIf="element._id" (click) = "updateProject(element._id)" class="btn btn"> <mat-icon>edit</mat-icon> Modifier </button>
+             
+                <button *ngIf="element._id" (click) = "deleteProject(element._id)" class="btn btn" width="20px"><mat-icon>delete_outline</mat-icon> Supprimer</button> -->
+                <button *ngIf="element._id" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click) = "updateProject(element._id)"></button>
+                <button *ngIf="element._id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click) ="deleteProject(element._id)"></button>
+            </td>
+           
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="4">pas de projets trouvés.</td>
+          </tr>
+      </ng-template>
+      
+  </p-table>
+</div>
+
+
+<!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+  <p style="color: rgb(247, 247, 247)">Please Wait. </p>  
+  </ngx-spinner>  -->
+
+
+</div>

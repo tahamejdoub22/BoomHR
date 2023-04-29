@@ -102,13 +102,35 @@ import {AppNotfoundComponent} from './pages/app.notfound.component';
 import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
 import { AdminModule } from './board-admin/admin.module';
-
+import { MatButtonModule } from '@angular/material/button';
 import {BreadcrumbService} from './app.breadcrumb.service';
 import {MenuService} from './app.menu.service';
 import { loginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { ListeEmployesComponent } from './liste-employes/liste-employes.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+
+import {MatExpansionModule} from '@angular/material/expansion';
+import { UpdateEmployeComponent } from './update-employe/update-employe.component';
+
+import { EmployeComponent } from './employe/employe.component';
+import { ListeDepartementsComponent } from './liste-departements/liste-departementscomponent';
+import { ProjectComponent } from './project/project.component';
+import { ListeProjectComponent } from './liste-project/liste-project.component';
+import { DepartementComponent } from './departement/departement.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { Inject } from '@angular/core';
+import { MessageService } from 'primeng/api';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
+import { UpdateDepartementComponent } from './update-departement/update-departement.component';
+import { UpdateProjectComponent } from './update-project/update-project.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -198,7 +220,14 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        
+        MatButtonModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        MatExpansionModule,
+        MatDialogModule,
+        BrowserAnimationsModule,
     ],
     declarations: [
         AppComponent,
@@ -220,8 +249,20 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
         AppAccessdeniedComponent,
         loginComponent,
         SignUpComponent,
+        ListeEmployesComponent,
+        UpdateEmployeComponent,
+        DepartementComponent,
+        EmployeComponent,
+        ListeDepartementsComponent,
+        ProjectComponent,
+        ListeProjectComponent,
+        PieChartComponent,
+        BarChartComponent,
+        LineChartComponent,
+        UpdateDepartementComponent,
+        UpdateProjectComponent
     ],
-    providers: [
+    providers: [ MessageService,
         {provide: LocationStrategy, useClass: HashLocationStrategy},
            
  BreadcrumbService, MenuService,httpInterceptorProviders

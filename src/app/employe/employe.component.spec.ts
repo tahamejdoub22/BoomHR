@@ -1,0 +1,26 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { EmployeComponent } from './employe.component';
+
+
+
+describe('EmplyerComponent', () => {
+  let component: EmployeComponent;
+  let fixture: ComponentFixture<EmployeComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ EmployeComponent ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(EmployeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

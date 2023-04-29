@@ -1,0 +1,127 @@
+<div class="bg"><br>
+    
+    <div>
+        <p-button icon="pi pi-plus" label=""  class="custom-class" (click) = "addEmploye()"></p-button>
+        
+      <font face="fantasy" size="6" style="color:rgb(3, 1, 14)" class="center"> Listes des employes </font>
+    </div>
+    <br> 
+<div   class ="table table-striped" >
+  
+
+  <p-table #dt1 [value]="employes" selectionMode="single" [(selection)]="selectedP" dataKey="prenom"  
+      [rows]="8" [paginator]="true" [responsive]="true" styleClass="p-datatable-employe"  >
+      <ng-template pTemplate="header">
+          <tr>
+              <th pSortableColumn="fullname">Fullname <p-sortIcon field="fullname"></p-sortIcon></th>
+              <th pSortableColumn="email"> Email  <p-sortIcon field="email"></p-sortIcon></th>
+              <th pSortableColumn="phone">Phone <p-sortIcon field="phone"></p-sortIcon></th>
+              <th pSortableColumn="address">Address  <p-sortIcon field="address "></p-sortIcon></th>
+             
+              <th pSortableColumn="salary">Salary <p-sortIcon field="salary"></p-sortIcon></th>
+              <th pSortableColumn="jobtitle">Jobtitle <p-sortIcon field="jobtitle"></p-sortIcon></th>
+              
+              
+              <th pSortableColumn="dirstday">Firstday <p-sortIcon field="dirstday"></p-sortIcon></th>
+              
+              
+              
+              <th>Action  </th>
+          </tr>
+          <tr>
+              <th>
+                  <input pInputText type="text" (input)="dt1.filter($any($event.target)?.value, 'fullname', 'contains')" [value]="$any(dt1.filters['fullname'])?.value" placeholder="recherche par fullname" class="p-column-filter">
+              </th>
+              <th>
+                  <input pInputText type="text" (input)="dt1.filter($any($event.target)?.value, 'email', 'contains')" [value]="$any(dt1.filters['email'])?.value" placeholder="recherche par email" class="p-column-filter">
+              </th>
+              <th>
+                <input pInputText type="text"  (input)="dt1.filter($any($event.target)?.value, 'address', 'contains')" [value]="$any(dt1.filters['address'])?.value" placeholder="recherche par adress " class="p-column-filter">
+       </th>
+       <th>
+        <input pInputText type="text"  (input)="dt1.filter($any($event.target)?.value, 'phone', 'contains')" [value]="$any(dt1.filters['phone'])?.value" placeholder="recherche par phone " class="p-column-filter">
+</th>
+              
+         <th>
+            <input pInputText type="text"  (input)="dt1.filter($any($event.target)?.value, 'salary', 'contains')" [value]="$any(dt1.filters['salary'])?.value" placeholder="recherche par salary " class="p-column-filter">
+   </th>
+   <th>
+    <input pInputText type="text"  (input)="dt1.filter($any($event.target)?.value, 'jobtitle', 'contains')" [value]="$any(dt1.filters['jobtitle'])?.value" placeholder="recherche par jobtitle " class="p-column-filter">
+</th>
+
+
+<th>
+    <input pInputText type="date"  (input)="dt1.filter($any($event.target)?.value, 'firstday', 'contains')" [value]="$any(dt1.filters['firstday'])?.value" placeholder="recherche par firstday" class="p-column-filter">
+</th>
+
+
+<th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-element>
+          <tr [pSelectableRow]="element">
+              <td>
+                  <span class="p-column-title">Fullname  </span>
+                  {{element.fullname }}
+              </td>
+              <td>
+                  <span class="p-column-title">Email </span>
+                  
+                  <span class="image-text">{{element.email}}</span>
+              </td>
+              <td>
+                <span class="p-column-title">Phone </span>
+                
+                <span class="image-text">{{element.phone}}</span>
+            </td>
+              <td>
+                  <span class="p-column-title">Address  </span>
+                  
+                  <span class="image-text">{{element.address}}</span>
+              </td>
+              
+            <td>
+                <span class="p-column-title">Salary </span>
+                
+                <span class="image-text">{{element.salary}} $</span>
+            </td>
+            <td>
+                <span class="p-column-title">Jobtitle </span>
+                
+                <span class="image-text">{{element.jobtitle}} </span>
+            </td>
+            
+            <td>
+                <span class="p-column-title">Firstday </span>
+                
+                <span class="image-text">{{element.firstday | date:'dd/MM/yyyy'}}</span>
+            </td>
+          
+            <td>
+                <span class="p-column-title">Action </span>
+                
+                <!-- <button *ngIf="element._id" (click) = "updateEmploye(element._id)" class="btn btn"> <mat-icon>edit</mat-icon> Modifier </button>
+             
+                <button *ngIf="element._id" (click) = "deleteEmploye(element._id)" class="btn btn" width="20px"><mat-icon>delete_outline</mat-icon> Supprimer</button> -->
+                <button *ngIf="element._id" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click) = "openDialog(element._id)"></button>
+                <button *ngIf="element._id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click) ="deleteEmploye(element._id)"></button>
+            </td>
+           
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="4">pas d'employes trouvés.</td>
+          </tr>
+      </ng-template>
+      
+  </p-table>
+</div>
+
+
+<!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+  <p style="color: rgb(247, 247, 247)">Please Wait. </p>  
+  </ngx-spinner>  -->
+
+
+</div>

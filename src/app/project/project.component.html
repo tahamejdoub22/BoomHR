@@ -1,0 +1,59 @@
+<div class="bg"><div class=" col-md-12 " ><br> <br><div style ="text-align: center"> <font  size="6" style="color:rgb(29, 4, 143)" align= "center">Ajouter Project</font>
+</div> <br> <br>
+<div >
+    <div >
+  
+    
+  <div class="row">
+   <div class="col-4">
+    <label for="fullname" class="p-col-fixed" >name</label>
+    </div>
+    <div class="col-4">
+    <input id="fullname" class="p-inputtext-lg" type="text"   pInputText  [(ngModel)]="project.name" >       
+    </div>
+   </div>
+<div class="row">
+    <div class="col-4">
+    <label for="description" class="p-col-fixed" >start Date</label>
+    </div>
+    <div class="col-4">
+    <input id="picture" class="p-inputtext-lg" type="date" pInputText  [(ngModel)]="project.startDate">       
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+     <label for="name" class="p-col-fixed" >End Date</label>
+     </div>
+     <div class="col-4">
+     <input id="name" class="p-inputtext-lg" type="date" pInputText  [(ngModel)]="project.endDate">       
+     </div>
+    </div>
+    
+  <!-- <div class="row">
+    <div class="col-4">
+     <label for="name" class="p-col-fixed" >Project manager</label>
+     </div>
+     <div class="col-4">
+     <input id="name" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="project.projectManager">       
+     </div>
+    </div> -->
+
+    <div class="row">
+        <div class="col-4">
+        <label for="projectManager" class="p-col-fixed" >Project manager</label>
+        </div>
+        <div class="col-5">
+        <p-dropdown placeholder="selectionner droit" [options]="emp" 
+        [(ngModel)]="project.projectManager" optionLabel="_id" ></p-dropdown>
+        </div> 
+    </div>
+    
+
+<div style ="text-align: right">   
+    <button  pButton type="button" icon="pi pi-save" class="bn632-hover bn26"  (click)="saveProject()"  label="sauvegarder"></button>
+</div>
+</div>
+</div></div>
+</div>
+<p-toast></p-toast>
