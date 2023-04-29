@@ -164,8 +164,26 @@ class _AttendanceHistoryScreenState extends State<AttendanceHistoryScreen> {
                             child: ListTile(
                               title: Text(
                                   'Checked in: ${checkInTime.toString().substring(0, 16)}'),
-                              subtitle: Text(
-                                  'Checked out: ${checkOutTime.toString().substring(0, 16)}\nTotal Work Time: ${totalWorkTimeInHours.toStringAsFixed(2)} hours'),
+                              subtitle: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                      'Checked out: ${checkOutTime.toString().substring(0, 16)}'),
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 8.0, vertical: 4.0),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16.0),
+                                      color: Colors.blue,
+                                    ),
+                                    child: Text(
+                                      '${totalWorkTimeInHours.toStringAsFixed(2)} hours',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           );
                         },

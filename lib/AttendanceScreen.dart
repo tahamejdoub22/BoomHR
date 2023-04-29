@@ -104,7 +104,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   Future<void> _checkIn() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final employeeId = prefs.getString('_id');
+      final employeeId = prefs.getString('userId');
       nom = prefs.getString('nom') ?? '';
       prenom = prefs.getString('prenom') ?? '';
       final currentLocation = await getPlaceNameFromCoordinates();
@@ -295,159 +295,177 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Attendance'),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.history),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const AttendanceHistoryScreen()),
-              );
-            },
-          ),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  _isCheckedIn
-                      ? 'You are checked in on $_checkInDate'
-                      : 'You are not checked in',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  _isCheckedIn ? '  $_checkInTime' : '',
-                  style: const TextStyle(
-                    fontSize: 60,
-                    fontWeight: FontWeight.w900,
-                  ),
-                  textAlign: TextAlign.left,
-                ),
-                const SizedBox(height: 16),
-                if (!_isCheckedIn)
-                  Container(
-                    width: 300,
-                    height: 300,
-                    decoration: const BoxDecoration(
-                      color: Colors.blue,
-                      shape: BoxShape.circle,
-                    ),
-                    child: InkWell(
-                      onTap: () async {
-                        await _checkIn();
-                      },
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(
-                            Icons.access_time,
-                            color: Colors.white,
-                            size: 60,
-                          ),
-                          const SizedBox(height: 16),
-                          const Text(
-                            'Check In',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+        body: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(height: 50),
+                  Card(
+                    child: ListTile(
+                      subtitle: Text(
+                        'As Employee, you must  complete your attendence every day ',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    AttendanceHistoryScreen()),
+                          );
+                        },
+                        icon: const Icon(Icons.history),
                       ),
                     ),
                   ),
-                const SizedBox(height: 16),
-                if (_isCheckedIn)
-                  Container(
-                    width: 300,
-                    height: 300,
-                    decoration: const BoxDecoration(
-                      color: Colors.red,
-                      shape: BoxShape.circle,
-                    ),
-                    child: InkWell(
-                      onTap: () async {
-                        await _getCurrentLocation();
-                        setState(() {
-                          _checkOutTime = DateTime.now().toString();
-                        });
-                        await _checkOut();
-                      },
+                  const SizedBox(height: 30),
+                  Expanded(
+                    child: SingleChildScrollView(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(
-                            Icons.time_to_leave,
-                            color: Colors.white,
-                            size: 60,
-                          ),
-                          const SizedBox(height: 16),
-                          const Text(
-                            'Check Out',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w900,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            '$_checkOutDate at $_checkOutTim',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                const SizedBox(height: 16),
-                if (_isCheckedIn && _currentLocation != null)
-                  FutureBuilder(
-                      future: getPlaceNameFromCoordinates(),
-                      builder: (BuildContext context,
-                          AsyncSnapshot<String> snapshot) {
-                        if (snapshot.hasData) {
-                          return _checkOutTime == null
-                              ? Text(
-                                  snapshot.data.toString(),
-                                  style: const TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.normal,
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                _isCheckedIn
+                                    ? 'You are checked in on $_checkInDate'
+                                    : 'You are not checked in',
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                              const SizedBox(height: 16),
+                              Text(
+                                _isCheckedIn ? '  $_checkInTime' : '',
+                                style: const TextStyle(
+                                  fontSize: 60,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                              const SizedBox(height: 9),
+                              if (!_isCheckedIn)
+                                Container(
+                                  width: 300,
+                                  height: 300,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.blue,
+                                    shape: BoxShape.circle,
                                   ),
-                                  textAlign: TextAlign.center,
-                                )
-                              : const SizedBox.shrink();
-                        } else {
-                          return const CircularProgressIndicator();
-                        }
-                      }),
-              ],
-            ),
-            const SizedBox(height: 16),
-          ],
-        ),
-      ),
-    );
+                                  child: InkWell(
+                                    onTap: () async {
+                                      await _checkIn();
+                                    },
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        const Icon(
+                                          Icons.access_time,
+                                          color: Colors.white,
+                                          size: 60,
+                                        ),
+                                        const SizedBox(height: 16),
+                                        const Text(
+                                          'Check In',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              const SizedBox(height: 16),
+                              if (_isCheckedIn)
+                                Container(
+                                  width: 300,
+                                  height: 300,
+                                  decoration: const BoxDecoration(
+                                    color: Colors.red,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      await _getCurrentLocation();
+                                      setState(() {
+                                        _checkOutTime =
+                                            DateTime.now().toString();
+                                      });
+                                      await _checkOut();
+                                    },
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        const Icon(
+                                          Icons.time_to_leave,
+                                          color: Colors.white,
+                                          size: 60,
+                                        ),
+                                        const SizedBox(height: 16),
+                                        const Text(
+                                          'Check Out',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w900,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        const SizedBox(height: 8),
+                                        Text(
+                                          '$_checkOutDate at $_checkOutTim',
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              const SizedBox(height: 16),
+                              if (_isCheckedIn && _currentLocation != null)
+                                FutureBuilder(
+                                    future: getPlaceNameFromCoordinates(),
+                                    builder: (BuildContext context,
+                                        AsyncSnapshot<String> snapshot) {
+                                      if (snapshot.hasData) {
+                                        return _checkOutTime == null
+                                            ? Text(
+                                                snapshot.data.toString(),
+                                                style: const TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                              )
+                                            : const SizedBox.shrink();
+                                      } else {
+                                        return const CircularProgressIndicator();
+                                      }
+                                    }),
+                            ],
+                          ),
+                          const SizedBox(height: 16),
+                        ],
+                      ),
+                    ),
+                  )
+                ])));
   }
 }
