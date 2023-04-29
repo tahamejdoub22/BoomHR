@@ -1,4 +1,5 @@
 import 'package:boom_hr/ForgetPassword.dart';
+import 'package:boom_hr/History.dart';
 import 'package:boom_hr/Home.dart';
 import 'package:boom_hr/Validate.dart';
 import 'package:boom_hr/Profile.dart';
@@ -17,7 +18,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  final String _baseUrl = "192.168.153.227:9091";
+  final String _baseUrl = "192.168.206.227:9091";
 
   // This widget is the root of your application.
   @override
@@ -51,6 +52,9 @@ class MyApp extends StatelessWidget {
         },
         "/Profile":(context){
           return  Profile();
+        },
+        "/History":(context){
+          return  History();
         }
       },
     );

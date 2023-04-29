@@ -15,7 +15,7 @@ class _ForgetPassword extends State<ForgetPassword>
 
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
-  final String _baseUrl = "192.168.153.227:9091";
+  final String _baseUrl = "192.168.206.227:9091";
 
   @override
   Widget build(BuildContext context) {

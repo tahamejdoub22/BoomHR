@@ -19,7 +19,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
   late DateTime _endDate;
   late String? _type='' ;
   late String? _note;
-  final String _baseUrl = "192.168.153.227:9091";
+  final String _baseUrl = "192.168.206.227:9091";
   String _selectedItem = 'vacation';
 
   @override
@@ -58,90 +58,20 @@ class _ValidateRequestState extends State<ValidateRequest> {
                      // Navigator.pushReplacementNamed(context, "/Request");
                     },
                   ),
-                  Text(" New Request",
+                  Text(" Request Leave",
                       style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold))
                 ],
               )
           ),
-          SizedBox(
-            height: 40,
-          ),
+
           Container(
-            height: 80,// hauteur personnalisée
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: 400,
-                  width: 150,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            '$months ${startDate.day}',
-                            style: TextStyle(
-                              fontSize: 24,
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Text('$days'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Icon(Icons.arrow_right_alt,size: 40),
-                SizedBox(
-                  height: 100,
-                  width: 150,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    color: Colors.blue,
-                    child: Column(
-                      children: [
-                        Expanded(child:
-                         Text(
-                          '$monthde ${endDate.day}',
-                          style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )),
-                        Expanded(child:
-                         Text('$dayde',style: TextStyle(color: Colors.white),)),
-                      ],
-                    ),
-                  ),
-                )
-
-              ],
-
-            ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Container(
-
             margin: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-              decoration: BoxDecoration(
-                color: Colors.black12,
-                border: Border.all(
-                  width: 2.0,
-                  color: Colors.black12
-                ),
-                borderRadius: BorderRadius.circular(5.0),
-              ),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(width: 2.0, color: Colors.white),
+              borderRadius: BorderRadius.circular(5.0),
+              shape: BoxShape.rectangle, // définit la forme rectangulaire
+            ),
             child:
             DropdownButton(
               items: [
@@ -173,6 +103,100 @@ class _ValidateRequestState extends State<ValidateRequest> {
 
 
           ),
+          SizedBox(
+            height: 40,
+          ),
+          Container(
+            height: 80,// hauteur personnalisée
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 400,
+                  width: 170,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child:
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Icon(Icons.event_note),
+                            SizedBox(
+                            width: 10,
+                            ),
+                            Column(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    '$months ${startDate.day}',
+                                    style: TextStyle(
+                                      fontSize: 24,
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Text('$days'),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+
+                  ),
+                ),
+
+                SizedBox(
+                  height: 100,
+                  width: 170,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    color: Colors.blue,
+                    child:
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Icon(Icons.event_note,color: Colors.white,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              children: [
+                                Expanded(child:
+                                Text(
+                                  '$monthde ${endDate.day}',
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                )),
+                                Expanded(child:
+                                Text('$dayde',style: TextStyle(color: Colors.white),)),
+                              ],
+                            ),
+                          ],
+                        )
+
+                  ),
+                )
+
+              ],
+
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
 
           SizedBox(
             height: 20,
@@ -184,7 +208,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
              maxLines: 5,
              decoration: InputDecoration(
                border: OutlineInputBorder(),
-               hintText: 'Enter some text',
+               hintText: 'Reason',
              ),
              onChanged: (String value) {
                print(value);
