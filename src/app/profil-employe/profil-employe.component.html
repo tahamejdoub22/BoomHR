@@ -1,0 +1,43 @@
+
+
+    
+<div class="card-container"  >
+    <div class="upper-container">
+        <div class="image-container">
+        <div id="container">
+            <div id="name">
+            {{ getShortName(employe.fullname ) }}
+            </div>
+        </div>
+        </div>
+    </div>
+    <br>
+    <div class="lower-container">
+    <h3> {{ employe.fullname }}</h3>
+    <div class="form1">
+            
+        
+        <li  >
+        <strong>Roles:</strong>
+        {{ employe.role }}
+        </li>
+        
+        <li >
+        <strong>Email :</strong>
+        {{ employe.email }}
+        </li>
+        <br>
+        <!-- <button *ngIf="currentUser.id" class="bn632-hover bn26" (click) = "updateUser(currentUser.id)" >  Modifier </button> -->
+    
+        
+            
+    
+        </div><br>
+    
+        
+    </div>
+</div>
+<ng-template #loggedOut>
+    <h1>Vous devez d'abord vous connecter.</h1> 
+</ng-template>
+

@@ -67,7 +67,10 @@ openDialog(n : number) {
   });
  
 }
-
+openDetails(n : number) {
+  this.router.navigate(['Dashboard/prof', n]);
+  
+}
 // navigateToUpdateEmploye() {
 //   this.router.navigate(['Dashboard/updateemploye', this.employeid]);
   

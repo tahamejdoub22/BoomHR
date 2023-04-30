@@ -25,7 +25,7 @@ export class TaskService {
   saveTask(task : Task){
     return this.http.post(this.TaskUrl+'/add',task);
   }
-  deleteTask(idTask : string ){
+  deleteTask(idTask : number ){
     return this.http.delete(this.TaskUrl+'/'+idTask);
     
   }

@@ -1,7 +1,8 @@
 <div class="col-12 md:col-6">
     <h5>Les taches de {{ projet.name }}  </h5>
 <div class="card p-fluid" *ngFor="let t of task">
-    
+    <button *ngIf="t._id" class="col-20 md:col-2" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click) ="deleteTask(t._id)">Supprimer </button>
+              
     <div class="field grid"  >
         <label htmlFor="name" class="col-12 mb-2 md:col-2 md:mb-0"> Name : </label>
         <div class="col-12 md:col-10">

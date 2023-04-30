@@ -62,7 +62,8 @@
           <tr [pSelectableRow]="element">
               <td>
                   <span class="p-column-title">Fullname  </span>
-                  {{element.fullname }}
+                 
+                  <span class="image-text">{{element.fullname }} </span>
               </td>
               <td>
                   <span class="p-column-title">Email </span>
@@ -75,7 +76,7 @@
                 <span class="image-text">{{element.phone}}</span>
             </td>
               <td>
-                  <span class="p-column-title">Address  </span>
+                  <span class="p-column-title">Address </span>
                   
                   <span class="image-text">{{element.address}}</span>
               </td>
@@ -105,6 +106,7 @@
                 <button *ngIf="element._id" (click) = "deleteEmploye(element._id)" class="btn btn" width="20px"><mat-icon>delete_outline</mat-icon> Supprimer</button> -->
                 <button *ngIf="element._id" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click) = "openDialog(element._id)"></button>
                 <button *ngIf="element._id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click) ="deleteEmploye(element._id)"></button>
+                <button *ngIf="element._id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click) ="openDetails(element._id)"></button>
             </td>
            
           </tr>

@@ -16,6 +16,7 @@ export class ListeTasksComponent {
   public task : Task = new Task();
   public projet : Project = new Project() ;
   u1 : Task = new Task();
+  tasks : Task[] ;
   constructor(private taskService : TaskService, private route : ActivatedRoute,
     private router : Router, private messageService: MessageService,private projectService : ProjectService) { }
 
@@ -27,6 +28,7 @@ export class ListeTasksComponent {
     console.log(this.id);
         this.taskService.getTaskByProject(this.id).subscribe(data => {
       this.task= data;
+      this.tasks= data;
       console.log(this.task);
       
       
@@ -42,5 +44,15 @@ export class ListeTasksComponent {
       
     },
     error => console.log(error) );
+  }
+
+
+  deleteTask(id : number){
+    this.taskService.deleteTask(id).subscribe(data => {
+      console.log(data);
+      this.tasks = this.tasks.filter(item => item._id != id);
+      location.reload();
+    })
+    
   }
 }
