@@ -10,7 +10,7 @@ module.exports = function(app) {
   });
 
  
-  app.post("/api/tasks/", taskController.createTask);
+ app.post("/api/tasks/", taskController.createTask);
   app.get("/api/tasks/all",taskController.getTasks);
   app.get("/api/tasks/:id", taskController.getTaskById);
   app.put("/api/tasks/:id", taskController.updateTask);

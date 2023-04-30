@@ -38,13 +38,13 @@ exports.createProject = async (req, res) => {
 exports.getProjects = async (req, res) => {
   try {
     const projects = await Project.find();
-    console.log(projects);
+
 
     // Iterate through projects and fetch project manager data
     const projectsWithManagerData = await Promise.all(
       projects.map(async (project) => {
         const employe = await Employe.findById(project.projectManager);
-        console.log("user is " + employe);
+  
 
         // Return a new object with the project manager's data
         return {

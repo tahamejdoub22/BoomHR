@@ -13,6 +13,7 @@ const Departement = require("../models/departement.model");
 
 // get all employes
 exports. getEmployes = async (req, res) => {
+
     try {
         const employes = await Employe.find();
         res.status(200).json(employes);

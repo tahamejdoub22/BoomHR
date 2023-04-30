@@ -25,6 +25,7 @@ const taskController = {
   //   }
   // },
   createTask: async (req, res) => {
+    console.log("hererere");
     try {
     if (!req.body.project) {
     return res.status(400).json({ message: "Project ID is required" });
@@ -45,11 +46,12 @@ const taskController = {
     });
     
     project.tasks.push(task);
-    
+    console.log("task est"+ task)
     await Promise.all([task.save(), project.save()]);
     let newTask = await task.save();
     res.status(201).json(newTask);
     } catch (error) {
+      console.log("eroor is " +error.message)
     res.status(400).json({ message: error.message });
     }
     },
