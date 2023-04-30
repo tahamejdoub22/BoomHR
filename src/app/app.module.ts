@@ -131,6 +131,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { UpdateDepartementComponent } from './update-departement/update-departement.component';
 import { UpdateProjectComponent } from './update-project/update-project.component';
+import { ListeTasksComponent } from './liste-tasks/liste-tasks.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -260,7 +261,8 @@ import { UpdateProjectComponent } from './update-project/update-project.componen
         BarChartComponent,
         LineChartComponent,
         UpdateDepartementComponent,
-        UpdateProjectComponent
+        UpdateProjectComponent,
+        ListeTasksComponent
     ],
     providers: [ MessageService,
         {provide: LocationStrategy, useClass: HashLocationStrategy},

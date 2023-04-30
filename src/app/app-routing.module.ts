@@ -24,6 +24,7 @@ import { BarChartComponent } from './bar-chart/bar-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { UpdateProjectComponent } from './update-project/update-project.component';
 import { UpdateDepartementComponent } from './update-departement/update-departement.component';
+import { ListeTasksComponent } from './liste-tasks/liste-tasks.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { UpdateDepartementComponent } from './update-departement/update-departem
                     { path: 'line', component: LineChartComponent },
                     { path: 'updatedep/:id', component: UpdateDepartementComponent },
                     { path: 'updateproj/:id', component: UpdateProjectComponent },
+                    { path: 'task/:id', component: ListeTasksComponent },
                 
                 ]
             },

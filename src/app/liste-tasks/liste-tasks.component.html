@@ -1,0 +1,35 @@
+<div class="col-12 md:col-6">
+    <h5>Les taches de {{ projet.name }}  </h5>
+<div class="card p-fluid" *ngFor="let t of task">
+    
+    <div class="field grid"  >
+        <label htmlFor="name" class="col-12 mb-2 md:col-2 md:mb-0"> Name : </label>
+        <div class="col-12 md:col-10">
+            {{t.name}}
+        </div>
+    </div>
+    <div class="field grid">
+        <label htmlFor="deadline" class="col-12 mb-2 md:col-2 md:mb-0"> Deadline :  </label>
+        <div class="col-12 md:col-10">
+            {{t.deadline  | date:'dd/MM/yyyy'}}
+        </div>
+    </div>
+    <div class="field grid">
+        <label htmlFor="owner" class="col-12 mb-2 md:col-2 md:mb-0"> Owner :  </label>
+        <div class="col-12 md:col-10">
+            {{ t.owner}}
+        </div>
+    </div>
+    
+    <div class="field grid">
+        <label htmlFor="status" class="col-12 mb-2 md:col-2 md:mb-0">Statut  : </label>
+        <div class="col-12 md:col-10">
+            {{t.status}}
+        </div>
+    </div>
+</div>
+
+
+
+
+</div>             

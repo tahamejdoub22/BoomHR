@@ -103,6 +103,7 @@
                 <button *ngIf="element._id" (click) = "deleteProject(element._id)" class="btn btn" width="20px"><mat-icon>delete_outline</mat-icon> Supprimer</button> -->
                 <button *ngIf="element._id" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click) = "updateProject(element._id)"></button>
                 <button *ngIf="element._id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click) ="deleteProject(element._id)"></button>
+                <button *ngIf="element._id" pButton pRipple icon="pi pi-align-justify"  class=" p-button-rounded " color="primary" (click) ="detailProject(element._id)"></button>
             </td>
            
           </tr>

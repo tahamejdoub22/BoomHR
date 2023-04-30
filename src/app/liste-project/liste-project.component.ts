@@ -63,5 +63,9 @@ public selectedRes : { name: string ,  startdate: Date, enddate: Date, projectMa
     })
     
   }
+  detailProject(id : number){
+    this.router.navigate(['Dashboard/task', id]);
+    
+  }
 
 }

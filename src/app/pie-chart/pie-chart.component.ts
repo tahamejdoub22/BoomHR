@@ -25,7 +25,8 @@ export class PieChartComponent {
       for (var dep of this.departements) {
         this.dataTwo.push(dep.name);
         // this.dataOne.push(dep.employeId.length);
-        this.dataOne.push(dep.__v);
+        console.log(dep.employeId.length);
+        this.dataOne.push(dep.employeId.length);
              }    
              console.log('data1 nbre demp et dta 2 nom dep') 
              console.log(this.dataOne);
