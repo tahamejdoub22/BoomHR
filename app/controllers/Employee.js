@@ -31,11 +31,18 @@ export function Login(req , res){
                         _id:emp._id,
                         nom:emp.first_name,
                         prenom:emp.last_name,
-                        salary:emp.salary,
                         vacation:emp.vacation,
                         sick:emp.sick,
                         Enom:Entr.Nom,
-                        localisation:Entr.Localisation
+                        avatar:emp.avatar,
+                        localisation:Entr.Localisation,
+                        address:emp.address,
+                        job_title:emp.job_title,
+                        city:emp.city,
+                        country:emp.country,
+                        hire_date:emp.hire_date,
+                        phone:emp.phone
+
                     })
                 })
             }

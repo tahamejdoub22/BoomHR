@@ -2,7 +2,7 @@ import Benefit from "../models/benefit.js";
 import GrossSalary from "../models/GrossSalary.js";
 
 // Calculate benefit amount based on given parameters
-const calculateBenefitAmount = (coverage, grossSalary) => {
+export const calculateBenefitAmount = (coverage, grossSalary) => {
   return coverage * grossSalary;
 };
 
@@ -49,6 +49,22 @@ export async function getAllbenefit(req, res, next) {
       const Benefits = await Benefit.find().populate('grossSalaryId', 'grossSalary').populate('grossSalaryId', 'month') .populate('grossSalaryId', 'year')   .populate({ path: 'grossSalaryId', populate: { path: 'employee_id', select: 'first_name last_name' }});
 
       res.status(200).json(Benefits);
+    } catch (err) {
+      next(err);
+    }
+  }
+  export async function getbenefitByGrossSalary(req, res, next) {
+    try {
+      const grossSalaryId = req.params.grossSalaryId; // or however you want to retrieve the grossSalaryId parameter
+      const benefits = await Benefit.find({
+        grossSalaryId: grossSalaryId,
+      }).populate('grossSalaryId','grossSalary');
+  
+      if (benefits.length === 0) {
+        throw new Error('Deductions not found');
+      }
+  
+      res.status(200).json(benefits);
     } catch (err) {
       next(err);
     }

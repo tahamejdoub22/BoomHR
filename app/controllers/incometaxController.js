@@ -2,6 +2,7 @@ import Attendance from "../models/attendance.js";
 import Employee from "../models/Employee.js";
 import GrossSalary from "../models/GrossSalary.js";
 import IncomeTax from "../models/IncomeTax.js";
+import { Deduction } from "../models/deduction.js";
 
 const createIncomeTax = async (req, res) => {
   try {
@@ -35,4 +36,23 @@ async function getAlltax(req, res, next) {
       next(err);
     }
   }
-export { createIncomeTax,getAlltax };
+  async function getIncomeTaxByGrossSalary(req, res, next) {
+    try {
+      const grossSalaryId = req.params.grossSalaryId; // or however you want to retrieve the grossSalaryId parameter
+      const incomeTaxes = await IncomeTax.find({
+        grossSalary_id: grossSalaryId,
+      }).populate('grossSalary_id','grossSalary');
+  
+      if (incomeTaxes.length === 0) {
+        throw new Error('Income taxes not found');
+      }
+  
+      res.status(200).json(incomeTaxes);
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  
+  
+export { createIncomeTax,getAlltax,getIncomeTaxByGrossSalary };

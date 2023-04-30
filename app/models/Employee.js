@@ -1,10 +1,11 @@
+import NetSalary from "./netsalary.js";
 import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
 const EmployeeSchema = new Schema({
   avatar:{
-type:String
+    type:String
   },
   email: {
     type: String,
@@ -52,13 +53,10 @@ type:String
   sick: {
     type: Number,
   },
-  fcmToken: { // Add this field to store the FCM token for push notifications
-    type: String,
-  },
-  salary: {
-    type: Schema.Types.ObjectId,
-    ref: "Salary",
-  },
+
 });
 
+
+
 export default model("Employee", EmployeeSchema);
+

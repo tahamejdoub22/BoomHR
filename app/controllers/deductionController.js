@@ -70,5 +70,20 @@ async function deleteDeduction(req, res, next) {
     next(err);
   }
 }
+async function getdeductionByGrossSalary(req, res, next) {
+  try {
+    const grossSalaryId = req.params.grossSalaryId; // or however you want to retrieve the grossSalaryId parameter
+    const deductions = await Deduction.find({
+      grossSalary_id: grossSalaryId,
+    }).populate('grossSalary_id','grossSalary');
 
-export { getAllDeductions, getDeductionById, createDeduction, updateDeduction, deleteDeduction };
+    if (deductions.length === 0) {
+      throw new Error('Deductions not found');
+    }
+
+    res.status(200).json(deductions);
+  } catch (err) {
+    next(err);
+  }
+}
+export { getAllDeductions, getDeductionById, createDeduction, updateDeduction, deleteDeduction,getdeductionByGrossSalary };

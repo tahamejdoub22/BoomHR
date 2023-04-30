@@ -1,12 +1,17 @@
 import Attendance from "../models/attendance.js";
+import Benefit from "../models/benefit.js";
 import Employee from "../models/Employee.js";
 import GrossSalary from "../models/GrossSalary.js";
+import IncomeTax from "../models/IncomeTax.js";
+import NetSalary from "../models/netsalary.js";
 import admin from "firebase-admin";
 import mailgun from "mailgun-js";
 import moment from "moment";
 import mongoose from "mongoose";
 import nodemailer from "nodemailer";
 import { serviceAccount } from "../config/serviceAccountKey.js";
+import { calculateBenefitAmount } from "../controllers/benefitcontroller.js";
+import { Deduction } from "../models/deduction.js";
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -279,16 +284,26 @@ export async function getAllGrossSalaries(req, res) {
   }
 }
 // DELETE /api/grosssalaries/:id
+
+
+
+
 export const deleteGrossSalary = async (req, res) => {
   try {
     const { id } = req.params;
-    await GrossSalary.findByIdAndDelete(id);
+    const grossSalary = await GrossSalary.findById(id);
+    if (!grossSalary) {
+      return res.status(404).json({ message: "Gross Salary Not Found" });
+    }
+    await grossSalary.remove();
     res.json({ message: "Gross Salary Deleted Successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server Error" });
   }
 };
+
+
 
 
 // PUT /api/grosssalaries/:id/hourly-rate
@@ -307,22 +322,46 @@ export const updateGrossSalaryHourlyRate = async (req, res) => {
     await employee.save();
 
     // Calculate the new gross salary
-    const totalWorkTimeInHours = grossSalary.totalWorkTime
+    const totalWorkTimeInHours = grossSalary.totalWorkTime;
     const grossSalaryValue = hourlyRate * totalWorkTimeInHours;
 
-    // Update the gross salary record
-    const updatedGrossSalary = await GrossSalary.findByIdAndUpdate(
-      id,
-      {
-        hourlyRate,
-        grossSalary: grossSalaryValue.toFixed(2),
-      },
-      { new: true }
-    );
+    // Find all deductions associated with this gross salary record
+    const deductions = await Deduction.find({ grossSalary_id: grossSalary._id });
+    const incomeTaxs = await IncomeTax.find({ grossSalary_id: grossSalary._id });
+    const netsalarys= await NetSalary.find({ grossSalary_id: grossSalary._id });
 
+    // Update the gross salary record
+    grossSalary.hourlyRate = hourlyRate;
+    grossSalary.grossSalary = grossSalaryValue.toFixed(2);
+    await grossSalary.save();
+
+    // Update the deduction amounts based on the new gross salary value
+   
+  // Update the incomtax amounts based on the new gross salary value
+  for (const incomeTax of incomeTaxs) {
+    await incomeTax.save();
+  }
+  for (const deduction of deductions) {
+    await deduction.save();
+  }
+ 
+    // Find all benefits associated with this gross salary record
+    const benefits = await Benefit.find({ grossSalaryId: grossSalary._id });
+
+    // Update the benefit amounts based on the new gross salary value
+    for (const benefit of benefits) {
+      const newAmount = calculateBenefitAmount(benefit.coverage, grossSalaryValue);
+      benefit.amount = newAmount;
+      await benefit.save();
+    }
+    for (const netsalary of netsalarys) {
+      await netsalary.save();
+    }
     // Send an email to the employee
-    const mg = mailgun({ apiKey: '3771a9f0c972507421004497a9a0d5f5-81bd92f8-7b442285'
-      , domain: 'sandbox18d6f0d88e6d4df38f05bf89e15a1677.mailgun.org' });
+    const mg = mailgun({
+      apiKey: '3771a9f0c972507421004497a9a0d5f5-81bd92f8-7b442285',
+      domain: 'sandbox18d6f0d88e6d4df38f05bf89e15a1677.mailgun.org'
+    });
     const data = {
       from: "support@BoomHR.tn",
       to: employee.email,
@@ -334,9 +373,11 @@ export const updateGrossSalaryHourlyRate = async (req, res) => {
       console.log(body);
     });
 
-    res.json(updatedGrossSalary);
+    res.json(grossSalary);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server Error" });
   }
 };
+
+

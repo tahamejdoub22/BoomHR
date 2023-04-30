@@ -11,7 +11,6 @@ import { IncomeTaxRoute } from "./app/routes/IncomeTaxRouts.js";
 import { attendanceRoutes } from "./app/routes/attendanceRoutes.js";
 import { benefitRoute } from "./app/routes/benefitRoute.js";
 import { PayrollRoute } from "./app/routes/payrollroutes.js";
-import { salaryRoutes } from "./app/routes/salaryRoute.js";
 
 const app = express();
 
@@ -67,7 +66,6 @@ userRoutes(app);
 app.use('/employee',employeeRoutes);
 app.use('/congee',congeeRoutes);
 app.use('/attendance', attendanceRoutes);
-app.use('/salary',salaryRoutes)
 app.use('/tax',IncomeTaxRoute)
 app.use('/benefit',benefitRoute)
 app.use('/payroll',PayrollRoute)

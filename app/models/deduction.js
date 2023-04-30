@@ -24,6 +24,17 @@ const deductionSchema = new Schema({
     required: true,
   },
 });
+deductionSchema.post('save', async function(doc, next) {
+  try {
+    const grossSalary = await mongoose.model('GrossSalary').findByIdAndUpdate(doc.grossSalary_id, { $push: { deductions: doc._id } }, { new: true });
+    if (!grossSalary) {
+      throw new Error('GrossSalary not found');
+    }
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
 deductionSchema.pre('save', async function() {
     const grossSalary = await mongoose.model('GrossSalary').findById(this.grossSalary_id);
     if (!grossSalary) {
@@ -38,6 +49,7 @@ deductionSchema.pre('save', async function() {
     }
     this.ammount = salary * rate; // calculate the deduction amount and set the 'ammount' property
   });
+
   
 
 const Deduction = mongoose.model('Deduction', deductionSchema);
