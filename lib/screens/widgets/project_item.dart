@@ -1,4 +1,6 @@
 import 'package:boomhr/screens/widgets/task_screen.dart';
+import 'package:boomhr/view_models/add_task_view_model.dart';
+import 'package:boomhr/view_models/get_employe_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:boomhr/models/project_model.dart';
 import 'package:intl/intl.dart';
@@ -17,6 +19,7 @@ class ProjectItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AddTaskViewModel addTaskViewModel = AddTaskViewModel();
     void _openAddTaskDialog() {
       showDialog(
         context: context,
@@ -37,11 +40,13 @@ class ProjectItem extends StatelessWidget {
                 child: const Text('Cancel'),
               ),
               TextButton(
-                onPressed: () {
+                onPressed: () async {
                   Navigator.of(context).pop();
                   // Add your task addition logic here
+                  print("hersse");
+                 await  addTask();
                 },
-                child: const Text('Add Task'),
+                child: const Text('Add'),
               ),
             ],
           );

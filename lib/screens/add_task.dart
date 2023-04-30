@@ -1,12 +1,19 @@
+import 'package:boomhr/models/employer_model.dart';
+import 'package:boomhr/view_models/get_employe_view_model.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-final String apiUrl = 'http://localhost:9090/api/tasks/';
+import '../view_models/add_task_view_model.dart';
+
+String owner = "";
+String taskName = "";
+DateTime deadline = DateTime.parse('2023-05-01');
 
 class AddTaskWidget extends StatefulWidget {
   const AddTaskWidget({Key? key, required this.projectName}) : super(key: key);
   final String projectName;
+
   @override
   _AddTaskWidgetState createState() => _AddTaskWidgetState();
 }
@@ -15,26 +22,33 @@ class _AddTaskWidgetState extends State<AddTaskWidget> {
   TextEditingController _taskController = TextEditingController();
   String? _selectedUser;
   DateTime? _selectedDate;
+  List<EmployerModel> employees = [];
 
-  // Dummy data for user selection
-  List<Map<String, dynamic>> users = [
-    {'name': 'mohamed lachtar', 'image': 'https://via.placeholder.com/50'},
-    {'name': 'oussema sebai', 'image': 'https://via.placeholder.com/50'},
-    {'name': 'emna toujeni', 'image': 'https://via.placeholder.com/50'},
-    {'name': 'taha majdoub', 'image': 'https://via.placeholder.com/50'},
-  ];
+  final getEmployerViewModel = GetEmployerViewModel();
+  @override
+  void initState() {
+    super.initState();
+    getEmployees();
+  }
+
+  void getEmployees() async {
+    final List<EmployerModel> result = await getEmployerViewModel.getEmployer();
+    setState(() {
+      employees = result;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    taskName = _taskController.text;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         Row(
           children: [
-             Text(widget.projectName, style: TextStyle(fontSize: 18)),
+            Text(widget.projectName, style: TextStyle(fontSize: 18)),
             const SizedBox(width: 10),
-   
           ],
         ),
         const SizedBox(height: 12),
@@ -64,16 +78,16 @@ class _AddTaskWidgetState extends State<AddTaskWidget> {
           ),
           hint: const Text('Select a user'),
           value: _selectedUser,
-          items: users.map((user) {
+          items: employees.map((employee) {
             return DropdownMenuItem<String>(
-              value: user['name'],
+              value: employee.fullname,
               child: Row(
                 children: [
-                  CircleAvatar(
-                    backgroundImage: NetworkImage(user['image']),
-                  ),
+                  // CircleAvatar(
+                  //   backgroundImage: NetworkImage(employee['image']),
+                  // ),
                   const SizedBox(width: 8),
-                  Text(user['name']),
+                  Text(employee.fullname!),
                 ],
               ),
             );
@@ -81,12 +95,33 @@ class _AddTaskWidgetState extends State<AddTaskWidget> {
           onChanged: (String? value) {
             setState(() {
               _selectedUser = value;
+
+              int selectedIndex = employees
+                  .map((employee) => employee.fullname)
+                  .toList()
+                  .indexOf(_selectedUser);
+              owner = employees[selectedIndex].id!;
             });
           },
         ),
         const SizedBox(height: 12),
         const Text('Deadline\n', style: TextStyle(fontSize: 18)),
         InkWell(
+          // onTap: () async {
+          //   DateTime? pickedDate = await showDatePicker(
+          //     context: context,
+          //     initialDate: DateTime.now(),
+          //     firstDate: DateTime.now(),
+          //     lastDate: DateTime.now().add(const Duration(days: 365 * 5)),
+          //   );
+          //   if (pickedDate != null) {
+          //     deadline = _selectedDate!;
+          //     setState(() {
+          //         // print("deadline is $");
+          //      pickedDate  = _selectedDate;
+          //     });
+          //   }
+          // },
           onTap: () async {
             DateTime? pickedDate = await showDatePicker(
               context: context,
@@ -98,6 +133,7 @@ class _AddTaskWidgetState extends State<AddTaskWidget> {
               setState(() {
                 _selectedDate = pickedDate;
               });
+              print("Selected date is: ${_selectedDate.toString()}");
             }
           },
           child: Container(
@@ -123,4 +159,11 @@ class _AddTaskWidgetState extends State<AddTaskWidget> {
       ],
     );
   }
+}
+
+Future<void> addTask() async {
+  final AddTaskViewModel addTaskViewModel = AddTaskViewModel();
+
+  await addTaskViewModel.addTask(
+      owner, taskName, deadline, "644ed3580ff7174a4ccfc5de");
 }

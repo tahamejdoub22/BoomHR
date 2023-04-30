@@ -21,7 +21,6 @@ class _TaskListPageState extends State<TaskListPage> {
   String _filter = 'All';
   bool _isLoading = true;
 
-
   Future<void> _fetchTasks() async {
     setState(() {
       _isLoading = true;
@@ -53,13 +52,15 @@ class _TaskListPageState extends State<TaskListPage> {
     }
   }
 
-
   Widget _buildTaskCard(TaskModel task) {
     final now = DateTime.now();
     //final daysRemaining = task.deadline.difference(now).inDays;
     int daysRemaining = task.deadline!.difference(DateTime.now()).inDays;
     Color color;
-    if (daysRemaining > 5) {
+    if (daysRemaining < 0) {
+      print('The task is over.');
+      color = Color.fromARGB(0, 93, 93, 93);
+    } else if (daysRemaining >= 5) {
       color = Colors.green;
     } else if (daysRemaining >= 2) {
       color = Colors.orange;
