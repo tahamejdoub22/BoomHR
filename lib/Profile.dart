@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/salarynet.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Profile extends StatefulWidget {
@@ -26,6 +27,7 @@ class _ProfileState extends State<Profile> {
   // Define the menu items
   final List<Map<String, String>> _menuItems = const [
     {'title': 'Logout', 'icon': 'logout'},
+    {'title': 'Download Salary', 'icon': 'download'},
   ];
 
   // Initialize the SharedPreferences object and retrieve the stored data
@@ -68,7 +70,10 @@ class _ProfileState extends State<Profile> {
         _navigateToSettings();
         break;
       case 'Download Salary':
-        _downloadSalary();
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => NetSalaryListScreen()),
+        );
         break;
     }
   }
@@ -89,7 +94,10 @@ class _ProfileState extends State<Profile> {
 
   // Download the salary report
   void _downloadSalary() {
-    // TODO: Implement download salary logic
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => NetSalaryListScreen()),
+    );
   }
 
   @override

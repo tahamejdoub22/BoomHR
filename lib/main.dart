@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Loginpage.dart';
+import 'package:flutter_application_1/salarynet.dart';
 import 'package:flutter_application_1/validateRequest.dart';
 import 'package:http/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -68,7 +69,10 @@ class MyApp extends StatelessWidget {
           },
           "/History": (context) {
             return History();
-          }
+          },
+          "/salary": (context) {
+            return NetSalaryListScreen();
+          },
         },
         onUnknownRoute: (settings) {
           return MaterialPageRoute(
