@@ -6,6 +6,7 @@ import db from "./app/models/index.js";
 import employeeRoutes from "./app/routes/Epmloyee.js";
 import express, { json, urlencoded } from "express";
 import userRoutes from "./app/routes/user.routes.js";
+import { WebSocketServer } from "ws";
 import { DB, HOST, PORT as _PORT } from "./app/config/db.config.js";
 import { IncomeTaxRoute } from "./app/routes/IncomeTaxRouts.js";
 import { attendanceRoutes } from "./app/routes/attendanceRoutes.js";
@@ -69,10 +70,24 @@ app.use('/attendance', attendanceRoutes);
 app.use('/tax',IncomeTaxRoute)
 app.use('/benefit',benefitRoute)
 app.use('/payroll',PayrollRoute)
+const wsServer = new WebSocketServer({ noServer: true });
+wsServer.on("connection", ws => {
+  console.log("WebSocket client connected");
+  
+  // handle WebSocket message
+  ws.on("message", message => {
+    console.log(`Received message: ${message}`);
+  });
 
+  // handle WebSocket disconnection
+  ws.on("close", () => {
+    console.log("WebSocket client disconnected");
+  });
+});
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

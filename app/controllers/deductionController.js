@@ -3,7 +3,7 @@ import { Deduction } from "../models/deduction.js";
 // GET /deductions
 async function getAllDeductions(req, res, next) {
   try {
-    const deductions = await Deduction.find().populate('grossSalary_id', 'grossSalary');
+    const deductions = await Deduction.find().populate('grossSalary_id', 'grossSalary') .populate({ path: 'grossSalary_id', populate: { path: 'employee_id', select: 'first_name last_name' }});;
     res.status(200).json(deductions);
   } catch (err) {
     next(err);

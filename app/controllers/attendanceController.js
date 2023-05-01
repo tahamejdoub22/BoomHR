@@ -4,11 +4,13 @@ import Employee from "../models/Employee.js";
 import GrossSalary from "../models/GrossSalary.js";
 import IncomeTax from "../models/IncomeTax.js";
 import NetSalary from "../models/netsalary.js";
+import WebSocket from "ws";
 import admin from "firebase-admin";
 import mailgun from "mailgun-js";
 import moment from "moment";
 import mongoose from "mongoose";
 import nodemailer from "nodemailer";
+import { WebSocketServer } from "ws";
 import { serviceAccount } from "../config/serviceAccountKey.js";
 import { calculateBenefitAmount } from "../controllers/benefitcontroller.js";
 import { Deduction } from "../models/deduction.js";
@@ -21,20 +23,34 @@ admin.initializeApp({
 
 // Check-in function
 // Check-in function
+
+// Create a new WebSocket server instance
+const clients = [];
+
+const wsServer = new WebSocketServer({ port:8000 });
+wsServer.on("connection", ws => {
+  console.log("WebSocket client connected");
+  
+  // handle WebSocket message
+  clients.push(ws);
+
+
+  // handle WebSocket disconnection
+  ws.on("close", () => {
+    console.log("WebSocket client disconnected");
+  });
+});
+
+
 export const checkIn = async (req, res) => {
   try {
- 
-
     const { employee_id, location } = req.body;
-
-
-    
 
     // Create a new attendance record
     const attendance = new Attendance({
       employee_id,
       checkInTime: Date.now(),
-      location
+      location,
     });
 
     // Save the attendance record to the database
@@ -42,39 +58,35 @@ export const checkIn = async (req, res) => {
 
     // Retrieve the employee model for the response
     const employee = await Employee.findById(employee_id);
-    const message = {
-      notification: {
-        title: 'Employee Checked In',
-        body: `${employee.name} checked in at ${new Date().toLocaleTimeString()}`,
-      },
-      topic: 'employee_check_ins',
+
+    // Create a notification message to send via WebSockets
+    const notification = {
+      title: "Employee Checked In",
+      body: `${employee.first_name} checked in at ${new Date().toLocaleTimeString()}`,
     };
 
-    const response = await admin.messaging().send(message);
-console.log(response)
-    // Log the success or failure of sending the notification
-    if (response && response.successCount > 0) {
-      console.log('Notification sent successfully.');
-    } else if (response && response.failureCount > 0) {
-      console.error(`Failed to send ${response.failureCount} notifications.`);
-    }
-    if (!employee) {
-      return res.status(404).json({ message: "Employee not found" });
-    }
+    // Send the notification message to all connected WebSocket clients
+    wsServer.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(JSON.stringify(notification));
+      }
+    });
+
     // Return the response with the employee and updated attendance record
     res.status(200).json({
-      message: 'Employee checked in',
+      message: "Employee checked in",
       attendance: newAttendance,
       employee,
     });
   } catch (error) {
     console.error(error);
     res.status(500).json({
-      message: 'Error checking in employee',
+      message: "Error checking in employee",
       error,
     });
   }
 };
+
 
 
 export const checkOut = async (req, res) => {
