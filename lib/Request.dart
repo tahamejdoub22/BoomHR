@@ -1,3 +1,4 @@
+import 'package:boom_hr/Home.dart';
 import 'package:boom_hr/Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart' show CalendarCarousel;
@@ -21,7 +22,13 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   Widget build(BuildContext context) {
-    Object? congee = ModalRoute.of(context)?.settings.arguments  ;
+    //Object? congee = ModalRoute.of(context)?.settings.arguments  ;
+    final Map<String, dynamic> args =
+    ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+
+    String vacation = args['vacation']!;
+    String sick = args['sick']!;
+    print(vacation);
     return Scaffold(
       body: ListView(
         children: <Widget>[
@@ -57,7 +64,7 @@ class _CalendarPageState extends State<CalendarPage> {
               child:Row(
                 children:  [
                   Text(" Tap or drag to select the day(s) you will be out ",
-                      style: TextStyle(fontSize: 12,color: Colors.grey))
+                      style: TextStyle(fontSize: 12,color: Colors.black))
                 ],
               )
           ),
@@ -68,9 +75,9 @@ class _CalendarPageState extends State<CalendarPage> {
               });
             },
             weekendTextStyle: TextStyle(
-              color: Colors.red,
+              color: Colors.blue,
             ),
-            thisMonthDayBorderColor: Colors.grey,
+            thisMonthDayBorderColor: Colors.black,
             weekFormat: false,
             height: 420.0,
             selectedDateTime: _startDate,
@@ -83,7 +90,7 @@ class _CalendarPageState extends State<CalendarPage> {
               });
             },
             weekendTextStyle: TextStyle(
-              color: Colors.red,
+              color: Colors.blue,
             ),
             thisMonthDayBorderColor: Colors.grey,
             weekFormat: false,
@@ -95,14 +102,15 @@ class _CalendarPageState extends State<CalendarPage> {
           ElevatedButton(
             onPressed: () {
               print('Start Date: $_startDate');
-              if(congee!=null) {
+              // if(congee!=null) {
+              //   Navigator.pushReplacementNamed(context, "/ValidateRequest"
+              //     ,arguments: {'startDate': _startDate, 'endDate': _endDate,'congee':congee});
+              // } else {
+                print(vacation);
                 Navigator.pushReplacementNamed(context, "/ValidateRequest"
-                  ,arguments: {'startDate': _startDate, 'endDate': _endDate,'congee':congee});
-              } else {
-                Navigator.pushReplacementNamed(context, "/ValidateRequest"
-                    ,arguments: {'startDate': _startDate, 'endDate': _endDate});
-              }
-            },
+                    ,arguments: {'startDate': _startDate, 'endDate': _endDate, 'vacation':vacation  , 'sick': sick});
+              },
+           // },
             child: Text('Next'),
           ),
         ],

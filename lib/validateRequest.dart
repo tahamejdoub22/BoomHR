@@ -19,7 +19,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
   late DateTime _endDate;
   late String? _type='' ;
   late String? _note;
-  final String _baseUrl = "192.168.206.227:9091";
+  final String _baseUrl = "172.17.1.41:9091";
   String _selectedItem = 'vacation';
 
   @override
@@ -37,12 +37,28 @@ class _ValidateRequestState extends State<ValidateRequest> {
 
     DateTime startDate = args['startDate']!;
     DateTime endDate = args['endDate']!;
+    String vacation = args['vacation']!;
+    String sick = args['sick']!;
+    print(sick);
     Congee? congee =args['congee'];
     String days = DateFormat('EEEE').format(startDate);
     String months = DateFormat('MMMM').format(startDate);
     String dayde = DateFormat('EEEE').format(endDate);
     String monthde = DateFormat('MMMM').format(endDate);
     String dropdownValue = 'vacation';
+    final duration = endDate.difference(startDate);
+    final dayss = duration.inDays;
+
+     var text ;
+
+    if(_selectedItem=="vacation")
+      {
+        text = "le nombre du jours apres submit this vacation :"+(int.parse(vacation)-dayss).toString();
+      }
+    else
+      {
+        text = "le nombre du jours apres envoye cette maladie  :"+(int.parse(sick)-dayss).toString();
+      }
     print('$days');
     return Scaffold(
       body: ListView(
@@ -55,7 +71,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
                   IconButton(
                     icon: Icon(Icons.arrow_back),
                     onPressed: () {
-                     // Navigator.pushReplacementNamed(context, "/Request");
+                      Navigator.pushReplacementNamed(context, "/Request");
                     },
                   ),
                   Text(" Request Leave",
@@ -221,6 +237,7 @@ class _ValidateRequestState extends State<ValidateRequest> {
           SizedBox(
             height: 40,
           ),
+          Text(text),
           Container(margin: const EdgeInsets.fromLTRB(250, 0, 30, 0),
             child:
             ElevatedButton(

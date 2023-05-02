@@ -115,7 +115,7 @@ class _HomeState extends State<Home>
     _timer.cancel();
     super.dispose();
   }
-  final String _baseUrl = "192.168.1.179:9091";
+  final String _baseUrl = "192.168.206.227:9091";
   final GlobalKey<FormState> _keyForm = GlobalKey<FormState>();
 
 
@@ -125,7 +125,7 @@ class _HomeState extends State<Home>
     Color hexToColor(String hexString) {
       return Color(int.parse(hexString.substring(1, 7), radix: 16) + 0xFF000000);
     }
-
+    print(fetchedCongees);
     setState((){
 
     });
@@ -289,7 +289,7 @@ class _HomeState extends State<Home>
                                 onPressed: () {
                                   Navigator.pushNamed(
                                     context,
-                                    "/Request",
+                                    "/Request", arguments: {'vacation': vacation, 'sick': sick}
 
                                   );
                                 },
