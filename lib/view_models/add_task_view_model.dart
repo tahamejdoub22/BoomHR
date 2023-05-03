@@ -6,16 +6,17 @@ import 'package:intl/intl.dart';
 class AddTaskViewModel {
   final String apiUrl = 'http://192.168.1.6:9090/api/tasks/';
 
- Future<void> addTask(String owner, String name, DateTime deadline, String project) async {
-  final DateFormat formatter = DateFormat('dd/MM/yyyy');
-  final String formattedDeadline = formatter.format(deadline);
-  final Map<String, dynamic> taskData = {
-    'owner': owner,
-    'name': name,
-    'deadline': formattedDeadline,
-    'project': project,
-  };
-  // send the taskData map to the backend...
+  Future<void> addTask(
+      String owner, String name, DateTime deadline, String project) async {
+    final DateFormat formatter = DateFormat('yyyy-MM-dd');
+    final String formattedDeadline = formatter.format(deadline);
+    final Map<String, dynamic> taskData = {
+      'owner': owner,
+      'name': name,
+      'deadline': formattedDeadline,
+      'project': project,
+    };
+    // send the taskData map to the backend...
 
     final response = await http.post(
       Uri.parse(apiUrl),

@@ -30,25 +30,9 @@ class ProjectItem extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.9,
               child: AddTaskWidget(
                 projectName: project.name,
+                projectId: project.id,
               ),
             ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text('Cancel'),
-              ),
-              TextButton(
-                onPressed: () async {
-                  Navigator.of(context).pop();
-                  // Add your task addition logic here
-                  print("hersse");
-                 await  addTask();
-                },
-                child: const Text('Add'),
-              ),
-            ],
           );
         },
       );
