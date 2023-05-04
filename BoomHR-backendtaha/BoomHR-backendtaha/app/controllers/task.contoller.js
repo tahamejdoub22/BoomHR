@@ -2,6 +2,7 @@ const Task = require('../models/task.model');
 const Employer = require('../models/employer.model');
 const Departement = require('../models/departement.model');
 const Project = require('../models/projet.model');
+const sendNotification  = require('./notificationController');
 
 const taskController = {
   // Créer une nouvelle tâche
@@ -49,6 +50,9 @@ const taskController = {
     console.log("task est"+ task)
     await Promise.all([task.save(), project.save()]);
     let newTask = await task.save();
+    
+    sendNotification('My Title', 'This is the body of fezfezfezfzeff notification')
+
     res.status(201).json(newTask);
     } catch (error) {
       console.log("eroor is " +error.message)
