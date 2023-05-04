@@ -18,6 +18,7 @@ export class EmployeComponent implements OnInit {
 
   constructor(private route:ActivatedRoute ,private messageService: MessageService,private employeservice : EmployeService , private departementservice : DepartementService) { }
   employe = new Employe();
+  dept =new Departement();
   public employes: Employe[] = [];
   dep :Departement[];
   ngOnInit(): void {
@@ -42,7 +43,8 @@ export class EmployeComponent implements OnInit {
 
 
   saveEmploye(){
-
+    console.log(this.employe.departement);
+    this.employe.departement= this.dept.name ;
     this.employeservice.saveEmploye(this.employe).subscribe(data=>{
     this.employe = new Employe();
     console.log(this.employe);

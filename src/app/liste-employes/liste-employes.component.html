@@ -3,7 +3,7 @@
     <div>
         <p-button icon="pi pi-plus" label=""  class="custom-class" (click) = "addEmploye()"></p-button>
         
-      <font face="fantasy" size="6" style="color:rgb(3, 1, 14)" class="center"> Listes des employes </font>
+      <font face="fantasy" size="6" style="color:rgb(3, 1, 14)" class="center"> Lists of employees    </font>
     </div>
     <br> 
 <div   class ="table table-striped" >
@@ -106,7 +106,7 @@
                 <button *ngIf="element._id" (click) = "deleteEmploye(element._id)" class="btn btn" width="20px"><mat-icon>delete_outline</mat-icon> Supprimer</button> -->
                 <button *ngIf="element._id" pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click) = "openDialog(element._id)"></button>
                 <button *ngIf="element._id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click) ="deleteEmploye(element._id)"></button>
-                <button *ngIf="element._id" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click) ="openDetails(element._id)"></button>
+                <button *ngIf="element._id" pButton pRipple icon="pi pi-user" class="p-button-rounded p-button-warning" (click) ="openDetails(element._id)"></button>
             </td>
            
           </tr>

@@ -6,6 +6,10 @@ import { Employe } from '../models/employe';
 import { Inject } from '@angular/core';
 import {  MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
+
+
+
+
 @Component({
   selector: 'app-update-employe',
   templateUrl: './update-employe.component.html',

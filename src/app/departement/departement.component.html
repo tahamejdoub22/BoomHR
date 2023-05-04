@@ -1,11 +1,19 @@
-<div class="bg"><div class=" col-md-12 " ><br> <br><div style ="text-align: center"> <font  size="6" style="color:rgb(29, 4, 143)" align= "center">Ajouter Departement</font>
+<div class="bg"><div class=" col-md-12 " ><br> <br><div style ="text-align: center"> <font  size="6" style="color:rgb(29, 4, 143)" align= "center">Add Department</font>
 </div> <br> <br>
 <div >
     <div >
   
     
   <div class="row">
-   <div class="col-4">
+    <div class="field col">
+        <label htmlFor="name" for="name">Name</label>
+        <input pInputText  id="name" type="text"   [(ngModel)]="departement.name"/>
+      </div>
+      <div class="field col">
+        <label htmlFor="description" for="description">Description</label>
+        <input pInputText  id="description" type="text"    [(ngModel)]="departement.description"/>
+      </div>
+   <!-- <div class="col-4">
     <label for="name" class="p-col-fixed" >Name</label>
     </div>
     <div class="col-4">
@@ -18,7 +26,7 @@
     </div>
     <div class="col-4">
     <input id="description" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="departement.description">       
-    </div>
+    </div> -->
 </div>
 
 

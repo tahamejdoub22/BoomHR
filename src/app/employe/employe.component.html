@@ -6,142 +6,77 @@
         
         <div class="p-formgrid grid">
           <div class="field col">
-            <label htmlFor="name2">Name</label>
-            <input pInputText id="name2" type="text" />
+            <label htmlFor="fullname" for="fullname">Fullname</label>
+            <input pInputText  id="fullname" type="text"  [(ngModel)]="employe.fullname"/>
           </div>
           <div class="field col">
-            <label htmlFor="email2">Email</label>
-            <input pInputText id="email2" type="text" />
+            <label htmlFor="picture" for="picture">picture</label>
+            <input pInputText  id="picture" type="text"  [(ngModel)]="employe.picture"/>
           </div>
         </div>
-        
+        <div class="p-formgrid grid">
+          <div class="field col">
+            <label htmlFor="email" for="email">email</label>
+            <input pInputText  id="email" type="text"  [(ngModel)]="employe.email"/>
+          </div>
+          <div class="field col">
+            <label htmlFor="phone" for="phone">phone</label>
+            <input pInputText  id="phone" type="number"  [(ngModel)]="employe.phone"/>
+          </div>
+        </div>
+        <div class="p-formgrid grid">
+          <div class="field col">
+            <label htmlFor="address" for="address">address</label>
+            <input pInputText  id="address" type="text"  [(ngModel)]="employe.address"/>
+          </div>
+          <div class="field col">
+            <label htmlFor="role" for="role">role</label>
+            <input pInputText  id="role" type="text"  [(ngModel)]="employe.role"/>
+          </div>
+        </div>
+        <div class="p-formgrid grid">
+          <div class="field col">
+            <label htmlFor="salary" for="salary">salary</label>
+            <input pInputText  id="salary" type="number" [(ngModel)]="employe.salary"/>
+          </div>
+          <div class="field col">
+            <label htmlFor="jobtitle" for="jobtitle">jobtitle</label>
+            <input pInputText  id="jobtitle" type="text"  [(ngModel)]="employe.jobtitle"/>
+          </div>
+        </div>
+        <div class="p-formgrid grid">
+          <div class="field col">
+            <label htmlFor="jobtype" for="jobtype">jobtype</label>
+            <input pInputText  id="jobtype" type="text" [(ngModel)]="employe.jobtype"/>
+          </div>
+          <div class="field col">
+            <label htmlFor="firstday" for="firstday">firstday</label>
+            <input pInputText  id="firstday" type="date"  [(ngModel)]="employe.firstday"/>
+          </div>
+        </div>
+        <div class="p-formgrid grid">
+          
+          <div class="field col">
+            <label htmlFor="lastday" for="lastday">lastday</label>
+            <input pInputText  id="lastday" type="date"  [(ngModel)]="employe.lastday"/>
+          </div>
+          <div class="field col">
+            <label htmlFor="dateofbirth" for="dateofbirth">dateofbirth</label>
+            <input pInputText  id="jobtype" type="date" [(ngModel)]="employe.dateofbirth"/>
+          </div>
+        </div>
+        <div class="p-formgrid grid">
+          
+          <div class="field col">
+            <label htmlFor="departement" for="departement">Departement</label>
+            <p-dropdown placeholder="selectionner departement " [options]="dep" 
+              [(ngModel)]="dept" id="departement" optionLabel="name" ></p-dropdown>
+          </div>
+        </div>
       </div>
-    
-  <div class="row">
-   <div class="col-4">
-    <label for="fullname" class="p-col-fixed" >Fullname</label>
-    </div>
-    <div class="col-4">
-    <input id="fullname" class="p-inputtext-lg" type="text"   pInputText  [(ngModel)]="employe.fullname" >       
-    </div>
-   </div>
-<div class="row">
-    <div class="col-4">
-    <label for="description" class="p-col-fixed" >picture</label>
-    </div>
-    <div class="col-4">
-    <input id="picture" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="employe.picture">       
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-4">
-     <label for="name" class="p-col-fixed" >email</label>
-     </div>
-     <div class="col-4">
-     <input id="name" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="employe.email">       
-     </div>
-    </div>
-    
-  <div class="row">
-    <div class="col-4">
-     <label for="name" class="p-col-fixed" >phone</label>
-     </div>
-     <div class="col-4">
-     <input id="name" class="p-inputtext-lg" type="number" pInputText  [(ngModel)]="employe.phone">       
-     </div>
-    </div>
-    
-  <div class="row">
-    <div class="col-4">
-     <label for="name" class="p-col-fixed" >address</label>
-     </div>
-     <div class="col-4">
-     <input id="name" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="employe.address">       
-     </div>
-    </div>
-    
-  <div class="row">
-    <div class="col-4">
-     <label for="name" class="p-col-fixed" >role</label>
-     </div>
-     <div class="col-4">
-     <input id="name" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="employe.role">       
-     </div>
-    </div>
-    
-  <div class="row">
-    <div class="col-4">
-     <label for="name" class="p-col-fixed" >salary</label>
-     </div>
-     <div class="col-4">
-     <input id="name" class="p-inputtext-lg" type="number" pInputText  [(ngModel)]="employe.salary">       
-     </div>
-    </div>
-    
-  <div class="row">
-    <div class="col-4">
-     <label for="name" class="p-col-fixed" >jobtitle</label>
-     </div>
-     <div class="col-4">
-     <input id="name" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="employe.jobtitle">       
-     </div>
-    </div>
-    
-  <div class="row">
-    <div class="col-4">
-     <label for="name" class="p-col-fixed" >jobtype</label>
-     </div>
-     <div class="col-4">
-     <input id="name" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="employe.jobtype">       
-     </div>
-    </div>
-
-
-    <!-- <div class="row">
-      <div class="col-4">
-       <label for="name" class="p-col-fixed" >departement</label>
-       </div>
-       <div class="col-4">
-       <input id="name" class="p-inputtext-lg" type="text" pInputText  [(ngModel)]="employe.departement">       
-       </div>
-      </div> -->
-
-      
-
-      <div class="row">
-        <div class="col-4">
-         <label for="name" class="p-col-fixed" >firstday</label>
-         </div>
-         <div class="col-4">
-         <input id="name" class="p-inputtext-lg" type="date" pInputText  [(ngModel)]="employe.firstday">       
-         </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-           <label for="name" class="p-col-fixed" >lastday</label>
-           </div>
-           <div class="col-4">
-           <input id="name" class="p-inputtext-lg" type="date" pInputText  [(ngModel)]="employe.lastday">       
-           </div>
-          </div>
-          <div class="row">
-            <div class="col-4">
-             <label for="name" class="p-col-fixed" >dateofbirth</label>
-             </div>
-             <div class="col-4">
-             <input id="name" class="p-inputtext-lg" type="date" pInputText  [(ngModel)]="employe.dateofbirth">       
-             </div>
-            </div>
-            <div class="row">
-              <div class="col-4">
-              <label for="departement" class="p-col-fixed" >Departement </label>
-              </div>
-              <div class="col-5">
-              <p-dropdown placeholder="selectionner departement " [options]="dep" 
-              [(ngModel)]="employe.departement" optionLabel="name" ></p-dropdown>
-              </div> 
-          </div>
+          
+            
 
 <div style ="text-align: right">   
     <button  pButton type="button" icon="pi pi-save" class="bn632-hover bn26"  (click)="saveEmploye()"  label="sauvegarder"></button>

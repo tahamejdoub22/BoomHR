@@ -133,6 +133,8 @@ import { UpdateDepartementComponent } from './update-departement/update-departem
 import { UpdateProjectComponent } from './update-project/update-project.component';
 import { ListeTasksComponent } from './liste-tasks/liste-tasks.component';
 import { ProfilEmployeComponent } from './profil-employe/profil-employe.component';
+
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -230,6 +232,8 @@ import { ProfilEmployeComponent } from './profil-employe/profil-employe.componen
         MatExpansionModule,
         MatDialogModule,
         BrowserAnimationsModule,
+        DialogModule,
+        ButtonModule
     ],
     declarations: [
         AppComponent,
