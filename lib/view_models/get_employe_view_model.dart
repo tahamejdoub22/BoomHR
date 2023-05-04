@@ -9,7 +9,7 @@ import '../models/employer_model.dart';
 class GetEmployerViewModel {
   Future<List<EmployerModel>> getEmployer() async {
     final response = await http.get(
-        Uri.parse('http://192.168.1.6:9090/api/auth/emp/'),
+        Uri.parse('http://172.26.208.1:9090/api/auth/emp/'),
         headers: <String, String>{
           'Content-Type': 'apllication/json; charset=UTF-8'
         });

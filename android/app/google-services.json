@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "140270447772",
+    "project_id": "boom-hr",
+    "storage_bucket": "boom-hr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140270447772:android:c879f7e81e3b554a18d159",
+        "android_client_info": {
+          "package_name": "com.example.boomhr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140270447772-2n6lt7h1vtn2ph57cj6fk056ibq3g0of.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK7pE9ij0U7qUrb4ZcTwPtO1wp5hg2aOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140270447772-2n6lt7h1vtn2ph57cj6fk056ibq3g0of.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "140270447772-iq8p9sc17rqtpesrd0ps7me9cepell4c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.boomhr"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

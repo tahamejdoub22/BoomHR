@@ -167,7 +167,7 @@ class _TaskListPageState extends State<TaskListPage> {
     } else if (_filter == 'In Progress') {
       return _tasks.where((task) => task.status == 'in progress').toList();
     } else if (_filter == 'Completed') {
-      return _tasks.where((task) => task.status == 'completed').toList();
+      return _tasks.where((task) => task.status == 'done').toList();
     } else if (_filter == 'to do') {
       return _tasks.where((task) => task.status == 'to do').toList();
     }

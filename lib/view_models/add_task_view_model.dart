@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:intl/intl.dart';
 
 class AddTaskViewModel {
-  final String apiUrl = 'http://192.168.1.6:9090/api/tasks/';
+  final String apiUrl = 'http://172.26.208.1:9090/api/tasks/';
 
   Future<void> addTask(
       String owner, String name, DateTime deadline, String project) async {
