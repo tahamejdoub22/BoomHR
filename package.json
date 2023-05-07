@@ -1,0 +1,35 @@
+{
+  "name": "auth-jwt-taha",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Node.js + MongoDB: JWT Authentication & Authorization",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "jwt",
+    "login",
+    "registration",
+    "authentication",
+    "authorization",
+    "mongodb",
+    "mongoose"
+  ],
+  "author": "bezkoder",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.1",
+    "googleapis": "^118.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^5.13.13",
+    "nodemailer": "^6.9.1",
+    "nodemon": "^2.0.20"
+  }
+}
