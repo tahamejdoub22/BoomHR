@@ -58,9 +58,10 @@ export async function put(req, res) {
 
   export async function getAll(req, res) {
     try {
-        const conges = await Congee.find().populate('Employee_id');
+        const conges = await Congee.find();
         const result = await Promise.all(conges.map(async (conge) => {
             const Empl = await Employee.findById(conge.Employee_id);
+            console.log(conges)
             if (!Empl) {
                 return null;
             } else {
@@ -91,7 +92,12 @@ export async function put2(req, res) {
   let etat;
   if (bool === true) {
     etat = 'approuvé';
-  } else {
+  } else 
+  if(bool==null)
+  {
+    etat = 'en cours';
+  } else
+  {
     etat = 'rejeté';
   }
   console.log(etat)

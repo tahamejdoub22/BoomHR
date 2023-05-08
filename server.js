@@ -12,6 +12,10 @@ import { attendanceRoutes } from "./app/routes/attendanceRoutes.js";
 import { benefitRoute } from "./app/routes/benefitRoute.js";
 import { PayrollRoute } from "./app/routes/payrollroutes.js";
 import { salaryRoutes } from "./app/routes/salaryRoute.js";
+import departementRoutes from "./app/routes/departement.routes.js";
+import projetRoutes from "./app/routes/projet.routes.js";
+import taskRoutes from "./app/routes/task.routes.js";
+//import employerRoutes from "./app/routes/employer.routes.js"
 
 import formulaireRoutes from './app/routes/Formulaire.js'
 import condidatRoutes from './app/routes/Condidat.js'
@@ -21,7 +25,7 @@ const app = express();
 
 var corsOptions = {
 
-  origin: ["http://localhost:4200"],
+  origin: ["http://localhost:4200"], // win les erruers?
   credentials: true
 }
 
@@ -82,8 +86,12 @@ app.use('/tax',IncomeTaxRoute)
 app.use('/benefit',benefitRoute)
 app.use('/payroll',PayrollRoute)
 app.use('/formulaire',formulaireRoutes);
-app.use('/condidat',condidatRoutes),
-app.use('/job',jobRoutes)
+app.use('/condidat',condidatRoutes);
+app.use('/job',jobRoutes),
+app.use('/departement',departementRoutes)
+app.use('/project',projetRoutes)
+app.use('/task',taskRoutes)
+//app.use('/employer,employerRoutes')
 
 // set port, listen for requests
 const PORT = process.env.PORT || 9091;
