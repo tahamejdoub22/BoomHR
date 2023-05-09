@@ -16,9 +16,9 @@ import { salaryRoutes } from "./app/routes/salaryRoute.js";
 import formulaireRoutes from './app/routes/Formulaire.js'
 import condidatRoutes from './app/routes/Condidat.js'
 import jobRoutes from './app/routes/Job.js'
+import postRoutes from './app/routes/Post.js'
 
 const app = express();
-
 var corsOptions = {
 
   origin: ["http://localhost:4200"],
@@ -84,6 +84,7 @@ app.use('/payroll',PayrollRoute)
 app.use('/formulaire',formulaireRoutes);
 app.use('/condidat',condidatRoutes),
 app.use('/job',jobRoutes)
+app.use('/post',postRoutes)
 
 // set port, listen for requests
 const PORT = process.env.PORT || 9091;

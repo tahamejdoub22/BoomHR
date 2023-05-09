@@ -10,6 +10,8 @@ export function save(req , res)
 export async function filter(req, res) {
     try {
         const candidate = await Formulaire.findOne({ Email: req.body.email });
+        console.log(candidate);
+        console.log(candidate.domain);
         const domainRegex = new RegExp(candidate.Domain.trim(), 'i');
         const jobs = await Job.find({
             $or: [
