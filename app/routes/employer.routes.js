@@ -9,11 +9,11 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get("/api/auth/emp/", getEmployes);
-router.get("/api/auth/emp/:id", getEmployerById);
-router.post("/api/auth/emp/add", createEmployeAndAddToDepartment);
-router.patch("/api/auth/emp/:id", updateEmploye);
-router.delete("/api/auth/emp/:id", deleteEmploye);
+router.get("/all", getEmployes);
+router.get("/:id", getEmployerById);
+router.post("/add", createEmployerAndAddToDepartment);
+router.patch("/emp/:id", updateEmploye);
+router.delete("/emp/:id", deleteEmploye);
 router.delete("/", deleteEmployers);
 
 export default router;

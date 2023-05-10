@@ -15,7 +15,7 @@ import { salaryRoutes } from "./app/routes/salaryRoute.js";
 import departementRoutes from "./app/routes/departement.routes.js";
 import projetRoutes from "./app/routes/projet.routes.js";
 import taskRoutes from "./app/routes/task.routes.js";
-//import employerRoutes from "./app/routes/employer.routes.js"
+import employerRoutes from "./app/routes/employer.routes.js"
 
 import formulaireRoutes from './app/routes/Formulaire.js'
 import condidatRoutes from './app/routes/Condidat.js'
@@ -91,7 +91,7 @@ app.use('/job',jobRoutes),
 app.use('/departement',departementRoutes)
 app.use('/project',projetRoutes)
 app.use('/task',taskRoutes)
-//app.use('/employer,employerRoutes')
+app.use('/employer',employerRoutes)
 
 // set port, listen for requests
 const PORT = process.env.PORT || 9091;

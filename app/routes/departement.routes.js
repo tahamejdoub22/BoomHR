@@ -4,7 +4,7 @@ import { getDepartements, createDepartement, getDepartementById, deleteDeparteme
 const router = express.Router();
 
 // Route to calculate income tax for an employee
-router.post('/get', getDepartements);
+router.post('/all', getDepartements);
 router.post('/cretae', createDepartement);
 router.get('/getByid/:id', getDepartementById);
 router.delete('/delete/:id', deleteDepartement);

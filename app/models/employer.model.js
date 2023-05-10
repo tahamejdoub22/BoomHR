@@ -61,9 +61,11 @@ type:String
     type: String,
   },
   salary: {
-    type: Schema.Types.ObjectId,
-    ref: "Salary",
-  },
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Salary",
+  //
+  type: String,
+ },
 });
 
 export default model("Employe", EmployerSchema);

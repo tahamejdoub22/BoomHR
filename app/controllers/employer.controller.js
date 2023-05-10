@@ -100,7 +100,6 @@ export const createEmployerAndAddToDepartment = async (req, res) => {
       fcmToken: req.body.fcmToken,
       vacation: req.body.vacation,
       salary: req.body.salary,
-      
       jobtype: req.body.jobtype,
       department: req.body.department,
       firstday: req.body.firstday,
