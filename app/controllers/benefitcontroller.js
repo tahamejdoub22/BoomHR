@@ -46,7 +46,7 @@ export const createBenefit = async (req, res) => {
 };
 export async function getAllbenefit(req, res, next) {
     try {
-      const Benefits = await Benefit.find().populate('grossSalaryId', 'grossSalary').populate('grossSalaryId', 'month') .populate('grossSalaryId', 'year')   .populate({ path: 'grossSalaryId', populate: { path: 'employee_id', select: 'first_name last_name' }});
+      const Benefits = await Benefit.find().populate('grossSalaryId', 'grossSalary').populate('grossSalaryId', 'month') .populate('grossSalaryId', 'year')   .populate({ path: 'grossSalaryId', populate: { path: 'employee_id', select: 'first_name last_name avatar' }});
 
       res.status(200).json(Benefits);
     } catch (err) {

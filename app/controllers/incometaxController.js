@@ -29,7 +29,7 @@ const createIncomeTax = async (req, res) => {
 // GET /deductions
 async function getAlltax(req, res, next) {
     try {
-      const IncomeTaxs = await IncomeTax.find().populate('grossSalary_id', 'grossSalary').populate('grossSalary_id', 'month') .populate('grossSalary_id', 'year')   .populate({ path: 'grossSalary_id', populate: { path: 'employee_id', select: 'first_name last_name' }});
+      const IncomeTaxs = await IncomeTax.find().populate('grossSalary_id', 'grossSalary').populate('grossSalary_id', 'month') .populate('grossSalary_id', 'year')   .populate({ path: 'grossSalary_id', populate: { path: 'employee_id', select: 'first_name last_name avatar' }});
 
       res.status(200).json(IncomeTaxs);
     } catch (err) {

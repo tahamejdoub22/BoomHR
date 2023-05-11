@@ -49,7 +49,7 @@ export const createNetSalary = async (req, res) => {
   };
   export async function getAllnetsalary(req, res, next) {
     try {
-      const netSalary = await NetSalary.find().populate('grossSalary_id', 'grossSalary').populate('grossSalary_id', 'month') .populate('grossSalary_id', 'year totalWorkTime')   .populate({ path: 'grossSalary_id', populate: { path: 'employee_id', select: 'first_name last_name' }})
+      const netSalary = await NetSalary.find().populate('grossSalary_id', 'grossSalary').populate('grossSalary_id', 'month') .populate('grossSalary_id', 'year totalWorkTime')   .populate({ path: 'grossSalary_id', populate: { path: 'employee_id', select: 'first_name last_name avatar' }})
       .populate('deductions_id','name rate ammount').populate('benefits_id','benefitType coverage amount').populate('incomeTax_id','taxRate taxAmount');
 
       res.status(200).json(netSalary);
@@ -82,7 +82,7 @@ export const createNetSalary = async (req, res) => {
       }
       const netSalary = await NetSalary.find({ "grossSalary_id": employeeId })
         .populate('grossSalary_id', 'grossSalary month year totalWorkTime')
-        .populate({ path: 'grossSalary_id', populate: { path: 'employee_id', select: 'first_name last_name' }})
+        .populate({ path: 'grossSalary_id',  populate: { path: 'employee_id', select: 'first_name last_name avatar' }})
         .populate('deductions_id','name rate ammount').populate('benefits_id','benefitType coverage amount').populate('incomeTax_id','taxRate taxAmount');
   
       if (netSalary.length === 0) {
@@ -102,7 +102,7 @@ export const createNetSalary = async (req, res) => {
           path: 'grossSalary_id',
           populate: {
             path: 'employee_id',
-            select: 'first_name last_name',
+            select: 'first_name last_name avatar',
           },
           select: 'grossSalary totalWorkTime',
         })
