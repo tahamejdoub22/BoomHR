@@ -92,14 +92,14 @@ class AddTaskWidgetState extends State<AddTaskWidget> {
             value: _selectedUser,
             items: employees.map((employee) {
               return DropdownMenuItem<String>(
-                value: employee.fullname,
+                value: employee.first_name,
                 child: Row(
                   children: [
                     // CircleAvatar(
                     //   backgroundImage: NetworkImage(employee['image']),
                     // ),
                     const SizedBox(width: 8),
-                    Text(employee.fullname!),
+                    Text(employee.last_name!),
                   ],
                 ),
               );
@@ -109,7 +109,7 @@ class AddTaskWidgetState extends State<AddTaskWidget> {
                 _selectedUser = value;
 
                 int selectedIndex = employees
-                    .map((employee) => employee.fullname)
+                    .map((employee) => employee.first_name)
                     .toList()
                     .indexOf(_selectedUser);
                 owner = employees[selectedIndex].id!;

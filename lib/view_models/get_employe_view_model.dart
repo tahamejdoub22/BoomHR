@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:boomhr/constants/constants.dart';
 import 'package:boomhr/models/project_model.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -9,7 +10,7 @@ import '../models/employer_model.dart';
 class GetEmployerViewModel {
   Future<List<EmployerModel>> getEmployer() async {
     final response = await http.get(
-        Uri.parse('http://172.26.208.1:9090/api/auth/emp/'),
+        Uri.parse("$kBaseUrl/employer/all"),
         headers: <String, String>{
           'Content-Type': 'apllication/json; charset=UTF-8'
         });
