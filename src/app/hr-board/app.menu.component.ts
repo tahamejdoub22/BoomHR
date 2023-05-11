@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppMainComponent } from './app.main.component';
-import { AuthService } from './_services/auth.service';
-import { StorageService } from './_services/storage.service';
+import { AuthService } from '../_services/auth.service';
+import { StorageService } from '../_services/storage.service';
+import { HrBoardComponent } from './hr-board.component';
 
 @Component({
     selector: 'app-menu',
@@ -16,7 +16,7 @@ export class AppMenuComponent implements OnInit {
 
     model: any[];
 
-    constructor(public app: AppMainComponent,private authService: AuthService,public router: Router,private storageService: StorageService) { }
+    constructor(public app: HrBoardComponent,private authService: AuthService,public router: Router,private storageService: StorageService) { }
 
     ngOnInit() {
         this.model = [
@@ -51,11 +51,17 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label: 'Jobs', icon: 'pi pi-fw pi-sun', routerLink: [],
+                label: 'Recruitment',
+                icon: 'pi pi-fw pi-users',
+                routerLink: [],
                 items: [
-                    {label: 'All job', icon: 'pi pi-fw pi-list', routerLink: []},
+                {label: 'Jobs List', icon: 'pi pi-fw pi-briefcase', routerLink: ['/HomeHr/jobs']},
+                {label: 'Jobs Status', icon: 'pi pi-fw pi-briefcase', routerLink: ['joby']},
+
+                {label: 'Candidates', icon: 'pi pi-fw pi-user-plus', routerLink: ['/HomeHr/hrcandidates']},
+                {label: 'Job Applications', icon: 'pi pi-fw pi-file', routerLink: ['/HomeHr/hrapplicants']},
                 ]
-            },
+                },
            
             {
                 label: 'Log Out', icon: 'pi pi-fw pi-sign-out'      , routerLink: [],

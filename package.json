@@ -28,9 +28,13 @@
     "@fullcalendar/interaction": "^6.0.3",
     "@fullcalendar/timegrid": "^6.0.3",
     "bootstrap": "^5.2.3",
-    "chart.js": "^3.3.2",
+    "chart.js": "^3.9.1",
+    "html2canvas": "^1.4.1",
     "jquery": "^3.6.3",
     "json-server": "^0.17.1",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.28",
+    "ng2-charts": "^4.1.1",
     "popper.js": "^1.16.1",
     "primeflex": "^3.2.1",
     "primeicons": "6.0.1",
@@ -40,6 +44,7 @@
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "web-animations-js": "^2.3.2",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

@@ -11,10 +11,13 @@ export interface Country {
   export interface Customer {
     id?: number;
     name?: string;
+     role: string;
+
     country?: Country;
     company?: string;
     date?: string | Date;
     status?: string;
+    aplicants?: string;
     activity?: number;
     representative?: Representative;
     verified?: boolean;

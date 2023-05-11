@@ -1,6 +1,5 @@
 import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {AppMainComponent} from './app.main.component';
 import {AppNotfoundComponent} from './pages/app.notfound.component';
 import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
@@ -14,6 +13,9 @@ import { BoardModeratorComponent } from './board-HrManager/board-moderator.compo
 import { TabUserRoleComponent } from './board-admin/tab-user-role/tab-user-role.component';
 import { HrBoardComponent } from './hr-board/hr-board.component';
 import { JobsDashboardComponent } from './hr-board/jobs-dashboard/jobs-dashboard.component';
+import { HrCandidateDashboardComponent } from './hr-board/hr-candidate-dashboard/hr-candidate-dashboard.component';
+import { HrApplicantsDashboardComponent } from './hr-board/hr-applicants-dashboard/hr-applicants-dashboard.component';
+import { JobscardComponent } from './hr-board/jobscard/jobscard.component';
 
 @NgModule({
     imports: [
@@ -29,21 +31,26 @@ import { JobsDashboardComponent } from './hr-board/jobs-dashboard/jobs-dashboard
                 {path: 'userroles', component: TabUserRoleComponent},
             ]
         },
-            {
+            // {
 
-                path: 'Dashboard', component: AppMainComponent ,
-                children: [
+            //     path: 'Dashboard', component: AppMainComponent ,
+            //     children: [
 
-                    {path: 'pages/help', component: AppHelpComponent},
-                ]
-            },
+            //         {path: 'pages/help', component: AppHelpComponent},
+            //     ]
+            // },
             {
 
                 path: 'HomeHr', component: HrBoardComponent ,
-                // children: [
+                children: [
 
-                //     {path: 'jobs', component: JobsDashboardComponent},
-                // ]
+                    {path: 'jobs', component: JobsDashboardComponent},
+                    {path: 'hrcandidates', component: HrCandidateDashboardComponent},
+
+                    {path: 'hrapplicants', component: HrApplicantsDashboardComponent},
+                    {path: 'joby', component: JobscardComponent},
+
+                ]
             },
             {
 

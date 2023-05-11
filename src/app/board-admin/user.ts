@@ -18,10 +18,7 @@ export interface User {
     email?:string;
     password?:string;
     //roles?: string[];   
-    roles?: {
-        name: string[];
-                //name: ["admin","user","HrManager"];
-
-    }[];  
+    roles?: string;
+        
 
 }

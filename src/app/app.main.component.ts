@@ -1,218 +1,218 @@
-import {Component, OnInit} from '@angular/core';
-import { MenuService } from './app.menu.service';
-import { PrimeNGConfig } from 'primeng/api';
-import { AppComponent } from './app.component';
-import { UserService } from './_services/user.service';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
-@Component({
-    selector: 'app-main',
-    templateUrl: './app.main.component.html'
-})
-export class AppMainComponent implements OnInit{
+// import {Component, OnInit} from '@angular/core';
+// import { MenuService } from './app.menu.service';
+// import { PrimeNGConfig } from 'primeng/api';
+// import { AppComponent } from './app.component';
+// import { UserService } from './_services/user.service';
+// import { Router } from '@angular/router';
+// import { Location } from '@angular/common';
+// @Component({
+//     selector: 'app-main',
+//     templateUrl: './app.main.component.html'
+//})
+// export class AppMainComponent implements OnInit{
 
-    topbarMenuActive: boolean;
+//     topbarMenuActive: boolean;
 
-    overlayMenuActive: boolean;
+//     overlayMenuActive: boolean;
 
-    staticMenuDesktopInactive: boolean;
+//     staticMenuDesktopInactive: boolean;
 
-    staticMenuMobileActive: boolean;
+//     staticMenuMobileActive: boolean;
 
-    menuClick: boolean;
+//     menuClick: boolean;
 
-    topbarItemClick: boolean;
+//     topbarItemClick: boolean;
 
-    activeTopbarItem: any;
-    content?: string;
+//     activeTopbarItem: any;
+//     content?: string;
 
-    menuHoverActive: boolean;
+//     menuHoverActive: boolean;
 
-    rightPanelActive: boolean;
+//     rightPanelActive: boolean;
 
-    rightPanelClick: boolean;
+//     rightPanelClick: boolean;
 
-    topbarIconsActive: boolean;
+//     topbarIconsActive: boolean;
 
-    quickMenuButtonClick: boolean;
+//     quickMenuButtonClick: boolean;
 
-    configActive: boolean;
+//     configActive: boolean;
 
-    configClick: boolean;
+//     configClick: boolean;
 
-    constructor(private menuService: MenuService,private userService: UserService, private primengConfig: PrimeNGConfig, public app: AppComponent,private location: Location, private router: Router) { }
+//     constructor(private menuService: MenuService,private userService: UserService, private primengConfig: PrimeNGConfig, public app: AppComponent,private location: Location, private router: Router) { }
 
-    ngOnInit() :void{
+//     ngOnInit() :void{
 
-        // this.userService.getHrManagerBoard().subscribe({
-        //     next: data => {
-        //       this.content = data;
-        //     },
-        //     error: err => {
-        //       if (err.error) {
-        //         try {
-        //           const res = JSON.parse(err.error);
-        //           this.content = res.message;
-        //         } catch {
-        //           this.content = `Error with status: ${err.status} - ${err.statusText}`;
-        //         }
-        //       } else {
-        //         this.content = `Error with status: ${err.status}`;
+//         // this.userService.getHrManagerBoard().subscribe({
+//         //     next: data => {
+//         //       this.content = data;
+//         //     },
+//         //     error: err => {
+//         //       if (err.error) {
+//         //         try {
+//         //           const res = JSON.parse(err.error);
+//         //           this.content = res.message;
+//         //         } catch {
+//         //           this.content = `Error with status: ${err.status} - ${err.statusText}`;
+//         //         }
+//         //       } else {
+//         //         this.content = `Error with status: ${err.status}`;
 
-        //       }
+//         //       }
 
-        //     }
-        //   });
-        //   this.overrideBackButton();
+//         //     }
+//         //   });
+//         //   this.overrideBackButton();
 
-        // this.primengConfig.ripple = true;
-    }
+//         // this.primengConfig.ripple = true;
+//     }
 
-    onLayoutClick() {
-        if (!this.topbarItemClick) {
-            this.activeTopbarItem = null;
-            this.topbarMenuActive = false;
-        }
+//     onLayoutClick() {
+//         if (!this.topbarItemClick) {
+//             this.activeTopbarItem = null;
+//             this.topbarMenuActive = false;
+//         }
 
-        if (!this.rightPanelClick) {
-            this.rightPanelActive = false;
-        }
+//         if (!this.rightPanelClick) {
+//             this.rightPanelActive = false;
+//         }
 
-        if (!this.quickMenuButtonClick) {
-            this.quickMenuButtonClick = false;
-            this.topbarIconsActive = false;
-        }
+//         if (!this.quickMenuButtonClick) {
+//             this.quickMenuButtonClick = false;
+//             this.topbarIconsActive = false;
+//         }
 
-        if (!this.menuClick) {
-            if (this.isHorizontal() || this.isSlim()) {
-                this.menuService.reset();
-            }
+//         if (!this.menuClick) {
+//             if (this.isHorizontal() || this.isSlim()) {
+//                 this.menuService.reset();
+//             }
 
-            if (this.overlayMenuActive || this.staticMenuMobileActive) {
-                this.hideOverlayMenu();
-            }
+//             if (this.overlayMenuActive || this.staticMenuMobileActive) {
+//                 this.hideOverlayMenu();
+//             }
 
-            this.menuHoverActive = false;
-        }
+//             this.menuHoverActive = false;
+//         }
 
-        if (this.configActive && !this.configClick) {
-            this.configActive = false;
-        }
+//         if (this.configActive && !this.configClick) {
+//             this.configActive = false;
+//         }
 
-        this.configClick = false;
-        this.topbarItemClick = false;
-        this.quickMenuButtonClick = false;
-        this.menuClick = false;
-        this.rightPanelClick = false;
-    }
+//         this.configClick = false;
+//         this.topbarItemClick = false;
+//         this.quickMenuButtonClick = false;
+//         this.menuClick = false;
+//         this.rightPanelClick = false;
+//     }
 
-    onMenuButtonClick(event) {
-        this.menuClick = true;
-        this.topbarMenuActive = false;
+//     onMenuButtonClick(event) {
+//         this.menuClick = true;
+//         this.topbarMenuActive = false;
 
-        if (this.isOverlay()) {
-            this.overlayMenuActive = !this.overlayMenuActive;
-        }
-        if (this.isDesktop()) {
-            this.staticMenuDesktopInactive = !this.staticMenuDesktopInactive;
-        } else {
-            this.staticMenuMobileActive = !this.staticMenuMobileActive;
-        }
+//         if (this.isOverlay()) {
+//             this.overlayMenuActive = !this.overlayMenuActive;
+//         }
+//         if (this.isDesktop()) {
+//             this.staticMenuDesktopInactive = !this.staticMenuDesktopInactive;
+//         } else {
+//             this.staticMenuMobileActive = !this.staticMenuMobileActive;
+//         }
 
-        event.preventDefault();
-    }
+//         event.preventDefault();
+//     }
 
-    onQuickMenuButtonClick(event) {
-        if (this.isMobile()) {
-            this.topbarIconsActive = !this.topbarIconsActive;
-            this.quickMenuButtonClick = true;
-        }
-        event.preventDefault();
-    }
-    overrideBackButton() {
-        window.history.pushState(null, '', window.location.href);
-        window.onpopstate = () => {
-          this.router.navigateByUrl('/not-found');
-        };
-      }
-    onMenuClick($event) {
-        this.menuClick = true;
-    }
+//     onQuickMenuButtonClick(event) {
+//         if (this.isMobile()) {
+//             this.topbarIconsActive = !this.topbarIconsActive;
+//             this.quickMenuButtonClick = true;
+//         }
+//         event.preventDefault();
+//     }
+//     overrideBackButton() {
+//         window.history.pushState(null, '', window.location.href);
+//         window.onpopstate = () => {
+//           this.router.navigateByUrl('/not-found');
+//         };
+//       }
+//     onMenuClick($event) {
+//         this.menuClick = true;
+//     }
 
-    onTopbarMenuButtonClick(event) {
-        this.topbarItemClick = true;
-        this.topbarMenuActive = !this.topbarMenuActive;
+//     onTopbarMenuButtonClick(event) {
+//         this.topbarItemClick = true;
+//         this.topbarMenuActive = !this.topbarMenuActive;
 
-        this.hideOverlayMenu();
+//         this.hideOverlayMenu();
 
-        event.preventDefault();
-    }
+//         event.preventDefault();
+//     }
 
-    onTopbarItemClick(event, item) {
-        this.topbarItemClick = true;
+//     onTopbarItemClick(event, item) {
+//         this.topbarItemClick = true;
 
-        if (this.activeTopbarItem === item) {
-            this.activeTopbarItem = null;
-        } else {
-            this.activeTopbarItem = item;
-        }
+//         if (this.activeTopbarItem === item) {
+//             this.activeTopbarItem = null;
+//         } else {
+//             this.activeTopbarItem = item;
+//         }
 
-        event.preventDefault();
-    }
+//         event.preventDefault();
+//     }
 
-    onTopbarSubItemClick(event) {
-        event.preventDefault();
-    }
+//     onTopbarSubItemClick(event) {
+//         event.preventDefault();
+//     }
 
-    onRightPanelButtonClick(event) {
-        this.rightPanelClick = true;
-        this.rightPanelActive = !this.rightPanelActive;
-        event.preventDefault();
-    }
+//     onRightPanelButtonClick(event) {
+//         this.rightPanelClick = true;
+//         this.rightPanelActive = !this.rightPanelActive;
+//         event.preventDefault();
+//     }
 
-    onRightPanelClick() {
-        this.rightPanelClick = true;
-    }
+//     onRightPanelClick() {
+//         this.rightPanelClick = true;
+//     }
 
-    onRippleChange(event) {
-        this.app.ripple = event.checked;
-    }
+//     onRippleChange(event) {
+//         this.app.ripple = event.checked;
+//     }
 
-    onConfigClick(event) {
-        this.configClick = true;
-    }
+//     onConfigClick(event) {
+//         this.configClick = true;
+//     }
 
-    isHorizontal() {
-        return this.app.menuMode === 'horizontal';
-    }
+//     isHorizontal() {
+//         return this.app.menuMode === 'horizontal';
+//     }
 
-    isSlim() {
-        return this.app.menuMode === 'slim';
-    }
+//     isSlim() {
+//         return this.app.menuMode === 'slim';
+//     }
 
-    isOverlay() {
-        return this.app.menuMode === 'overlay';
-    }
+//     isOverlay() {
+//         return this.app.menuMode === 'overlay';
+//     }
 
-    isStatic() {
-        return this.app.menuMode === 'static';
-    }
+//     isStatic() {
+//         return this.app.menuMode === 'static';
+//     }
 
-    isMobile() {
-        return window.innerWidth < 1025;
-    }
+//     isMobile() {
+//         return window.innerWidth < 1025;
+//     }
 
-    isDesktop() {
-        return window.innerWidth > 1024;
-    }
+//     isDesktop() {
+//         return window.innerWidth > 1024;
+//     }
 
-    isTablet() {
-        const width = window.innerWidth;
-        return width <= 1024 && width > 640;
-    }
+//     isTablet() {
+//         const width = window.innerWidth;
+//         return width <= 1024 && width > 640;
+//     }
 
-    hideOverlayMenu() {
-        this.overlayMenuActive = false;
-        this.staticMenuMobileActive = false;
-    }
-}
+//     hideOverlayMenu() {
+//         this.overlayMenuActive = false;
+//         this.staticMenuMobileActive = false;
+//     }
+// }

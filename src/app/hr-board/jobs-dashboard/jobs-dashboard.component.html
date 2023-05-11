@@ -1,9 +1,123 @@
-<h5>Filter Menu</h5>
-<p>Filters are displayed in an overlay.</p>
-<p-table #dt1 [value]="customers" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
-	[rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers p-datatable-gridlines"
+<!-- <h5>Filter Menu</h5>
+<p>Filters are displayed in an overlay.</p> -->
+
+	
+<p-sidebar [(visible)]="visibleSidebar10"  [style]="{width:'87em', height: '80vh' }" styleClass="p-sidebar-lg"  position="bottom-right" [baseZIndex]="10000">
+    <h1 style="font-weight:normal">List of top Candidates for that job :{{ selectedCJob?.jobTitle }} </h1>
+	
+	<div class="p-grid">
+		
+
+
+		<div class="p-col-12 p-md-6 p-lg-4" *ngFor="let candidate of topCandidates">
+		  <p-card [header]="" [class.selected]="candidate === selectedCandidate">
+			<p>
+			  Candidate Name: {{ candidate.candidate.name }}<br />
+			  Email:{{ candidate.candidate.email }}<br />
+			  Phone Number : {{ candidate.candidate.phone }}<br />
+
+			  Match Score: {{ candidate.matchScore }}<br />
+			  Status: {{ candidate.status }}<br />
+
+			</p>
+			  <div class="accept-reject-buttons">
+				<button pButton type="button" (click)= "acceptCan(candidate)" icon="pi pi-file-excel" label="ACCEPT"  [disabled]="acceptButtonDisabled || disabledCandidatess.includes(candidate)"></button>
+
+				
+				
+				<p-button type="button" (click)="rejectCan(candidate)" label="REJECT" styleClass="p-button-success" [disabled]="disabledCandidates.includes(candidate)"></p-button>
+				  </div>
+			
+		  </p-card>
+		</div>
+	  </div>
+
+		
+
+		  <div class="close-button">
+    <p-button type="button" (click)="visibleSidebar10 = false" label="OK" styleClass="p-button-success"></p-button>
+</div>
+
+    <!-- <p-button type="button" (click)="visibleSidebar = false" label="Cancel" styleClass="p-button-secondary"></p-button> -->
+</p-sidebar>
+
+<p-sidebar [(visible)]="visibleSidebar"   [fullScreen]="true" [baseZIndex]="10000">
+    <h1 style="font-weight:normal">List of Candidates for that Job</h1>
+	
+		<table class="candidates-table" *ngIf="candidates">
+		  <thead>
+			<tr>
+			  <th>Name</th>
+			  <th>E-mail</th>
+			  <th>Phone Number</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let candidate of candidates">
+			  <td>{{ candidate.name }}</td>
+			  <td>{{ candidate.email }}</td>
+			  <td>{{ candidate.phone }}</td>
+			</tr>
+		  </tbody>
+		</table>
+
+    <p-button type="button" (click)="visibleSidebar = false" label="OK" styleClass="p-button-success"></p-button>
+    <!-- <p-button type="button" (click)="visibleSidebar = false" label="Cancel" styleClass="p-button-secondary"></p-button> -->
+</p-sidebar>
+
+<p-sidebar [(visible)]="visibleSidebar2"  [style]="{width:'87em', height: '80vh' }" styleClass="p-sidebar-lg"  position="bottom-right" [baseZIndex]="10000">
+    <h1 style="font-weight:normal">List of top Candidates for that Job</h1>
+	
+		<table class="candidates-table" *ngIf="topCandidates">
+		  <thead>
+			<tr>
+			  <th>Name</th>
+			  <th>Email</th>
+			  <th>Phone Number</th>
+			  <th> Match Score</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let candidate of topCandidates">
+			  <td>{{ candidate.candidate.name }}</td>
+			  <td>{{ candidate.candidate.email }}</td>
+			  <td>{{ candidate.candidate.phone }}</td>
+			  <td>{{ candidate.matchScore }}</td>
+
+			</tr>
+		  </tbody>
+		</table>
+
+		<div class="download-buttons">
+		<button pButton type="button" (click)="downloadExcel()" icon="pi pi-file-excel" label="Download Excel"></button>
+		<p-button type="button" (click)="downloadPdf()" label="Download PDF" styleClass="p-button-success"></p-button>
+  		</div>
+
+		  <div class="close-button">
+    <p-button type="button" (click)="visibleSidebar2 = false" label="OK" styleClass="p-button-success"></p-button>
+</div>
+
+    <!-- <p-button type="button" (click)="visibleSidebar = false" label="Cancel" styleClass="p-button-secondary"></p-button> -->
+</p-sidebar>
+<p-toast></p-toast>
+<p-toolbar>
+	<ng-template pTemplate="left">
+		<button pButton pRipple label="Add a Job" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+		<button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedJobs()" [disabled]="!selectedJobs || !selectedJobs.length"></button>
+
+	</ng-template>
+
+	<!-- <ng-template pTemplate="right">
+		<p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="mr-2 inline-block"></p-fileUpload>
+		<button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+	</ng-template> -->
+</p-toolbar>
+<p-table  #dt1 [value]="jobs" dataKey="_id" [rows]="10" [showCurrentPageReport]="true"
+[(selection)]="selectedJobs" [rowHover]="true"
+
+	[rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
 	[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-	[globalFilterFields]="['name','country.name','representative.name','status']">
+	[globalFilterFields]="['jobTitle','jobDomain','date','status']" >
 	<ng-template pTemplate="caption">
 		<div class="p-d-flex">
 			<span class="p-input-icon-left p-ml-auto">
@@ -14,21 +128,30 @@
 	</ng-template>
 	<ng-template pTemplate="header">
 		<tr>
+			<th style="width: 3rem">
+				<p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+			</th>
 			<th>
 				<div class="p-d-flex p-jc-between p-ai-center">
-					Name
-					<p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+					Job Title
+					<p-columnFilter type="text" field="jobTitle" display="menu"></p-columnFilter>
 				</div>
 			</th>
 			<th>
 				<div class="p-d-flex p-jc-between p-ai-center">
-					Country
+					Job Domain
+					<p-columnFilter type="text" field="jobDomain" display="menu"></p-columnFilter>
+				</div>
+		</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Full Adrees - Country
 					<p-columnFilter type="text" field="country.name" display="menu"></p-columnFilter>
 				</div>
 			</th>
 			<th>
 				<div class="p-d-flex p-jc-between p-ai-center">
-					Agent
+					Hiring Lead
 					<p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false"
 						[showOperator]="false" [showAddButton]="false">
 						<ng-template pTemplate="header">
@@ -49,16 +172,23 @@
 					</p-columnFilter>
 				</div>
 			</th>
-			<th>
+
+			<th> 
 				<div class="p-d-flex p-jc-between p-ai-center">
-					Date
+					Skills Required
 					<p-columnFilter type="date" field="date" display="menu"></p-columnFilter>
 				</div>
 			</th>
 			<th>
 				<div class="p-d-flex p-jc-between p-ai-center">
-					Balance
-					<p-columnFilter type="numeric" field="balance" display="menu" currency="USD"></p-columnFilter>
+					Posted Date
+					<p-columnFilter type="date" field="date" display="menu"></p-columnFilter>
+				</div>
+			</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Departement
+					<p-columnFilter type="text" field="balance" display="menu" currency="USD"></p-columnFilter>
 				</div>
 			</th>
 			<th>
@@ -76,66 +206,175 @@
 					</p-columnFilter>
 				</div>
 			</th>
-			<th>
-				<div class="p-d-flex p-jc-between p-ai-center">
-					Activity
-					<p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false"
-						[showOperator]="false" [showAddButton]="false">
-						<ng-template pTemplate="filter" let-filter="filterCallback">
-							<p-slider [ngModel]="activityValues" [range]="true" (onSlideEnd)="filter($event.values)"
-								styleClass="p-m-3"></p-slider>
-							<div class="p-d-flex p-ai-center p-jc-between p-px-2">
-								<span>{{activityValues[0]}}</span>
-								<span>{{activityValues[1]}}</span>
-							</div>
-						</ng-template>
-					</p-columnFilter>
-				</div>
-			</th>
+		
+		<th>
+			<div class="p-d-flex p-jc-between p-ai-center">
+				Vacancies
+				<p-columnFilter type="numeric" field="vacancies" display="menu"></p-columnFilter>
+			</div>
+	    </th>
+		<th>
+			<div class="p-d-flex p-jc-between p-ai-center">
+				Applicants
+				<p-columnFilter type="numeric" field="applicants" display="menu"></p-columnFilter>
+			</div>
+	    </th>
+
+		
 			<th style="width: 8rem">
 				<div class="p-d-flex p-jc-between p-ai-center">
 					Verified
 					<p-columnFilter type="boolean" field="verified" display="menu"></p-columnFilter>
 				</div>
 			</th>
+			<th pSortableColumn="actions">Actions </th>
+			<th pSortableColumn="recruitement">Recruitement </th>
+
+
 		</tr>
 	</ng-template>
-	<ng-template pTemplate="body" let-customer>
+	<ng-template pTemplate="body" let-job>
 		<tr>
 			<td>
-				{{customer.name}}
+				<p-tableCheckbox [value]="job"></p-tableCheckbox>
 			</td>
 			<td>
-				<span class="image-text">{{customer.country.name}}</span>
+				{{job.jobTitle}}
 			</td>
 			<td>
-				<span class="image-text">{{customer.representative.name}}</span>
+				{{job.jobDomain}}
 			</td>
 			<td>
-				{{customer.date | date: 'MM/dd/yyyy'}}
+				<span class="image-text">{{job.address}}</span>
 			</td>
 			<td>
-				{{customer.balance | currency:'USD':'symbol'}}
+				<span class="image-text">{{job.hiringLead}}</span>
 			</td>
 			<td>
-				<span [class]="'customer-badge status-' + customer.status">{{customer.status}}</span>
+				{{job.skillsRequired}}
+			</td>
+
+			<td>
+				{{job.postedDate | date: 'MM/dd/yyyy'}}
 			</td>
 			<td>
+				{{job.department}}
+			</td>
+
+			<td>
+				<!-- <span [class]="'customer-badge status-' + job.status">{{job.status}}</span> -->
+			<span   >{{job.jobStatus}}</span> 
+
+			</td>
+			<!-- <td>
+				{{job.candidates}}
+			</td> -->
+			
+			<td>
+				{{job.vacancies}}
+			</td>
+			<td>
+				{{job.candidates}}
+			</td>
+			<!-- <td>
 				<p-progressBar [value]="customer.activity" [showValue]="false"></p-progressBar>
-			</td>
+			</td> -->
+			
 			<td class="p-text-center">
-				<i class="pi" [ngClass]="{'true-icon pi-check-circle': customer.verified, 'false-icon pi-times-circle': !customer.verified}"></i>
+				<i class="pi" [ngClass]="{'true-icon pi-check-circle': job.verified, 'false-icon pi-times-circle': !job.verified}"></i>
+			</td>
+			<td>
+				<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editJob(job)"></button>
+				<button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteJob(job)"></button>
+				<button pButton pRipple icon="pi pi-external-link"  (click)="getCanForthatJob(job)"></button>
+				<button pButton pRipple icon="pi pi-external-link" class="p-button-rounded p-button-success" (click)="getTOPCanForthatJob(job)"></button>
+
+				<!-- <button pButton pRipple icon="pi pi-external-link" (click)="showMaximizableDialog()" ></button> -->
+
+
+			</td>
+			<td>
+				<button pButton pRipple icon="pi pi-external-link" class="p-button-rounded p-button-success" (click)="getTOPCanForthatJobRecruitement(job)"></button>
+
 			</td>
 		</tr>
 	</ng-template>
 	<ng-template pTemplate="emptymessage">
 		<tr>
-			<td colspan="7">No customers found.</td>
+			<td colspan="7">No jobs found.</td>
 		</tr>
 	</ng-template>
 </p-table>
 
-<h5>Filter Row</h5>
+
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+<p-button (click)="showMaximizableDialog()" icon="pi pi-external-link" label="Show"></p-button>
+<p-dialog header="Add Job" [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '50vw'}" [maximizable]="true" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+	<form (ngSubmit)="submitJob(jobForm)" #jobForm="ngForm">
+		<div>
+			<label for="jobTitle">job Title</label>  <br>
+		<input id="jobTitle"type="text" pInputText [(ngModel)]="newdJob.jobTitle" style="width: 80%;"  [ngModelOptions]="{standalone: true}" autofocus> <br>
+		</div>
+		<br> 
+		<div>
+			<label for="jobDomain">Job Domain</label>  <br>
+		<input id="jobDomain"type="text" pInputText [(ngModel)]="newdJob.jobDomain" style="width: 80%;"  [ngModelOptions]="{standalone: true}"> <br>
+		</div>
+		<br> 
+	<div>
+		<label for="addressj">Adress</label>  <br>
+    <input id="addressj"type="text" pInputText  [(ngModel)]="newdJob.address" [ngModelOptions]="{standalone: true}"> <br>
+	</div>
+	<br> 
+
+
+	<div>
+		<label for="hiringLead">Hiring Lead</label>  <br>
+		<textarea id="hiringLead" rows="4" pInputTextarea [(ngModel)]="newdJob.hiringLead" style="width: 80%;" [ngModelOptions]="{standalone: true}"></textarea>
+	</div>
+	<br> 
+	<div>
+		<label for="skillsRequired">Skills Required</label>  <br>
+		<textarea id="skillsRequired" rows="2" [(ngModel)]="newdJob.skillsRequired" pInputTextarea style="width: 80%;" [ngModelOptions]="{standalone: true}" ></textarea>
+	</div>
+	<br>  
+	<div>
+		<label for="postedDate">Posted Date</label>  <br>
+
+    <p-calendar id="postedDate"type="text" [(ngModel)]="newdJob.postedDate"  pInputText [ngModelOptions]="{standalone: true}" > </p-calendar> <br>
+	</div>
+	<div>
+		<label for="department">Departement</label>  <br>
+		<textarea id="department" rows="2" [(ngModel)]="newdJob.department" pInputTextarea style="width: 80%;" [ngModelOptions]="{standalone: true}" ></textarea>
+	</div>
+	<br>
+	<!-- <div>
+		<label for="status">Status</label>  <br>
+		<textarea  id="status" rows="2" [(ngModel)]="newdJob.jobStatus" pInputTextarea style="width: 80%;" [ngModelOptions]="{standalone: true}" ></textarea>
+	</div> -->
+	<div>
+		<label for="vacancies">Vacancies</label>  <br>
+		<textarea id="vacancies" rows="2" [(ngModel)]="newdJob.vacancies" pInputTextarea style="width: 80%;" [ngModelOptions]="{standalone: true}" ></textarea>
+	</div>
+	<br>
+	<br> <br> <br> 
+	<div class="p-grid">
+		<div class="p-col-12">
+        <!-- <ng-template pTemplate="footer"> -->
+			<p-button icon="pi pi-check"  type="submit" label="{{ isEditing ? 'Save' : 'Add Job' }}"[disabled]="!jobForm.valid"  ></p-button>
+            <!-- <p-button icon="pi pi-check"  type="submit"   label="Save" class="p-button-text"></p-button> -->
+            <p-button icon="pi pi-times" (click)="displayMaximizable=false" label="Cancel"></p-button>
+        <!-- </ng-template> -->
+	</div>
+
+
+		<!-- </form> -->
+<!-- </p-dialog> -->
+
+<!-- <h5>Filter Row</h5>
 <p>Filters are displayed inline within a separate row.</p>
 <p-table #dt2 [value]="customers" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
 	[rowsPerPageOptions]="[10,25,50]" [loading]="loading" styleClass="p-datatable-customers" [paginator]="true"
@@ -219,4 +458,4 @@
 			<td colspan="5">No customers found.</td>
 		</tr>
 	</ng-template>
-</p-table>
+</p-table> -->

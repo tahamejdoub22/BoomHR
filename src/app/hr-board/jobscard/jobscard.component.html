@@ -1,0 +1,30 @@
+
+
+<div class="p-grid p-justify-between p-align-center">
+  <div>
+
+<button pButton type="button" label="Status Job Opened" icon="pi pi-play" (click)="getJobsByOpenedStatus()" class="p-button-rounded p-button-success"></button>
+<button pButton type="button" label="Status Job Closed" icon="pi pi-stop" (click)="getJobsByClosedStatus()" class="p-button-rounded p-button-danger"></button>
+</div>
+</div>
+
+<div class="p-grid p-shadow-2" style="margin-top: 1rem">
+  <ng-container *ngFor="let job of jobs; let last = last">
+    <div class="p-col-12 p-md-6 p-lg-4 job-card-wrapper">
+      <p-card [header]="job.jobTitle" class="job-card" [ngClass]="{'job-card--verified': job.verified}">
+        <p>
+          Job Domain: {{ job.jobDomain }}<br />
+          Address: {{ job.address }}<br />
+          Hiring Lead: {{ job.hiringLead }}<br />
+          Skills Required: {{ job.skillsRequired }}<br />
+          Posted Date: {{ job.postedDate | date }}<br />
+          Department: {{ job.department }}<br />
+          Applicants: {{ job.applicants }}<br />
+          Vacancies: {{ job.vacancies }}<br />
+          Verified: {{ job.verified ? 'Yes' : 'No' }}
+        </p>
+      </p-card>
+    </div>
+    <hr class="job-card-separator" *ngIf="!last">
+  </ng-container>
+</div>

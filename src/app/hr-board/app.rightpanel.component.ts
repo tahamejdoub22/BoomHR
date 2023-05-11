@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AppMainComponent} from './app.main.component';
+import { HrBoardComponent } from './hr-board.component';
 
 @Component({
     selector: 'app-rightpanel',
@@ -83,5 +83,5 @@ import {AppMainComponent} from './app.main.component';
     `
 })
 export class AppRightPanelComponent {
-    constructor(public app: AppMainComponent) { }
+    constructor(public app: HrBoardComponent) { }
 }

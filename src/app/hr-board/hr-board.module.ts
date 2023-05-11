@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JobsDashboardComponent } from './jobs-dashboard/jobs-dashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,12 +24,42 @@ import { CustomerService } from './jobs-dashboard/customerservice';
 import { HrBoardComponent } from './hr-board.component';
 import { AppComponent } from '../app.component';
 
+import {AppMenuComponent} from './app.menu.component';
+import {AppMenuitemComponent} from './app.menuitem.component';
+import {AppTopBarComponent} from './app.topbar.component';
+import {AppFooterComponent} from './app.footer.component';
+import {AppBreadcrumbComponent} from './app.breadcrumb.component';
+import {AppConfigComponent} from './app.config.component';
+import {AppRightPanelComponent} from './app.rightpanel.component';
+import {BreadcrumbService} from './app.breadcrumb.service';
+import {MenuService} from './app.menu.service';
+import {TabViewModule} from 'primeng/tabview';
+import { HrCandidateDashboardComponent } from './hr-candidate-dashboard/hr-candidate-dashboard.component';
+import { HrApplicantsDashboardComponent } from './hr-applicants-dashboard/hr-applicants-dashboard.component';
+import {ToolbarModule} from 'primeng/toolbar';
 
-
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { SidebarModule } from 'primeng/sidebar';
+import { ChartModule } from 'primeng/chart';
+import { NgChartsModule } from 'ng2-charts';
+import { AppConfigService } from '../_services/app-config.service';
+import { JobscardComponent } from './jobscard/jobscard.component';
 @NgModule({
   declarations: [
     HrBoardComponent,
-    JobsDashboardComponent
+    JobsDashboardComponent,
+    HrCandidateDashboardComponent,
+    HrApplicantsDashboardComponent,
+    AppConfigComponent,
+    AppMenuComponent,
+    AppMenuitemComponent,
+    AppTopBarComponent,
+    AppFooterComponent,
+    AppBreadcrumbComponent,
+    AppRightPanelComponent,
+    HrCandidateDashboardComponent,
+    HrApplicantsDashboardComponent,
+    JobscardComponent,
   ],
   imports: [
     CommonModule,
@@ -47,14 +77,31 @@ import { AppComponent } from '../app.component';
     InputTextModule,
     ProgressBarModule,
     HttpClientModule,
+    TabViewModule,
     FormsModule,
     RouterModule,
+    ToolbarModule,
+    ConfirmDialogModule,
+    SidebarModule,
+    ChartModule,
+    NgChartsModule,
+
+
+
 
     RouterModule.forRoot([
       {path:'',component: AppComponent}
 	])
   ],
   bootstrap:    [ AppComponent ],
-  providers: [CustomerService]
+  providers: [CustomerService,
+    BreadcrumbService, MenuService,
+    { 
+      provide : APP_INITIALIZER, 
+      multi : true, 
+       deps : [AppConfigService], 
+       useFactory : (appConfigService : AppConfigService) =>  () => appConfigService.loadAppConfig()
+    }
+  ]
 })
 export class HrBoardModule { }

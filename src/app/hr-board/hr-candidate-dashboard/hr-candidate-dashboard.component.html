@@ -1,0 +1,340 @@
+<p-toast></p-toast>
+<p-toolbar>
+	<ng-template pTemplate="left">
+		<button pButton type="button"  (click)="openNew()" class="custom-button">  <i class="pi-custom"></i>
+			<i class="pi pi-user-plus pi-button-icon-left" style="font-size: 1.5em;color: #e9eff1;"></i>
+			&nbsp;   Add  Candidate
+		</button>
+		<button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedCandidates()" [disabled]="!selectedCandidates || !selectedCandidates.length"></button>
+	</ng-template>
+
+	<ng-template pTemplate="right">
+		<!-- <button pButton pRipple label="Add a Candidate" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button> -->
+	</ng-template>
+
+	
+</p-toolbar>
+<p-table  #dt1 [value]="candidates" dataKey="_id" [rows]="10" [showCurrentPageReport]="true"
+[(selection)]="selectedCandidates" [rowHover]="true"
+	[rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines"
+	[paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+	[globalFilterFields]="['name','email','country.name','representative.name','date','status','balance']" >
+	<ng-template pTemplate="caption">
+		<div class="p-d-flex">
+			<span class="p-input-icon-left p-ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+            </span>
+		</div>
+	</ng-template>
+	<ng-template pTemplate="header">
+		<tr>
+			<th style="width: 3rem">
+				<p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+			</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Candidate Name
+					<p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+				</div>
+			</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Email
+					<p-columnFilter type="text" field="email" display="menu"></p-columnFilter>
+				</div>
+		</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Phone Number 
+					<p-columnFilter type="text" field="country.name" display="menu"></p-columnFilter>
+				</div>
+			</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Adress
+					<p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false"
+						[showOperator]="false" [showAddButton]="false">
+						<ng-template pTemplate="header">
+							<div class="p-px-3 p-pt-3 p-pb-0">
+								<span class="p-text-bold">Agent Picker</span>
+							</div>
+						</ng-template>
+						<ng-template pTemplate="filter" let-value let-filter="filterCallback">
+							<p-multiSelect [ngModel]="value" [options]="representatives" placeholder="Any"
+								(onChange)="filter($event.value)" optionLabel="name">
+								<ng-template let-option pTemplate="item">
+									<div class="p-multiselect-representative-option">
+										<span class="p-ml-1">{{option.name}}</span>
+									</div>
+								</ng-template>
+							</p-multiSelect>
+						</ng-template>
+					</p-columnFilter>
+				</div>
+			</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Skills
+					<p-columnFilter type="text" field="email" display="menu"></p-columnFilter>
+				</div>
+		</th>
+			<!-- <th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Status
+					<p-columnFilter type="date" field="date" display="menu"></p-columnFilter>
+				</div>
+			</th>
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Departement
+					<p-columnFilter type="text" field="balance" display="menu" currency="USD"></p-columnFilter>
+				</div>
+			</th> -->
+			<th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Status
+					<p-columnFilter field="status" matchMode="equals" display="menu">
+						<ng-template pTemplate="filter" let-value let-filter="filterCallback">
+							<p-dropdown [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)"
+								placeholder="Any">
+								<ng-template let-option pTemplate="item">
+									<span [class]="'customer-badge status-' + option.value">{{option.label}}</span>
+								</ng-template>
+							</p-dropdown>
+						</ng-template>
+					</p-columnFilter>
+				</div>
+			</th>
+			<!-- <th>
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Applicants
+					<p-columnFilter type="text" field="candidates" display="menu"></p-columnFilter>
+				</div>
+			</th> -->
+		<!-- <th>
+			<div class="p-d-flex p-jc-between p-ai-center">
+				Vacancies
+				<p-columnFilter type="numeric" field="vacancies" display="menu"></p-columnFilter>
+			</div>
+	    </th> -->
+
+			
+			<!-- <th style="width: 8rem">
+				<div class="p-d-flex p-jc-between p-ai-center">
+					Verified
+					<p-columnFilter type="boolean" field="verified" display="menu"></p-columnFilter>
+				</div>
+			</th> -->
+			<th pSortableColumn="actions">Actions </th>
+			<th pSortableColumn="resultApplicant"> Application result  </th>
+
+
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="body" let-candidate>
+		<tr>
+			<td>
+				<p-tableCheckbox [value]="candidate"></p-tableCheckbox>
+			</td>
+			<td>
+				{{candidate.name}}
+			</td>
+			<td>
+				{{candidate.email}}
+			</td>
+			<td>
+				<span class="image-text">{{candidate.phone}}</span>
+			</td>
+			<td>
+				<span class="image-text">{{candidate.address}}</span>
+			</td>
+			<td>
+				<span class="image-text">{{candidate.skills}}</span>
+			</td>
+			<!-- <td>
+				{{job.postedDate | date: 'MM/dd/yyyy'}}
+			</td>
+			<td>
+				{{job.department}}
+			</td> -->
+			 <td>
+				<span >{{candidate.status}}</span> 
+			<!--<span [class]="'customer-badge status-' + candidate.status" >{{candidate.status}}</span> -->
+
+			</td>
+			
+			<!-- <td>
+				{{job.candidates}}
+			</td> -->
+			
+			<!-- <td>
+				{{job.vacancies}}
+			</td> -->
+			
+			<!-- <td>
+				<p-progressBar [value]="customer.activity" [showValue]="false"></p-progressBar>
+			</td> -->
+			
+			<!-- <td class="p-text-center">
+				<i class="pi" [ngClass]="{'true-icon pi-check-circle': job.verified, 'false-icon pi-times-circle': !job.verified}"></i>
+			</td> -->
+			 <!-- <td>
+				<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2 " (click)="editUser(user)"></button>
+				<button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteUser(user)"></button>
+				<button pButton pRipple class="p-button p-button-secondary p-button-rounded" (click)="scheduleMetting(user)">
+					<i class="pi pi-calendar"></i>
+					<span>Meet Up</span>
+				  </button>
+				  
+				  
+			</td>  -->
+			<td>
+				<button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editCandidate(candidate)"></button>
+				<button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning mr-2" (click)="deleteCandidate(candidate)"></button>
+				<button pButton pRipple class="p-button p-button-secondary p-button-rounded p-button-text" style="background-color: #2196F3; color: #FFFFFF;" (click)="scheduleMeeting(candidate)">
+					<i class="pi pi-calendar" style="margin-right: 0.5rem;"></i>
+					<span style="margin-right: 0.5rem;">Meet Up</span>
+				  </button>
+				  
+			  </td>
+			  <td>
+				<button pButton pRipple class="p-button p-button-secondary p-button-rounded p-button-text" style="background-color: #0f2f08; color: #FFFFFF;" (click)="acceptCandidateEmail(candidate)">
+					<i class="pi " style="margin-right: 0.5rem;"></i>
+					<span style="margin-right: 0.5rem;">ACCEPT</span>
+				  </button>
+				<button pButton pRipple class="p-button p-button-secondary p-button-rounded p-button-text" style="background-color: #6a1208; color: #FFFFFF;" (click)="rejectCandidateEmail(candidate)">
+					<i class="pi" style="margin-right: 0.5rem;"></i>
+					<span style="margin-right: 0.5rem;">REJECT</span>
+				  </button>
+				  
+			  </td>
+			  
+			  
+			  
+		</tr>
+	</ng-template>
+	<ng-template pTemplate="emptymessage">
+		<tr>
+			<td colspan="7">No jobs found.</td>
+		</tr>
+	</ng-template>
+</p-table>
+
+<p-dialog [(visible)]="candidateDialog10" [style]="{wxidth: '450px'}" header="Candidate Details" [modal]="true" styleClass="p-fluid" [styleClass]="'p-fluid'"  [modal]="true" [style]="{ width: '500px', height: '600px'}"[baseZIndex]="10000" [responsive]="true" [breakpoint]="768">
+
+		<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+		  <div class="p-field">
+			<label for="name">Candidate Name</label>
+			<input type="text" pInputText id="name" [(ngModel)]="newdCandidate.name" required  [disabled]="isNamelDisabled" [ngModelOptions]="{standalone: true}"/>
+		  </div>
+		  <div class="p-field">
+			<label for="email">e-mail</label>
+			<input type="text" pInputText id="email" [(ngModel)]="newdCandidate.email" required  [disabled]="isEmailDisabled" [ngModelOptions]="{standalone: true}"/>
+		  </div>
+		  <div class="p-field">
+			<label for="date">Enter the Date for the Interview</label>
+			<p-calendar id="date" [(ngModel)]="selectedDate" required  [ngModelOptions]="{standalone: true}" inline></p-calendar>
+		  </div>
+		  <input type="text" id="time" pInputText [(ngModel)]="selectedTime" required [ngModelOptions]="{standalone: true}"
+         pInputMask="99:99" placeholder="__:__">
+		  <button type="submit" pButton label="Send Email"></button>
+		</form>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+
+<p-button (click)="showMaximizableDialog()" icon="pi pi-external-link" label="Show"></p-button>
+<p-dialog header=" Candidate Details" [(visible)]="displayMaximizable" [modal]="true" [style]="{width: '50vw'}" [maximizable]="true" [baseZIndex]="10000"
+    [draggable]="false" [resizable]="false">
+	<form (ngSubmit)="submitCandidate(candidateForm)" #candidateForm="ngForm">
+		<div>
+			<label for="name1">Name</label>  <br>
+		<input id="name1"type="text" pInputText [(ngModel)]="newdCandidate.name" style="width: 80%;"  [ngModelOptions]="{standalone: true}" autofocus> <br>
+		</div>
+		<br> 
+		<div>
+			<label for="email1">Email</label>  <br>
+		<input id="email1"type="text" pInputText [(ngModel)]="newdCandidate.email" style="width: 80%;"  [ngModelOptions]="{standalone: true}"> <br>
+		</div>
+		<br> 
+	<div>
+		<label for="phone1">Phone Number</label>  <br>
+    <input id="phone1"type="text" pInputText  [(ngModel)]="newdCandidate.phone" [ngModelOptions]="{standalone: true}"> <br>
+	</div>
+	<br> 
+
+
+	<div>
+		<label for="adress1">Adress</label>  <br>
+		<textarea id="adress1" rows="4" pInputTextarea [(ngModel)]="newdCandidate.address" style="width: 80%;" [ngModelOptions]="{standalone: true}"></textarea>
+	</div>
+	<br> 
+	<div>
+		<label for="skillsC">Skills</label>  <br>
+		<textarea id="skillsC" rows="2" [(ngModel)]="newdCandidate.skills" pInputTextarea style="width: 80%;" [ngModelOptions]="{standalone: true}" ></textarea>
+	</div>
+	<br> 
+	<!-- <div>
+		<label for="status1">Status</label>  <br>
+	
+			<select [(ngModel)]="newdCandidate.status" [ngModelOptions]="{standalone: true}">
+			  <option value="applicant">Applicant</option>
+			  <option value="qualified">Qualified</option>
+			  <option value="disqualified">Disqualified</option>
+			</select>-->
+		  
+    <!-- <input id="status1"type="text" [(ngModel)]="newdCandidate.status"  pInputText [ngModelOptions]="{standalone: true}" > <br> -->
+	<!-- </div> -->
+	
+	<br> <br> <br> 
+	<div class="p-grid">
+		<div class="p-col-12">
+        <!-- <ng-template pTemplate="footer"> -->
+			<p-button icon="pi pi-check"  type="submit" label="{{ isEditing ? 'Save' : 'Add Candidate' }}"[disabled]="!candidateForm.valid"  ></p-button>
+            <!-- <p-button icon="pi pi-check"  type="submit"   label="Save" class="p-button-text"></p-button> -->
+            <p-button icon="pi pi-times" (click)="displayMaximizable=false" label="Cancel"></p-button>
+        <!-- </ng-template> -->
+	</div>
+
+		<!-- </form> -->
+<!-- </p-dialog> -->
+<p-dialog [(visible)]="candidateDialogaccept" [style]="{wxidth: '450px'}" header="Candidate Details" [modal]="true" styleClass="p-fluid" [styleClass]="'p-fluid'"  [modal]="true" [style]="{ width: '500px', height: '600px'}"[baseZIndex]="10000" [responsive]="true" [breakpoint]="768">
+
+	<form #myForm="ngForm" (ngSubmit)="onSubmitAccept(myForm)">
+	  <div class="p-field">
+		<label for="name">Candidate Name</label>
+		<input type="text" pInputText id="name" [(ngModel)]="newdCandidate.name" required  [disabled]="isNamelDisabled" [ngModelOptions]="{standalone: true}"/>
+	  </div>
+	  <div class="p-field">
+		<label for="email">e-mail</label>
+		<input type="text" pInputText id="email" [(ngModel)]="newdCandidate.email" required  [disabled]="isEmailDisabled" [ngModelOptions]="{standalone: true}"/>
+	  </div>
+	  <!-- <div class="p-field">
+		<label for="date">Enter the Date for the Interview</label>
+		<p-calendar id="date" [(ngModel)]="selectedDate" required  [ngModelOptions]="{standalone: true}" inline></p-calendar>
+	  </div> -->
+	
+	  <button type="submit" pButton label="Send Email"></button>
+	</form>
+</p-dialog>
+
+<p-dialog [(visible)]="candidateDialogreject" [style]="{wxidth: '450px'}" header="Candidate Details" [modal]="true" styleClass="p-fluid" [styleClass]="'p-fluid'"  [modal]="true" [style]="{ width: '500px', height: '600px'}"[baseZIndex]="10000" [responsive]="true" [breakpoint]="768">
+
+	<form #myForm="ngForm" (ngSubmit)="onSubmitReject(myForm)">
+	  <div class="p-field">
+		<label for="name">Candidate Name</label>
+		<input type="text" pInputText id="name" [(ngModel)]="newdCandidate.name" required  [disabled]="isNamelDisabled" [ngModelOptions]="{standalone: true}"/>
+	  </div>
+	  <div class="p-field">
+		<label for="email">e-mail</label>
+		<input type="text" pInputText id="email" [(ngModel)]="newdCandidate.email" required  [disabled]="isEmailDisabled" [ngModelOptions]="{standalone: true}"/>
+	  </div>
+	  <!-- <div class="p-field">
+		<label for="date">Enter the Date for the Interview</label>
+		<p-calendar id="date" [(ngModel)]="selectedDate" required  [ngModelOptions]="{standalone: true}" inline></p-calendar>
+	  </div> -->
+	
+	  <button type="submit" pButton label="Send Email"></button>
+	</form>
+</p-dialog>

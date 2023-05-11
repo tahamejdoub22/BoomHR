@@ -1,0 +1,17 @@
+.job-card {
+    transition: all 0.3s ease;
+  }
+  
+  .job-card:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+  
+  .job-card--verified {
+    border-left: 4px solid green;
+    padding-left: 1rem;
+  }
+
+  .job-card-wrapper {
+    margin-bottom: 1rem;
+  }

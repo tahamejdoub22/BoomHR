@@ -1,0 +1,33 @@
+.candidates-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .candidates-table th {
+    background-color: #f2f2f2;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px;
+    text-align: left;
+  }
+  .candidates-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  .download-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .close-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+
+  .job-card-separator {
+    margin: 2rem 0;
+    border: none;
+    height: 1px;
+    background-color: #c7c7c7;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }

@@ -88,14 +88,14 @@ import {TreeTableModule} from 'primeng/treetable';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 
 import {AppComponent} from './app.component';
-import {AppMainComponent} from './app.main.component';
-import {AppConfigComponent} from './app.config.component';
-import {AppRightPanelComponent} from './app.rightpanel.component';
-import {AppMenuComponent} from './app.menu.component';
-import {AppMenuitemComponent} from './app.menuitem.component';
-import {AppTopBarComponent} from './app.topbar.component';
-import {AppFooterComponent} from './app.footer.component';
-import {AppBreadcrumbComponent} from './app.breadcrumb.component';
+// import {AppMainComponent} from './app.main.component';
+// import {AppConfigComponent} from './hr-board/app.config.component';
+// import {AppRightPanelComponent} from './app.rightpanel.component';
+// import {AppMenuComponent} from './app.menu.component';
+// import {AppMenuitemComponent} from './app.menuitem.component';
+// import {AppTopBarComponent} from './app.topbar.component';
+// import {AppFooterComponent} from './app.footer.component';
+// import {AppBreadcrumbComponent} from './app.breadcrumb.component';
 import {EmptyDemoComponent} from './demo/view/emptydemo.component';
 import {AppHelpComponent} from './pages/app.help.component';
 import {AppNotfoundComponent} from './pages/app.notfound.component';
@@ -103,8 +103,8 @@ import {AppErrorComponent} from './pages/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied.component';
 import { AdminModule } from './board-admin/admin.module';
 
-import {BreadcrumbService} from './app.breadcrumb.service';
-import {MenuService} from './app.menu.service';
+// import {BreadcrumbService} from './app.breadcrumb.service';
+// import {MenuService} from './app.menu.service';
 import { loginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
@@ -205,14 +205,14 @@ import { HrBoardModule } from './hr-board/hr-board.module';
     ],
     declarations: [
         AppComponent,
-        AppMainComponent,
-        AppConfigComponent,
-        AppMenuComponent,
-        AppMenuitemComponent,
-        AppTopBarComponent,
-        AppFooterComponent,
-        AppBreadcrumbComponent,
-        AppRightPanelComponent,
+        //AppMainComponent,
+        //AppConfigComponent,
+        // AppMenuComponent,
+        // AppMenuitemComponent,
+        // AppTopBarComponent,
+        // AppFooterComponent,
+        // AppBreadcrumbComponent,
+        // AppRightPanelComponent,
 
 
         EmptyDemoComponent,
@@ -229,7 +229,8 @@ import { HrBoardModule } from './hr-board/hr-board.module';
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
 
- BreadcrumbService, MenuService,httpInterceptorProviders
+//  BreadcrumbService, MenuService,
+ httpInterceptorProviders
 
     ],
 

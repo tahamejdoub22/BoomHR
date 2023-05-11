@@ -4,9 +4,9 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {MenuService} from './app.menu.service';
-import {AppMainComponent} from './app.main.component';
-import { StorageService } from './_services/storage.service';
-import { AuthService } from './_services/auth.service';
+import { StorageService } from '../_services/storage.service';
+import { AuthService } from '../_services/auth.service';
+import { HrBoardComponent } from './hr-board.component';
 
 @Component({
     /* tslint:disable:component-selector */
@@ -86,7 +86,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     key: string;
 
-    constructor(public app: AppMainComponent, public router: Router, private cd: ChangeDetectorRef, private storageService: StorageService,private menuService: MenuService,private authService: AuthService) {
+    constructor(public app: HrBoardComponent, public router: Router, private cd: ChangeDetectorRef, private storageService: StorageService,private menuService: MenuService,private authService: AuthService) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
             // deactivate current active menu
             if (this.active && this.key !== key && key.indexOf(this.key) !== 0) {

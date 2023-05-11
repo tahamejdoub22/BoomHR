@@ -51,6 +51,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { DecryptPasswordPipe } from './tab-user-role/decrypt-password.pipe';
 @NgModule({
   declarations: [
     BoardAdminComponent,
@@ -62,6 +63,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
         AppBreadcrumbComponent,
         AppRightPanelComponent,
         TabUserRoleComponent,
+        DecryptPasswordPipe,
+      
 
   ],
   imports: [

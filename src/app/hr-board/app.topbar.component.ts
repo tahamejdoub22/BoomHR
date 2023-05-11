@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppComponent } from './app.component';
-import { AppMainComponent } from './app.main.component';
-import { AuthService } from './_services/auth.service';
-import { StorageService } from './_services/storage.service';
-import { UserService } from './_services/user.service';
+import { AppComponent } from '../app.component';
+import { AuthService } from '../_services/auth.service';
+import { StorageService } from '../_services/storage.service';
+import { UserService } from '../_services/user.service';
+import { HrBoardComponent } from './hr-board.component';
 
 @Component({
     selector: 'app-topbar',
@@ -15,7 +15,7 @@ export class AppTopBarComponent {
     username?: string;
 
     flatThemes: any[];
-    constructor(public appMain: AppMainComponent,public app: AppComponent,private authService: AuthService,private storageService: StorageService,private router: Router) { }
+    constructor(public appMain: HrBoardComponent,public app: AppComponent,private authService: AuthService,private storageService: StorageService,private router: Router) { }
 
  ngOnInit() {
     this.isLoggedIn = this.storageService.isLoggedIn();
