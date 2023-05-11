@@ -19,8 +19,7 @@ export const createProject = async (req, res) => {
 };
 export const getProjects = async (req, res) => {
   try {
-    const projects = await Project.find();
-
+    const projects = await Project.find().populate('projectManager', 'first_name')
     // Iterate through projects and fetch project manager data
     const projectsWithManagerData = await Promise.all(
       projects.map(async (project) => {
@@ -33,6 +32,7 @@ export const getProjects = async (req, res) => {
         };
       })
     );
+   
 
     res.status(200).json(projectsWithManagerData);
   } catch (err) {
@@ -40,7 +40,27 @@ export const getProjects = async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 };
-
+export const getProjectss = async (req, res) => {
+    try {
+      const projects = await Project.find()
+      // Iterate through projects and fetch project manager data
+      const projectsWithManagerData = await Promise.all(
+        projects.map(async (project) => {
+          const employe = await Employer.findById(project.projectManager);
+  
+          // Return a new object with the project manager's data
+          return {
+            ...project.toObject(),
+            projectManagerData: employe,
+          };
+        })
+      );
+      res.status(200).json(projectsWithManagerData);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Server error' });
+    }
+  };
 
 export const getProjectById = async (req, res) => {
   const projectId = req.params.id;

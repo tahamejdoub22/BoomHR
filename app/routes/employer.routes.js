@@ -1,5 +1,5 @@
 import express from "express";
-import { createEmployerAndAddToDepartment, deleteEmploye, deleteEmployers, getEmployerById, getEmployes, updateEmploye } from "../controllers/employer.controller.js";
+import { createEmploye, deleteEmploye, deleteEmployers, getEmployerById, getEmployes, updateEmploye } from "../controllers/employer.controller.js";
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.use((req, res, next) => {
 
 router.get("/all", getEmployes);
 router.get("/:id", getEmployerById);
-router.post("/add", createEmployerAndAddToDepartment);
+router.post("/add", createEmploye);
 router.patch("/:id", updateEmploye);
 router.delete("/:id", deleteEmploye);
 router.delete("/", deleteEmployers);

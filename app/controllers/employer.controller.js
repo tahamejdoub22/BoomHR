@@ -5,7 +5,9 @@ import mongoose from "mongoose";
 // get all employes
 export const getEmployes = async (req, res) => {
     try {
-      const employes = await Employer.find();
+      const employes = await Employer.find(
+        
+      );
       res.status(200).json(employes);
     } catch (error) {
       res.status(500).json({ message: error.message });
@@ -25,8 +27,25 @@ export const getEmployes = async (req, res) => {
   };
   
   export const createEmploye = async (req, res) => {
-    const employe = req.body;
-    const newEmploye = new Employer(employe);
+    const newEmployer = new Employer({
+        email: req.body.email,
+        password:req.body.password,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        job_title: req.body.job_title,
+        city: req.body.city,
+        state: req.body.state,
+        country: req.body.country,
+        hire_date: req.body.hire_date,
+        phone: req.body.phone,
+        address: req.body.address,
+        department: req.body.department,
+        dateofbirth: req.body.dateofbirth,
+        sick: req.body.sick,
+        vacation: req.body.vacation,
+        avatar:   req.body.avatar
+
+      });    const newEmploye = new Employer(newEmployer);
     try {
       await newEmploye.save();
       res.status(201).json(newEmploye);

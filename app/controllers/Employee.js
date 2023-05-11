@@ -7,12 +7,14 @@ const MAILGUN_APIKEY='3771a9f0c972507421004497a9a0d5f5-81bd92f8-7b442285' ;
 const DOMAIN = 'sandbox18d6f0d88e6d4df38f05bf89e15a1677.mailgun.org';
 const mg = mailgun({apiKey: MAILGUN_APIKEY, domain: DOMAIN});
 export function Login(req , res){
+    console.log(req.body)
     const email = req.body.email;
     const password = req.body.password;
     const idEnpr = 0;
     // Find user by email
     Employee.findOne({ email }).then(emp => {
         // Check if user exists
+        console.log(emp)
         if (!emp) {
             return res.status(404).json({   message: "Email is not Registered Please SignUp",
                 status: res.statusCode});
@@ -22,20 +24,15 @@ export function Login(req , res){
         // Check password
         bcrypt.compare(password, emp.password).then(isMatch => {
             if (password==emp.password) {
-                Entrprise.findById(emp.departement_id).then(async (Entr) =>{
-                    if(!Entr)
-                    return res.status(404).json(null)
+        
 
-                    else
+                  
                     return res.status(200).json({
                         _id:emp._id,
                         nom:emp.first_name,
                         prenom:emp.last_name,
-                        salary:emp.salary,
                         vacation:emp.vacation,
                         sick:emp.sick,
-                        Enom:Entr.Nom,
-                        localisation:Entr.Localisation,
                         avatar:emp.avatar,
                         address:emp.address,
                         city:emp.city,
@@ -44,7 +41,7 @@ export function Login(req , res){
                         job_title:emp.job_title
 
                     })
-                })
+                
             }
             else {
                 return res
