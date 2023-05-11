@@ -1,4 +1,6 @@
+import applicationsRoutes from "./app/routes/applications.js";
 import authRoutes from "./app/routes/auth.routes.js";
+import candidateRoutes from "./app/routes/candidate.js";
 import condidatRoutes from "./app/routes/Condidat.js";
 import congeeRoutes from "./app/routes/Congee.js";
 import cookieSession from "cookie-session";
@@ -10,16 +12,22 @@ import employerRoutes from "./app/routes/employer.routes.js";
 import express, { json, urlencoded } from "express";
 import formulaireRoutes from "./app/routes/Formulaire.js";
 import jobRoutes from "./app/routes/Job.js";
+import jobRoutess from "./app/routes/Job1.js";
 import postRoutes from "./app/routes/Post.js";
 import projetRoutes from "./app/routes/projet.routes.js";
+import satatusRoutes from "./app/routes/status.js";
+import status from "./app/models/status.js";
 import taskRoutes from "./app/routes/task.routes.js";
 import userRoutes from "./app/routes/user.routes.js";
+import userRoutess from "./app/routes/user.js";
 import { DB, HOST, PORT as _PORT } from "./app/config/db.config.js";
 import { IncomeTaxRoute } from "./app/routes/IncomeTaxRouts.js";
 import { attendanceRoutes } from "./app/routes/attendanceRoutes.js";
 import { benefitRoute } from "./app/routes/benefitRoute.js";
 import { PayrollRoute } from "./app/routes/payrollroutes.js";
 import { salaryRoutes } from "./app/routes/salaryRoute.js";
+
+import satatuscanRoutes from  "./app/routes/statuscan.js";
 
 const app = express();
 
@@ -78,6 +86,8 @@ app.use(cors({
     origin: true,
     credentials: true
   }));
+  app.use('/users', userRoutess);
+ 
 app.use('/employee',employeeRoutes);
 app.use('/congee',congeeRoutes);
 app.use('/attendance', attendanceRoutes);
@@ -93,6 +103,11 @@ app.use('/employer',employerRoutes)
 app.use('/departement',departementRoutes)
 app.use('/project',projetRoutes)
 app.use('/task',taskRoutes)
+app.use('/jobs', jobRoutess);
+app.use('/candidas', candidateRoutes);
+app.use('/applications', applicationsRoutes);
+app.use('/status', satatusRoutes);
+app.use('/statuscan', satatuscanRoutes);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

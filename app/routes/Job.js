@@ -1,5 +1,5 @@
 import express from "express";
-import {filter, getAll, save} from "../controllers/Job.js";
+import { filter, getAll, save } from "../controllers/Job.js";
 
 const router = express.Router();
 
