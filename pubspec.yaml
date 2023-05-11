@@ -45,6 +45,9 @@ dependencies:
   firebase_messaging: ^14.3.0
   firebase_core: ^2.8.0
   flutter_calendar_carousel: ^2.3.1
+  google_fonts: ^4.0.4
+  pdf: ^3.10.1
+  open_file: ^3.3.1
 
 
 dev_dependencies:
@@ -73,6 +76,14 @@ flutter:
   assets:
      - assets/
      - assets/icons/
+     - assets/fonts/
+  fonts:
+    - family: NotoSans
+      fonts:
+        - asset: assets/fonts/NotoSans-Regular.ttf
+        - asset: assets/fonts/NotoSans-Bold.ttf
+          weight: 700
+
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -101,3 +112,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+   

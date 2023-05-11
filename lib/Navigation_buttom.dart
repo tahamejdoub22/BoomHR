@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/AttendanceScreen.dart';
-import 'package:flutter_application_1/Home2.dart';
 import 'package:flutter_application_1/Profile.dart';
+import 'package:flutter_application_1/screens/first_screen.dart';
+
+import 'Home2.dart';
 
 class NavigationBottom extends StatefulWidget {
   const NavigationBottom({Key? key}) : super(key: key);
@@ -17,6 +19,7 @@ class _NavigationBottomState extends State<NavigationBottom> {
     Home(),
     AttendanceScreen(),
     Profile(),
+    ToDoScreen()
   ];
 
   @override
@@ -36,6 +39,10 @@ class _NavigationBottomState extends State<NavigationBottom> {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: "Profile",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_box),
+            label: "Projets",
           ),
         ],
         currentIndex: _currentIndex,

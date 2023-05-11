@@ -10,6 +10,15 @@
 <string>alert</string>
 <key>NSLocalNotificationsUsageDescription</key>
 <string>notification checkin checkout</string>
+<key>io.flutter.embedded_views_preview</key>
+<true/>
+<key>UIBackgroundModes</key>
+<array>
+    <string>remote-notification</string>
+</array>
+<key>FirebaseAppDelegateProxyEnabled</key>
+<false/>
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -55,5 +64,12 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIAppFonts</key>
+<array>
+  <string>fonts/OpenSans-Regular.ttf</string>
+  <string>fonts/OpenSans-Bold.ttf</string>
+  <string>fonts/OpenSans-Italic.ttf</string>
+  <string>fonts/OpenSans-BoldItalic.ttf</string>
+</array>
 </dict>
 </plist>

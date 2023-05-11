@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
+import 'package:flutter_application_1/Navigation_buttom.dart';
+import 'package:flutter_application_1/mainw.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter/cupertino.dart';
@@ -47,7 +49,9 @@ class _LoginPageState extends State<LoginPage> {
           'Content-Type': 'application/json; charset=UTF-8',
         },
       );
+
       if (response.statusCode == 200) {
+        print("oui");
         // Login successful, save the ID in shared preferences
         final responseData = json.decode(response.body) as Map<String, dynamic>;
         final employeeId = responseData['_id'];
@@ -96,13 +100,28 @@ class _LoginPageState extends State<LoginPage> {
         final employeeId = responseData['_id'];
         final nom = responseData['nom'];
         final prenom = responseData['prenom'];
-
+        print(responseData);
         if (employeeId != null) {
           SharedPreferences prefs = await SharedPreferences.getInstance();
+          prefs.setString('userId', employeeId);
           prefs.setString('_id', employeeId);
           prefs.setString('nom', nom);
           prefs.setString('prenom', prenom);
+          prefs.setString('avatar', responseData['avatar']);
+
+          prefs.setString('address', responseData['address']);
+          prefs.setString('city', responseData['city']);
+          prefs.setString('country', responseData['country']);
+          prefs.setString('hire_date', responseData['hire_date']);
+          prefs.setString('job_title', responseData['job_title']);
+          prefs.setString('color', colorToHex(color));
+          prefs.setString("vacation", responseData["vacation"].toString());
+          prefs.setString("sick", responseData["sick"].toString());
         }
+        Navigator.pushReplacementNamed(context, "/navigation",
+            arguments: responseData);
+
+        // Login failed, display error message
 
         // Navigate to the next page
         showDialog(
@@ -112,8 +131,8 @@ class _LoginPageState extends State<LoginPage> {
                   title: Text("Information"),
                   content: Text("Logged successfully"));
             });
-        Navigator.pushReplacementNamed(context, "navigation",
-            arguments: responseData);
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => NavigationBottom()));
       } else if (response.statusCode == 401) {
         showDialog(
             context: context,

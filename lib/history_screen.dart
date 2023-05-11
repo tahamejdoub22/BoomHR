@@ -32,7 +32,7 @@ class _AttendanceHistoryScreenState extends State<AttendanceHistoryScreen> {
   Future<void> _getEmployeeId() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      _employeeId = prefs.getString('_id');
+      _employeeId = prefs.getString('userId');
       nom = prefs.getString('nom') ?? '';
       prenom = prefs.getString('prenom') ?? '';
     });

@@ -21,12 +21,19 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     Object? congee = ModalRoute.of(context)?.settings.arguments;
+
+    final Map<String, dynamic> args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+
+    String vacation = args['vacation']!;
+    String sick = args['sick']!;
+    print(vacation);
     return Scaffold(
       body: ListView(
         children: <Widget>[
           Container(
               width: double.infinity,
-              margin: const EdgeInsets.fromLTRB(10, 50, 0, 10),
+              margin: const EdgeInsets.fromLTRB(10, 0, 0, 10),
               child: Row(
                 children: [
                   IconButton(
@@ -42,7 +49,7 @@ class _CalendarPageState extends State<CalendarPage> {
               )),
           Container(
               width: double.infinity,
-              margin: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+              margin: const EdgeInsets.fromLTRB(50, 10, 0, 10),
               child: Row(
                 children: [
                   Text(" When will you be out ?",
@@ -52,60 +59,73 @@ class _CalendarPageState extends State<CalendarPage> {
               )),
           Container(
               width: double.infinity,
-              margin: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+              margin: const EdgeInsets.fromLTRB(50, 10, 0, 10),
               child: Row(
                 children: [
                   Text(" Tap or drag to select the day(s) you will be out ",
                       style: TextStyle(fontSize: 12, color: Colors.grey))
                 ],
               )),
-          CalendarCarousel(
-            onDayPressed: (DateTime date, List events) {
-              setState(() {
-                _startDate = date;
-              });
-            },
-            weekendTextStyle: TextStyle(
-              color: Colors.red,
+          Container(
+            width: double.infinity,
+            margin: const EdgeInsets.fromLTRB(30, 10, 30, 10),
+            child: CalendarCarousel(
+              onDayPressed: (DateTime date, List events) {
+                setState(() {
+                  _startDate = date;
+                });
+              },
+              weekendTextStyle: TextStyle(
+                color: Colors.red,
+              ),
+              thisMonthDayBorderColor: Colors.grey,
+              weekFormat: false,
+              height: 420.0,
+              selectedDateTime: _startDate,
+              showIconBehindDayText: true,
             ),
-            thisMonthDayBorderColor: Colors.grey,
-            weekFormat: false,
-            height: 420.0,
-            selectedDateTime: _startDate,
-            showIconBehindDayText: true,
           ),
-          CalendarCarousel(
-            onDayPressed: (DateTime date, List events) {
-              setState(() {
-                _endDate = date;
-              });
-            },
-            weekendTextStyle: TextStyle(
-              color: Colors.red,
+          Container(
+            width: double.infinity,
+            margin: const EdgeInsets.fromLTRB(30, 10, 30, 10),
+            child: CalendarCarousel(
+              onDayPressed: (DateTime date, List events) {
+                setState(() {
+                  _endDate = date;
+                });
+              },
+              weekendTextStyle: TextStyle(
+                color: Colors.red,
+              ),
+              thisMonthDayBorderColor: Colors.grey,
+              weekFormat: false,
+              height: 420.0,
+              selectedDateTime: _endDate,
+              showIconBehindDayText: true,
             ),
-            thisMonthDayBorderColor: Colors.grey,
-            weekFormat: false,
-            height: 420.0,
-            selectedDateTime: _endDate,
-            showIconBehindDayText: true,
           ),
           SizedBox(height: 20.0),
-          ElevatedButton(
-            onPressed: () {
-              print('Start Date: $_startDate');
-              if (congee != null) {
+          Container(
+            width: double.infinity,
+            margin: const EdgeInsets.fromLTRB(40, 10, 40, 10),
+            child: ElevatedButton(
+              onPressed: () {
+                print('Start Date: $_startDate');
+                // if(congee!=null) {
+                //   Navigator.pushReplacementNamed(context, "/ValidateRequest"
+                //     ,arguments: {'startDate': _startDate, 'endDate': _endDate,'congee':congee});
+                // } else {
+                print(vacation);
                 Navigator.pushReplacementNamed(context, "/ValidateRequest",
                     arguments: {
                       'startDate': _startDate,
                       'endDate': _endDate,
-                      'congee': congee
+                      'vacation': vacation,
+                      'sick': sick
                     });
-              } else {
-                Navigator.pushReplacementNamed(context, "/ValidateRequest",
-                    arguments: {'startDate': _startDate, 'endDate': _endDate});
-              }
-            },
-            child: Text('Next'),
+              },
+              child: Text('Next'),
+            ),
           ),
         ],
       ),
