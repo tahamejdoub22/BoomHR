@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "188919531334",
+    "project_id": "boomhr2",
+    "storage_bucket": "boomhr2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188919531334:android:fa27839bee8e6c684a8747",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188919531334-f7t5qrs8lnbtu9l9v5kt4088h1ca094r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx-F7uXp0ZR1NZ1AXoTgkTop7vvEMJ6zg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188919531334-f7t5qrs8lnbtu9l9v5kt4088h1ca094r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
